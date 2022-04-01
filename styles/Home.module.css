@@ -140,6 +140,18 @@
   line-height: 24px;
 }
 
+.home-procedures-slider {
+  display: -webkit-inline-box;
+  max-width: 75rem;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.home-custom-card {
+  box-shadow: 4px 1px 16px 3px #bc9dd366;
+  min-height: 30rem;
+}
+
 @media (max-width: 600px) {
   .head-contact-phone > div {
     font-size: 30px;

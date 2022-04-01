@@ -6,7 +6,17 @@ export const serviceCards = [
         (carcinom bazo- si spino-celular, melanom sau altor leziuni \
         precanceroase – nevii nevo-celulari si keratozele actinice), \
         si in diagnosticul altor afectiuni dermatologice.',
-        img: '/dermatoscopie.webp'
+        img: '/procedures/dermatoscopie.webp'
+    },
+    {
+        title: 'Excizie leziuni',
+        body: 'Eiusmod cillum esse veniam eiusmod laboris est ex enim ex \
+        tempor et. Labore dolore ad duis ullamco eu. Officia eiusmod et anim \
+        dolor mollit officia ut officia. Sit id eu voluptate sunt. \
+        Aliqua mollit laboris ea incididunt do aliquip aliquip occaecat mollit. \
+        Excepteur esse ad qui enim ea amet.\
+        Amet duis excepteur ea occaecat amet labore velit veniam aute.',
+        img: '/procedures/excizie-leziuni.webp'
     },
     {
         title: 'Consult cu lampă wood',
@@ -14,6 +24,36 @@ export const serviceCards = [
         pe o lungime de undă de 365 nanometri, fiind frecvent utilizat de către dermatologi \
         în scopul de a oferi un diagnostic exact atunci când testează anumite pigmentări și \
         tulburări infecțioase ale pielii.',
-        img: '/wood.webp'
+        img: '/procedures/wood.webp'
+    },
+    {
+        title: 'Lifting cu fire PDO',
+        body: 'Elit adipisicing occaecat culpa mollit ad pariatur id. Occaecat veniam \
+        laborum consectetur aliquip irure aliquip ullamco eu veniam adipisicing nostrud \
+        adipisicing. Consequat voluptate anim labore laboris. Occaecat ea ex ipsum sit incididunt \
+        nulla ut sit cupidatat ut cupidatat voluptate. Officia qui ut non magna labore \
+        reprehenderit sint adipisicing labore exercitation. Eu ut cillum adipisicing elit eu \
+        elit duis sit culpa.',
+        img: '/procedures/lifting-fire-pdo.webp'
+    },
+    {
+        title: 'Mezoterapie',
+        body: 'Elit adipisicing occaecat culpa mollit ad pariatur id. Occaecat veniam \
+        laborum consectetur aliquip irure aliquip ullamco eu veniam adipisicing nostrud \
+        adipisicing. Consequat voluptate anim labore laboris. Occaecat ea ex ipsum sit incididunt \
+        nulla ut sit cupidatat ut cupidatat voluptate. Officia qui ut non magna labore \
+        reprehenderit sint adipisicing labore exercitation. Eu ut cillum adipisicing elit eu \
+        elit duis sit culpa.',
+        img: '/procedures/mezoterapie.webp'
+    },
+    {
+        title: 'Electrocauterizare papiloame',
+        body: 'Elit adipisicing occaecat culpa mollit ad pariatur id. Occaecat veniam \
+        laborum consectetur aliquip irure aliquip ullamco eu veniam adipisicing nostrud \
+        adipisicing. Consequat voluptate anim labore laboris. Occaecat ea ex ipsum sit incididunt \
+        nulla ut sit cupidatat ut cupidatat voluptate. Officia qui ut non magna labore \
+        reprehenderit sint adipisicing labore exercitation. Eu ut cillum adipisicing elit eu \
+        elit duis sit culpa.',
+        img: '/procedures/electrocauterizare_papiloame.webp'
     }
 ]

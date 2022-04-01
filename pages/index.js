@@ -3,15 +3,17 @@ import Image from 'next/image';
 import NavHead from '../components/NavHead';
 import CustomCard from '../components/CustomCard';
 import { serviceCards } from '../utils/uiConstants';
+import SlickSlider from '../components/reactSlickSlider';
 import styles from '../styles/Home.module.css';
 
 export default function Home() {
   return (
     <div className={styles.container}>
       <Head>
-        <NavHead />
+        <title>DermatIQ</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
       </Head>
-
+      <NavHead />
       <main className={styles.main}>
         <div className={`p-3 ${styles['head-contact-phone']}`} style={{
           background: `url(/home-image-andrada.jpg)`,
@@ -30,15 +32,17 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className='d-flex'>
-          {serviceCards.map(service => (
-            <CustomCard cardTitle={service.title} imgSrc={service.img} className="m-3">
+        {/* <div className={styles['home-procedures-slider']}> */}
+        <SlickSlider width='65%'>
+          {serviceCards.map((service, index) => (
+            <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img}  className={`m-3 ${styles['home-custom-card']}`}>
               <p className="card-text">
                 {service.body}
               </p>
             </CustomCard >
           ))}
-        </div>
+        </SlickSlider>
+        {/* </div> */}
       </main>
 
       {/* <footer className={styles.footer}>
