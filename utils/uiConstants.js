@@ -57,3 +57,36 @@ export const serviceCards = [
         img: '/procedures/electrocauterizare_papiloame.webp'
     }
 ]
+
+export const treatmentCards = [
+    {
+        title: 'Acnee',
+        body: 'Eiusmod cillum esse veniam eiusmod laboris est ex enim ex \
+        tempor et. Labore dolore ad duis ullamco eu. Officia eiusmod et anim \
+        dolor mollit officia ut officia. Sit id eu voluptate sunt. \
+        Aliqua mollit laboris ea incididunt do aliquip aliquip occaecat mollit. \
+        Excepteur esse ad qui enim ea amet.\
+        Amet duis excepteur ea occaecat amet labore velit veniam aute.',
+        img: "homeCarousel/home-carousel-1.jpg"
+    },
+    {
+        title: 'Chestie de piele fata',
+        body: 'Eiusmod cillum esse veniam eiusmod laboris est ex enim ex \
+        tempor et. Labore dolore ad duis ullamco eu. Officia eiusmod et anim \
+        dolor mollit officia ut officia. Sit id eu voluptate sunt. \
+        Aliqua mollit laboris ea incididunt do aliquip aliquip occaecat mollit. \
+        Excepteur esse ad qui enim ea amet.\
+        Amet duis excepteur ea occaecat amet labore velit veniam aute.',
+        img: "homeCarousel/home-carousel-2.jpg"
+    },
+    {
+        title: 'Alta chestie tratat',
+        body: 'Eiusmod cillum esse veniam eiusmod laboris est ex enim ex \
+        tempor et. Labore dolore ad duis ullamco eu. Officia eiusmod et anim \
+        dolor mollit officia ut officia. Sit id eu voluptate sunt. \
+        Aliqua mollit laboris ea incididunt do aliquip aliquip occaecat mollit. \
+        Excepteur esse ad qui enim ea amet.\
+        Amet duis excepteur ea occaecat amet labore velit veniam aute.',
+        img: "homeCarousel/home-carousel-3.jpg"
+    }
+]

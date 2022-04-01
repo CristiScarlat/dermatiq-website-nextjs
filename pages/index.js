@@ -2,7 +2,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 import NavHead from '../components/NavHead';
 import CustomCard from '../components/CustomCard';
-import { serviceCards } from '../utils/uiConstants';
+import { serviceCards, treatmentCards } from '../utils/uiConstants';
 import SlickSlider from '../components/reactSlickSlider';
 import styles from '../styles/Home.module.css';
 
@@ -32,17 +32,30 @@ export default function Home() {
             </div>
           </div>
         </div>
-        {/* <div className={styles['home-procedures-slider']}> */}
-        <SlickSlider width='65%'>
-          {serviceCards.map((service, index) => (
-            <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img}  className={`m-3 ${styles['home-custom-card']}`}>
-              <p className="card-text">
-                {service.body}
-              </p>
-            </CustomCard >
-          ))}
-        </SlickSlider>
-        {/* </div> */}
+        
+        <hr className={styles['home-sections-separator']}/>
+        <div className={styles['home-section-title']}>Proceduri</div>
+          <SlickSlider width='65%'>
+            {serviceCards.map((service, index) => (
+              <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img} className={`m-3 ${styles['home-custom-card']}`}>
+                <p className="card-text">
+                  {service.body}
+                </p>
+              </CustomCard >
+            ))}
+          </SlickSlider>
+
+          <hr className={styles['home-sections-separator']}/>
+          <div className={styles['home-section-title']}>Tratamente</div>
+          <SlickSlider width='65%'>
+            {treatmentCards.map((service, index) => (
+              <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img} className={`m-3 ${styles['home-custom-card']}`}>
+                <p className="card-text">
+                  {service.body}
+                </p>
+              </CustomCard >
+            ))}
+          </SlickSlider>
       </main>
 
       {/* <footer className={styles.footer}>
