@@ -1,14 +1,14 @@
 .slick-slide-main > button {
-    background-color: #a063cd6b;
+    background-color: #7bab4f;
     height: 3rem;
     width: 2rem;
     border-radius: 5px;
 }
 
 .slick-slide-main > button:hover {
-    background-color: #a163cde1;
+    background-color: #7bab4f;
 }
 
 .slick-slide-main > button:focus {
-    background-color: #a063cd6b;
+    background-color: #7bab4f;
 }

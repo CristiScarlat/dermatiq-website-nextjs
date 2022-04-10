@@ -1,25 +1,20 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import NavHead from '../components/NavHead';
+
 import CustomCard from '../components/CustomCard';
 import { serviceCards, treatmentCards } from '../utils/uiConstants';
-import SlickSlider from '../components/reactSlickSlider';
+import SlickSlider from '../components/SlickSlider';
 import styles from '../styles/Home.module.css';
 
-export default function Home() {
+export default () => {
   return (
     <div className={styles.container}>
-      <Head>
-        <title>DermatIQ</title>
-        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-      </Head>
-      <NavHead />
       <main className={styles.main}>
         <div className={`p-3 ${styles['head-contact-phone']}`} style={{
           background: `url(/home-image-andrada.jpg)`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'contain',
-          backgroundColor: '#671a9d69'
+          backgroundColor: '#7bab4f'
         }}>
           <div>
             <div className='mt-3'>Dermatologie</div>

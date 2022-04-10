@@ -1,0 +1,18 @@
+.booking-team-custom-card {
+    width: 210px;
+    min-height: 23rem;
+}
+
+.booking-team-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 1rem;
+}
+
+.booking-main-container {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+}

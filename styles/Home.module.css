@@ -106,15 +106,15 @@
 
 .head-contact-phone {
   display: flex;
-    justify-content: center;
-    border-radius: 5px;
-    border: 1px solid #e2ecf4;
-    color: #f8f9fa;
-    font-weight: bold;
-    width: 90%;
-    max-width: 75rem;
-    text-align: end;
-    box-shadow: 4px 1px 16px 3px #00000069;
+  justify-content: center;
+  border-radius: 5px;
+  border: 1px solid #e2ecf4;
+  color: #f8f9fa;
+  font-weight: bold;
+  width: 90%;
+  max-width: 75rem;
+  text-align: end;
+  box-shadow: 4px 1px 16px 3px #00000069;
 }
 
 .head-contact-phone > div {
@@ -148,7 +148,7 @@
 }
 
 .home-custom-card {
-  box-shadow: 4px 1px 16px 3px #bc9dd366;
+  box-shadow: 1px 1px 20px 0px #7bab4f6b;
   min-height: 30rem;
 }
 

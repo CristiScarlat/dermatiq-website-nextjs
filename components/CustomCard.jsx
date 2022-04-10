@@ -1,5 +1,5 @@
 
-const CustomCard = ({imgSrc, cardTitle, className, maxWidth, children}) => {
+const CustomCard = ({imgSrc, cardTitle, className, maxWidth, showButton=true, children}) => {
     return (
         <div className={`card ${className}`} style={{ maxWidth }}>
             {imgSrc && <img src={imgSrc} className="card-img-top" alt="..." style={{maxHeight: 178.83}}/>}
@@ -7,7 +7,7 @@ const CustomCard = ({imgSrc, cardTitle, className, maxWidth, children}) => {
                 <h5 className="card-title">{cardTitle}</h5>
                 {children}
             </div>
-            <a href="#" className="btn btn-primary" style={{position: 'absolute', bottom: 0, width: '100%', borderColor: '#bc9dd3', backgroundColor: '#bc9dd3'}}>Afla mai multe</a>
+            {showButton && <a href="#" className="btn btn-primary" style={{position: 'absolute', bottom: 0, width: '100%', borderColor: '#7bab4f', backgroundColor: '#7bab4f'}}>Afla mai multe</a>}
         </div>
     )
 }
