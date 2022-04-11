@@ -3,7 +3,13 @@ import Link from 'next/link'
 
 const NavHead = () => {
     return (
-        <nav className="navbar sticky-top navbar-expand-lg navbar-light bg-light">
+        <nav
+            className="navbar sticky-top navbar-expand-lg navbar-light"
+            style={{ 
+                backgroundColor: '#bdd1ab',
+                borderBottom: '2px solid #79658847' 
+                }}
+                >
             <div className="container-fluid ps-5 pe-5">
                 <a className="navbar-brand" href="#">
                     <img className="logo_image" src="/logo-final-DERMATIQ.png" alt="" width={200} height='auto' />
@@ -17,14 +23,14 @@ const NavHead = () => {
                             <Link href="/"><a className="custom-nav-link active" aria-current="page">Acasa</a></Link>
                         </li>
                         <li className="nav-item me-4">
-                        <Link href="/booking"><a className="custom-nav-link">Despre Noi</a></Link>
+                            <Link href="/booking"><a className="custom-nav-link">Despre Noi</a></Link>
                         </li>
                         <li className="nav-item">
                             <a className="custom-nav-link disabled">Disabled</a>
                         </li>
                     </ul>
                 </div>
-               
+
             </div>
         </nav>
     )

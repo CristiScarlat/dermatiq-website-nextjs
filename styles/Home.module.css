@@ -1,4 +1,4 @@
-.main {
+.home-main {
   /* min-height: 100vh; */
   padding: 2rem 0;
   flex: 1;
@@ -150,18 +150,6 @@
 .home-custom-card {
   box-shadow: 1px 1px 20px 0px #7bab4f6b;
   min-height: 30rem;
-}
-
-.home-section-title {
-  font-size: 24px;
-  color: #79658a;
-  font-weight: 600;
-}
-
-.home-sections-separator {
-  border: 1px solid #796588;
-  margin: 3rem 0;
-  width: 90%;
 }
 
 @media (max-width: 600px) {

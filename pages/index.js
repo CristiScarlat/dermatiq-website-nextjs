@@ -9,7 +9,7 @@ import styles from '../styles/Home.module.css';
 export default () => {
   return (
     <div className={styles.container}>
-      <main className={styles.main}>
+      <main className={styles['home-main']}>
         <div className={`p-3 ${styles['head-contact-phone']}`} style={{
           background: `url(/home-image-andrada.jpg)`,
           backgroundRepeat: 'no-repeat',
@@ -27,30 +27,30 @@ export default () => {
             </div>
           </div>
         </div>
-        
-        <hr className={styles['home-sections-separator']}/>
-        <div className={styles['home-section-title']}>Proceduri</div>
-          <SlickSlider width='65%'>
-            {serviceCards.map((service, index) => (
-              <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img} className={`m-3 ${styles['home-custom-card']}`}>
-                <p className="card-text">
-                  {service.body}
-                </p>
-              </CustomCard >
-            ))}
-          </SlickSlider>
 
-          <hr className={styles['home-sections-separator']}/>
-          <div className={styles['home-section-title']}>Tratamente</div>
-          <SlickSlider width='65%'>
-            {treatmentCards.map((service, index) => (
-              <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img} className={`m-3 ${styles['home-custom-card']}`}>
-                <p className="card-text">
-                  {service.body}
-                </p>
-              </CustomCard >
-            ))}
-          </SlickSlider>
+        <hr className='sections-separator'/>
+        <div className='section-title'>Proceduri</div>
+        <SlickSlider width='65%'>
+          {serviceCards.map((service, index) => (
+            <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img} className={`m-3 ${styles['home-custom-card']}`}>
+              <p className="card-text">
+                {service.body}
+              </p>
+            </CustomCard >
+          ))}
+        </SlickSlider>
+
+        <hr className='sections-separator' />
+        <div className='section-title'>Tratamente</div>
+        <SlickSlider width='65%'>
+          {treatmentCards.map((service, index) => (
+            <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img} className={`m-3 ${styles['home-custom-card']}`}>
+              <p className="card-text">
+                {service.body}
+              </p>
+            </CustomCard >
+          ))}
+        </SlickSlider>
       </main>
 
       {/* <footer className={styles.footer}>

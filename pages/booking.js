@@ -12,52 +12,58 @@ import "react-datepicker/dist/react-datepicker.css";
 export default () => {
   const [startDate, setStartDate] = useState(new Date());
   return (
-    <div >
-      <main >
-        <div className={styles['booking-main-container']}>
-          <div>
-            <div className={styles['booking-team-cards-container']}>
-              {teamCards.map((service, index) => {
-                if (index < 3) {
-                  return (
-                    <CustomCard
-                      key={service.img + '-' + index}
-                      cardTitle={service.title}
-                      imgSrc={service.img}
-                      showButton={false}
-                      className={`mb-4 ${styles['booking-team-custom-card']}`}
-                    >
-                      <p className="card-text">
-                        {service.body}
-                      </p>
-                    </CustomCard >
-                  )
-                }
-              })}
-            </div>
-            <div className={styles['booking-team-cards-container']}>
-              {teamCards.map((service, index) => {
-                if (index > 2) {
-                  return (
-                    <CustomCard
-                      key={service.img + '-' + index}
-                      cardTitle={service.title}
-                      imgSrc={service.img}
-                      showButton={false}
-                      className={styles['booking-team-custom-card']}
-                    >
-                      <p className="card-text">
-                        {service.body}
-                      </p>
-                    </CustomCard >
-                  )
-                }
-              })}
-            </div>
+    <main className={styles['booking-main']}>
+      <div className="d-flex flex-column align-items-center">
+        <div className='section-title'>Echipa</div>
+        <hr className='sections-separator' />
+      </div>
+
+      <div className={styles['booking-main-container']}>
+        <div>
+          <div className={styles['booking-team-cards-container']}>
+            {teamCards.map((service, index) => {
+              if (index < 3) {
+                return (
+                  <CustomCard
+                    key={service.img + '-' + index}
+                    cardTitle={service.title}
+                    imgSrc={service.img}
+                    showButton={false}
+                    className={`mb-4 ${styles['booking-team-custom-card']}`}
+                  >
+                    <p className="card-text">
+                      {service.body}
+                    </p>
+                  </CustomCard >
+                )
+              }
+            })}
           </div>
+          <div className={styles['booking-team-cards-container']}>
+            {teamCards.map((service, index) => {
+              if (index > 2) {
+                return (
+                  <CustomCard
+                    key={service.img + '-' + index}
+                    cardTitle={service.title}
+                    imgSrc={service.img}
+                    showButton={false}
+                    className={styles['booking-team-custom-card']}
+                  >
+                    <p className="card-text">
+                      {service.body}
+                    </p>
+                  </CustomCard >
+                )
+              }
+            })}
+          </div>
+        </div>
+        <div>
+          <p>Fa-ti o programare</p>
           <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect inline />
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   )
 };

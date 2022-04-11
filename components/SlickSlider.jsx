@@ -33,7 +33,7 @@ function SlickSlider({children, width='100%'}) {
           }
         },
         {
-          breakpoint: 480,
+          breakpoint: 600,
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1
@@ -43,7 +43,7 @@ function SlickSlider({children, width='100%'}) {
     };
 
     return (
-        <div style={{width}}>
+        <div style={{width, maxWidth: '65rem'}}>
         <Slider {...settings} className={styles['slick-slide-main']}>
             {children}
         </Slider>
