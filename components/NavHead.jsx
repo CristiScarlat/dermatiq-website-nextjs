@@ -10,7 +10,7 @@ const NavHead = () => {
                 borderBottom: '2px solid #79658847' 
                 }}
                 >
-            <div className="container-fluid ps-5 pe-5">
+            <div className="container-fluid ps-3 pe-2">
                 <a className="navbar-brand" href="#">
                     <img className="logo_image" src="/logo-final-DERMATIQ.png" alt="" width={200} height='auto' />
                 </a>

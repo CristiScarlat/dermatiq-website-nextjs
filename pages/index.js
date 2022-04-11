@@ -1,6 +1,3 @@
-import Head from 'next/head';
-import Image from 'next/image';
-
 import CustomCard from '../components/CustomCard';
 import { serviceCards, treatmentCards } from '../utils/uiConstants';
 import SlickSlider from '../components/SlickSlider';
@@ -28,7 +25,7 @@ export default () => {
           </div>
         </div>
 
-        <hr className='sections-separator'/>
+        <hr className='sections-separator' />
         <div className='section-title'>Proceduri</div>
         <SlickSlider width='65%'>
           {serviceCards.map((service, index) => (
@@ -52,19 +49,6 @@ export default () => {
           ))}
         </SlickSlider>
       </main>
-
-      {/* <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{' '}
-          <span className={styles.logo}>
-            <Image src="/vercel.svg" alt="Vercel Logo" width={72} height={16} />
-          </span>
-        </a>
-      </footer> */}
     </div>
   )
 }
