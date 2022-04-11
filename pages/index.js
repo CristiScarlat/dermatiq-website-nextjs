@@ -48,6 +48,9 @@ export default () => {
             </CustomCard >
           ))}
         </SlickSlider>
+        <iframe 
+        style={{width: '45%', height: '20rem'}}
+        srcDoc={`<div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="300" id="gmap_canvas" src="https://maps.google.com/maps?q=Clinica%20DermatIQ&t=&z=17&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe><a href="https://fmovies-online.net">fmovies</a><br><style>.mapouter{position:relative;text-align:right;height:300px;width:600px;}</style><a href="https://www.embedgooglemap.net">how to add google maps to a website</a><style>.gmap_canvas {overflow:hidden;background:none!important;height:300px;width:600px;}</style></div></div>`}/>
       </main>
     </div>
   )
