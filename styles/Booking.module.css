@@ -21,3 +21,21 @@
 .booking-main {
     padding: 2rem;
 }
+
+.booking-button {
+    padding: 1rem;
+    border: 1px solid #4f6e34;
+    border-radius: 5px;
+    background-color: #e4e6d3;
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    max-width: 15rem;
+}
+
+.booking-contact-schedule-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+}

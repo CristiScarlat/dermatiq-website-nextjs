@@ -6,8 +6,8 @@ const NavHead = () => {
         <nav
             className="navbar sticky-top navbar-expand-lg navbar-light"
             style={{ 
-                backgroundColor: '#bdd1ab',
-                borderBottom: '2px solid #79658847' 
+                backgroundColor: '#e4e6d3',
+                // borderBottom: '2px solid #79658847' 
                 }}
                 >
             <div className="container-fluid ps-3 pe-2">

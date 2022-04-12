@@ -5,12 +5,16 @@ body {
   padding: 0;
   margin: 0;
   font-family: 'Source Sans Pro', sans-serif;
-  background-color: #f0dbbc52;
+  background-color: #faf3eafa;
 }
 
 a {
   color: #434343;
   text-decoration: none;
+}
+
+a:hover {
+  color: #434343;
 }
 
 * {
@@ -27,4 +31,8 @@ a {
   border: 1px solid #796588;
   margin: 3rem 0;
   width: 90%;
+}
+
+.hover-pointer:hover {
+  cursor: pointer;
 }
