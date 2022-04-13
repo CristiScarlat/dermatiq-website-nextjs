@@ -12,3 +12,17 @@
 .slick-slide-main > button:focus {
     background-color: #7bab4f;
 }
+
+.booking-button {
+    padding: 1rem;
+    border: 1px solid #4f6e34;
+    border-radius: 5px;
+    background-color: #e4e6d3;
+    display: flex;
+    align-items: center;
+    line-height: 0;
+    max-width: 15rem;
+    font-size: 16px;
+    color: #4f6e34;
+    text-shadow: initial;
+}

@@ -117,7 +117,7 @@
   box-shadow: 4px 1px 16px 3px #00000069;
 }
 
-.head-contact-phone > div {
+.head-contact-phone>div {
   font-size: 50px;
   text-shadow: 3px 3px 6px #2c4000;
   width: 100%;
@@ -152,13 +152,73 @@
   min-height: 30rem;
 }
 
+.custom-icon-contact {
+  font-size: 18px;
+  font-weight: bold;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.5rem;
+}
+
+.custom-icon-contact :first-child {
+  margin: 0px auto;
+  border-radius: 50%;
+  height: 100px;
+  width: 3rem;
+  display: block;
+  background: rgb(83 133 56);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-icon-contact svg {
+  fill: whitesmoke;
+}
+
 @media (max-width: 600px) {
-  .head-contact-phone > div {
+  .head-contact-phone>div {
     font-size: 30px;
   }
+
   .grid {
     width: 100%;
     flex-direction: column;
   }
-}
 
+  .custom-icon-contact-container {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 2rem;
+  }
+
+  .custom-icon-contact {
+    flex-direction: row;
+    width: 100%;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    font-weight: 400;
+  }
+
+  .custom-icon-contact :first-child {    
+    height: 1.5rem;
+    width: 1.5rem!important;
+    margin: 0;
+    border-radius: 0;
+    display: block;
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .custom-icon-contact svg {
+    fill: gray;
+  }
+}
