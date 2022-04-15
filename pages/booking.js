@@ -171,7 +171,11 @@ export default () => {
     addEvent(addEventData.current)
     .then(data => {
       setTimeout(() => {
-        getEvents();
+        console.log(selectedTime)
+        const temp = [...disabledTimes]
+        temp.push(selectedTime)
+        setDisabledTimes(temp)
+        setLoading(false)
       }, 1000)
     })
     .catch(error => {
