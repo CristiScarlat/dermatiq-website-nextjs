@@ -114,12 +114,12 @@
   width: 90%;
   max-width: 75rem;
   text-align: end;
-  box-shadow: 4px 1px 16px 3px #00000069;
+  box-shadow: 4px 1px 16px 3px var(--box-shadow-color);
 }
 
 .head-contact-phone>div {
   font-size: 50px;
-  text-shadow: 3px 3px 6px #2c4000;
+  text-shadow: 3px 3px 6px #2c400085;
   width: 100%;
 }
 
@@ -148,8 +148,13 @@
 }
 
 .home-custom-card {
-  box-shadow: 1px 1px 20px 0px #7bab4f6b;
+  box-shadow: 1px 1px 10px 2px var(--box-shadow-color);
   min-height: 30rem;
+}
+
+.home-main-image-big-text {
+  letter-spacing: 0.2rem;
+  color: var(--home-main-image-text-color);
 }
 
 .custom-icon-contact {
@@ -169,7 +174,7 @@
   height: 100px;
   width: 3rem;
   display: block;
-  background: rgb(83 133 56);
+  background: var(--big-circle-icons-color);
   display: flex;
   align-items: center;
   justify-content: center;

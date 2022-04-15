@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import styles from "./styles/styles.module.css";
 
 const CustomCard = ({imgSrc, cardTitle, className, maxWidth, showButton=true, children}) => {
     return (
@@ -8,7 +9,7 @@ const CustomCard = ({imgSrc, cardTitle, className, maxWidth, showButton=true, ch
                 <h5 className="card-title">{cardTitle}</h5>
                 {children}
             </div>
-            {showButton && <a href="#" className="btn btn-primary" style={{position: 'absolute', bottom: 0, width: '100%', borderColor: '#7bab4f', backgroundColor: '#7bab4f'}}>Afla mai multe</a>}
+            {showButton && <a href="#" className={`btn ${styles['custom-card-button']}`}>Afla mai multe</a>}
         </div>
     )
 }

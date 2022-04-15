@@ -13,13 +13,13 @@ const Home = () => {
           background: `url(/home-image-andrada.jpg)`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'contain',
-          backgroundColor: '#e4e6d3'
+          backgroundColor: '#f4f7f7'
         }}>
           <div>
-            <div className='mt-3' style={{letterSpacing: '0.2rem'}}>Dermatologie</div>
-            <div style={{letterSpacing: '0.2rem'}}>Venerologie</div>
-            <div style={{letterSpacing: '0.2rem'}}>Chirurgie</div>
-            <div className='mb-5' style={{letterSpacing: '0.2rem'}}>DermatoEstetica</div>
+            <div className={`${styles['home-main-image-big-text']} mt-3 `}>Dermatologie</div>
+            <div className={styles['home-main-image-big-text']}>Venerologie</div>
+            <div className={styles['home-main-image-big-text']}>Chirurgie</div>
+            <div className={`${styles['home-main-image-big-text']} mb-5 `}>DermatoEstetica</div>
 
             <div className={`mt-5 ${styles['home-programari-rapide']}`}>
               {/* <div style={{ whiteSpace: 'nowrap' }}>Programari rapide</div>

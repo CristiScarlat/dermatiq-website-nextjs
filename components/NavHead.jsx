@@ -7,16 +7,8 @@ import Image from 'next/image';
 const NavHead = () => {
     return (
         <nav
-            className="navbar sticky-top navbar-expand-lg navbar-light d-block pt-0"
-            style={{
-                backgroundColor: '#e4e6d3',
-                // borderBottom: '2px solid #79658847' 
-            }}
-        >
-            <div style={{
-                backgroundColor: '#faf3ea',
-                minHeight: '2rem'
-            }}>
+            className={`navbar sticky-top navbar-expand-lg navbar-light d-block pt-0 ${styles['navbar-main']}`}>
+            <div className={styles['navbar-mini-main']}>
                 <ul className={styles['social-phone']}>
                     <li className="nav-item">
                         <a className="custom-nav-link disabled"><MdPhoneInTalk className="me-1" /> +40 748 015 255</a>

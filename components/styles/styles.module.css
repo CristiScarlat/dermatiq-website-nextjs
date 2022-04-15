@@ -1,28 +1,29 @@
 .slick-slide-main > button {
-    background-color: #7bab4f;
+    background-color: var(--big-circle-icons-color);
     height: 3rem;
     width: 2rem;
     border-radius: 5px;
 }
 
 .slick-slide-main > button:hover {
-    background-color: #7bab4f;
+    background-color: var(--big-circle-icons-color);
 }
 
 .slick-slide-main > button:focus {
-    background-color: #7bab4f;
+    background-color: var(--big-circle-icons-color);
 }
 
 .booking-button {
     padding: 1rem;
-    border: 1px solid #4f6e34;
+    border: 1px solid #d6d3dc;
     border-radius: 5px;
-    background-color: #e4e6d3;
+    background-color: #ebeaea;
     display: flex;
     align-items: center;
     line-height: 0;
     font-size: 16px;
-    color: #4f6e34;
+    color: var(--home-main-image-text-color);
+    text-shadow: none;
     text-shadow: initial;
 }
 
@@ -37,4 +38,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.custom-card-button {
+    position: absolute; 
+    bottom: 0;
+    width: 100%;
+    border-color: var(--big-circle-icons-color); 
+    background-color: var(--big-circle-icons-color);
 }

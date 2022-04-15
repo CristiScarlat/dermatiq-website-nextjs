@@ -1,7 +1,7 @@
 .booking-team-custom-card {
     width: 210px;
     min-height: 23rem;
-    box-shadow: 1px 1px 20px 0px #7bab4f6b;
+    box-shadow: 1px 1px 20px 0px var(--box-shadow-color);
 }
 
 .booking-team-cards-container {

@@ -10,4 +10,13 @@
     float: right;
     margin-right: 5rem;
   }
+
+  .navbar-main {
+    background-color: var(--main-header-background-color)!important;
+  }
+
+  .navbar-mini-main {
+      background-color: var(--main-background-color);
+      min-height: 2rem;
+  }
   
