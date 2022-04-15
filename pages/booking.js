@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import DatePicker from "react-datepicker";
 import Form from '../components/Form';
 import Spinner from "../components/Spinner";
+import ModalComponent from "../components/Modal";
 import setHours from "date-fns/setHours";
 import setMinutes from "date-fns/setMinutes";
 import styles from "../styles/Booking.module.css";
@@ -19,8 +20,11 @@ export default () => {
   const [selectedEvents, setSelectedEvents] = useState([]);
   const [selectedTime, setSelectedTime] = useState();
   const [loading, setLoading] = useState(false);
+  const [showModal, setShowModal] = useState({});
 
-  const timeInterval = 15;
+  const addEventData = useRef({});
+
+  const timeInterval = 30;
 
   const getEvents = () => {
     const lastDayOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0).getDate();
@@ -33,7 +37,7 @@ export default () => {
     }
     setLoading(true);
 
-    fetch(`${process.env.NEXT_PUBLIC_CALENDAR_EVENTS_URL}&timeMin=${minDate.toISOString()}&timeMax=${maxDate.toISOString()}`)
+    fetch(`${process.env.NEXT_PUBLIC_CALENDAR_EVENTS_URL}&q=listEvents&timeMin=${minDate.toISOString()}&timeMax=${maxDate.toISOString()}`)
       .then((res) => res.json())
       .then((data) => {
         if (data.items) {
@@ -59,6 +63,25 @@ export default () => {
       })
   }
 
+  const addEvent = async (eventData) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: { 
+        'Content-Type': 'application/json'      
+      },
+      body: JSON.stringify(eventData)
+    };
+    try{
+      const res = await fetch(`${process.env.NEXT_PUBLIC_CALENDAR_EVENTS_URL}&q=addEvent`, requestOptions)
+      const data = await res.json()
+      return data;
+    }
+    catch(error){
+      console.log(error)
+      return error
+    }
+  }
+
   useEffect(() => {
     getEvents();
   }, [selectedDate])
@@ -79,9 +102,9 @@ export default () => {
 
   const getDisabledTimes = (arrEvents) => {
     setDisabledTimes([]);
+    const timesArr = [];
     arrEvents.forEach(e => {
       let final = null;
-      const timesArr = [];
       const dt = new Date(e.start);
       do {
         const hh = dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
@@ -89,20 +112,76 @@ export default () => {
         final = hh + ":" + mm;
         timesArr.push(final);
         dt.setMinutes(dt.getMinutes() + timeInterval)
-      } while (dt.getHours() !== new Date(e.end).getHours());
-      setDisabledTimes(timesArr);
+      } while (dt.getHours() !== new Date(e.end).getHours()); 
     })
+    setDisabledTimes(timesArr);
+
+    console.log(timesArr)
   }
 
   const handleSelectedDay = (date) => {
     setSelectedDay(date);
-    const arr = events.filter(event => event.start.substring(0, 10) === new Date(date).toISOString().substring(0, 10));
+    const arr = events.filter(event => event.start.substring(0, 10) === new Date(date).toISOString('ro-RO', { timeZone: 'UTC' }).substring(0, 10));
+    console.log(date, new Date(date).toISOString('ro-RO', { timeZone: 'UTC' }).substring(0, 10), arr)
     setSelectedEvents(arr);
     getDisabledTimes(arr);
+    setSelectedTime(null);
   }
 
   const handleTimeButtonClick = (time) => {
     setSelectedTime(time);
+    const date = selectedDay.toISOString('ro-RO', { timeZone: 'UTC' });
+    const minDate = date.split('T')[0] + 'T' + time + ':00';
+    const maxDate = new Date(minDate.split('T')[0] + 'T' + time + ':00Z');
+    maxDate.setMinutes(maxDate.getMinutes() + timeInterval);
+
+    addEventData.current = {
+      end: {
+        dateTime: maxDate.toISOString('ro-RO', { timeZone: 'UTC' }).split('.')[0],
+        timeZone: "Europe/Bucharest"
+      },
+      start: {
+        dateTime: minDate,
+        timeZone: "Europe/Bucharest"
+      }
+    }
+  }
+
+  const formValidation = (formFields) => {
+    if ((formFields[0].value && formFields[0].value !== '') || (formFields[1].value && formFields[1].value !== '') || (formFields[2].value && formFields[2].value !== '')) return true;
+  }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault()
+    if (formValidation(e.target)) {
+      addEventData.current.description = e.target[2].value;
+      addEventData.current.summary = e.target[0].value + "-" + e.target[1].value;
+      setShowModal({
+        open: true,
+        title: "Please check the data once again and place your booking.",
+        body: <><p>{`Date: ${new Date(addEventData.current.start.dateTime).toLocaleString()}`}</p>
+          <p>{`FullName: ${e.target[0].value + " " + e.target[1].value}`}</p></>
+      })
+    }
+    else alert('Please fill all the fields.')
+  }
+
+  const handleConfirmation = () => {
+    setLoading(true)
+    addEvent(addEventData.current)
+    .then(data => {
+      setTimeout(() => {
+        getEvents();
+      }, 1000)
+    })
+    .catch(error => {
+      setLoading(false)
+      console.log(error)
+    })
+  }
+
+  const isPastTime = (t) => {
+
   }
 
   return (
@@ -128,12 +207,12 @@ export default () => {
           />
 
           <div className="d-flex flex-wrap justify-content-start m-5" style={{ minWidth: '20rem' }}>
-            {generateTimeButtons(30, 9, 30, 23, 0).map(t => {
+            {generateTimeButtons(timeInterval, 9, 30, 23, 0).map(t => {
               return (
                 <button key={t}
                   type="button"
                   className={`btn ${disabledTimes.includes(t) ? 'btn-secondary' : 'btn-primary'} m-2`}
-                  disabled={disabledTimes.includes(t)}
+                  disabled={disabledTimes.includes(t) || isPastTime(t)}
                   onClick={() => handleTimeButtonClick(t)}
                   style={selectedTime === t ? {
                     backgroundColor: 'green',
@@ -144,14 +223,22 @@ export default () => {
                   {t}
                 </button>
               )
-            })}
+            }).filter((t, i, arr) => i !== arr.length - 1)}
           </div>
         </div>
         <div className="col-md" style={{ opacity: selectedTime ? 1 : 0.4 }}>
-          <Form className="ms-5 me-5 mb-5" submitButtonDisabled={!selectedTime} />
+          <Form className="ms-5 me-5 mb-5" submitButtonDisabled={!selectedTime} handleSubmit={handleFormSubmit} />
         </div>
       </div>
       {loading && <Spinner />}
+
+      <ModalComponent
+        show={showModal?.open}
+        title={showModal?.title}
+        body={showModal?.body}
+        onCancel={() => setShowModal({ open: false })}
+        onConfirm={handleConfirmation}
+      />
     </main>
   )
 };

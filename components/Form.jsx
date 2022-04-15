@@ -1,8 +1,9 @@
 
 
-const Form = ({ className, submitButtonDisabled }) => {
+const Form = ({ className, submitButtonDisabled, handleSubmit }) => {
+
     return (
-        <form className={`row g-3 ${className}`}>
+        <form className={`row g-3 ${className}`} onSubmit={handleSubmit}>
             <div className="col-md-6">
                 <label htmlFor="form-name" className="form-label">Nume</label>
                 <input type="text" className="form-control" id="form-name"/>

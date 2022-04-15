@@ -5,7 +5,7 @@ import CustomLinkBtn from "../components/customLinkBtn";
 
 import styles from "../styles/About.module.css";
 
-export default () => {
+const About = () => {
   const [startDate, setStartDate] = useState(new Date());
   return (
     <main className={styles['booking-main']}>
@@ -79,3 +79,5 @@ export default () => {
     </main>
   )
 };
+
+export default About;

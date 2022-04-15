@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
 
+:root {
+  --main-header-color: #ebeaea;
+  --main-background-color: #f5f7f7;
+  --home-main-image-background-color: #f4f7f7;
+  --home-main-image-text-color: #555181;
+  --cards-controls-color: #f78b8c;
+  --big-circle-icons-color: #8c84d8;
+
+}
+
 html,
 body {
   padding: 0;
