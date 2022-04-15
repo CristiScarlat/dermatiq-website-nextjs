@@ -6,7 +6,7 @@ const CustomCarousel = () => {
         <Carousel>
             <Carousel.Item>
                 <Image
-                    width={460}
+                    //width={460}
                     //className="d-block w-100"
                     src="homeCarousel/home-carousel-1.jpg"
                     alt="First slide"
@@ -18,7 +18,7 @@ const CustomCarousel = () => {
             </Carousel.Item>
             <Carousel.Item>
                 <Image
-                    width={460}
+                    //width={460}
                     //className="d-block w-100"
                     src="homeCarousel/home-carousel-2.jpg"
                     alt="Second slide"
@@ -31,7 +31,7 @@ const CustomCarousel = () => {
             </Carousel.Item>
             <Carousel.Item>
                 <Image
-                    width={460}
+                    //width={460}
                     //className="d-block w-100"
                     src="homeCarousel/home-carousel-3.jpg"
                     alt="Third slide"

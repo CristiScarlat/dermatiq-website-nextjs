@@ -3,7 +3,7 @@ import Image from 'next/image';
 const CustomCard = ({imgSrc, cardTitle, className, maxWidth, showButton=true, children}) => {
     return (
         <div className={`card ${className}`} style={{ maxWidth }}>
-            {imgSrc && <Image src={imgSrc} className="card-img-top" alt="..." style={{maxHeight: 178.83}}/>}
+            {imgSrc && <Image src={imgSrc} className="card-img-top" alt="..." width={200} height={178.83}/>}
             <div className="card-body text-center" style={{maxHeight: '15rem', overflowY: 'hidden'}}>
                 <h5 className="card-title">{cardTitle}</h5>
                 {children}
