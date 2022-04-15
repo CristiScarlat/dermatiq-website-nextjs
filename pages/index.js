@@ -5,7 +5,7 @@ import CustomLinkBtn from "../components/customLinkBtn";
 import { MdLocationOn, MdOutlineMail, MdPhone } from "react-icons/md";
 import styles from '../styles/Home.module.css';
 
-export default () => {
+const Home = () => {
   return (
     <div className={styles.container}>
       <main className={styles['home-main']}>
@@ -90,3 +90,5 @@ export default () => {
     </div>
   )
 }
+
+export default Home;

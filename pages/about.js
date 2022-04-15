@@ -6,7 +6,9 @@ import CustomLinkBtn from "../components/customLinkBtn";
 import styles from "../styles/About.module.css";
 
 const About = () => {
+  
   const [startDate, setStartDate] = useState(new Date());
+
   return (
     <main className={styles['booking-main']}>
       <div className="d-flex flex-column align-items-center">

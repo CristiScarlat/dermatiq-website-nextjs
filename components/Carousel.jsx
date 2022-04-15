@@ -1,10 +1,11 @@
 import { Carousel } from "react-bootstrap";
+import Image from 'next/image';
 
 const CustomCarousel = () => {
     return (
         <Carousel>
             <Carousel.Item>
-                <img
+                <Image
                     width={460}
                     //className="d-block w-100"
                     src="homeCarousel/home-carousel-1.jpg"
@@ -16,7 +17,7 @@ const CustomCarousel = () => {
                 </Carousel.Caption> */}
             </Carousel.Item>
             <Carousel.Item>
-                <img
+                <Image
                     width={460}
                     //className="d-block w-100"
                     src="homeCarousel/home-carousel-2.jpg"
@@ -29,7 +30,7 @@ const CustomCarousel = () => {
                 </Carousel.Caption> */}
             </Carousel.Item>
             <Carousel.Item>
-                <img
+                <Image
                     width={460}
                     //className="d-block w-100"
                     src="homeCarousel/home-carousel-3.jpg"

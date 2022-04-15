@@ -12,7 +12,7 @@ import "react-datepicker/dist/react-datepicker.css";
 // CSS Modules, react-datepicker-cssmodules.css
 // import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
-export default () => {
+const Booking = () => {
   const [events, setEvents] = useState([]);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [selectedDay, setSelectedDay] = useState(new Date());
@@ -246,3 +246,5 @@ export default () => {
     </main>
   )
 };
+
+export default Booking;

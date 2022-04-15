@@ -2,6 +2,7 @@ import styles from '../styles/NavHead.module.css';
 import Link from 'next/link'
 import { MdPhoneInTalk } from 'react-icons/md';
 import { BsInstagram, BsFacebook } from 'react-icons/bs';
+import Image from 'next/image';
 
 const NavHead = () => {
     return (
@@ -33,7 +34,7 @@ const NavHead = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <a className="navbar-brand" href="#">
-                    <img className="logo_image" src="/logo-final-DERMATIQ.png" alt="" width={200} height='auto' />
+                    <Image className="logo_image" src="/logo-final-DERMATIQ.png" alt="" width={200} height='auto' />
                 </a>
                 <div className="me-5 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="d-flex justify-content-end navbar-nav me-auto mb-2 mb-lg-0 w-100 fw-bold">
