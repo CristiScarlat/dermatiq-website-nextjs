@@ -167,6 +167,7 @@ const Booking = () => {
   }
 
   const handleConfirmation = () => {
+    setShowModal({ open: false })
     setLoading(true)
     addEvent(addEventData.current)
     .then(data => {
