@@ -45,4 +45,7 @@
     width: 100%;
     border-color: var(--big-circle-icons-color); 
     background-color: var(--big-circle-icons-color);
+    color: white!important;
+    font-weight: 600;
+    letter-spacing: 1px;
 }
