@@ -9,19 +9,19 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <main className={styles['home-main']}>
-        <div className={`p-3 ${styles['head-contact-phone']}`} style={{
-          background: `url(/home-image-andrada.jpg)`,
+        <div className={`${styles['head-contact-phone']}`} style={{
+          background: `url(/home-image-v2.jpg)`,
           backgroundRepeat: 'no-repeat',
-          backgroundSize: 'contain',
+          backgroundSize: 'cover',
           backgroundColor: '#f4f7f7'
         }}>
-          <div>
-            <div className={`${styles['home-main-image-big-text']} mt-3 `}>Dermatologie</div>
+          <div style={{backgroundColor: '#0000002e'}}>
+            <div className={`${styles['home-main-image-big-text']} mt-3`}>Dermatologie</div>
             <div className={styles['home-main-image-big-text']}>Venerologie</div>
             <div className={styles['home-main-image-big-text']}>Chirurgie</div>
-            <div className={`${styles['home-main-image-big-text']} mb-5 `}>DermatoEstetica</div>
+            <div className={`${styles['home-main-image-big-text']} mb-5`}>DermatoEstetica</div>
 
-            <div className={`mt-5 ${styles['home-programari-rapide']}`}>
+            <div className={`m-3 ${styles['home-programari-rapide']}`}>
               {/* <div style={{ whiteSpace: 'nowrap' }}>Programari rapide</div>
               <div style={{ whiteSpace: 'nowrap', marginBottom: '1rem' }}>+40 748 015 255</div> */}
               <CustomLinkBtn />

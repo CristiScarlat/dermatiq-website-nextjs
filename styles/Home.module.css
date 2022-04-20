@@ -135,7 +135,7 @@
   /* background-color: #f8f9fa; */
   border-radius: 5px;
   /* padding: 0.5rem 0rem; */
-  color: #0000005b;
+  color: var(--link-text-color-main)!important;
   text-shadow: none;
   line-height: 24px;
 }
@@ -155,6 +155,7 @@
 .home-main-image-big-text {
   letter-spacing: 0.2rem;
   color: var(--home-main-image-text-color);
+  margin-right: 1rem;
 }
 
 .custom-icon-contact {

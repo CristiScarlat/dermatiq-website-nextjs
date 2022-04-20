@@ -20,7 +20,7 @@ const About = () => {
         <div>
           <div className={styles['booking-team-cards-container']}>
             {teamCards.map((service, index) => {
-              if (index < 3) {
+              if (index < 4) {
                 return (
                   <CustomCard
                     key={service.img + '-' + index}
@@ -39,7 +39,7 @@ const About = () => {
           </div>
           <div className={styles['booking-team-cards-container']}>
             {teamCards.map((service, index) => {
-              if (index > 2) {
+              if (index > 3) {
                 return (
                   <CustomCard
                     key={service.img + '-' + index}
