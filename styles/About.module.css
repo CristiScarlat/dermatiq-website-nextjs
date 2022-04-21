@@ -1,31 +1,24 @@
-.booking-team-custom-card {
-    width: 210px;
-    min-height: 23rem;
-    box-shadow: 1px 1px 20px 0px var(--box-shadow-color);
-}
-
-.booking-team-cards-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    gap: 1rem;
-}
-
-.booking-main-container {
+.about-main-container {
     display: flex;
     justify-content: space-evenly;
     gap: 3rem;
     flex-wrap: wrap;
 }
 
-.booking-main {
+.about-main {
     padding: 2rem;
 }
 
-.booking-contact-schedule-container {
+.about-contact-schedule-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem;
     min-width: 30rem;
+}
+
+.about-team-description {
+    padding: 0 3rem;
+    color: #96959c;
+    font-family: 'Libre Baskerville', serif;
 }

@@ -3,14 +3,13 @@ import DatePicker from "react-datepicker";
 import Form from '../components/Form';
 import Spinner from "../components/Spinner";
 import ModalComponent from "../components/Modal";
-import setHours from "date-fns/setHours";
-import setMinutes from "date-fns/setMinutes";
+import CustomCard from '../components/CustomCard';
+import { teamCards } from "../utils/uiConstants";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import { Button } from "react-bootstrap";
 import styles from "../styles/Booking.module.css";
 
 import "react-datepicker/dist/react-datepicker.css";
-
-// CSS Modules, react-datepicker-cssmodules.css
-// import 'react-datepicker/dist/react-datepicker-cssmodules.css';
 
 const Booking = () => {
   const [events, setEvents] = useState([]);
@@ -21,6 +20,7 @@ const Booking = () => {
   const [selectedTime, setSelectedTime] = useState();
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState({});
+  const [step, setStep] = useState(0);
 
   const addEventData = useRef({});
 
@@ -145,6 +145,7 @@ const Booking = () => {
         timeZone: "Europe/Bucharest"
       }
     }
+    setStep(2);
   }
 
   const formValidation = (formFields) => {
@@ -189,15 +190,45 @@ const Booking = () => {
 
   }
 
+  const handleCustomCardButtonOnClick = (selectedCard) => {
+    console.log(selectedCard)
+    setStep(1);
+  }
+
+  const handleStepBack = () => {
+    setStep(step => step - 1)
+  }
+
   return (
-    <main>
+    <main className="ps-5 pe-5">
       <div className="d-flex flex-column align-items-center">
         <div className='section-title'>Programare</div>
         <hr className='sections-separator' />
       </div>
+      {step > 0 && <div><Button className="d-flex align-items-center custom-button" onClick={handleStepBack}><IoMdArrowRoundBack className="me-1"/>Go back</Button></div>}
+      {step === 0 && <div className="booking-team-cards-container">
+            {teamCards.map((teamMember, index) => {
+              if (index < 4) {
+                return (
+                  <CustomCard
+                    key={teamMember.img + '-' + index}
+                    cardTitle={teamMember.title}
+                    imgSrc={teamMember.img}
+                    buttonLable="Fa-ti o programare"
+                    cardButtonOnCLick={() => handleCustomCardButtonOnClick(teamMember.title)}
+                    className="mb-4 booking-team-custom-card"
+                  >
+                    <p className="card-text">
+                      {teamMember.body}
+                    </p>
+                  </CustomCard >
+                )
+              }
+            })}
+          </div>}
 
       <div className="row ms-4 me-4">
-        <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 col-md">
+      {step === 1 && <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 col-md">
           <DatePicker
             selected={selectedDay}
             onChange={handleSelectedDay}
@@ -216,7 +247,7 @@ const Booking = () => {
               return (
                 <button key={t}
                   type="button"
-                  className={`btn ${disabledTimes.includes(t) ? 'btn-secondary' : 'btn-primary'} m-2`}
+                  className={`btn ${disabledTimes.includes(t) ? 'btn-secondary' : 'custom-button'} m-2`}
                   disabled={disabledTimes.includes(t) || isPastTime(t)}
                   onClick={() => handleTimeButtonClick(t)}
                   style={selectedTime === t ? {
@@ -230,10 +261,10 @@ const Booking = () => {
               )
             }).filter((t, i, arr) => i !== arr.length - 1)}
           </div>
-        </div>
-        <div className="col-md" style={{ opacity: selectedTime ? 1 : 0.4 }}>
+        </div>}
+        {step === 2 && <div className="col-md mt-5" style={{ opacity: selectedTime ? 1 : 0.4 }}>
           <Form className="ms-5 me-5 mb-5" submitButtonDisabled={!selectedTime} handleSubmit={handleFormSubmit} />
-        </div>
+        </div>}
       </div>
       {loading && <Spinner />}
 

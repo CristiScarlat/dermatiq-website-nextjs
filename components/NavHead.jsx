@@ -36,6 +36,9 @@ const NavHead = () => {
                         <li className="nav-item me-4">
                             <Link href="/about"><a className="custom-nav-link">Despre Noi</a></Link>
                         </li>
+                        <li className="nav-item me-4">
+                            <Link href="/gdpr"><a className="custom-nav-link">GDPR</a></Link>
+                        </li>
                     </ul>
                 </div>
 

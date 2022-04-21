@@ -1,24 +1,30 @@
 import { useState } from "react";
 import CustomCard from '../components/CustomCard';
-import { teamCards } from "../utils/uiConstants";
+import { teamCards, aboutTeamDescription } from "../utils/uiConstants";
 import CustomLinkBtn from "../components/customLinkBtn";
 
 import styles from "../styles/About.module.css";
 
 const About = () => {
-  
-  const [startDate, setStartDate] = useState(new Date());
 
   return (
-    <main className={styles['booking-main']}>
+    <main className={styles['about-main']}>
       <div className="d-flex flex-column align-items-center">
         <div className='section-title'>Echipa</div>
         <hr className='sections-separator' />
       </div>
 
-      <div className={styles['booking-main-container']}>
+      <div className="d-flex flex-column align-items-center">
+        <div className={styles['about-team-description']}>
+          {aboutTeamDescription}
+        </div>
+        <hr className='sections-separator' />
+      </div>
+
+
+      <div className={styles['about-main-container']}>
         <div>
-          <div className={styles['booking-team-cards-container']}>
+          <div className="booking-team-cards-container">
             {teamCards.map((service, index) => {
               if (index < 4) {
                 return (
@@ -27,7 +33,7 @@ const About = () => {
                     cardTitle={service.title}
                     imgSrc={service.img}
                     showButton={false}
-                    className={`mb-4 ${styles['booking-team-custom-card']}`}
+                    className="mb-4 booking-team-custom-card"
                   >
                     <p className="card-text">
                       {service.body}
@@ -37,7 +43,7 @@ const About = () => {
               }
             })}
           </div>
-          <div className={styles['booking-team-cards-container']}>
+          <div className="booking-team-cards-container">
             {teamCards.map((service, index) => {
               if (index > 3) {
                 return (
@@ -46,7 +52,7 @@ const About = () => {
                     cardTitle={service.title}
                     imgSrc={service.img}
                     showButton={false}
-                    className={styles['booking-team-custom-card']}
+                    className="booking-team-custom-card"
                   >
                     <p className="card-text">
                       {service.body}
@@ -57,8 +63,8 @@ const About = () => {
             })}
           </div>
         </div>
-        <div className={styles['booking-contact-schedule-container']}>
-         <CustomLinkBtn />
+        <div className={styles['about-contact-schedule-container']}>
+          <CustomLinkBtn />
           <div className="w-100">
             <div>
               <p style={{ textAlign: "center" }}>

@@ -123,3 +123,5 @@ export const teamCards = [
         img: "/team/Valentina_Pavlenco.webp"
     }
 ]
+
+export const aboutTeamDescription = "Clinica Dermatiq a apărut din dorința de a fi mai aproape de pacienții noștri, precum și de a oferi vizitatorilor mai multe informații despre îngrijirea pielii și despre diferitele intervenții pe care le oferim la Clinica DermatIQ."

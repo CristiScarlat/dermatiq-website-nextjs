@@ -33,7 +33,12 @@ const Home = () => {
         <div className='section-title'>Proceduri</div>
         <SlickSlider width='65%'>
           {serviceCards.map((service, index) => (
-            <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img} className={`m-3 ${styles['home-custom-card']}`}>
+            <CustomCard 
+            key={service.img + '-' + index} 
+            cardTitle={service.title} 
+            imgSrc={service.img} 
+            className={`m-3 ${styles['home-custom-card']}`}
+            buttonLable="Afla mai multe">
               <p className="card-text">
                 {service.body}
               </p>
@@ -45,7 +50,12 @@ const Home = () => {
         <div className='section-title'>Tratamente</div>
         <SlickSlider width='65%'>
           {treatmentCards.map((service, index) => (
-            <CustomCard key={service.img + '-' + index} cardTitle={service.title} imgSrc={service.img} className={`m-3 ${styles['home-custom-card']}`}>
+            <CustomCard 
+            key={service.img + '-' + index} 
+            cardTitle={service.title} 
+            imgSrc={service.img} 
+            className={`m-3 ${styles['home-custom-card']}`}
+            buttonLable="Afla mai multe">
               <p className="card-text">
                 {service.body}
               </p>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
 
 :root {
   --main-header-background-color: #ebeaea;
@@ -42,7 +42,7 @@ a:hover {
 .sections-separator {
   border: 1px solid #796588;
   margin: 3rem 0;
-  width: 90%;
+  width: 100%;
 }
 
 .hover-pointer:hover {
@@ -51,4 +51,25 @@ a:hover {
 
 .react-datepicker__day--highlighted-custom {
   background-color: #e4e6d3;
+}
+
+.booking-team-custom-card {
+  width: 210px;
+  min-height: 25rem;
+  box-shadow: 1px 1px 20px 0px var(--box-shadow-color);
+}
+
+.booking-team-cards-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  gap: 1rem;
+}
+
+.custom-button {
+  border-color: var(--big-circle-icons-color);
+  background-color: var(--big-circle-icons-color);
+  color: white!important;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
