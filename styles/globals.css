@@ -67,8 +67,8 @@ a:hover {
 }
 
 .custom-button {
-  border-color: var(--big-circle-icons-color);
-  background-color: var(--big-circle-icons-color);
+  border-color: var(--big-circle-icons-color)!important;
+  background-color: var(--big-circle-icons-color)!important;
   color: white!important;
   font-weight: 600;
   letter-spacing: 1px;
