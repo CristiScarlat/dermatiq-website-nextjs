@@ -4,6 +4,13 @@ export const filterEventsByDate = (events, filterDate) => {
     return events.filter(event => event.start.substring(0, 10) === new Date(filterDate).toISOString('ro-RO', { timeZone: 'UTC' }).substring(0, 10));
 }
 
+export const filterEventsByDr = (events, selectedDr) => {
+    return events.filter(event => {
+        const drName = event.summary.split("/")[3];
+        return selectedDr.includes(drName);
+    })
+}
+
 export const getEventsBusyTimes = (events, timeInterval) => {
     const timesArr = [];
     events.forEach(e => {
@@ -49,7 +56,8 @@ export const isPastTime = (t, selectedDay) => {
           if (item.start) {
             formatData.push({
               start: item.start.dateTime,
-              end: item.end.dateTime
+              end: item.end.dateTime,
+              summary: item.summary
             })
           }
         })
@@ -59,5 +67,24 @@ export const isPastTime = (t, selectedDay) => {
     }
     catch (error) {
       console.log(error);
+    }
+  }
+
+  export const addEvent = async (eventData) => {
+    const requestOptions = {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(eventData)
+    };
+    try {
+      const res = await fetch(`${process.env.NEXT_PUBLIC_CALENDAR_EVENTS_URL}&q=addEvent`, requestOptions)
+      const data = await res.json()
+      return data;
+    }
+    catch (error) {
+      console.log(error)
+      return error
     }
   }

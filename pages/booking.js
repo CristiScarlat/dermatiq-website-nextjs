@@ -5,7 +5,7 @@ import Spinner from "../components/Spinner";
 import ModalComponent from "../components/Modal";
 import CustomCard from '../components/CustomCard';
 import { teamCards } from "../utils/uiConstants";
-import { getEvents, filterEventsByDate, getEventsBusyTimes, isPastTime } from "../utils/calendarUtils";
+import { getEvents, addEvent, filterEventsByDate, filterEventsByDr, getEventsBusyTimes, isPastTime } from "../utils/calendarUtils";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Button } from "react-bootstrap";
 import styles from "../styles/Booking.module.css";
@@ -28,30 +28,13 @@ const Booking = () => {
 
   const timeInterval = 20;
 
-  const addEvent = async (eventData) => {
-    const requestOptions = {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(eventData)
-    };
-    try {
-      const res = await fetch(`${process.env.NEXT_PUBLIC_CALENDAR_EVENTS_URL}&q=addEvent`, requestOptions)
-      const data = await res.json()
-      return data;
-    }
-    catch (error) {
-      console.log(error)
-      return error
-    }
-  }
-
   useEffect(() => {
-    if (step === 1){
+    if (step === 1) {
       setLoading(true)
       getEvents(selectedDate).then((res) => {
-        setEvents(res);
+        const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
+        console.log({ eventsBySelectedDr })
+        setEvents(eventsBySelectedDr);
         const arr = res.filter(event => event.start.substring(0, 10) === selectedDate.toISOString().substring(0, 10));
         getDisabledTimes(arr);
         setLoading(false)
@@ -150,7 +133,6 @@ const Booking = () => {
 
   const handleCustomCardButtonOnClick = (selectedCard) => {
     setSelectedDr(selectedCard);
-    console.log({ events })
     setStep(1);
   }
 
