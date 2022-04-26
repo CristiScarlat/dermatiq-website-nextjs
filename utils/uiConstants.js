@@ -95,22 +95,26 @@ export const teamCards = [
     {
         title: 'Sef de lucrari Dr. Andrada Iftode',
         body: 'Medic specialist dermatovenerologie, medicina regenerativa, estetica si anti-aging',
-        img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.webp"
+        img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.webp",
+        colorId: 1
     },
     {
         title: 'Dr. Alina Stasak',
         body: 'Medic specialist dermatovenerologie, dermatopediatrie, dermatocosmetologie',
-        img: "/team/Dr._Alina_Stasak.webp"
+        img: "/team/Dr._Alina_Stasak.webp",
+        colorId: 2
     },
     {
         title: 'Dr. Anca Țurcan',
         body: 'Medic specialist dermatovenerologie, dermatochirugie, dermatolocosmetologie',
-        img: "/team/Dr._Anca_Țurcan.webp"
+        img: "/team/Dr._Anca_Țurcan.webp",
+        colorId: 3
     },
     {
         title: 'Dr. Mircea Berceanu',
         body: 'Medic specialist chirugie plastica si microchirugie reconstructiva',
-        img: "/team/Dr._Mircea_Berceanu.webp"
+        img: "/team/Dr._Mircea_Berceanu.webp",
+        colorId: 4
     },
     {
         title: 'Andreea Amarinei',

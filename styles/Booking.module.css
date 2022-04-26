@@ -10,3 +10,12 @@
     justify-content: space-evenly;
     gap: 1rem;
 }
+
+.booking-breadcrumps {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--link-text-color-main);
+    font-weight: 700;
+}
