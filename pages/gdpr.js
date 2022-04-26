@@ -4,8 +4,8 @@
 const GDPR = () => {
     return (
         <>
-            <h2 class="m-5 text-center">Politica privind confidențialitatea și securitatea datelor cu caracter personal</h2>
-            <div class="p-5 elementor-text-editor elementor-clearfix">
+            <h2 className="m-5 text-center">Politica privind confidențialitatea și securitatea datelor cu caracter personal</h2>
+            <div className="p-5 elementor-text-editor elementor-clearfix">
                 <p>Clinica DermatIQ este dedicată în totalitate protejării confidențialității tuturor datelor cu caracter personal pe care le colectăm, prelucrăm și stocăm.&nbsp;</p>
                 <p>Această Politică privind confidențialitatea și securitatea datelor cu caracter personal vă ajută să înțelegeți:</p>
                 <ol>
@@ -99,7 +99,7 @@ const GDPR = () => {
                 <p><strong>Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal</strong></p>
                 <ul>
                     <li><strong>B-dul G-ral. Gheorghe Magheru 28-30, Sector 1, cod poștal 010336, București, România</strong></li>
-                    <li><a href="http://www.dataprotection.ro/" target="_blank">www.dataprotection.ro</a>&nbsp;</li>
+                    <li><a href="http://www.dataprotection.ro/" target="_blank" rel="noreferrer">www.dataprotection.ro</a>&nbsp;</li>
                 </ul>
                 <ol start="7">
                     <li><strong> Cum ne puteți contacta</strong></li>
