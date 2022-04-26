@@ -204,7 +204,7 @@ const Booking = () => {
               return (
                 <button key={t}
                   type="button"
-                  className={`btn ${(disabledTimes.includes(t) || isPastTime(t, selectedDay)) ? 'btn-secondary custom-button' : 'custom-button'} m-2`}
+                  className={`btn ${(disabledTimes.includes(t) || isPastTime(t, selectedDay)) ? 'btn-secondary' : 'custom-button'} m-2`}
                   disabled={disabledTimes.includes(t) || isPastTime(t, selectedDay)}
                   onClick={() => handleTimeButtonClick(t)}
                   style={selectedTime === t ? {
