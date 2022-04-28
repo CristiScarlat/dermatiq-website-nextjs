@@ -22,8 +22,8 @@ const Form = ({ className, submitButtonDisabled, handleSubmit }) => {
             </div>
             <div className="col-md-12">
                 <label htmlFor="inputService" className="form-label">Serviciu</label>
-                <select id="inputService" className="form-select">
-                    <option selected>Consult</option>
+                <select id="inputService" className="form-select" defaultValue={'Consult'}>
+                    <option>Consult</option>
                     <option>Control</option>
                     <option>Dermatoscopie</option>
                 </select>

@@ -1,5 +1,6 @@
-import { useEffect } from "react";
+import { useEffect, useContext } from "react";
 import Layout from '../components/Layout';
+import Provider from "../context/context";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/globals.css'
 
@@ -10,9 +11,11 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   return (
-    <Layout>
-      <Component {...pageProps} />
-    </Layout>
+    <Provider>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </Provider>
   )
 }
 

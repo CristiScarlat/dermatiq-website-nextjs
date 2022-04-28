@@ -1,6 +1,5 @@
 
 export const filterEventsByDate = (events, filterDate) => {
-    console.log("filter-events-by-selected-date")
     return events.filter(event => event.start.substring(0, 10) === new Date(filterDate).toISOString('ro-RO', { timeZone: 'UTC' }).substring(0, 10));
 }
 

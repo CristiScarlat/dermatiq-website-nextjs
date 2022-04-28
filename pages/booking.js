@@ -7,15 +7,21 @@ import CustomCard from '../components/CustomCard';
 import { teamCards } from "../utils/uiConstants";
 import { getEvents, addEvent, filterEventsByDate, filterEventsByDr, getEventsBusyTimes, isPastTime } from "../utils/calendarUtils";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { Button } from "react-bootstrap";
+import { Button, Toast } from "react-bootstrap";
+
+import { Ctx } from '../context/context';
+import { useContext } from 'react';
+
 import styles from "../styles/Booking.module.css";
 
 import "react-datepicker/dist/react-datepicker.css";
 
 const Booking = () => {
+  const currentInitDate = new Date()
+
   const [events, setEvents] = useState([]);
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [selectedDay, setSelectedDay] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState(currentInitDate);
+  const [selectedDay, setSelectedDay] = useState(currentInitDate);
   const [disabledTimes, setDisabledTimes] = useState([]);
   const [selectedEvents, setSelectedEvents] = useState([]);
   const [selectedTime, setSelectedTime] = useState();
@@ -26,6 +32,8 @@ const Booking = () => {
 
   const addEventData = useRef({});
 
+  const {state, dispatch} = useContext(Ctx);
+
   const timeInterval = 20;
 
   useEffect(() => {
@@ -33,12 +41,12 @@ const Booking = () => {
       setLoading(true)
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
-        console.log({ eventsBySelectedDr })
         setEvents(eventsBySelectedDr);
-        const arr = res.filter(event => event.start.substring(0, 10) === selectedDate.toISOString().substring(0, 10));
+        const arr = eventsBySelectedDr.filter(event => event.start.substring(0, 10) === selectedDate.toISOString().substring(0, 10));
         getDisabledTimes(arr);
         setLoading(false)
       })
+      setSelectedDay(currentInitDate);
     }
   }, [selectedDate, step])
 
@@ -59,7 +67,6 @@ const Booking = () => {
   const getDisabledTimes = (arrEvents) => {
     setDisabledTimes([]);
     const busyTimesArr = getEventsBusyTimes(arrEvents, timeInterval);
-    console.log(busyTimesArr)
     setDisabledTimes(busyTimesArr);
   }
 
@@ -96,18 +103,22 @@ const Booking = () => {
   }
 
   const handleFormSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
     if (formValidation(e.target)) {
       //calendar-event-title: nume-pacient/tel-pacient/serviciu/nume-familie-dr/online
-      const selectedDrSurname = selectedDr.title.split(" ").pop();
+      const selectedDrSurname = selectedDr?.title?.split(" ").pop();
       addEventData.current.description = e.target[2].value;
       addEventData.current.summary = e.target[0].value + "-" + e.target[1].value + "/" + e.target[3].value + "/" + e.target[4].value + "/" + selectedDrSurname + "/online";
-      addEventData.current.colorId = selectedDr.colorId;
+      addEventData.current.colorId = selectedDr?.colorId;
       setShowModal({
         open: true,
         title: "Please check the data once again and place your booking.",
         body: <><p>{`Date: ${new Date(addEventData.current.start.dateTime).toLocaleString()}`}</p>
-          <p>{`FullName: ${e.target[0].value + " " + e.target[1].value}`}</p></>
+          <p>{`FullName: ${e.target[0].value + " " + e.target[1].value}`}</p>
+          <p>{`Email: ${e.target[2].value}`}</p>
+          <p>{`Telefon: ${e.target[3].value}`}</p>
+          <p>{`Serviciu: ${e.target[4].value}`}</p></>
       })
     }
     else alert('Please fill all the fields.')
@@ -118,6 +129,14 @@ const Booking = () => {
     setLoading(true)
     addEvent(addEventData.current)
       .then(data => {
+        dispatch({type: 'SET_TOAST', toast: {
+          showToast: true,
+          type: 'success',
+          headerText: 'Saved.',
+          bodyText: `Your appointment in ${new Date(addEventData.current.start.dateTime).toLocaleString()} is successfully saved.`
+        }})
+        setSelectedTime(undefined);
+        setStep(0);
         setTimeout(() => {
           const temp = [...disabledTimes]
           temp.push(selectedTime)
@@ -140,12 +159,18 @@ const Booking = () => {
     setStep(step => step - 1);
   }
 
+  const isFiltered = (date) => {
+    const d = new Date(date);
+    const day = d.getDay();
+    return day !== 0 && day !== 1 && day !== 3 && day !== 5 && day !== 6;
+  };
+
   /*
   calendar-event-title: nume-pacient/tel-pacient/serviciu/nume-familie-dr/online --> calendar color
   servicii-dropdown: consult/control/dermatoscopie
    */
 
-
+console.log(selectedTime)
   return (
     <main className="ps-5 pe-5">
       <div className="d-flex flex-column align-items-center">
@@ -188,6 +213,7 @@ const Booking = () => {
         {step === 1 && <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 col-md">
           <DatePicker
             selected={selectedDay}
+            filterDate={isFiltered}
             onChange={handleSelectedDay}
             onMonthChange={(m) => setSelectedDate(m)}
             inline
@@ -220,7 +246,7 @@ const Booking = () => {
           </div>
         </div>}
         {step === 2 && <div className="col-md mt-5" style={{ opacity: selectedTime ? 1 : 0.4 }}>
-          <Form className="ms-5 me-5 mb-5" submitButtonDisabled={!selectedTime} handleSubmit={handleFormSubmit} />
+          <Form className="ms-5 me-5 mb-5"  handleSubmit={handleFormSubmit} />
         </div>}
       </div>
       {loading && <Spinner />}

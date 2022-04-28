@@ -25,9 +25,10 @@ const NavHead = () => {
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
-                <a className="navbar-brand" href="#">
+                <Link href="/"><a className="navbar-brand">
                     <Image className="logo_image" src="/logo-final-DERMATIQ.png" alt="" width={200} height={80} />
                 </a>
+                </Link>
                 <div className="me-5 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="d-flex justify-content-end navbar-nav me-auto mb-2 mb-lg-0 w-100 fw-bold">
                         <li className="nav-item me-4">
