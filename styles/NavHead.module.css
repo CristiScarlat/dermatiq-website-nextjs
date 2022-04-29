@@ -3,7 +3,7 @@
     flex-wrap: nowrap;
     white-space: nowrap;
     list-style: none;
-    gap: 0.5rem;
+    gap: 1rem;
     margin: 0;
     align-items: center;
     font-size: 16px;
@@ -19,4 +19,5 @@
       background-color: var(--main-background-color);
       min-height: 2rem;
   }
+
   

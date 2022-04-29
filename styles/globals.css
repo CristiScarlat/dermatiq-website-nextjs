@@ -9,7 +9,7 @@
   --big-circle-icons-color: #8c84d8;
   --box-shadow-color: #00000069;
   --text-color-main: #555181;
-  --link-text-color-main: #434343;
+  --link-text-color-main: #616061;
 }
 
 html,
@@ -71,4 +71,8 @@ a:hover {
   background-color: var(--big-circle-icons-color)!important;
   color: white!important;
   font-weight: 600;
+}
+
+.custom-nav-link.active {
+  color: #97a2ad!important
 }

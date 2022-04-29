@@ -6,9 +6,8 @@ const CustomLinkBtn = () => {
     return (
         <div className={styles['booking-button']}>
             <ImCalendar className="me-2" />
-            Fă-ți o programare
-            <div className="ms-3 me-3" style={{ height: '3rem', border: '0.5px solid #4f6e34' }} />
-            <Link href="/booking" passHref><ImArrowRight className="hover-pointer" /></Link>
+            <Link href="/booking" passHref><span style={{color: 'white', cursor: 'pointer'}}>Fă-ți o programare</span></Link>
+                <ImArrowRight className="hover-pointer ms-3" />
         </div>
     )
 }

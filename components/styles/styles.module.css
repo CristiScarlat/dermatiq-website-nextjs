@@ -17,7 +17,8 @@
     padding: 1rem;
     border: 1px solid #d6d3dc;
     border-radius: 5px;
-    background-color: #ebeaea;
+    background-color: var(--big-circle-icons-color);
+    color: white;
     display: flex;
     align-items: center;
     line-height: 0;
@@ -48,4 +49,8 @@
     color: white!important;
     font-weight: 600;
     letter-spacing: 1px;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
 }

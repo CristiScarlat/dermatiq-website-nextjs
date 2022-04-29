@@ -170,9 +170,8 @@ const Booking = () => {
   servicii-dropdown: consult/control/dermatoscopie
    */
 
-console.log(selectedTime)
   return (
-    <main className="ps-5 pe-5">
+    <main className="ps-5 pe-5 pb-5">
       <div className="d-flex flex-column align-items-center">
         <div className='section-title'>Programare</div>
         <hr className='sections-separator' />
@@ -225,7 +224,7 @@ console.log(selectedTime)
             ]}
           />
 
-          <div className="d-flex flex-wrap justify-content-start m-5" style={{ minWidth: '20rem' }}>
+          <div className="d-flex flex-wrap justify-content-center m-5" style={{ minWidth: '20rem' }}>
             {generateTimeButtons(timeInterval, 9, 30, 23, 0).map(t => {
               return (
                 <button key={t}
@@ -246,7 +245,7 @@ console.log(selectedTime)
           </div>
         </div>}
         {step === 2 && <div className="col-md mt-5" style={{ opacity: selectedTime ? 1 : 0.4 }}>
-          <Form className="ms-5 me-5 mb-5"  handleSubmit={handleFormSubmit} />
+          <Form handleSubmit={handleFormSubmit} />
         </div>}
       </div>
       {loading && <Spinner />}

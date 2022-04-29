@@ -1,0 +1,26 @@
+.service-content {
+    display: flex;
+    flex-wrap: wrap-reverse;
+    gap: 1rem;
+}
+
+.service-content-container {
+    padding: 1rem;
+}
+
+.service-content-container h1 {
+    background-color: var(--main-header-background-color);
+}
+
+.service-content img {
+    width: 370px;
+    height: auto;
+    float: left;
+    margin: 0 0.5rem 0.5rem 0;
+}
+
+@media only screen and (max-width: 600px) {
+    .service-content img {
+        width: 100%;
+    }
+}

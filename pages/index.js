@@ -3,9 +3,12 @@ import { serviceCards, treatmentCards } from '../utils/uiConstants';
 import SlickSlider from '../components/SlickSlider';
 import CustomLinkBtn from "../components/customLinkBtn";
 import { MdLocationOn, MdOutlineMail, MdPhone } from "react-icons/md";
+import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css';
 
 const Home = () => {
+  const router = useRouter();
+
   return (
     <div className={styles.container}>
       <main className={styles['home-main']}>
@@ -38,7 +41,11 @@ const Home = () => {
             cardTitle={service.title} 
             imgSrc={service.img} 
             className={`m-3 ${styles['home-custom-card']}`}
-            buttonLable="Afla mai multe">
+            buttonLable="Afla mai multe"
+            cardButtonOnCLick={() => router.push({
+              pathname: '/services',
+              query: { name: service.title }
+          })}>
               <p className="card-text">
                 {service.body}
               </p>
