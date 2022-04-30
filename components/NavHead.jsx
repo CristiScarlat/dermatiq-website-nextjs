@@ -41,7 +41,7 @@ const NavHead = () => {
                             <Link href="/about"><a className={`custom-nav-link text-uppercase ${router.pathname === '/about' ? 'active' : ''}`}>Despre Noi</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
-                            <Link href="/services"><a className={`custom-nav-link text-uppercase ${router.pathname === '/services' ? 'active' : ''}`}>Servicii</a></Link>
+                            <Link href="/services"><a className={`custom-nav-link text-uppercase ${router.pathname === '/services' ? 'active' : ''}`}>Proceduri</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
                             <Link href="/gdpr"><a className={`custom-nav-link text-uppercase ${router.pathname === '/gdpr' ? 'active' : ''}`}>GDPR</a></Link>

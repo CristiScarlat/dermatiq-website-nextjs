@@ -6,6 +6,9 @@ import { MdLocationOn, MdOutlineMail, MdPhone } from "react-icons/md";
 import { useRouter } from 'next/router'
 import styles from '../styles/Home.module.css';
 
+//vogue
+//preturi
+
 const Home = () => {
   const router = useRouter();
 
@@ -18,7 +21,7 @@ const Home = () => {
           backgroundSize: 'cover',
           backgroundColor: '#f4f7f7'
         }}>
-          <div style={{backgroundColor: '#0000002e'}}>
+          <div style={{backgroundColor: '#2e050554'}}>
             <div className={`${styles['home-main-image-big-text']} mt-3`}>Dermatologie</div>
             <div className={styles['home-main-image-big-text']}>Venerologie</div>
             <div className={styles['home-main-image-big-text']}>Chirurgie</div>
@@ -54,7 +57,7 @@ const Home = () => {
         </SlickSlider>
 
         <hr className='sections-separator' />
-        <div className='section-title'>Tratamente</div>
+        <div className='section-title'>Rezultate</div>
         <SlickSlider width='65%'>
           {treatmentCards.map((service, index) => (
             <CustomCard 
@@ -95,7 +98,8 @@ const Home = () => {
                   <MdPhone />
                 </div>
                 <div style={{ color: "#807f89" }}>
-                  +40 256 443-084
+                  <>+40 256 443-084</>
+                  <>+40 748 015 255</>
                 </div>
               </div>
           </div>

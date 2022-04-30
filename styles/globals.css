@@ -6,9 +6,11 @@
   --home-main-image-background-color: #f4f7f7;
   --home-main-image-text-color: #f4f7f7;
   --cards-controls-color: #f78b8c;
-  --big-circle-icons-color: #8c84d8;
+  --big-circle-icons-color: #dfc59d;
+  /* --big-circle-icons-color: #8c84d8; */
   --box-shadow-color: #00000069;
-  --text-color-main: #555181;
+  --text-color-main: #616061;
+  /* --text-color-main: #555181; */
   --link-text-color-main: #616061;
 }
 
