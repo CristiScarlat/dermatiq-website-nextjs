@@ -5,9 +5,9 @@ import Spinner from "../components/Spinner";
 import ModalComponent from "../components/Modal";
 import CustomCard from '../components/CustomCard';
 import { teamCards } from "../utils/uiConstants";
-import { getEvents, addEvent, filterEventsByDate, filterEventsByDr, getEventsBusyTimes, isPastTime } from "../utils/calendarUtils";
+import { getEvents, addEvent, filterEventsByDate, filterEventsByDr, getEventsBusyTimes, processEvents, isPastTime } from "../utils/calendarUtils";
 import { IoMdArrowRoundBack } from "react-icons/io";
-import { Button, Toast } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 import { Ctx } from '../context/context';
 import { useContext } from 'react';
@@ -15,6 +15,8 @@ import { useContext } from 'react';
 import styles from "../styles/Booking.module.css";
 
 import "react-datepicker/dist/react-datepicker.css";
+
+const daysToFilter = new Set();
 
 const Booking = () => {
   const currentInitDate = new Date()
@@ -29,6 +31,7 @@ const Booking = () => {
   const [showModal, setShowModal] = useState({});
   const [step, setStep] = useState(0);
   const [selectedDr, setSelectedDr] = useState();
+  const [freeDaysPerDr, setFreeDaysPerDr] = useState([]);
 
   const addEventData = useRef({});
 
@@ -41,8 +44,11 @@ const Booking = () => {
       setLoading(true)
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
-        setEvents(eventsBySelectedDr);
-        const arr = eventsBySelectedDr.filter(event => event.start.substring(0, 10) === selectedDate.toISOString().substring(0, 10));
+        const { bookedHoursPerDay, freeDays } = processEvents(eventsBySelectedDr);
+        console.log({ freeDays, eventsBySelectedDr, res })
+        setEvents(bookedHoursPerDay);
+        setFreeDaysPerDr(freeDays);
+        const arr = bookedHoursPerDay?.filter(event => event.start.substring(0, 10) === selectedDate.toISOString().substring(0, 10));
         getDisabledTimes(arr);
         setLoading(false)
       })
@@ -50,18 +56,37 @@ const Booking = () => {
     }
   }, [selectedDate, step])
 
-  const generateTimeButtons = (step, minHour, minMinutes, maxHour, maxMinutes) => {
+  useEffect(() => {
+    setSelectedDate(currentInitDate);
+  }, [step])
+
+  const generateTimeButtons = (step, minHour, minMinutes, maxHour, maxMinutes, qty) => {
     const dt = new Date(1970, 0, 1);
     const rc = [];
     while (dt.getDate() === 1) {
-      if (dt.getHours() >= minHour && dt.getHours() <= maxHour) {
+      if (dt.getHours() >= minHour && dt.getMinutes() >= minMinutes && dt.getHours() <= maxHour) {
         const hh = dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
         const mm = dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
         rc.push(hh + ":" + mm);
       }
       dt.setMinutes(dt.getMinutes() + step);
+      if(rc.length === qty) break;
     }
     return rc;
+  }
+
+  const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
+      const busyTimes = [];
+
+      if(disabledTimes.length === 0){
+        busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
+      }
+      else {
+        const afterBusyHour = disabledTimes[0].split(":")[0];
+        const afterBusyMin = disabledTimes[0].split(":")[1];
+        busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), parseInt(afterBusyMin) + step, maxHour, maxMinutes, 3);
+      }
+      return busyTimes;
   }
 
   const getDisabledTimes = (arrEvents) => {
@@ -165,6 +190,8 @@ const Booking = () => {
     return day !== 0 && day !== 1 && day !== 3 && day !== 5 && day !== 6;
   };
 
+  //console.log({freeDaysPerDr, daysToFilter: Array.from(daysToFilter)})
+
   /*
   calendar-event-title: nume-pacient/tel-pacient/serviciu/nume-familie-dr/online --> calendar color
   servicii-dropdown: consult/control/dermatoscopie
@@ -217,15 +244,16 @@ const Booking = () => {
             onMonthChange={(m) => setSelectedDate(m)}
             inline
             minDate={new Date()}
+            excludeDates={freeDaysPerDr.map(fd => new Date(fd))}
             highlightDates={[
               {
-                "react-datepicker__day--highlighted-custom": events.map(e => new Date(e.start))
+                "react-datepicker__day--highlighted-custom": events?.map(e => e.start && new Date(e.start))
               }
             ]}
           />
 
           <div className="d-flex flex-wrap justify-content-center m-5" style={{ minWidth: '20rem' }}>
-            {generateTimeButtons(timeInterval, 9, 30, 23, 0).map(t => {
+            {generateTimeButtonByBusyTime(timeInterval, 10, 0, 16, 40).map(t => {
               return (
                 <button key={t}
                   type="button"
@@ -241,7 +269,7 @@ const Booking = () => {
                   {t}
                 </button>
               )
-            }).filter((t, i, arr) => i !== arr.length - 1)}
+            })}
           </div>
         </div>}
         {step === 2 && <div className="col-md mt-5" style={{ opacity: selectedTime ? 1 : 0.4 }}>
