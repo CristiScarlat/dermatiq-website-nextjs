@@ -70,7 +70,7 @@ const Booking = () => {
         rc.push(hh + ":" + mm);
       }
       dt.setMinutes(dt.getMinutes() + step);
-      if(rc.length === qty) break;
+      //if(rc.length === qty) break;
     }
     return rc;
   }
@@ -190,6 +190,14 @@ const Booking = () => {
     return day !== 0 && day !== 1 && day !== 3 && day !== 5 && day !== 6;
   };
 
+  const getAvailableHours = () => {
+      const arr = generateTimeButtons(timeInterval, 10, 0, 16, 40);
+      //filter out buzy hours
+      const filtered = arr.filter(t => !disabledTimes.includes(t));
+      console.log({arr, filtered, disabledTimes});
+      return filtered.filter((h, index) => index < 3);
+  }
+
   //console.log({freeDaysPerDr, daysToFilter: Array.from(daysToFilter)})
 
   /*
@@ -237,6 +245,7 @@ const Booking = () => {
 
       <div className="row ms-4 me-4">
         {step === 1 && <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 col-md">
+          <label>Select date:</label>
           <DatePicker
             selected={selectedDay}
             filterDate={isFiltered}
@@ -252,13 +261,13 @@ const Booking = () => {
             ]}
           />
 
-          <div className="d-flex flex-wrap justify-content-center m-5" style={{ minWidth: '20rem' }}>
-            {generateTimeButtonByBusyTime(timeInterval, 10, 0, 16, 40).map(t => {
+          <div className="d-flex flex-column flex-wrap justify-content-center m-5" style={{ minWidth: '20rem' }}>
+          <label>Select time:</label>
+            {getAvailableHours().map(t => {
               return (
                 <button key={t}
                   type="button"
-                  className={`btn ${(disabledTimes.includes(t) || isPastTime(t, selectedDay)) ? 'btn-secondary' : 'custom-button'} m-2`}
-                  disabled={disabledTimes.includes(t) || isPastTime(t, selectedDay)}
+                  className={`btn custom-button m-2`}
                   onClick={() => handleTimeButtonClick(t)}
                   style={selectedTime === t ? {
                     backgroundColor: 'green',
