@@ -193,9 +193,17 @@ const Booking = () => {
   const getAvailableHours = () => {
       const arr = generateTimeButtons(timeInterval, 10, 0, 16, 40);
       //filter out buzy hours
-      const filtered = arr.filter(t => !disabledTimes.includes(t));
+      const foundFreeHour = false;
+      const filtered = []
+      arr.forEach(t => {
+        if(!disabledTimes.includes(t) && !foundFreeHour)foundFreeHour = true;
+        if(foundFreeHour && filtered.length <= 3){
+          filtered.push(t);
+        }
+      
+      });
       console.log({arr, filtered, disabledTimes});
-      return filtered.filter((h, index) => index < 3);
+      return filtered;
   }
 
   //console.log({freeDaysPerDr, daysToFilter: Array.from(daysToFilter)})
@@ -245,6 +253,7 @@ const Booking = () => {
 
       <div className="row ms-4 me-4">
         {step === 1 && <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 col-md">
+        <div className="d-flex flex-column flex-wrap justify-content-center m-5">
           <label>Select date:</label>
           <DatePicker
             selected={selectedDay}
@@ -260,6 +269,7 @@ const Booking = () => {
               }
             ]}
           />
+          </div>
 
           <div className="d-flex flex-column flex-wrap justify-content-center m-5" style={{ minWidth: '20rem' }}>
           <label>Select time:</label>
@@ -267,7 +277,8 @@ const Booking = () => {
               return (
                 <button key={t}
                   type="button"
-                  className={`btn custom-button m-2`}
+                  disabled={disabledTimes.includes(t)}
+                  className={`btn ${!disabledTimes.includes(t) ? 'custom-button' : '' } m-2`}
                   onClick={() => handleTimeButtonClick(t)}
                   style={selectedTime === t ? {
                     backgroundColor: 'green',
