@@ -57,6 +57,7 @@ const Booking = () => {
 
   useEffect(() => {
     setSelectedDate(currentInitDate);
+    dayWasSelected.current = false;
   }, [step])
 
   const generateTimeButtons = (step, minHour, minMinutes, maxHour, maxMinutes, qty) => {
