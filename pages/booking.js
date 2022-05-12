@@ -16,7 +16,6 @@ import styles from "../styles/Booking.module.css";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-const daysToFilter = new Set();
 
 const Booking = () => {
   const currentInitDate = new Date()
@@ -34,6 +33,7 @@ const Booking = () => {
   const [freeDaysPerDr, setFreeDaysPerDr] = useState([]);
 
   const addEventData = useRef({});
+  const dayWasSelected = useRef(false);
 
   const {state, dispatch} = useContext(Ctx);
 
@@ -45,14 +45,13 @@ const Booking = () => {
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
         const { bookedHoursPerDay, freeDays } = processEvents(eventsBySelectedDr);
-        console.log({ freeDays, eventsBySelectedDr, res })
         setEvents(bookedHoursPerDay);
         setFreeDaysPerDr(freeDays);
         const arr = bookedHoursPerDay?.filter(event => event.start.substring(0, 10) === selectedDate.toISOString().substring(0, 10));
         getDisabledTimes(arr);
         setLoading(false)
       })
-      setSelectedDay(currentInitDate);
+      //setSelectedDay(currentInitDate);
     }
   }, [selectedDate, step])
 
@@ -96,6 +95,7 @@ const Booking = () => {
   }
 
   const handleSelectedDay = (date) => {
+    if(!dayWasSelected.current)dayWasSelected.current = true;
     setSelectedDay(date);
     const arr = filterEventsByDate(events, date);
     setSelectedEvents(arr);
@@ -104,6 +104,16 @@ const Booking = () => {
   }
 
   const handleTimeButtonClick = (time) => {
+    if(!dayWasSelected.current){
+      console.log(dayWasSelected.current);
+      dispatch({type: 'SET_TOAST', toast: {
+        showToast: true,
+        type: 'danger',
+        headerText: 'Error.',
+        bodyText: `Please confirm the date in calendar first.`
+      }})
+      return;
+    }
     setSelectedTime(time);
     const date = selectedDay.toISOString('ro-RO', { timeZone: 'UTC' });
     const minDate = date.split('T')[0] + 'T' + time + ':00';
@@ -202,7 +212,6 @@ const Booking = () => {
         }
       
       });
-      console.log({arr, filtered, disabledTimes});
       return filtered;
   }
 
@@ -227,11 +236,11 @@ const Booking = () => {
           Go back
         </Button>
         <div>
-          {`${selectedDr?.title ? selectedDr.title : ""} > ${selectedDay ? selectedDay.toISOString().split('T')[0] : ""} > ${selectedTime ? selectedTime : ""}`}</div>
+          {`${selectedDr?.title ? selectedDr.title : ""} > ${(dayWasSelected.current && selectedDay) ? selectedDay.toISOString().split('T')[0] : ""} > ${selectedTime ? selectedTime : ""}`}</div>
       </div>
       }
       {step === 0 && <div className="booking-team-cards-container">
-        {teamCards.map((teamMember, index) => {
+        {teamCards[state.lang].map((teamMember, index) => {
           if (index < 4) {
             return (
               <CustomCard

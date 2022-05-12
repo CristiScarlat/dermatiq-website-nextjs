@@ -7,7 +7,6 @@
     margin: 0;
     align-items: center;
     font-size: 16px;
-    float: right;
     margin-right: 5rem;
   }
 
@@ -18,6 +17,14 @@
   .navbar-mini-main {
       background-color: var(--main-background-color);
       min-height: 2rem;
+      display: flex;
+      justify-content: flex-end;
+  }
+
+  .navbar-mini-main button {
+    border: none;
+    background: transparent;
+    outline: var(--main-background-color);
   }
 
   

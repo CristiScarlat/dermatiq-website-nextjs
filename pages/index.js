@@ -38,7 +38,7 @@ const Home = () => {
         <hr className='sections-separator' />
         <div className='section-title'>Proceduri</div>
         <SlickSlider width='65%'>
-          {serviceCards.map((service, index) => (
+          {serviceCards['ro'].map((service, index) => (
             <CustomCard 
             key={service.img + '-' + index} 
             cardTitle={service.title} 
@@ -59,7 +59,7 @@ const Home = () => {
         <hr className='sections-separator' />
         <div className='section-title'>Rezultate</div>
         <SlickSlider width='65%'>
-          {treatmentCards.map((service, index) => (
+          {treatmentCards['ro'].map((service, index) => (
             <CustomCard 
             key={service.img + '-' + index} 
             cardTitle={service.title} 

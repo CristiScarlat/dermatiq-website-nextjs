@@ -8,7 +8,8 @@ const initialState = {
         type: 'Success',
         headerText: '',
         bodyText: ''
-    }
+    },
+    lang: 'ro'
 }
 
 const Provider = ({children}) => {
@@ -16,7 +17,9 @@ const Provider = ({children}) => {
     const [state, dispatch] = React.useReducer((state, action) => {
         switch (action.type) {
             case "SET_TOAST":
-                return { ...state, toast: action.toast }
+                return { ...state, toast: action.toast };
+            case "SET_LANG":
+                return { ...state, lang: action.lang };
             default:
                 return state;
         }

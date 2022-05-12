@@ -1,22 +1,26 @@
-import { useState } from "react";
+import { useContext } from "react";
 import CustomCard from '../components/CustomCard';
-import { teamCards, aboutTeamDescription } from "../utils/uiConstants";
+import { teamCards, aboutTeamDescription, aboutPageTitle } from "../utils/uiConstants";
 import CustomLinkBtn from "../components/customLinkBtn";
+import { Ctx } from "../context/context";
 
 import styles from "../styles/About.module.css";
 
 const About = () => {
 
+  const ctx = useContext(Ctx);
+  const lang = ctx.state.lang
+
   return (
     <main className={styles['about-main']}>
       <div className="d-flex flex-column align-items-center">
-        <div className='section-title'>Echipa</div>
+        <div className='section-title'>{aboutPageTitle[lang]}</div>
         <hr className='sections-separator' />
       </div>
 
       <div className="d-flex flex-column align-items-center">
         <div className={styles['about-team-description']}>
-          {aboutTeamDescription}
+          {aboutTeamDescription[lang]}
         </div>
         <hr className='sections-separator' />
       </div>
@@ -25,7 +29,7 @@ const About = () => {
       <div className={styles['about-main-container']}>
         <div>
           <div className="booking-team-cards-container">
-            {teamCards.map((service, index) => {
+            {teamCards[lang].map((service, index) => {
               if (index < 4) {
                 return (
                   <CustomCard
@@ -44,7 +48,7 @@ const About = () => {
             })}
           </div>
           <div className="booking-team-cards-container">
-            {teamCards.map((service, index) => {
+            {teamCards[lang].map((service, index) => {
               if (index > 3) {
                 return (
                   <CustomCard
@@ -81,7 +85,6 @@ const About = () => {
               <iframe width="100%" height="400" id="gmap_canvas" src="https://maps.google.com/maps?q=Clinica%20DermatIQ&t=&z=17&ie=UTF8&iwloc=&output=embed" frameBorder="0" scrolling="no" marginHeight="0" marginWidth="0"></iframe>
             </div>
           </div>
-          {/* <DatePicker selected={startDate} onChange={(date) => setStartDate(date)} showTimeSelect inline /> */}
         </div>
       </div>
     </main>

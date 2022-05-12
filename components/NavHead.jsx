@@ -3,15 +3,33 @@ import { useRouter } from 'next/router';
 import { MdPhoneInTalk } from 'react-icons/md';
 import { BsInstagram, BsFacebook } from 'react-icons/bs';
 import Image from 'next/image';
+import { headerLables } from '../utils/uiConstants';
+import { Ctx } from '../context/context';
 import styles from '../styles/NavHead.module.css';
+import { useContext } from 'react';
+import Flags from 'country-flag-icons/react/3x2'
+
+
 
 const NavHead = () => {
     const router = useRouter();
+    const ctx = useContext(Ctx);
+    console.log(ctx)
+
+    const lang = ctx.state.lang
+
+    const handleChangeLanguage = () => {
+        ctx.dispatch({ type: "SET_LANG", lang: lang === 'ro' ? 'en' : 'ro' })
+    }
 
     return (
         <nav
             className={`navbar sticky-top navbar-expand-lg navbar-light d-block pt-0 ${styles['navbar-main']}`}>
             <div className={styles['navbar-mini-main']}>
+                <button onClick={handleChangeLanguage}>
+                    {lang === 'en' && <Flags.GB title="GB" style={{ width: '2rem' }} />}
+                    {lang === 'ro' && <Flags.RO title="RO" style={{ width: '2rem' }} />}
+                </button>
                 <ul className={styles['social-phone']}>
                     <li className="nav-item">
                         <a className="custom-nav-link disabled"><MdPhoneInTalk className="me-1" /> +40 748 015 255</a>
@@ -35,16 +53,16 @@ const NavHead = () => {
                 <div className="me-5 collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="d-flex justify-content-end navbar-nav g-3 me-auto mb-2 mb-lg-0 w-100 fw-bold">
                         <li className="nav-item me-4 li-link">
-                            <Link href="/"><a className={`custom-nav-link text-uppercase ${router.pathname === '/' ? 'active' : ''}`} aria-current="page">Acasa</a></Link>
+                            <Link href="/"><a className={`custom-nav-link text-uppercase ${router.pathname === '/' ? 'active' : ''}`} aria-current="page">{headerLables[lang][0]}</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
-                            <Link href="/about"><a className={`custom-nav-link text-uppercase ${router.pathname === '/about' ? 'active' : ''}`}>Despre Noi</a></Link>
+                            <Link href="/about"><a className={`custom-nav-link text-uppercase ${router.pathname === '/about' ? 'active' : ''}`}>{headerLables[lang][1]}</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
-                            <Link href="/services"><a className={`custom-nav-link text-uppercase ${router.pathname === '/services' ? 'active' : ''}`}>Proceduri</a></Link>
+                            <Link href="/services"><a className={`custom-nav-link text-uppercase ${router.pathname === '/services' ? 'active' : ''}`}>{headerLables[lang][2]}</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
-                            <Link href="/gdpr"><a className={`custom-nav-link text-uppercase ${router.pathname === '/gdpr' ? 'active' : ''}`}>GDPR</a></Link>
+                            <Link href="/gdpr"><a className={`custom-nav-link text-uppercase ${router.pathname === '/gdpr' ? 'active' : ''}`}>{headerLables[lang][3]}</a></Link>
                         </li>
                     </ul>
                 </div>
