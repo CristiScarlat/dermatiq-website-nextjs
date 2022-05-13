@@ -27,8 +27,8 @@ const NavHead = () => {
             className={`navbar sticky-top navbar-expand-lg navbar-light d-block pt-0 ${styles['navbar-main']}`}>
             <div className={styles['navbar-mini-main']}>
                 <button onClick={handleChangeLanguage}>
-                    {lang === 'en' && <Flags.GB title="GB" style={{ width: '2rem' }} />}
-                    {lang === 'ro' && <Flags.RO title="RO" style={{ width: '2rem' }} />}
+                    {lang === 'ro' && <Flags.GB title="GB" style={{ width: '2rem' }} />}
+                    {lang === 'en' && <Flags.RO title="RO" style={{ width: '2rem' }} />}
                 </button>
                 <ul className={styles['social-phone']}>
                     <li className="nav-item">

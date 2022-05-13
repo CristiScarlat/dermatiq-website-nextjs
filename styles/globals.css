@@ -57,7 +57,7 @@ a:hover {
 
 .booking-team-custom-card {
   width: 210px;
-  min-height: 25rem;
+  min-height: 26rem;
   box-shadow: 1px 1px 20px 0px var(--box-shadow-color);
 }
 

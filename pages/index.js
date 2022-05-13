@@ -1,9 +1,11 @@
+import { useContext } from 'react';
 import CustomCard from '../components/CustomCard';
-import { serviceCards, treatmentCards } from '../utils/uiConstants';
+import { serviceCards, treatmentCards, mainImageBigText } from '../utils/uiConstants';
 import SlickSlider from '../components/SlickSlider';
 import CustomLinkBtn from "../components/customLinkBtn";
 import { MdLocationOn, MdOutlineMail, MdPhone } from "react-icons/md";
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
+import { Ctx } from "../context/context";
 import styles from '../styles/Home.module.css';
 
 //vogue
@@ -11,6 +13,9 @@ import styles from '../styles/Home.module.css';
 
 const Home = () => {
   const router = useRouter();
+  const ctx = useContext(Ctx);
+
+  const lang = ctx.state.lang;
 
   return (
     <div className={styles.container}>
@@ -22,10 +27,10 @@ const Home = () => {
           backgroundColor: '#f4f7f7'
         }}>
           <div style={{backgroundColor: '#2e050554'}}>
-            <div className={`${styles['home-main-image-big-text']} mt-3`}>Dermatologie</div>
-            <div className={styles['home-main-image-big-text']}>Venerologie</div>
-            <div className={styles['home-main-image-big-text']}>Chirurgie</div>
-            <div className={`${styles['home-main-image-big-text']} mb-5`}>DermatoEstetica</div>
+            <div className={`${styles['home-main-image-big-text']} mt-3`}>{mainImageBigText[lang][0]}</div>
+            <div className={styles['home-main-image-big-text']}>{mainImageBigText[lang][1]}</div>
+            <div className={styles['home-main-image-big-text']}>{mainImageBigText[lang][2]}</div>
+            <div className={`${styles['home-main-image-big-text']} mb-5`}>{mainImageBigText[lang][3]}</div>
 
             <div className={`m-3 ${styles['home-programari-rapide']}`}>
               {/* <div style={{ whiteSpace: 'nowrap' }}>Programari rapide</div>
@@ -36,15 +41,18 @@ const Home = () => {
         </div>
 
         <hr className='sections-separator' />
-        <div className='section-title'>Proceduri</div>
+        <div className='section-title'>
+          {lang === 'ro' && 'Proceduri'}
+          {lang === 'en' && 'Procedures'}
+          </div>
         <SlickSlider width='65%'>
-          {serviceCards['ro'].map((service, index) => (
+          {serviceCards[lang].map((service, index) => (
             <CustomCard 
             key={service.img + '-' + index} 
             cardTitle={service.title} 
             imgSrc={service.img} 
             className={`m-3 ${styles['home-custom-card']}`}
-            buttonLable="Afla mai multe"
+            buttonLable={lang === 'ro' ? "Afla mai multe" : "Read more"}
             cardButtonOnCLick={() => router.push({
               pathname: '/services',
               query: { name: service.title }
@@ -57,15 +65,18 @@ const Home = () => {
         </SlickSlider>
 
         <hr className='sections-separator' />
-        <div className='section-title'>Rezultate</div>
+        <div className='section-title'>
+          {lang === 'ro' && 'Rezultate'}
+          {lang === 'en' && 'Results'}
+        </div>
         <SlickSlider width='65%'>
-          {treatmentCards['ro'].map((service, index) => (
+          {treatmentCards[lang].map((service, index) => (
             <CustomCard 
             key={service.img + '-' + index} 
             cardTitle={service.title} 
             imgSrc={service.img} 
             className={`m-3 ${styles['home-custom-card']}`}
-            buttonLable="Afla mai multe">
+            buttonLable={lang === 'ro' ? "Afla mai multe" : "Read more"}>
               <p className="card-text">
                 {service.body}
               </p>
