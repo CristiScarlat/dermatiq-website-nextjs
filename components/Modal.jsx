@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';
 import ReCAPTCHA from "react-google-recaptcha";
 
@@ -6,6 +6,12 @@ import ReCAPTCHA from "react-google-recaptcha";
 const ModalComponent = ({ title, body, showConfirmationButton = true, showCancelButton = true, onConfirm, onCancel, ...rest }) => {
 
     const [disabledConfirm, setDisabledConfirm] = useState(true);
+
+    useEffect(() => {
+        console.log(rest.show);
+        if(!rest.show)setDisabledConfirm(true);
+    }, [rest.show])
+
     const onCaptchaChange = (e) => {
         if(e){
             setDisabledConfirm(false)

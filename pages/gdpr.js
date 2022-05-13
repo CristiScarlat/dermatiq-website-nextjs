@@ -5,7 +5,7 @@ const GDPR = () => {
     return (
         <>
             <h2 className="m-5 text-center">Politica privind confidențialitatea și securitatea datelor cu caracter personal</h2>
-            <div className="p-5 elementor-text-editor elementor-clearfix">
+            <div className="p-5 gdpr-container">
                 <p>Clinica DermatIQ este dedicată în totalitate protejării confidențialității tuturor datelor cu caracter personal pe care le colectăm, prelucrăm și stocăm.&nbsp;</p>
                 <p>Această Politică privind confidențialitatea și securitatea datelor cu caracter personal vă ajută să înțelegeți:</p>
                 <ol>

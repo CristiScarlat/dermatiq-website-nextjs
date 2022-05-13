@@ -23,12 +23,12 @@ body {
 }
 
 a {
-  color: var(--link-text-color-main)!important;
-  text-decoration: none!important;
+  color: var(--link-text-color-main) !important;
+  text-decoration: none !important;
 }
 
 a:hover {
-  color: var(--link-text-color-main)!important;
+  color: var(--link-text-color-main) !important;
 }
 
 * {
@@ -69,12 +69,18 @@ a:hover {
 }
 
 .custom-button {
-  border-color: var(--big-circle-icons-color)!important;
-  background-color: var(--big-circle-icons-color)!important;
-  color: white!important;
+  border-color: var(--big-circle-icons-color) !important;
+  background-color: var(--big-circle-icons-color) !important;
+  color: white !important;
   font-weight: 600;
 }
 
 .custom-nav-link.active {
-  color: #97a2ad!important
+  color: #97a2ad !important
+}
+
+.gdpr-container strong{
+  font-weight: bolder;
+  background-color: var(--main-header-background-color);
+  padding: 0.5rem;
 }
