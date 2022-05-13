@@ -27,7 +27,7 @@ const ModalComponent = ({ title, body, showConfirmationButton = true, showCancel
             <Modal.Body>
                 <div>{body}</div>
                 <ReCAPTCHA
-                    sitekey="6LddOekfAAAAAMgGqqai8D8CLHAQg0PHDjmBBH4g"
+                    sitekey={process.env.NEXT_PUBLIC_CAPTCHA_KEY}
                     onChange={onCaptchaChange}
                 />
             </Modal.Body>

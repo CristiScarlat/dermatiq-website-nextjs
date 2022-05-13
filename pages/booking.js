@@ -35,7 +35,7 @@ const Booking = () => {
   const addEventData = useRef({});
   const dayWasSelected = useRef(false);
 
-  const {state, dispatch} = useContext(Ctx);
+  const { state, dispatch } = useContext(Ctx);
 
   const timeInterval = 20;
 
@@ -56,8 +56,11 @@ const Booking = () => {
   }, [selectedDate, step])
 
   useEffect(() => {
-    setSelectedDate(currentInitDate);
-    dayWasSelected.current = false;
+    if (step === 0) {
+      setSelectedDate(currentInitDate);
+      setSelectedDay(currentInitDate);
+      dayWasSelected.current = false;
+    }
   }, [step])
 
   const generateTimeButtons = (step, minHour, minMinutes, maxHour, maxMinutes, qty) => {
@@ -76,17 +79,17 @@ const Booking = () => {
   }
 
   const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
-      const busyTimes = [];
+    const busyTimes = [];
 
-      if(disabledTimes.length === 0){
-        busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
-      }
-      else {
-        const afterBusyHour = disabledTimes[0].split(":")[0];
-        const afterBusyMin = disabledTimes[0].split(":")[1];
-        busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), parseInt(afterBusyMin) + step, maxHour, maxMinutes, 3);
-      }
-      return busyTimes;
+    if (disabledTimes.length === 0) {
+      busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
+    }
+    else {
+      const afterBusyHour = disabledTimes[0].split(":")[0];
+      const afterBusyMin = disabledTimes[0].split(":")[1];
+      busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), parseInt(afterBusyMin) + step, maxHour, maxMinutes, 3);
+    }
+    return busyTimes;
   }
 
   const getDisabledTimes = (arrEvents) => {
@@ -96,7 +99,7 @@ const Booking = () => {
   }
 
   const handleSelectedDay = (date) => {
-    if(!dayWasSelected.current)dayWasSelected.current = true;
+    if (!dayWasSelected.current) dayWasSelected.current = true;
     setSelectedDay(date);
     const arr = filterEventsByDate(events, date);
     setSelectedEvents(arr);
@@ -105,14 +108,15 @@ const Booking = () => {
   }
 
   const handleTimeButtonClick = (time) => {
-    if(!dayWasSelected.current){
-      console.log(dayWasSelected.current);
-      dispatch({type: 'SET_TOAST', toast: {
-        showToast: true,
-        type: 'danger',
-        headerText: 'Error.',
-        bodyText: `Please confirm the date in calendar first.`
-      }})
+    if (!dayWasSelected.current) {
+      dispatch({
+        type: 'SET_TOAST', toast: {
+          showToast: true,
+          type: 'danger',
+          headerText: 'Error.',
+          bodyText: `Please confirm the date in calendar first.`
+        }
+      })
       return;
     }
     setSelectedTime(time);
@@ -165,12 +169,14 @@ const Booking = () => {
     setLoading(true)
     addEvent(addEventData.current)
       .then(data => {
-        dispatch({type: 'SET_TOAST', toast: {
-          showToast: true,
-          type: 'success',
-          headerText: 'Saved.',
-          bodyText: `Your appointment in ${new Date(addEventData.current.start.dateTime).toLocaleString()} is successfully saved.`
-        }})
+        dispatch({
+          type: 'SET_TOAST', toast: {
+            showToast: true,
+            type: 'success',
+            headerText: 'Saved.',
+            bodyText: `Your appointment in ${new Date(addEventData.current.start.dateTime).toLocaleString()} is successfully saved.`
+          }
+        })
         setSelectedTime(undefined);
         setStep(0);
         setTimeout(() => {
@@ -202,18 +208,18 @@ const Booking = () => {
   };
 
   const getAvailableHours = () => {
-      const arr = generateTimeButtons(timeInterval, 10, 0, 16, 40);
-      //filter out buzy hours
-      const foundFreeHour = false;
-      const filtered = []
-      arr.forEach(t => {
-        if(!disabledTimes.includes(t) && !foundFreeHour)foundFreeHour = true;
-        if(foundFreeHour && filtered.length <= 3){
-          filtered.push(t);
-        }
-      
-      });
-      return filtered;
+    const arr = generateTimeButtons(timeInterval, 10, 0, 16, 40);
+    //filter out buzy hours
+    const foundFreeHour = false;
+    const filtered = []
+    arr.forEach(t => {
+      if (!disabledTimes.includes(t) && !foundFreeHour) foundFreeHour = true;
+      if (foundFreeHour && filtered.length <= 3) {
+        filtered.push(t);
+      }
+
+    });
+    return filtered;
   }
 
   //console.log({freeDaysPerDr, daysToFilter: Array.from(daysToFilter)})
@@ -263,32 +269,32 @@ const Booking = () => {
 
       <div className="row ms-4 me-4">
         {step === 1 && <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 col-md">
-        <div className="d-flex flex-column flex-wrap justify-content-center m-5">
-          <label>Select date:</label>
-          <DatePicker
-            selected={selectedDay}
-            filterDate={isFiltered}
-            onChange={handleSelectedDay}
-            onMonthChange={(m) => setSelectedDate(m)}
-            inline
-            minDate={new Date()}
-            excludeDates={freeDaysPerDr.map(fd => new Date(fd))}
-            highlightDates={[
-              {
-                "react-datepicker__day--highlighted-custom": events?.map(e => e.start && new Date(e.start))
-              }
-            ]}
-          />
+          <div className="d-flex flex-column flex-wrap justify-content-center m-5">
+            <label>Select date:</label>
+            <DatePicker
+              selected={selectedDay}
+              filterDate={isFiltered}
+              onChange={handleSelectedDay}
+              onMonthChange={(m) => setSelectedDate(m)}
+              inline
+              minDate={new Date()}
+              excludeDates={freeDaysPerDr.map(fd => new Date(fd))}
+              highlightDates={[
+                {
+                  "react-datepicker__day--highlighted-custom": events?.map(e => e.start && new Date(e.start))
+                }
+              ]}
+            />
           </div>
 
           <div className="d-flex flex-column flex-wrap justify-content-center m-5" style={{ minWidth: '20rem' }}>
-          <label>Select time:</label>
+            <label>Select time:</label>
             {getAvailableHours().map(t => {
               return (
                 <button key={t}
                   type="button"
                   disabled={disabledTimes.includes(t)}
-                  className={`btn ${!disabledTimes.includes(t) ? 'custom-button' : '' } m-2`}
+                  className={`btn ${!disabledTimes.includes(t) ? 'custom-button' : ''} m-2`}
                   onClick={() => handleTimeButtonClick(t)}
                   style={selectedTime === t ? {
                     backgroundColor: 'green',
