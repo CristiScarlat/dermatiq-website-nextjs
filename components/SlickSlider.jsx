@@ -43,7 +43,7 @@ function SlickSlider({children, width='100%'}) {
     };
 
     return (
-        <div style={{width, maxWidth: '65rem'}}>
+        <div style={{maxWidth: '65rem'}} className={styles['slick-slide-container']}>
         <Slider {...settings} className={styles['slick-slide-main']}>
             {children}
         </Slider>

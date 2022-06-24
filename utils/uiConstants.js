@@ -386,8 +386,8 @@ export const teamCards = {
 }
 
 export const headerLables = {
-    ro: ['Acasa', 'Despre Noi', 'Proceduri', 'GDPR'],
-    en: ['Home', 'About us', 'Procedures', 'GDPR']
+    ro: ['Acasa', 'Despre Noi', 'Proceduri', 'GDPR', 'Lista Preturi'],
+    en: ['Home', 'About us', 'Procedures', 'GDPR', 'Prices']
 }
 
 export const aboutTeamDescription = {
@@ -403,4 +403,66 @@ export const aboutPageTitle = {
 export const mainImageBigText = {
     ro: ["Dermatologie", "Venerologie", "Chirurgie", "DermatoEstetica"],
     en: ["Dermatology", "Venereology", "Surgery", "DermatoEsthetics"]
+}
+
+export const priceTable = {
+    ro: {
+        tableHeader: ["Servicii Clinica DermatIQ", "Preț"]
+    },
+    en: {
+        tableHeader: ["Servicii Clinica DermatIQ", "Preț"]
+    }
+}
+
+export const prices = {
+    ro: { 
+        "Consult dermatologie": "150 ron", 
+        "Control dermatologie": "100 ron",
+        "Dermatoscopie": "100 ron", 
+        "Analiza lampa wood": "50 ron",
+        "Adeverinta medicala": "50 ron", 
+        "Interventii, Chiuretare leziune": "100 ron",
+        "Electrocauterizare papiloame": "200 ron",
+        "Electrocauterizare condiloame acuminate": "300 ron",
+        "Electrocauterizare veruca/ leziune": "200 ron", 
+        "Excizie chist/ leziune": "500 ron",
+        "Excizie leziune (fara examen histopatologic)": "500 ron",
+        "Extractie chist milium": "100 ron",
+        "Incizie, evacuare, debridare, drenaj": "300 ron", 
+        "Prelevare biopsie": "200 ron",
+        "Tratament unghie incarnata unilateral": "300 ron",
+        "Pansament": "50 ron",
+        "Medicina corectiva si anti-aging - Injectare acid hialuronic/fiola": "280 euro", 
+        "Injectare toxină botulinică": "300 euro",
+        "Mezoterapie (in functie de produs si doza)": "150-300 euro",
+        "Peeling": "300 ron",
+        "PRP 2 fiole": "700 ron",
+        "Sedinta PB Serum": "350 euro",
+        "Lifting cu fire PDO": "400 euro"
+    },
+    en: { 
+        "Consult dermatologie": "150 ron", 
+        "Control dermatologie": "100 ron",
+        "Dermatoscopie": "100 ron", 
+        "Analiza lampa wood": "50 ron",
+        "Adeverinta medicala": "50 ron", 
+        "Interventii, Chiuretare leziune": "100 ron",
+        "Electrocauterizare papiloame": "200 ron",
+        "Electrocauterizare condiloame acuminate": "300 ron",
+        "Electrocauterizare veruca/ leziune": "200 ron", 
+        "Excizie chist/ leziune": "500 ron",
+        "Excizie leziune (fara examen histopatologic)": "500 ron",
+        "Extractie chist milium": "100 ron",
+        "Incizie, evacuare, debridare, drenaj": "300 ron", 
+        "Prelevare biopsie": "200 ron",
+        "Tratament unghie incarnata unilateral": "300 ron",
+        "Pansament": "50 ron",
+        "Medicina corectiva si anti-aging - Injectare acid hialuronic/fiola": "280 euro", 
+        "Injectare toxină botulinică": "300 euro",
+        "Mezoterapie (in functie de produs si doza)": "150-300 euro",
+        "Peeling": "300 ron",
+        "PRP 2 fiole": "700 ron",
+        "Sedinta PB Serum": "350 euro",
+        "Lifting cu fire PDO": "400 euro"
+    }
 }

@@ -16,7 +16,7 @@ const CustomLinkBtn = () => {
                 {lang === 'ro' && "Fă-ți o programare"}
                 {lang === 'en' && "Make an appointment"}
                 </span></Link>
-                <ImArrowRight className="hover-pointer ms-3" />
+                {/* <ImArrowRight className="hover-pointer ms-3" /> */}
         </div>
     )
 }

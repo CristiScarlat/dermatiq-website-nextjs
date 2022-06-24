@@ -7,18 +7,16 @@ import { headerLables } from '../utils/uiConstants';
 import { Ctx } from '../context/context';
 import styles from '../styles/NavHead.module.css';
 import { useContext } from 'react';
-import Flags from 'country-flag-icons/react/3x2'
-
+import Flags from 'country-flag-icons/react/3x2';
 
 
 const NavHead = () => {
     const router = useRouter();
     const ctx = useContext(Ctx);
-    console.log(ctx)
 
     const lang = ctx.state.lang
 
-    const handleChangeLanguage = () => {
+    const  handleChangeLanguage = () => {
         ctx.dispatch({ type: "SET_LANG", lang: lang === 'ro' ? 'en' : 'ro' })
     }
 
@@ -42,8 +40,16 @@ const NavHead = () => {
                     </li>
                 </ul>
             </div>
+
             <div className="container-fluid ps-3 pe-2">
-                <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button 
+                className="navbar-toggler" 
+                type="button" 
+                data-bs-toggle="collapse" 
+                data-bs-target="#navbarSupportedContent" 
+                aria-controls="navbarSupportedContent" 
+                aria-expanded="false" 
+                aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <Link href="/"><a className="navbar-brand">
@@ -62,11 +68,13 @@ const NavHead = () => {
                             <Link href="/services"><a className={`custom-nav-link text-uppercase ${router.pathname === '/services' ? 'active' : ''}`}>{headerLables[lang][2]}</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
+                            <Link href="/prices"><a className={`custom-nav-link text-uppercase ${router.pathname === '/prices' ? 'active' : ''}`}>{headerLables[lang][4]}</a></Link>
+                        </li>
+                        <li className="nav-item me-4 li-link">
                             <Link href="/gdpr"><a className={`custom-nav-link text-uppercase ${router.pathname === '/gdpr' ? 'active' : ''}`}>{headerLables[lang][3]}</a></Link>
                         </li>
                     </ul>
                 </div>
-
             </div>
         </nav>
     )

@@ -13,6 +13,10 @@
     background-color: var(--big-circle-icons-color);
 }
 
+.slick-slide-container {
+    width: 65%;
+}
+
 .booking-button {
     padding: 1rem;
     border: 1px solid #d6d3dc;
@@ -53,4 +57,29 @@
 
 .text-uppercase {
     text-transform: uppercase;
+}
+
+.mobile-nav-container{
+    height: 0;
+    overflow: hidden;
+    transition: height 0.5s ease-out;
+}
+
+.show {
+    height: 100vh;
+}
+
+.mobile-nav-container ul {
+    flex-direction: column;
+    line-height: 2rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .slick-slide-main > button {
+        display: none!important;
+    }
+
+    .slick-slide-container {
+        width: 80%
+    }
 }

@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+@import url("https://use.typekit.net/atw7jti.css");
+
 
 :root {
   --main-header-background-color: #ebeaea;
@@ -18,7 +19,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: adobe-garamond-pro, serif;
+  font-style: normal;                                              
   background-color: var(--main-background-color);
 }
 
@@ -76,11 +78,24 @@ a:hover {
 }
 
 .custom-nav-link.active {
-  color: #97a2ad !important
+  color: #97a2ad !important;
 }
 
-.gdpr-container strong{
+.gdpr-container {
+  background-color: rgb(252, 254, 254);
+  margin: 1rem 2rem;
+  box-shadow: 3px 4px 15px 3px #c6c1c1;
+  border-radius: 4px;
+}
+
+.gdpr-container strong {
   font-weight: bolder;
   background-color: var(--main-header-background-color);
   padding: 0.5rem;
 }
+
+.navbar-collapse {
+  line-height: 3rem;
+  transition: height 0.3s linear;
+}
+

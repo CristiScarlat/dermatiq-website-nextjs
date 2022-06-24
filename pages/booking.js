@@ -59,6 +59,7 @@ const Booking = () => {
     if (step === 0) {
       setSelectedDate(currentInitDate);
       setSelectedDay(currentInitDate);
+      setSelectedTime(undefined);
       dayWasSelected.current = false;
     }
   }, [step])
@@ -78,19 +79,19 @@ const Booking = () => {
     return rc;
   }
 
-  const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
-    const busyTimes = [];
+  // const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
+  //   const busyTimes = [];
 
-    if (disabledTimes.length === 0) {
-      busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
-    }
-    else {
-      const afterBusyHour = disabledTimes[0].split(":")[0];
-      const afterBusyMin = disabledTimes[0].split(":")[1];
-      busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), parseInt(afterBusyMin) + step, maxHour, maxMinutes, 3);
-    }
-    return busyTimes;
-  }
+  //   if (disabledTimes.length === 0) {
+  //     busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
+  //   }
+  //   else {
+  //     const afterBusyHour = disabledTimes[0].split(":")[0];
+  //     const afterBusyMin = disabledTimes[0].split(":")[1];
+  //     busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), parseInt(afterBusyMin) + step, maxHour, maxMinutes, 3);
+  //   }
+  //   return busyTimes;
+  // }
 
   const getDisabledTimes = (arrEvents) => {
     setDisabledTimes([]);
@@ -101,6 +102,10 @@ const Booking = () => {
   const handleSelectedDay = (date) => {
     if (!dayWasSelected.current) dayWasSelected.current = true;
     setSelectedDay(date);
+    if(selectedDate.getMonth() !== date.getMonth()){
+      console.log("different month");
+      setSelectedDate(date);
+    }
     const arr = filterEventsByDate(events, date);
     setSelectedEvents(arr);
     getDisabledTimes(arr);
@@ -214,7 +219,7 @@ const Booking = () => {
     const filtered = []
     arr.forEach(t => {
       if (!disabledTimes.includes(t) && !foundFreeHour) foundFreeHour = true;
-      if (foundFreeHour && filtered.length <= 3) {
+      if (foundFreeHour && filtered.length <= 2) {
         filtered.push(t);
       }
 
