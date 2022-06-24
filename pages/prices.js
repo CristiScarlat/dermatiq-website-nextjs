@@ -14,13 +14,13 @@ const Prices = () => {
         <thead>
           <tr>
             {priceTable[lang].tableHeader.map((hd) => (
-              <th className="m-5">{hd}</th>
+              <th key={hd} className="m-5">{hd}</th>
             ))}
           </tr>
         </thead>
         <tbody>
           {Object.keys(prices[lang]).map((service) => (
-            <tr>
+            <tr key={service}>
               <td className="m-5">{service}</td> 
               <td className={`m-5 ${styles["price-color-font"]}`}>{prices[lang][service]}</td>
             </tr>
