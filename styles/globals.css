@@ -1,5 +1,6 @@
 @import url("https://use.typekit.net/atw7jti.css");
-
+@import "./themeforest-medical-css/default-color.css";
+@import "./themeforest-medical-css/medical-guide.css";
 
 :root {
   --main-header-background-color: #ebeaea;
@@ -7,7 +8,9 @@
   --home-main-image-background-color: #f4f7f7;
   --home-main-image-text-color: #f4f7f7;
   --cards-controls-color: #f78b8c;
-  --big-circle-icons-color: #dfc59d;
+  --buttons-icons-color: #7cbe77;
+  --buttons-icons-color-dark: #075603;
+  --buttons-icons-color-transparent: #009687c7;
   /* --big-circle-icons-color: #8c84d8; */
   --box-shadow-color: #00000069;
   --text-color-main: #616061;
@@ -19,8 +22,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: adobe-garamond-pro, serif;
-  font-style: normal;                                              
+  font-family: GaramondPremierPro, serif!important;
+  font-style: normal;
   background-color: var(--main-background-color);
 }
 
@@ -61,6 +64,9 @@ a:hover {
   width: 210px;
   min-height: 26rem;
   box-shadow: 1px 1px 20px 0px var(--box-shadow-color);
+  background-color: #ebeaea;
+  border: none;
+  color: #2f2f2f;
 }
 
 .booking-team-cards-container {
@@ -71,8 +77,8 @@ a:hover {
 }
 
 .custom-button {
-  border-color: var(--big-circle-icons-color) !important;
-  background-color: var(--big-circle-icons-color) !important;
+  border-color: var(--buttons-icons-color) !important;
+  background-color: var(--buttons-icons-color) !important;
   color: white !important;
   font-weight: 600;
 }
@@ -98,4 +104,3 @@ a:hover {
   line-height: 3rem;
   transition: height 0.3s linear;
 }
-

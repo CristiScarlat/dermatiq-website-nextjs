@@ -103,7 +103,6 @@ const Booking = () => {
     if (!dayWasSelected.current) dayWasSelected.current = true;
     setSelectedDay(date);
     if(selectedDate.getMonth() !== date.getMonth()){
-      console.log("different month");
       setSelectedDate(date);
     }
     const arr = filterEventsByDate(events, date);
@@ -151,7 +150,7 @@ const Booking = () => {
     e.preventDefault();
 
     if (formValidation(e.target)) {
-      //calendar-event-title: nume-pacient/tel-pacient/serviciu/nume-familie-dr/online
+      //calendar-event-title: nume-pacient/tel-pacient/serviciu/nume-de-familie-doctor/online
       const selectedDrSurname = selectedDr?.title?.split(" ").pop();
       addEventData.current.description = e.target[2].value;
       addEventData.current.summary = e.target[0].value + "-" + e.target[1].value + "/" + e.target[3].value + "/" + e.target[4].value + "/" + selectedDrSurname + "/online";
@@ -263,9 +262,9 @@ const Booking = () => {
                 cardButtonOnCLick={() => handleCustomCardButtonOnClick(teamMember)}
                 className="mb-4 booking-team-custom-card"
               >
-                <p className="card-text">
+                <div className="card-text">
                   {teamMember.body}
-                </p>
+                </div>
               </CustomCard >
             )
           }

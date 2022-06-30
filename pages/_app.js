@@ -1,8 +1,8 @@
 import { useEffect, useContext } from "react";
 import Layout from '../components/Layout';
 import Provider from "../context/context";
-import 'bootstrap/dist/css/bootstrap.css';
 import '../styles/globals.css'
+import 'bootstrap/dist/css/bootstrap.css';
 
 function MyApp({ Component, pageProps }) {
 

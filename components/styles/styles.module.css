@@ -1,16 +1,16 @@
 .slick-slide-main > button {
-    background-color: var(--big-circle-icons-color);
+    background-color: var(--buttons-icons-color);
     height: 3rem;
     width: 2rem;
     border-radius: 5px;
 }
 
 .slick-slide-main > button:hover {
-    background-color: var(--big-circle-icons-color);
+    background-color: var(--buttons-icons-color);
 }
 
 .slick-slide-main > button:focus {
-    background-color: var(--big-circle-icons-color);
+    background-color: var(--buttons-icons-color);
 }
 
 .slick-slide-container {
@@ -21,7 +21,8 @@
     padding: 1rem;
     border: 1px solid #d6d3dc;
     border-radius: 5px;
-    background-color: var(--big-circle-icons-color);
+    background: linear-gradient(90deg, var(--buttons-icons-color) 0%, var(--buttons-icons-color-dark) 100%);
+    /* background-color: var(--buttons-icons-color); */
     color: white;
     display: flex;
     align-items: center;
@@ -48,11 +49,12 @@
     position: absolute; 
     bottom: 0;
     width: 100%;
-    border-color: var(--big-circle-icons-color); 
-    background-color: var(--big-circle-icons-color);
+    border-color: var(--buttons-icons-color); 
+    /* background-color: var(--buttons-icons-color); */
     color: white!important;
     font-weight: 600;
     letter-spacing: 1px;
+    background: linear-gradient(90deg, var(--buttons-icons-color) 0%, var(--buttons-icons-color-dark) 100%);
 }
 
 .text-uppercase {

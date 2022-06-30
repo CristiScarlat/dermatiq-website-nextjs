@@ -125,6 +125,7 @@
   font-size: 50px;
   text-shadow: 3px 3px 6px #2c400085;
   width: 100%;
+  border-radius: 5px;
 }
 
 .home-programari-rapide {
@@ -179,7 +180,7 @@
   height: 100px;
   width: 3rem;
   display: block;
-  background: var(--big-circle-icons-color);
+  background: var(--buttons-icons-color);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -187,6 +188,11 @@
 
 .custom-icon-contact svg {
   fill: whitesmoke;
+}
+
+.home-doctors-list {
+  background-color: #4d7e3214;
+  width: 100%;
 }
 
 @media only screen and (max-width: 600px) {

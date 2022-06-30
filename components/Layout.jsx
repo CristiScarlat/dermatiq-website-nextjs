@@ -24,6 +24,7 @@ export default function Layout({ children }) {
             <Head>
                 <title>DermatIQ</title>
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                {/* <link rel="stylesheet" href="https://use.typekit.net/atw7jti.css"></link> */}
             </Head>
             <NavHead />
             <>{children}</>
