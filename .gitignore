@@ -15,7 +15,7 @@
 # production
 /build
 /public
-
+/design
 # misc
 .DS_Store
 *.pem
