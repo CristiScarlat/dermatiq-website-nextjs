@@ -1,18 +1,17 @@
 @import url("https://use.typekit.net/atw7jti.css");
 
-
 :root {
-  --main-header-background-color: #ebeaea;
+  --main-header-background-color: #eebba4;
   --main-background-color: #f5f7f7;
   --home-main-image-background-color: #f4f7f7;
-  --home-main-image-text-color: #f4f7f7;
+  --home-main-image-text-color: #67762e;
   --cards-controls-color: #f78b8c;
-  --big-circle-icons-color: #dfc59d;
+  --big-circle-icons-color: #b14c4d;
   /* --big-circle-icons-color: #8c84d8; */
   --box-shadow-color: #00000069;
   --text-color-main: #616061;
   /* --text-color-main: #555181; */
-  --link-text-color-main: #616061;
+  --link-text-color-main: #f5f7f7;
 }
 
 html,
@@ -20,12 +19,12 @@ body {
   padding: 0;
   margin: 0;
   font-family: adobe-garamond-pro, serif;
-  font-style: normal;                                              
+  font-style: normal;
   background-color: var(--main-background-color);
 }
 
 a {
-  color: var(--link-text-color-main) !important;
+  color: var(--link-text-color-main);
   text-decoration: none !important;
 }
 
@@ -39,7 +38,7 @@ a:hover {
 
 .section-title {
   font-size: 24px;
-  color: var(--text-color-main);
+  color: var(--home-main-image-text-color);
   font-weight: 600;
 }
 
@@ -47,6 +46,13 @@ a:hover {
   border: 1px solid #796588;
   margin: 3rem 0;
   width: 100%;
+}
+
+.section-procesures {
+  display: flex;
+  width: 95%;
+  flex-wrap: nowrap;
+  overflow-x: auto;
 }
 
 .hover-pointer:hover {
@@ -77,15 +83,29 @@ a:hover {
   font-weight: 600;
 }
 
+.custom-button:hover {
+  background-color: var(--cards-controls-color) !important;
+}
+
+.custom-button.btn-circle {
+  border-radius: 50%;
+  width: 5rem;
+  height: 5rem;
+  font-size: 18px;
+}
+
 .custom-nav-link.active {
-  color: #97a2ad !important;
+  color: var(--home-main-image-text-color);
+}
+.custom-nav-link:hover {
+  color: var(--home-main-image-text-color) !important;
 }
 
 .gdpr-container {
-  background-color: rgb(252, 254, 254);
+  background-color: rgb(245 247 247);
   margin: 1rem 2rem;
-  box-shadow: 3px 4px 15px 3px #c6c1c1;
-  border-radius: 4px;
+  /* box-shadow: 3px 4px 15px 3px #c6c1c1; */
+  /* border-radius: 4px; */
 }
 
 .gdpr-container strong {
@@ -98,4 +118,3 @@ a:hover {
   line-height: 3rem;
   transition: height 0.3s linear;
 }
-

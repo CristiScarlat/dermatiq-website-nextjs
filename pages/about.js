@@ -5,6 +5,7 @@ import CustomLinkBtn from "../components/customLinkBtn";
 import { Ctx } from "../context/context";
 
 import styles from "../styles/About.module.css";
+import homeStyles from "../styles/Home.module.css";
 
 const About = () => {
 
@@ -26,7 +27,7 @@ const About = () => {
       </div>
 
 
-      <div className={styles['about-main-container']}>
+      <div>
         <div>
           <div className="booking-team-cards-container">
             {teamCards[lang].map((service, index) => {
@@ -37,7 +38,9 @@ const About = () => {
                     cardTitle={service.title}
                     imgSrc={service.img}
                     showButton={false}
-                    className="mb-4 booking-team-custom-card"
+                    className={`m-3 ${homeStyles["home-custom-card"]}`}
+                    maxWidth="15rem"
+                    minHeight="25rem"
                   >
                     <p className="card-text">
                       {service.body}
@@ -56,7 +59,9 @@ const About = () => {
                     cardTitle={service.title}
                     imgSrc={service.img}
                     showButton={false}
-                    className="booking-team-custom-card"
+                    className={`m-3 ${homeStyles["home-custom-card"]}`}
+                    maxWidth="15rem"
+                    minHeight="25rem"
                   >
                     <p className="card-text">
                       {service.body}

@@ -24,16 +24,17 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <main className={styles["home-main"]}>
-        <div
-          className={`${styles["head-contact-phone"]}`}
-          style={{
-            background: `url(/home-image-v2.jpg)`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundColor: "#f4f7f7",
-          }}
+        <div className="d-flex justify-content-around align-items-center flex-wrap"
+          // className={`${styles["head-contact-phone"]}`}
+          // style={{
+          //   background: `url(/home-image-v2.jpg)`,
+          //   backgroundRepeat: "no-repeat",
+          //   backgroundSize: "cover",
+          //   backgroundColor: "#f4f7f7",
+          // }}
         >
-          <div style={{ backgroundColor: "#2e050554" }}>
+          <img src="/home-image-v2-sqr.jpg" alt="..." width="50%" style={{borderRadius: "50%"}}/>
+          <div style={{fontSize: 42, textAlign: "right"}}>
             <div className={`${styles["home-main-image-big-text"]} mt-3`}>
               {mainImageBigText[lang][0]}
             </div>
@@ -47,10 +48,10 @@ const Home = () => {
               {mainImageBigText[lang][3]}
             </div>
 
-            <div className={`m-3 ${styles["home-programari-rapide"]}`}>
+            <div className={`mt-3 mb-3 ms-5 me-5 ${styles["home-programari-rapide"]}`}>
               {/* <div style={{ whiteSpace: 'nowrap' }}>Programari rapide</div>
               <div style={{ whiteSpace: 'nowrap', marginBottom: '1rem' }}>+40 748 015 255</div> */}
-              <CustomLinkBtn />
+              <CustomLinkBtn/>
             </div>
           </div>
         </div>
