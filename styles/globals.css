@@ -27,6 +27,10 @@ body {
   background-color: var(--main-background-color);
 }
 
+.blue-gradient-background {
+  background: linear-gradient(180deg, var(--buttons-icons-color-transparent) 0%, #02adc6 100%);
+}
+
 a {
   color: var(--link-text-color-main) !important;
   text-decoration: none !important;

@@ -10,7 +10,7 @@ const CustomLinkBtn = () => {
     const lang = ctx.state.lang;
     
     return (
-        <div className={styles['booking-button']}>
+        <div className={`${styles['booking-button']}  blue-gradient-background`}>
             <ImCalendar className="me-2" />
             <Link href="/booking" passHref><span style={{color: 'white', cursor: 'pointer'}}>
                 {lang === 'ro' && "Fă-ți o programare"}

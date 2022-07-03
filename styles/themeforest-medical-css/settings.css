@@ -62,7 +62,7 @@ text-shadow:none;
 font-size:60px;
 line-height:60px;
 font-weight:300;
-font-family:"Open Sans", sans-serif;
+
 background-color:transparent;
 text-decoration:none;
 text-transform:uppercase;
@@ -93,7 +93,7 @@ text-shadow:none;
 font-size:37px;
 line-height:37px;
 font-weight:300;
-font-family:"Open Sans", sans-serif;
+
 background-color:transparent;
 text-decoration:none;
 text-transform:uppercase;
@@ -107,7 +107,7 @@ border-style:none;
 font-size:25px;
 line-height:25px;
 font-weight:800;
-font-family:"Open Sans", sans-serif;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -140,7 +140,7 @@ text-shadow:none;
 font-size:25px;
 line-height:25px;
 font-weight:300;
-font-family:"Open Sans", sans-serif;
+
 background-color:transparent;
 text-decoration:none;
 text-transform:uppercase;
@@ -154,7 +154,7 @@ border-style:none;
 font-size:13px;
 line-height:25px;
 font-weight:400;
-font-family:"Open Sans", sans-serif;
+
 color:#ffffff;
 text-decoration:none;
 background-color:transparent;
@@ -187,7 +187,7 @@ text-shadow: none;
 font-size: 60px;
 line-height: 60px;
 font-weight: 300;
-font-family: "Open Sans", sans-serif;
+
 background-color: rgba(0, 0, 0, 0);
 text-decoration: none;
 text-transform: uppercase;
@@ -203,7 +203,7 @@ text-shadow: none;
 font-size: 34px;
 line-height: 34px;
 font-weight: 300;
-font-family: "Open Sans", sans-serif;
+
 background-color: rgba(0, 0, 0, 0);
 text-decoration: none;
 text-transform: uppercase;
@@ -219,7 +219,7 @@ color:rgb(223,75,107);
 font-weight:400;
 font-size:150px;
 line-height:130px;
-font-family: 'Oswald', sans-serif;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -234,7 +234,7 @@ color:rgb(251,213,114);
 font-weight:600;
 font-size:50px;
 line-height:50px;
-font-family: 'Open Sans', sans-serif;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -247,7 +247,7 @@ color:rgb(251,213,114);
 font-weight:300;
 font-size:90px;
 line-height:90px;
-font-family: 'Open Sans', sans-serif;
+
 margin:0px;
 letter-spacing: 20px;
 border-width:0px;
@@ -261,7 +261,7 @@ color:#333;
 font-weight:700;
 font-size:70px;
 line-height:70px;
-font-family:"Open Sans";
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -274,7 +274,7 @@ color:#333;
 font-weight:300;
 font-size:40px;
 line-height:40px;
-font-family:"Open Sans";
+
 margin:0px;
 letter-spacing: 5px;
 border-width:0px;
@@ -290,7 +290,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:20px;
 line-height:20px;
-font-family:Arial;
+
 padding:2px 4px;
 margin:0px;
 border-width:0px;
@@ -306,7 +306,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:14px;
 line-height:20px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -320,7 +320,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:20px;
 line-height:20px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -332,7 +332,7 @@ white-space:nowrap;
 font-size:55px;
 line-height:65px;
 font-weight:700;
-font-family:"Open Sans";
+
 color:#fff;
 text-decoration:none;
 background-color:transparent;
@@ -347,7 +347,7 @@ border-style:none;
 font-size:25px;
 line-height:25px;
 font-weight:600;
-font-family:"Open Sans";
+
 color:#fff;
 text-decoration:none;
 background-color:transparent;
@@ -365,7 +365,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:40px;
 line-height:40px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -376,7 +376,7 @@ white-space:nowrap;
 font-size:30px;
 line-height:30px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(102, 102, 102);
 text-decoration:none;
 background-color:transparent;
@@ -395,7 +395,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:60px;
 line-height:60px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -410,7 +410,7 @@ text-shadow:none;
 font-weight:800;
 font-size:60px;
 line-height:60px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -427,7 +427,7 @@ text-shadow:none;
 font-weight:700;
 font-size:60px;
 line-height:60px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -444,7 +444,7 @@ text-shadow:none;
 font-weight:800;
 font-size:24px;
 line-height:20px;
-font-family:"Open Sans", sans-serif;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -458,7 +458,7 @@ text-shadow:none;
 font-weight:800;
 font-size:24px;
 line-height:20px;
-font-family:"Open Sans", sans-serif;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -472,7 +472,7 @@ text-shadow:none;
 font-weight:300;
 font-size:24px;
 line-height:20px;
-font-family:"Open Sans", sans-serif;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -486,7 +486,7 @@ text-shadow:none;
 font-weight:800;
 font-size:30px;
 line-height:36px;
-font-family:"Open Sans", sans-serif;
+
 padding:3px 10px;
 margin:0px;
 border-width:0px;
@@ -502,7 +502,7 @@ text-shadow:none;
 font-weight:300;
 font-size:30px;
 line-height:36px;
-font-family:"Open Sans", sans-serif;
+
 padding:3px 10px;
 padding-top:1px;
 margin:0px;
@@ -518,7 +518,7 @@ color:#555;
 text-shadow:none;
 font-size:14px;
 line-height:22px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -560,7 +560,7 @@ text-shadow:none;
 font-weight:300;
 font-size:30px;
 line-height:30px;
-font-family:"Open Sans";
+
 background-color:transparent;
 }
 
@@ -571,7 +571,7 @@ text-shadow:none;
 font-weight:300;
 font-size:16px;
 line-height:26px;
-font-family:"Open Sans";
+
 background-color:transparent;
 }
 
@@ -589,7 +589,7 @@ background-color:transparent;
 font-size:30px;
 line-height:75px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(0, 0, 0);
@@ -606,7 +606,7 @@ border-style:none;
 font-size:50px;
 line-height:70px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(0, 0, 0);
@@ -624,7 +624,7 @@ text-shadow:none;
 font-weight:300;
 font-size:50px;
 line-height:70px;
-font-family:"Open Sans";
+
 background-color:#db4360;
 padding:0px 20px;
 -webkit-border-radius:0px;
@@ -639,7 +639,7 @@ text-shadow:none;
 font-weight:300;
 font-size:50px;
 line-height:70px;
-font-family:"Open Sans";
+
 background-color:#fff;
 padding:0px 20px;
 -webkit-border-radius:0px;
@@ -654,7 +654,7 @@ text-shadow:none;
 font-weight:300;
 font-size:50px;
 line-height:70px;
-font-family:"Open Sans";
+
 background-color:#67ae73;
 padding:0px 20px;
 -webkit-border-radius:0px;
@@ -666,7 +666,7 @@ border-radius:0px;
 font-size:36px;
 line-height:36px;
 font-weight:700;
-font-family:Arial;
+
 color:#ffffff;
 text-decoration:none;
 background-color:rgba(0, 0, 0, 1);
@@ -686,7 +686,7 @@ border-style:none;
 font-size:60px;
 line-height:60px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(102, 102, 102);
 text-decoration:none;
 background-color:transparent;
@@ -702,7 +702,7 @@ border-style:none;
 font-size:34px;
 line-height:30px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(102, 102, 102);
 text-decoration:none;
 background-color:transparent;
@@ -718,7 +718,7 @@ border-style:none;
 font-size:18px;
 line-height:26px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(117, 117, 117);
 text-decoration:none;
 background-color:transparent;
@@ -746,7 +746,7 @@ border-style:none;
 font-size:58px;
 line-height:60px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(52, 73, 94);
 text-decoration:none;
 background-color:transparent;
@@ -759,7 +759,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(52, 73, 94);
@@ -773,7 +773,7 @@ border-style:none;
 font-size:24px;
 line-height:30px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(227, 58, 12);
 text-decoration:none;
 background-color:transparent;
@@ -787,7 +787,7 @@ border-style:none;
 font-size:21px;
 line-height:26px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(227, 58, 12);
 text-decoration:none;
 background-color:transparent;
@@ -801,7 +801,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(227, 58, 12);
@@ -815,7 +815,7 @@ border-style:none;
 font-size:24px;
 line-height:30px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(243, 156, 18);
 text-decoration:none;
 background-color:transparent;
@@ -828,7 +828,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(243, 156, 18);
@@ -852,7 +852,7 @@ border-style:none;
 font-size:58px;
 line-height:60px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -865,7 +865,7 @@ border-style:none;
 font-size:30px;
 line-height:36px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -879,7 +879,7 @@ border-style:none;
 font-size:34px;
 line-height:40px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -893,7 +893,7 @@ border-style:none;
 font-size:34px;
 line-height:40px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:#ffffff;
 text-decoration:none;
 background-color:transparent;
@@ -908,7 +908,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(127, 140, 141);
@@ -922,7 +922,7 @@ border-style:none;
 font-size:30px;
 line-height:36px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:transparent;
@@ -936,7 +936,7 @@ border-style:none;
 font-size:58px;
 line-height:60px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:transparent;
@@ -949,7 +949,7 @@ border-style:none;
 font-size:34px;
 line-height:40px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(52, 73, 94);
 text-decoration:none;
 background-color:transparent;
@@ -963,7 +963,7 @@ border-style:none;
 font-size:17px;
 line-height:28px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -983,7 +983,7 @@ border-style:none;
 font-size:40px;
 line-height:40px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(0, 0, 0);
@@ -997,7 +997,7 @@ border-style:none;
 font-size:30px;
 line-height:30px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:rgb(255, 255, 255);
@@ -1012,7 +1012,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(243, 156, 18);
@@ -1036,7 +1036,6 @@ border-style:none;
 		font-weight: 300;
 		font-size: 19px;
 		line-height: 19px;
-		font-family: 'Open Sans', sans;
 	}
 
 .tp-caption.noshadow {
@@ -1099,7 +1098,7 @@ border-style:none;
 .tp-simpleresponsive .button				{	padding:6px 13px 5px; border-radius: 3px; -moz-border-radius: 3px; -webkit-border-radius: 3px; height:30px;
 												cursor:pointer;
 												color:#fff !important; text-shadow:0px 1px 1px rgba(0, 0, 0, 0.6) !important; font-size:15px; line-height:45px !important;
-												background:url(../images/gradient/g30.png) repeat-x top; font-family: arial, sans-serif; font-weight: bold; letter-spacing: -1px;
+												background:url(../images/gradient/g30.png) repeat-x top; font-weight: bold; letter-spacing: -1px;
 											}
 
 .tp-simpleresponsive  .button.big			{	color:#fff; text-shadow:0px 1px 1px rgba(0, 0, 0, 0.6); font-weight:bold; padding:9px 20px; font-size:19px;  line-height:57px !important; background:url(../images/gradient/g40.png) repeat-x top}
@@ -1569,7 +1568,7 @@ border-style:none;
 
 /* NAVIGATION PREVIEW 1 */
 .tparrows.preview1 							{	width:100px;height:100px;-webkit-transform-style: preserve-3d; -webkit-perspective: 1000; -moz-perspective: 1000; -webkit-backface-visibility: hidden; -moz-backface-visibility: hidden;background: transparent}
-.tparrows.preview1:after					{	position:absolute; left:0px;top:0px; font-family: "revicons"; color:#fff; font-size:30px; width:100px;height:100px;text-align: center; background:#fff;background:rgba(0,0,0,0.15);z-index:2;line-height:100px; -webkit-transition: background 0.3s, color 0.3s; -moz-transition: background 0.3s, color 0.3s; transition: background 0.3s, color 0.3s}
+.tparrows.preview1:after					{	position:absolute; left:0px;top:0px; color:#fff; font-size:30px; width:100px;height:100px;text-align: center; background:#fff;background:rgba(0,0,0,0.15);z-index:2;line-height:100px; -webkit-transition: background 0.3s, color 0.3s; -moz-transition: background 0.3s, color 0.3s; transition: background 0.3s, color 0.3s}
 .tp-rightarrow.preview1:after				{	content: '\e825';  }
 .tp-leftarrow.preview1:after				{	content: '\e824';  }
 
@@ -1685,7 +1684,7 @@ border-style:none;
 												transition: width 0.3s, background-color 0.3s, opacity 0.3s;
 												backface-visibility: hidden;
 }
-.tparrows.preview2:after					{	position:absolute; top:50%; font-family: "revicons"; color:#aaa; font-size:25px; margin-top: -12px; -webkit-transition: color 0.3s; -moz-transition: color 0.3s; transition: color 0.3s }
+.tparrows.preview2:after					{	position:absolute; top:50%; color:#aaa; font-size:25px; margin-top: -12px; -webkit-transition: color 0.3s; -moz-transition: color 0.3s; transition: color 0.3s }
 .tp-rightarrow.preview2:after				{	content: '\e81e';  right:18px}
 .tp-leftarrow.preview2:after				{	content: '\e81f';  left:18px}
 
@@ -1767,7 +1766,7 @@ border-style:none;
 		.tparrows.preview2 {	min-width:40px; min-height:40px; width:40px;height:40px;
 								border-radius:20px;-moz-border-radius:20px;-webkit-border-radius:20px;
 							}
-		.tparrows.preview2:after					{	position:absolute; top:50%; font-family: "revicons"; font-size:20px; margin-top: -12px}
+		.tparrows.preview2:after					{	position:absolute; top:50%; font-size:20px; margin-top: -12px}
 		.tp-rightarrow.preview2:after				{	content: '\e81e';  right:11px}
 		.tp-leftarrow.preview2:after				{	content: '\e81f';  left:11px}
 		.tparrows.preview2 .tp-arr-titleholder		{	font-size:12px; line-height:40px; letter-spacing: 0px}
@@ -1780,7 +1779,7 @@ border-style:none;
    		 .tparrows.preview2 						{	min-width:30px; min-height:30px; width:30px;height:30px;
 														border-radius:15px;-moz-border-radius:15px;-webkit-border-radius:15px;
 													}
-		.tparrows.preview2:after					{	position:absolute; top:50%; font-family: "revicons"; font-size:14px; margin-top: -12px}
+		.tparrows.preview2:after					{	position:absolute; top:50%; font-size:14px; margin-top: -12px}
 		.tp-rightarrow.preview2:after				{	content: '\e81e';  right:8px}
 		.tp-leftarrow.preview2:after				{	content: '\e81f';  left:8px}
 		.tparrows.preview2 .tp-arr-titleholder		{	font-size:10px; line-height:30px; letter-spacing: 0px}
@@ -1795,7 +1794,7 @@ border-style:none;
 		.tparrows.preview2 							{	min-width:30px; min-height:30px; width:30px;height:30px;
 														border-radius:15px;-moz-border-radius:15px;-webkit-border-radius:15px;
 													}
-		.tparrows.preview2:after					{	position:absolute; top:50%; font-family: "revicons"; font-size:14px; margin-top: -12px}
+		.tparrows.preview2:after					{	position:absolute; top:50%; font-size:14px; margin-top: -12px}
 		.tp-rightarrow.preview2:after				{	content: '\e81e';  right:8px}
 		.tp-leftarrow.preview2:after				{	content: '\e81f';  left:8px}
 		.tparrows.preview2 .tp-arr-titleholder		{	display:none;visibility:none}
@@ -1806,7 +1805,7 @@ border-style:none;
 
 /* NAVIGATION PREVIEW 3 */
 .tparrows.preview3 							{	width:70px; height:70px; background:#fff; background:rgba(255,255,255,1); -webkit-transform-style: flat}
-.tparrows.preview3:after					{	position:absolute;  line-height: 70px;text-align: center; font-family: "revicons"; color:#aaa; font-size:30px; top:0px;left:0px;;background:#fff; z-index:100; width:70px;height:70px; -webkit-transition: color 0.3s; -moz-transition: color 0.3s; transition: color 0.3s}
+.tparrows.preview3:after					{	position:absolute;  line-height: 70px;text-align: center;color:#aaa; font-size:30px; top:0px;left:0px;;background:#fff; z-index:100; width:70px;height:70px; -webkit-transition: color 0.3s; -moz-transition: color 0.3s; transition: color 0.3s}
 .tparrows.preview3:hover:after					{	color:#000}
 .tp-rightarrow.preview3:after				{	content: '\e825';  }
 .tp-leftarrow.preview3:after				{	content: '\e824';  }
@@ -1905,7 +1904,7 @@ border-style:none;
 
 /* NAVIGATION PREVIEW 4 */
 .tparrows.preview4 							{	width:30px; height:110px;  background:transparent;-webkit-transform-style: preserve-3d; -webkit-perspective: 1000; -moz-perspective: 1000}
-.tparrows.preview4:after					{	position:absolute;  line-height: 110px;text-align: center; font-family: "revicons"; color:#fff; font-size:20px; top:0px;left:0px;z-index:0; width:30px;height:110px; background: #000; background: rgba(0,0,0,0.25);
+.tparrows.preview4:after					{	position:absolute;  line-height: 110px;text-align: center;color:#fff; font-size:20px; top:0px;left:0px;z-index:0; width:30px;height:110px; background: #000; background: rgba(0,0,0,0.25);
 												-webkit-transition: all 0.2s ease-in-out;
 											    -moz-transition: all 0.2s ease-in-out;
 											    -o-transition: all 0.2s ease-in-out;
@@ -2259,7 +2258,7 @@ zoom: 1;
 }
 
 
-@font-face {
+/* @font-face {
   font-family: 'revicons';
   src: url('../font/revicons.eot?5510888');
   src: url('../font/revicons.eot?5510888#iefix') format('embedded-opentype'),
@@ -2268,7 +2267,7 @@ zoom: 1;
        url('../font/revicons.svg?5510888#revicons') format('svg');
   font-weight: normal;
   font-style: normal;
-}
+} */
 /* Chrome hack: SVG is rendered more smooth in Windozze. 100% magic, uncomment if you need it. */
 /* Note, that will break hinting! In other OS-es font will be not as sharp as it could be */
 /*

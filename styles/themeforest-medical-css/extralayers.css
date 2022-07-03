@@ -26,7 +26,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:20px;
 line-height:20px;
-font-family:Arial;
+
 padding:2px 4px;
 margin:0px;
 border-width:0px;
@@ -42,7 +42,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:14px;
 line-height:20px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -56,7 +56,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:20px;
 line-height:20px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -70,7 +70,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:40px;
 line-height:40px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -84,7 +84,7 @@ text-shadow:0px 2px 5px rgba(0, 0, 0, 0.5);
 font-weight:700;
 font-size:60px;
 line-height:60px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -99,7 +99,7 @@ text-shadow:none;
 font-weight:800;
 font-size:60px;
 line-height:60px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -116,7 +116,7 @@ text-shadow:none;
 font-weight:700;
 font-size:60px;
 line-height:60px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -133,7 +133,7 @@ text-shadow:none;
 font-weight:800;
 font-size:24px;
 line-height:20px;
-font-family:"Open Sans", sans-serif;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -147,7 +147,7 @@ text-shadow:none;
 font-weight:800;
 font-size:24px;
 line-height:20px;
-font-family:"Open Sans", sans-serif;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -161,7 +161,7 @@ text-shadow:none;
 font-weight:300;
 font-size:24px;
 line-height:20px;
-font-family:"Open Sans", sans-serif;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -175,7 +175,7 @@ text-shadow:none;
 font-weight:800;
 font-size:30px;
 line-height:36px;
-font-family:"Open Sans", sans-serif;
+
 padding:3px 10px;
 margin:0px;
 border-width:0px;
@@ -191,7 +191,7 @@ text-shadow:none;
 font-weight:300;
 font-size:30px;
 line-height:36px;
-font-family:"Open Sans", sans-serif;
+
 padding:3px 10px;
 padding-top:1px;
 margin:0px;
@@ -207,7 +207,7 @@ color:#555;
 text-shadow:none;
 font-size:14px;
 line-height:22px;
-font-family:Arial;
+
 margin:0px;
 border-width:0px;
 border-style:none;
@@ -236,7 +236,7 @@ text-shadow:none;
 font-weight:300;
 font-size:30px;
 line-height:30px;
-font-family:"Open Sans";
+
 background-color:transparent;
 }
 
@@ -247,7 +247,7 @@ text-shadow:none;
 font-weight:300;
 font-size:16px;
 line-height:26px;
-font-family:"Open Sans";
+
 background-color:transparent;
 }
 
@@ -258,7 +258,7 @@ text-shadow:none;
 font-weight:300;
 font-size:50px;
 line-height:70px;
-font-family:"Open Sans";
+
 background-color:#000;
 padding:0px 20px;
 -webkit-border-radius:0px;
@@ -273,7 +273,7 @@ text-shadow:none;
 font-weight:300;
 font-size:50px;
 line-height:70px;
-font-family:"Open Sans";
+
 background-color:#db4360;
 padding:0px 20px;
 -webkit-border-radius:0px;
@@ -288,7 +288,7 @@ text-shadow:none;
 font-weight:300;
 font-size:50px;
 line-height:70px;
-font-family:"Open Sans";
+
 background-color:#fff;
 padding:0px 20px;
 -webkit-border-radius:0px;
@@ -303,7 +303,7 @@ text-shadow:none;
 font-weight:300;
 font-size:50px;
 line-height:70px;
-font-family:"Open Sans";
+
 background-color:#67ae73;
 padding:0px 20px;
 -webkit-border-radius:0px;
@@ -315,7 +315,7 @@ border-radius:0px;
 font-size:36px;
 line-height:36px;
 font-weight:700;
-font-family:Arial;
+
 color:#ffffff;
 text-decoration:none;
 background-color:rgba(0, 0, 0, 1);
@@ -335,7 +335,7 @@ border-style:none;
 font-size:60px;
 line-height:60px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(102, 102, 102);
 text-decoration:none;
 background-color:transparent;
@@ -351,7 +351,7 @@ border-style:none;
 font-size:34px;
 line-height:30px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(102, 102, 102);
 text-decoration:none;
 background-color:transparent;
@@ -367,7 +367,7 @@ border-style:none;
 font-size:18px;
 line-height:26px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(117, 117, 117);
 text-decoration:none;
 background-color:transparent;
@@ -395,7 +395,7 @@ border-style:none;
 font-size:58px;
 line-height:60px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(52, 73, 94);
 text-decoration:none;
 background-color:transparent;
@@ -408,7 +408,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(52, 73, 94);
@@ -422,7 +422,7 @@ border-style:none;
 font-size:24px;
 line-height:30px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(227, 58, 12);
 text-decoration:none;
 background-color:transparent;
@@ -436,7 +436,7 @@ border-style:none;
 font-size:21px;
 line-height:26px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(227, 58, 12);
 text-decoration:none;
 background-color:transparent;
@@ -450,7 +450,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(227, 58, 12);
@@ -464,7 +464,7 @@ border-style:none;
 font-size:24px;
 line-height:30px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(243, 156, 18);
 text-decoration:none;
 background-color:transparent;
@@ -477,7 +477,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(243, 156, 18);
@@ -501,7 +501,7 @@ border-style:none;
 font-size:58px;
 line-height:60px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -514,7 +514,7 @@ border-style:none;
 font-size:30px;
 line-height:36px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -528,7 +528,7 @@ border-style:none;
 font-size:34px;
 line-height:40px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -542,7 +542,7 @@ border-style:none;
 font-size:34px;
 line-height:40px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:#ffffff;
 text-decoration:none;
 background-color:transparent;
@@ -557,7 +557,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(127, 140, 141);
@@ -571,7 +571,7 @@ border-style:none;
 font-size:30px;
 line-height:36px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:transparent;
@@ -585,7 +585,7 @@ border-style:none;
 font-size:58px;
 line-height:60px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:transparent;
@@ -598,7 +598,7 @@ border-style:none;
 font-size:34px;
 line-height:40px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(52, 73, 94);
 text-decoration:none;
 background-color:transparent;
@@ -612,7 +612,7 @@ border-style:none;
 font-size:17px;
 line-height:28px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -632,7 +632,7 @@ border-style:none;
 font-size:40px;
 line-height:40px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(0, 0, 0);
@@ -646,7 +646,7 @@ border-style:none;
 font-size:30px;
 line-height:30px;
 font-weight:300;
-font-family:"Open Sans";
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:rgb(255, 255, 255);
@@ -661,7 +661,7 @@ border-style:none;
 font-size:55px;
 line-height:65px;
 font-weight:700;
-font-family:"Open Sans";
+
 color:#fff;
 text-decoration:none;
 background-color:transparent;
@@ -676,7 +676,7 @@ border-style:none;
 font-size:25px;
 line-height:25px;
 font-weight:600;
-font-family:"Open Sans";
+
 color:#fff;
 text-decoration:none;
 background-color:transparent;
@@ -691,7 +691,7 @@ border-style:none;
 font-size:60px;
 line-height:60px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:transparent;
@@ -705,7 +705,7 @@ border-style:none;
 font-size:40px;
 line-height:40px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -719,7 +719,7 @@ border-style:none;
 font-size:60px;
 line-height:72px;
 font-weight:800;
-font-family:'Raleway', sans-serif;
+
 color:#464c5b;
 text-decoration:none;
 background-color:transparent;
@@ -733,7 +733,7 @@ border-style:none;
 font-size:60px;
 line-height:72px;
 font-weight:100;
-font-family:'Raleway', sans-serif;
+
 text-decoration:none;
 background-color:transparent;
 text-shadow:none;
@@ -745,7 +745,7 @@ border-style:none;
 .tp-caption.grey_regular_18 {
 font-size:22px;
 line-height:26px;
-font-family: 'Source Sans Pro', sans-serif;
+
   color: #222;
   font-weight: 400;
 text-decoration:none;
@@ -759,7 +759,7 @@ border-style:none;
 .tp-caption.banner-button {
 font-size:22px;
 line-height:26px;
-font-family: 'Source Sans Pro', sans-serif;
+
   color: #222;
   font-weight: 400;
 text-decoration:none;
@@ -775,7 +775,7 @@ border-style:none;
 .tp-caption.black_thin_34 {
     
     font-weight: 300;
-    font-family: 'Raleway', sans-serif;
+
     color: rgb(0, 0, 0);
     text-decoration: none;
     padding: 12px 45px !Important;
@@ -791,7 +791,7 @@ border-style:none;
 font-size:48px;
 line-height:72px;
 font-weight:800;
-font-family:'Raleway', sans-serif;
+
 color:#02adc6;
 text-transform:uppercase;
 text-decoration:none;
@@ -833,7 +833,7 @@ border-style:none;
 font-size:60px;
 line-height:60px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -847,7 +847,7 @@ border-style:none;
 font-size:40px;
 line-height:40px;
 font-weight:800;
-font-family:Raleway;
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:transparent;
@@ -861,7 +861,7 @@ border-style:none;
 font-size:70px;
 line-height:70px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -875,7 +875,7 @@ border-style:none;
 font-size:70px;
 line-height:70px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:transparent;
@@ -889,7 +889,6 @@ border-style:none;
     font-size: 20px;
     line-height: 20px;
     font-weight: 500;
-    font-family: Raleway;
     color: #525866;
     text-decoration: none;
     padding: 5px 8px;
@@ -912,7 +911,7 @@ border-style:none;
 font-size:60px;
 line-height:60px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(49, 165, 203);
@@ -927,7 +926,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(134, 181, 103);
@@ -963,7 +962,7 @@ border-style:none;
 font-size:40px;
 line-height:40px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -977,7 +976,7 @@ border-style:none;
 font-size:35px;
 line-height:35px;
 font-weight:200;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -1001,7 +1000,7 @@ border-style:none;
 font-size:30px;
 line-height:40px;
 font-weight:700;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -1015,7 +1014,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(224, 51, 0);
@@ -1030,7 +1029,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(53, 152, 220);
@@ -1045,7 +1044,7 @@ border-style:none;
 font-size:20px;
 line-height:20px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:rgb(255, 255, 255);
@@ -1060,7 +1059,7 @@ border-style:none;
 font-size:70px;
 line-height:70px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -1074,7 +1073,7 @@ border-style:none;
 font-size:70px;
 line-height:70px;
 font-weight:900;
-font-family:Raleway;
+
 color:#ffffff;
 text-decoration:none;
 background-color:transparent;
@@ -1088,7 +1087,7 @@ border-style:none;
 font-size:30px;
 line-height:40px;
 font-weight:700;
-font-family:Raleway;
+
 color:#ffffff;
 text-decoration:none;
 background-color:transparent;
@@ -1102,7 +1101,7 @@ border-style:none;
 font-size:70px;
 line-height:70px;
 font-weight:800;
-font-family:"Open Sans";
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(0, 0, 0);
@@ -1119,7 +1118,7 @@ background-color:rgba(0, 0, 0, 0);
 font-size:84px;
 line-height:84px;
 font-weight:800;
-font-family:Raleway;
+
 text-decoration:none;
 padding:0px 0px 0px 0px;
 text-shadow:rgba(0, 0, 0, 0.247059) 0px 0px 7px;
@@ -1142,7 +1141,7 @@ border-style:solid none none none;
 font-size:20px;
 line-height:30px;
 font-weight:700;
-font-family:Raleway;
+
 color:#ffffff;
 text-decoration:none;
 background-color:transparent;
@@ -1166,7 +1165,7 @@ border-style:none;
 font-size:20px;
 line-height:30px;
 font-weight:700;
-font-family:Raleway;
+
 color:#ffffff;
 text-decoration:none;
 background-color:transparent;
@@ -1179,7 +1178,7 @@ border-style:none;
 font-size:70px;
 line-height:70px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgba(100, 1, 24, 0.8);
@@ -1204,7 +1203,7 @@ border-style:solid;
 font-size:34px;
 line-height:34px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -1218,7 +1217,7 @@ border-style:none;
 font-size:30px;
 line-height:30px;
 font-weight:100;
-font-family:Raleway;
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:transparent;
@@ -1232,7 +1231,7 @@ border-style:none;
 font-size:30px;
 line-height:30px;
 font-weight:300;
-font-family:Raleway;
+
 color:rgb(0, 0, 0);
 text-decoration:none;
 background-color:rgb(255, 255, 255);
@@ -1247,7 +1246,7 @@ border-style:none;
 font-size:60px;
 line-height:60px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -1261,7 +1260,7 @@ border-style:none;
 font-size:30px;
 line-height:30px;
 font-weight:300;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:rgb(0, 0, 0);
@@ -1276,7 +1275,7 @@ border-style:none;
 font-size:60px;
 line-height:60px;
 font-weight:100;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 background-color:transparent;
@@ -1370,7 +1369,7 @@ border-style:none;
 font-size:70px;
 line-height:70px;
 font-weight:900;
-font-family:Raleway;
+
 color:rgb(255, 255, 255);
 text-decoration:none;
 padding:50px;
@@ -1416,7 +1415,6 @@ color:#ffa902;
 }
 
 .largeredbtn {  
-font-family: "Raleway", sans-serif;
 font-weight: 900;
 font-size: 16px;
 line-height: 60px;

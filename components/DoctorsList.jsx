@@ -1,13 +1,12 @@
 const DoctorsList = ({ list, title, subtitle }) => {
   return (
-    <div className="meet-specialists">
+    <div className="meet-specialists m-0 p-0">
       <div className="container">
         <div className="row">
           <div className="col-md-12">
             <div className="main-title">
               <h2>
-                <span>Meet Our</span> Specialists
-                {/* {title} */}
+                <div dangerouslySetInnerHTML={{__html: title}}/>
               </h2>
               {/* <p>
                 {subtitle}
@@ -16,12 +15,12 @@ const DoctorsList = ({ list, title, subtitle }) => {
           </div>
         </div>
 
-        <div className="row d-flex flex-wrap">
+        <div className="row d-flex flex-wrap justify-content-center">
           {/* <div className="container"> */}
             {/* <div className="row"> */}
               {/* <div className="span12"> */}
                 {/* <div id="owl-demo4" className="owl-carousel"> */}
-                  {list && list["ro"].filter(dr => dr.title.includes("Dr") || dr.title.includes("PhD")).map((teamMember) => (
+                  {list && list.map((teamMember) => (
                     <div className="post item m-1" style={{maxWidth: "20rem"}}>
                       <div className="gallery-sec">
                         <div className="image-hover img-layer-slide-left-right">

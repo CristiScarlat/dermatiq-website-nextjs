@@ -155,6 +155,7 @@
 .home-custom-card {
   box-shadow: 1px 1px 10px 2px var(--box-shadow-color);
   min-height: 30rem;
+  background: #4d7e3214;
 }
 
 .home-main-image-big-text {
@@ -172,6 +173,7 @@
   align-items: center;
   text-align: center;
   gap: 0.5rem;
+  
 }
 
 .custom-icon-contact :first-child {
@@ -180,7 +182,8 @@
   height: 100px;
   width: 3rem;
   display: block;
-  background: var(--buttons-icons-color);
+  /* background: var(--buttons-icons-color); */
+  background: linear-gradient(180deg, var(--buttons-icons-color-transparent) 0%, #02adc6 100%);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,6 +196,7 @@
 .home-doctors-list {
   background-color: #4d7e3214;
   width: 100%;
+  padding: 7rem 0;
 }
 
 @media only screen and (max-width: 600px) {

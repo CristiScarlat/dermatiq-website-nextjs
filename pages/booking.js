@@ -241,7 +241,7 @@ const Booking = () => {
       </div>
       {step > 0 && <div className={styles['booking-breadcrumps']}>
         <Button
-          className="d-flex align-items-center custom-button"
+          className="d-flex align-items-center custom-button blue-gradient-background"
           onClick={handleStepBack}>
           <IoMdArrowRoundBack className="me-1" />
           Go back
@@ -298,7 +298,7 @@ const Booking = () => {
                 <button key={t}
                   type="button"
                   disabled={disabledTimes.includes(t)}
-                  className={`btn ${!disabledTimes.includes(t) ? 'custom-button' : ''} m-2`}
+                  className={`btn ${!disabledTimes.includes(t) ? 'custom-button' : ''} m-2 blue-gradient-background`}
                   onClick={() => handleTimeButtonClick(t)}
                   style={selectedTime === t ? {
                     backgroundColor: 'green',

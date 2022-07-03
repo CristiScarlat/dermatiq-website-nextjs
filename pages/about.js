@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import CustomCard from '../components/CustomCard';
-import { teamCards, aboutTeamDescription, aboutPageTitle } from "../utils/uiConstants";
+import { teamCards, aboutTeamDescription, aboutPageTitle, teamListTitle } from "../utils/uiConstants";
 import CustomLinkBtn from "../components/customLinkBtn";
 import { Ctx } from "../context/context";
+import DoctorsList from '../components/DoctorsList';
 
 import styles from "../styles/About.module.css";
 
@@ -27,9 +28,10 @@ const About = () => {
 
 
       <div className={styles['about-main-container']}>
-        <div>
+        <div className="d-flex flex-column align-items-start">
           <div className="booking-team-cards-container">
-            {teamCards[lang].map((service, index) => {
+          <DoctorsList list={teamCards[lang].filter(dr => dr.title.includes("Dr") || dr.title.includes("PhD"))} title={teamListTitle[lang].doctors}/>
+            {/* {teamCards[lang].map((service, index) => {
               if (index < 4) {
                 return (
                   <CustomCard
@@ -45,10 +47,11 @@ const About = () => {
                   </CustomCard >
                 )
               }
-            })}
+            })} */}
           </div>
-          <div className="booking-team-cards-container">
-            {teamCards[lang].map((service, index) => {
+          <div className="booking-team-cards-container mt-5">
+          <DoctorsList list={teamCards[lang].filter(dr => !(dr.title.includes("Dr") || dr.title.includes("PhD")))} title={teamListTitle[lang].assistants}/>
+            {/* {teamCards[lang].map((service, index) => {
               if (index > 3) {
                 return (
                   <CustomCard
@@ -64,7 +67,7 @@ const About = () => {
                   </CustomCard >
                 )
               }
-            })}
+            })} */}
           </div>
         </div>
         <div className={styles['about-contact-schedule-container']}>

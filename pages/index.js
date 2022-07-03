@@ -5,7 +5,8 @@ import {
   treatmentCards,
   mainImageBigText,
   teamCards,
-  aboutTeamDescription
+  aboutTeamDescription,
+  teamListTitle
 } from "../utils/uiConstants";
 import SlickSlider from "../components/SlickSlider";
 import CustomLinkBtn from "../components/customLinkBtn";
@@ -59,7 +60,7 @@ const Home = () => {
         </div>
         <hr className="sections-separator mt-5 mb-0"/>
         <section className={styles["home-doctors-list"]}>
-              <DoctorsList list={teamCards} subtitle={aboutTeamDescription[lang]}/>
+              <DoctorsList list={teamCards[lang].filter(dr => dr.title.includes("Dr") || dr.title.includes("PhD"))} subtitle={aboutTeamDescription[lang]} title={teamListTitle[lang].doctors}/>
         </section>
         <hr className="sections-separator mt-0 mb-5" />
         <div className="section-title">
@@ -81,7 +82,7 @@ const Home = () => {
                 })
               }
             >
-              <p className="card-text">{service.body}</p>
+              <div className="card-text">{service.body}</div>
             </CustomCard>
           ))}
         </SlickSlider>
@@ -99,7 +100,7 @@ const Home = () => {
               className={`m-3 ${styles["home-custom-card"]}`}
               buttonLable={lang === "ro" ? "Afla mai multe" : "Read more"}
             >
-              <p className="card-text">{service.body}</p>
+              <div className="card-text">{service.body}</div>
             </CustomCard>
           ))}
         </SlickSlider>
@@ -111,7 +112,7 @@ const Home = () => {
           >
             <div className={styles["custom-icon-contact"]}>
               <div style={{ width: "100px" }}>
-                <MdLocationOn />
+                <MdLocationOn/>
               </div>
               <div style={{ color: "#807f89" }}>
                 Str. Ioan Plavosin, nr. 31

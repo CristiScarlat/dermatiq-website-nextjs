@@ -9,7 +9,7 @@ const CustomCard = ({imgSrc, cardTitle, className, maxWidth, showButton=true, bu
                 <h5 className="card-title">{cardTitle}</h5>
                 {children}
             </div>
-            {showButton && <button className={`btn ${styles['custom-card-button']}`} onClick={cardButtonOnCLick}>{buttonLable}</button>}
+            {showButton && <button className={`btn ${styles['custom-card-button']} blue-gradient-background`} onClick={cardButtonOnCLick}>{buttonLable}</button>}
         </div>
     )
 }

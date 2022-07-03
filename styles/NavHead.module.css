@@ -19,6 +19,7 @@
       min-height: 2rem;
       display: flex;
       justify-content: flex-end;
+      padding: 0.5rem 0;
   }
 
   .navbar-mini-main button {
