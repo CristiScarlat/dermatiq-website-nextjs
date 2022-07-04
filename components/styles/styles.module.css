@@ -32,6 +32,12 @@
     font-size: 16px;
     text-shadow: none;
     text-shadow: initial;
+    transition: background-color 0.5s linear, color 0.5s linear;
+}
+
+.booking-button:hover{
+    color: rgb(1, 85, 27);
+    background-color: white;
 }
 
 .spinner-container {

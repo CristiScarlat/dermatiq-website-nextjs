@@ -15,7 +15,7 @@
 .service-content img {
     width: 370px;
     height: auto;
-    float: left;
+    /* float: left; */
     margin: 0 0.5rem 0.5rem 0;
 }
 

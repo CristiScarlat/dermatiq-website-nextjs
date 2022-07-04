@@ -23,10 +23,10 @@ const Services = () => {
         <div className="p-2">
             {serviceCards[lang].map((service, index) => (
                 <div key={service.title + "" + index} className={styles['service-content-container']}>
-                    <h1 ref={ref => { titleRef.current[service.title] = ref }}>{service.title}</h1>
+                    <div ref={ref => { titleRef.current[service.title] = ref }} className="section-title">{service.title}</div>
                     <div className={styles['service-content']}>
                         <p>
-                            <img src={service.img} alt="..." />
+                            <img src={service.img} alt="..." style={{float: index%2 ? 'left' : 'right', borderRadius: 5}}/>
                             {service.details}
                         </p>
                     </div>
