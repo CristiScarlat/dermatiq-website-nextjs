@@ -24,16 +24,16 @@ const Home = () => {
   return (
     <div className={styles.container}>
       <main className={styles["home-main"]}>
-        <div className="d-flex justify-content-around align-items-center flex-wrap"
-          // className={`${styles["head-contact-phone"]}`}
-          // style={{
-          //   background: `url(/home-image-v2.jpg)`,
-          //   backgroundRepeat: "no-repeat",
-          //   backgroundSize: "cover",
-          //   backgroundColor: "#f4f7f7",
-          // }}
+        <div
+          className={`${styles["head-contact-phone"]}`}
+          style={{
+            background: `url(/home-image-v2.jpg)`,
+            backgroundRepeat: "no-repeat",
+            backgroundSize: "cover",
+            backgroundColor: "#f4f7f7",
+          }}
         >
-          <img src="/home-image-v2.jpg" alt="..." width="50%" style={{borderRadius: "50%"}}/>
+          {/* <img src="/home-image-v2.jpg" alt="..." width="50%" style={{borderRadius: "50%"}}/> */}
           <div style={{fontSize: 42, textAlign: "right"}}>
             <div className={`${styles["home-main-image-big-text"]} mt-3`}>
               {mainImageBigText[lang][0]}
