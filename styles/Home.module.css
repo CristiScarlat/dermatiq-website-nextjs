@@ -112,7 +112,7 @@
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  border: 1px solid #e2ecf4;
+  /* border: 1px solid #e2ecf4; */
   color: #f8f9fa;
   font-weight: bold;
   width: 90%;
@@ -123,7 +123,7 @@
 
 .head-contact-phone>div {
   font-size: 50px;
-  text-shadow: 3px 3px 6px #2c400085;
+  /* text-shadow: 3px 3px 6px #2c400085; */
   width: 100%;
 }
 

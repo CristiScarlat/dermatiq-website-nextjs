@@ -53,7 +53,7 @@ const NavHead = () => {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <Link href="/"><a className="navbar-brand">
-                    <Image className="logo_image" src="/logo-final-DERMATIQ.png" alt="" width={200} height={80} />
+                    <Image className="logo_image" src="/logo-final-DERMATIQ-text-white.png" alt="" width={200} height={80} />
                 </a>
                 </Link>
                 <div className="me-5 collapse navbar-collapse" id="navbarSupportedContent">

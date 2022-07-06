@@ -11,11 +11,12 @@
   }
 
   .navbar-main {
-    background-color: var(--main-header-background-color)!important;
+    /* background-color: var(--main-header-background-color)!important; */
+    background: linear-gradient(0deg, rgba(73,86,160,0.5746673669467788) 0%, rgba(73,86,160,1) 100%);
   }
 
   .navbar-mini-main {
-      background-color: var(--big-circle-icons-color);
+      /* background-color: var(--home-main-image-background-color); */
       min-height: 2rem;
       display: flex;
       justify-content: flex-end;
