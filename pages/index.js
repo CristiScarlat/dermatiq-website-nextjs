@@ -33,7 +33,7 @@ const Home = () => {
           //   backgroundColor: "#f4f7f7",
           // }}
         >
-          <img src="/home-image-v2-sqr.jpg" alt="..." width="50%" style={{borderRadius: "50%"}}/>
+          <img src="/home-image-v2.jpg" alt="..." width="50%" style={{borderRadius: "50%"}}/>
           <div style={{fontSize: 42, textAlign: "right"}}>
             <div className={`${styles["home-main-image-big-text"]} mt-3`}>
               {mainImageBigText[lang][0]}
