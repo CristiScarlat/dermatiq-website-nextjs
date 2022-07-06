@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useContext } from "react";
 import DatePicker from "react-datepicker";
 import Form from '../components/Form';
 import Spinner from "../components/Spinner";
@@ -10,7 +10,6 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { Button } from "react-bootstrap";
 
 import { Ctx } from '../context/context';
-import { useContext } from 'react';
 
 import styles from "../styles/Booking.module.css";
 
@@ -44,6 +43,7 @@ const Booking = () => {
       setLoading(true)
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
+        console.log(eventsBySelectedDr)
         const { bookedHoursPerDay, freeDays } = processEvents(eventsBySelectedDr);
         setEvents(bookedHoursPerDay);
         setFreeDaysPerDr(freeDays);
@@ -209,11 +209,15 @@ const Booking = () => {
   const isFiltered = (date) => {
     const d = new Date(date);
     const day = d.getDay();
-    return day !== 0 && day !== 1 && day !== 3 && day !== 5 && day !== 6;
+    const booleanToReturn = false
+    selectedDr.workDays.forEach(wh => {
+      booleanToReturn |= (day === wh)
+    })
+    return booleanToReturn;
   };
 
   const getAvailableHours = () => {
-    const arr = generateTimeButtons(timeInterval, 10, 0, 16, 40);
+    const arr = generateTimeButtons(timeInterval, selectedDr.workingHourStart, 0, selectedDr.workingHourEnd, 20);
     //filter out buzy hours
     const foundFreeHour = false;
     const filtered = []
