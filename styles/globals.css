@@ -18,22 +18,22 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: adobe-garamond-pro, serif;
+  font-family: adobe-garamond-pro, serif!important;
   font-style: normal;
   background-color: var(--main-background-color);
 }
 
+* {
+  box-sizing: border-box;
+}
+
 a {
-  color: var(--link-text-color-main);
+  color: var(--link-text-color-main)!important;
   text-decoration: none !important;
 }
 
 a:hover {
   color: var(--link-text-color-main) !important;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 .section-title {
