@@ -152,8 +152,16 @@
 }
 
 .home-custom-card {
-  box-shadow: 1px 1px 10px 2px var(--box-shadow-color);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  /* box-shadow: 1px 1px 10px 2px var(--box-shadow-color); */
   min-height: 30rem;
+}
+
+.home-custom-card img{
+  border-radius: 50%;
 }
 
 .home-main-image-big-text {

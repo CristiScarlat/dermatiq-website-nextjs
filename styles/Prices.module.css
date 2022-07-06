@@ -1,12 +1,12 @@
 .wrapper {
-  background-color: rgb(252, 254, 254);
+  background-color: rgb(245 247 247);
   margin: 1rem 2rem;
-  box-shadow: 3px 4px 15px 3px #c6c1c1;
+  /* box-shadow: 3px 4px 15px 3px #c6c1c1; */
   border-radius: 4px;
   font-size: 18px;
 }
 
 .price-color-font {
   font-weight: 700;
-  color: #1e5603;
+  color: var(--big-circle-icons-color);
 }

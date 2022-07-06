@@ -4,19 +4,26 @@
     gap: 1rem;
 }
 
+.service-content p{
+    line-height: 30px;
+    font-size: 18px;
+}
+
 .service-content-container {
     padding: 1rem;
+    max-width: 65rem;
+    color: var(--home-main-image-text-color);
 }
 
 .service-content-container h1 {
-    background-color: var(--main-header-background-color);
+    text-align: center;
 }
 
 .service-content img {
-    width: 370px;
-    height: auto;
-    float: left;
+    width: 308px;
+    height: 308px;
     margin: 0 0.5rem 0.5rem 0;
+    border-radius: 50%;
 }
 
 @media only screen and (max-width: 600px) {

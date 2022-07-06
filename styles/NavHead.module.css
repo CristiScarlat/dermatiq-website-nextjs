@@ -15,10 +15,11 @@
   }
 
   .navbar-mini-main {
-      background-color: var(--main-background-color);
+      background-color: var(--big-circle-icons-color);
       min-height: 2rem;
       display: flex;
       justify-content: flex-end;
+      align-items: center;
   }
 
   .navbar-mini-main button {

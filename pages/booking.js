@@ -1,23 +1,31 @@
 import { useState, useEffect, useRef, useContext } from "react";
 import DatePicker from "react-datepicker";
-import Form from '../components/Form';
+import Form from "../components/Form";
 import Spinner from "../components/Spinner";
 import ModalComponent from "../components/Modal";
-import CustomCard from '../components/CustomCard';
+import CustomCard from "../components/CustomCard";
 import { teamCards } from "../utils/uiConstants";
-import { getEvents, addEvent, filterEventsByDate, filterEventsByDr, getEventsBusyTimes, processEvents, isPastTime } from "../utils/calendarUtils";
+import {
+  getEvents,
+  addEvent,
+  filterEventsByDate,
+  filterEventsByDr,
+  getEventsBusyTimes,
+  processEvents,
+  isPastTime,
+} from "../utils/calendarUtils";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Button } from "react-bootstrap";
 
 import { Ctx } from '../context/context';
 
 import styles from "../styles/Booking.module.css";
+import homeStyles from "../styles/Home.module.css";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-
 const Booking = () => {
-  const currentInitDate = new Date()
+  const currentInitDate = new Date();
 
   const [events, setEvents] = useState([]);
   const [selectedDate, setSelectedDate] = useState(currentInitDate);
@@ -40,20 +48,24 @@ const Booking = () => {
 
   useEffect(() => {
     if (step === 1) {
-      setLoading(true)
+      setLoading(true);
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
         console.log(eventsBySelectedDr)
         const { bookedHoursPerDay, freeDays } = processEvents(eventsBySelectedDr);
         setEvents(bookedHoursPerDay);
         setFreeDaysPerDr(freeDays);
-        const arr = bookedHoursPerDay?.filter(event => event.start.substring(0, 10) === selectedDate.toISOString().substring(0, 10));
+        const arr = bookedHoursPerDay?.filter(
+          (event) =>
+            event.start.substring(0, 10) ===
+            selectedDate.toISOString().substring(0, 10)
+        );
         getDisabledTimes(arr);
-        setLoading(false)
-      })
+        setLoading(false);
+      });
       //setSelectedDay(currentInitDate);
     }
-  }, [selectedDate, step])
+  }, [selectedDate, step]);
 
   useEffect(() => {
     if (step === 0) {
@@ -62,22 +74,35 @@ const Booking = () => {
       setSelectedTime(undefined);
       dayWasSelected.current = false;
     }
-  }, [step])
+  }, [step]);
 
-  const generateTimeButtons = (step, minHour, minMinutes, maxHour, maxMinutes, qty) => {
+  const generateTimeButtons = (
+    step,
+    minHour,
+    minMinutes,
+    maxHour,
+    maxMinutes,
+    qty
+  ) => {
     const dt = new Date(1970, 0, 1);
     const rc = [];
     while (dt.getDate() === 1) {
-      if (dt.getHours() >= minHour && dt.getMinutes() >= minMinutes && dt.getHours() <= maxHour) {
-        const hh = dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
-        const mm = dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
+      if (
+        dt.getHours() >= minHour &&
+        dt.getMinutes() >= minMinutes &&
+        dt.getHours() <= maxHour
+      ) {
+        const hh =
+          dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
+        const mm =
+          dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
         rc.push(hh + ":" + mm);
       }
       dt.setMinutes(dt.getMinutes() + step);
       //if(rc.length === qty) break;
     }
     return rc;
-  }
+  };
 
   // const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
   //   const busyTimes = [];
@@ -97,12 +122,12 @@ const Booking = () => {
     setDisabledTimes([]);
     const busyTimesArr = getEventsBusyTimes(arrEvents, timeInterval);
     setDisabledTimes(busyTimesArr);
-  }
+  };
 
   const handleSelectedDay = (date) => {
     if (!dayWasSelected.current) dayWasSelected.current = true;
     setSelectedDay(date);
-    if(selectedDate.getMonth() !== date.getMonth()){
+    if (selectedDate.getMonth() !== date.getMonth()) {
       console.log("different month");
       setSelectedDate(date);
     }
@@ -110,42 +135,50 @@ const Booking = () => {
     setSelectedEvents(arr);
     getDisabledTimes(arr);
     setSelectedTime(null);
-  }
+  };
 
   const handleTimeButtonClick = (time) => {
     if (!dayWasSelected.current) {
       dispatch({
-        type: 'SET_TOAST', toast: {
+        type: "SET_TOAST",
+        toast: {
           showToast: true,
-          type: 'danger',
-          headerText: 'Error.',
-          bodyText: `Please confirm the date in calendar first.`
-        }
-      })
+          type: "danger",
+          headerText: "Error.",
+          bodyText: `Please confirm the date in calendar first.`,
+        },
+      });
       return;
     }
     setSelectedTime(time);
-    const date = selectedDay.toISOString('ro-RO', { timeZone: 'UTC' });
-    const minDate = date.split('T')[0] + 'T' + time + ':00';
-    const maxDate = new Date(minDate.split('T')[0] + 'T' + time + ':00Z');
+    const date = selectedDay.toISOString("ro-RO", { timeZone: "UTC" });
+    const minDate = date.split("T")[0] + "T" + time + ":00";
+    const maxDate = new Date(minDate.split("T")[0] + "T" + time + ":00Z");
     maxDate.setMinutes(maxDate.getMinutes() + timeInterval);
 
     addEventData.current = {
       end: {
-        dateTime: maxDate.toISOString('ro-RO', { timeZone: 'UTC' }).split('.')[0],
-        timeZone: "Europe/Bucharest"
+        dateTime: maxDate
+          .toISOString("ro-RO", { timeZone: "UTC" })
+          .split(".")[0],
+        timeZone: "Europe/Bucharest",
       },
       start: {
         dateTime: minDate,
-        timeZone: "Europe/Bucharest"
-      }
-    }
+        timeZone: "Europe/Bucharest",
+      },
+    };
     setStep(2);
-  }
+  };
 
   const formValidation = (formFields) => {
-    if ((formFields[0].value && formFields[0].value !== '') || (formFields[1].value && formFields[1].value !== '') || (formFields[2].value && formFields[2].value !== '')) return true;
-  }
+    if (
+      (formFields[0].value && formFields[0].value !== "") ||
+      (formFields[1].value && formFields[1].value !== "") ||
+      (formFields[2].value && formFields[2].value !== "")
+    )
+      return true;
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -154,57 +187,75 @@ const Booking = () => {
       //calendar-event-title: nume-pacient/tel-pacient/serviciu/nume-familie-dr/online
       const selectedDrSurname = selectedDr?.title?.split(" ").pop();
       addEventData.current.description = e.target[2].value;
-      addEventData.current.summary = e.target[0].value + "-" + e.target[1].value + "/" + e.target[3].value + "/" + e.target[4].value + "/" + selectedDrSurname + "/online";
+      addEventData.current.summary =
+        e.target[0].value +
+        "-" +
+        e.target[1].value +
+        "/" +
+        e.target[3].value +
+        "/" +
+        e.target[4].value +
+        "/" +
+        selectedDrSurname +
+        "/online";
       addEventData.current.colorId = selectedDr?.colorId;
       setShowModal({
         open: true,
         title: "Please check the data once again and place your booking.",
-        body: <><p>{`Date: ${new Date(addEventData.current.start.dateTime).toLocaleString()}`}</p>
-          <p>{`FullName: ${e.target[0].value + " " + e.target[1].value}`}</p>
-          <p>{`Email: ${e.target[2].value}`}</p>
-          <p>{`Telefon: ${e.target[3].value}`}</p>
-          <p>{`Serviciu: ${e.target[4].value}`}</p></>
-      })
-    }
-    else alert('Please fill all the fields.')
-  }
+        body: (
+          <>
+            <p>{`Date: ${new Date(
+              addEventData.current.start.dateTime
+            ).toLocaleString()}`}</p>
+            <p>{`FullName: ${e.target[0].value + " " + e.target[1].value}`}</p>
+            <p>{`Email: ${e.target[2].value}`}</p>
+            <p>{`Telefon: ${e.target[3].value}`}</p>
+            <p>{`Serviciu: ${e.target[4].value}`}</p>
+          </>
+        ),
+      });
+    } else alert("Please fill all the fields.");
+  };
 
   const handleConfirmation = () => {
-    setShowModal({ open: false })
-    setLoading(true)
+    setShowModal({ open: false });
+    setLoading(true);
     addEvent(addEventData.current)
-      .then(data => {
+      .then((data) => {
         dispatch({
-          type: 'SET_TOAST', toast: {
+          type: "SET_TOAST",
+          toast: {
             showToast: true,
-            type: 'success',
-            headerText: 'Saved.',
-            bodyText: `Your appointment in ${new Date(addEventData.current.start.dateTime).toLocaleString()} is successfully saved.`
-          }
-        })
+            type: "success",
+            headerText: "Saved.",
+            bodyText: `Your appointment in ${new Date(
+              addEventData.current.start.dateTime
+            ).toLocaleString()} is successfully saved.`,
+          },
+        });
         setSelectedTime(undefined);
         setStep(0);
         setTimeout(() => {
-          const temp = [...disabledTimes]
-          temp.push(selectedTime)
-          setDisabledTimes(temp)
-          setLoading(false)
-        }, 1000)
+          const temp = [...disabledTimes];
+          temp.push(selectedTime);
+          setDisabledTimes(temp);
+          setLoading(false);
+        }, 1000);
       })
-      .catch(error => {
-        setLoading(false)
-        console.log(error)
-      })
-  }
+      .catch((error) => {
+        setLoading(false);
+        console.log(error);
+      });
+  };
 
   const handleCustomCardButtonOnClick = (selectedCard) => {
     setSelectedDr(selectedCard);
     setStep(1);
-  }
+  };
 
   const handleStepBack = () => {
-    setStep(step => step - 1);
-  }
+    setStep((step) => step - 1);
+  };
 
   const isFiltered = (date) => {
     const d = new Date(date);
@@ -220,16 +271,15 @@ const Booking = () => {
     const arr = generateTimeButtons(timeInterval, selectedDr.workingHourStart, 0, selectedDr.workingHourEnd, 20);
     //filter out buzy hours
     const foundFreeHour = false;
-    const filtered = []
-    arr.forEach(t => {
+    const filtered = [];
+    arr.forEach((t) => {
       if (!disabledTimes.includes(t) && !foundFreeHour) foundFreeHour = true;
       if (foundFreeHour && filtered.length <= 2) {
         filtered.push(t);
       }
-
     });
     return filtered;
-  }
+  };
 
   //console.log({freeDaysPerDr, daysToFilter: Array.from(daysToFilter)})
 
@@ -239,87 +289,120 @@ const Booking = () => {
    */
 
   return (
-    <main className="ps-5 pe-5 pb-5">
+    <main className="p-5">
       <div className="d-flex flex-column align-items-center">
-        <div className='section-title'>Programare</div>
-        <hr className='sections-separator' />
+        <div className="section-title">Programare</div>
+        <hr className="sections-separator" />
       </div>
-      {step > 0 && <div className={styles['booking-breadcrumps']}>
-        <Button
-          className="d-flex align-items-center custom-button"
-          onClick={handleStepBack}>
-          <IoMdArrowRoundBack className="me-1" />
-          Go back
-        </Button>
-        <div>
-          {`${selectedDr?.title ? selectedDr.title : ""} > ${(dayWasSelected.current && selectedDay) ? selectedDay.toISOString().split('T')[0] : ""} > ${selectedTime ? selectedTime : ""}`}</div>
-      </div>
-      }
-      {step === 0 && <div className="booking-team-cards-container">
-        {teamCards[state.lang].map((teamMember, index) => {
-          if (index < 4) {
-            return (
-              <CustomCard
-                key={teamMember.img + '-' + index}
-                cardTitle={teamMember.title}
-                imgSrc={teamMember.img}
-                buttonLable="Fa-ti o programare"
-                cardButtonOnCLick={() => handleCustomCardButtonOnClick(teamMember)}
-                className="mb-4 booking-team-custom-card"
-              >
-                <p className="card-text">
-                  {teamMember.body}
-                </p>
-              </CustomCard >
-            )
-          }
-        })}
-      </div>}
+      {step > 0 && (
+        <div className={styles["booking-breadcrumps"]}>
+          <Button
+            className="d-flex align-items-center custom-button"
+            onClick={handleStepBack}
+          >
+            <IoMdArrowRoundBack className="me-1" />
+            Go back
+          </Button>
+          <div>
+            {`${selectedDr?.title ? selectedDr.title : ""} > ${
+              dayWasSelected.current && selectedDay
+                ? selectedDay.toISOString().split("T")[0]
+                : ""
+            } > ${selectedTime ? selectedTime : ""}`}
+          </div>
+        </div>
+      )}
+      {step === 0 && (
+        <div className="booking-team-cards-container">
+          {teamCards[state.lang].map((teamMember, index) => {
+            if (index < 4) {
+              return (
+                <CustomCard
+                  key={teamMember.img + "-" + index}
+                  cardTitle={teamMember.title}
+                  imgSrc={teamMember.img}
+                  buttonLable="Fa-ti o programare"
+                  cardButtonOnCLick={() =>
+                    handleCustomCardButtonOnClick(teamMember)
+                  }
+                  className={`m-3 ${homeStyles["home-custom-card"]}`}
+                  maxWidth="15rem"
+                  minHeight="20rem"
+                >
+                  <p className="card-text">{teamMember.body}</p>
+                </CustomCard>
+              );
+            }
+          })}
+        </div>
+      )}
 
       <div className="row ms-4 me-4">
-        {step === 1 && <div className="d-flex justify-content-center align-items-center flex-wrap gap-2 col-md">
-          <div className="d-flex flex-column flex-wrap justify-content-center m-5">
-            <label>Select date:</label>
-            <DatePicker
-              selected={selectedDay}
-              filterDate={isFiltered}
-              onChange={handleSelectedDay}
-              onMonthChange={(m) => setSelectedDate(m)}
-              inline
-              minDate={new Date()}
-              excludeDates={freeDaysPerDr.map(fd => new Date(fd))}
-              highlightDates={[
-                {
-                  "react-datepicker__day--highlighted-custom": events?.map(e => e.start && new Date(e.start))
-                }
-              ]}
-            />
-          </div>
+        {step === 1 && (
+          <div className="d-flex justify-content-center align-items-start flex-wrap gap-2 col-md">
+            <div className="d-flex flex-column flex-wrap justify-content-center m-5">
+              <label>Select date:</label>
+              <DatePicker
+                selected={selectedDay}
+                filterDate={isFiltered}
+                onChange={handleSelectedDay}
+                onMonthChange={(m) => setSelectedDate(m)}
+                inline
+                minDate={new Date()}
+                excludeDates={freeDaysPerDr.map((fd) => new Date(fd))}
+                highlightDates={[
+                  {
+                    "react-datepicker__day--highlighted-custom": events?.map(
+                      (e) => e.start && new Date(e.start)
+                    ),
+                  },
+                ]}
+              />
+            </div>
 
-          <div className="d-flex flex-column flex-wrap justify-content-center m-5" style={{ minWidth: '20rem' }}>
-            <label>Select time:</label>
-            {getAvailableHours().map(t => {
-              return (
-                <button key={t}
-                  type="button"
-                  disabled={disabledTimes.includes(t)}
-                  className={`btn ${!disabledTimes.includes(t) ? 'custom-button' : ''} m-2`}
-                  onClick={() => handleTimeButtonClick(t)}
-                  style={selectedTime === t ? {
-                    backgroundColor: 'green',
-                    border: 'none',
-                    color: 'black',
-                    fontSize: '18px'
-                  } : {}}>
-                  {t}
-                </button>
-              )
-            })}
+            <div
+              className="d-flex flex-column flex-wrap justify-content-center align-items-start m-5"
+              style={{ minWidth: "20rem" }}
+            >
+              <label>Select time:</label>
+              <div>
+                {getAvailableHours().map((t) => {
+                  return (
+                    <button
+                      key={t}
+                      type="button"
+                      disabled={disabledTimes.includes(t)}
+                      className={`btn btn-circle ${
+                        !disabledTimes.includes(t) ? "custom-button" : ""
+                      } m-2`}
+                      onClick={() => handleTimeButtonClick(t)}
+                      style={
+                        selectedTime === t
+                          ? {
+                              backgroundColor: "green",
+                              border: "none",
+                              color: "black",
+                              fontSize: "18px",
+                            }
+                          : {}
+                      }
+                    >
+                      {t}
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
           </div>
-        </div>}
-        {step === 2 && <div className="col-md mt-5" style={{ opacity: selectedTime ? 1 : 0.4 }}>
-          <Form handleSubmit={handleFormSubmit} />
-        </div>}
+        )}
+        {step === 2 && (
+          <div
+            className="col-md mt-5"
+            style={{ opacity: selectedTime ? 1 : 0.4 }}
+          >
+            <Form handleSubmit={handleFormSubmit} />
+          </div>
+        )}
       </div>
       {loading && <Spinner />}
 
@@ -331,7 +414,7 @@ const Booking = () => {
         onConfirm={handleConfirmation}
       />
     </main>
-  )
+  );
 };
 
 export default Booking;
