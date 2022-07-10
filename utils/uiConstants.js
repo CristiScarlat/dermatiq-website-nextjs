@@ -47,7 +47,7 @@ export const serviceCards = {
       Procedura nu este dureroasă și nici nu necesită anestezie în prealabil. \
       De asemenea, este rapidă în comparație cu alte tratamente ale patologiilor menționate, \
       putând fi efectuată în cadrul Clinicii Dermatiq și prin decontare din partea CAS.",
-      img: "/procedures/Crioterapia.jpeg",
+      img: "/procedures/Crioterapia.jpg",
     },
     {
       title: "Dermatoscopie",
