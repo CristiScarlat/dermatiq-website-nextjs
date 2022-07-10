@@ -33,8 +33,7 @@ const Home = () => {
             backgroundColor: "#f4f7f7",
           }}
         >
-          {/* <img src="/home-image-v2.jpg" alt="..." width="50%" style={{borderRadius: "50%"}}/> */}
-          <div style={{fontSize: 42, textAlign: "right"}}>
+          <div>
             <div className={`${styles["home-main-image-big-text"]} mt-3`}>
               {mainImageBigText[lang][0]}
             </div>
@@ -48,9 +47,7 @@ const Home = () => {
               {mainImageBigText[lang][3]}
             </div>
 
-            <div className={`mt-3 mb-3 ms-5 me-5 ${styles["home-programari-rapide"]}`}>
-              {/* <div style={{ whiteSpace: 'nowrap' }}>Programari rapide</div>
-              <div style={{ whiteSpace: 'nowrap', marginBottom: '1rem' }}>+40 748 015 255</div> */}
+            <div className={`mt-3 mb-3 ms-5 ${styles["home-programari-rapide"]}`}>
               <CustomLinkBtn/>
             </div>
           </div>

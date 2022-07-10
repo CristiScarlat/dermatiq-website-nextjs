@@ -142,6 +142,7 @@
   color: var(--link-text-color-main)!important;
   text-shadow: none;
   line-height: 24px;
+  margin-right: 1rem;
 }
 
 .home-procedures-slider {
@@ -168,6 +169,8 @@
   letter-spacing: 0.2rem;
   color: var(--home-main-image-text-color);
   margin-right: 1rem;
+  font-size: 2.5rem; 
+  text-align: right;
 }
 
 .custom-icon-contact {
@@ -197,7 +200,13 @@
   fill: whitesmoke;
 }
 
+
 @media only screen and (max-width: 600px) {
+  .home-main-image-big-text {
+    font-size: 1.5rem;
+    color: white;
+  }
+
   .head-contact-phone>div {
     font-size: 30px;
   }

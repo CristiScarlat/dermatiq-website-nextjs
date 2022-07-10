@@ -33,7 +33,7 @@
 }
 
 .booking-button:hover {
-    background-color: white;
+    background-color: var(--main-background-color);
     color: var(--big-circle-icons-color)!important;
 }
 

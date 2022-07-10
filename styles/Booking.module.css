@@ -16,7 +16,7 @@
     align-items: center;
     gap: 1rem;
     margin-bottom: 1rem;
-    color: var(--link-text-color-main);
+    color: var(--home-main-image-text-color)!important;
     font-weight: 700;
 }
 

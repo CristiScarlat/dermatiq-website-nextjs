@@ -1,6 +1,55 @@
 export const serviceCards = {
   ro: [
     {
+      title: "Tratament cu toxina botulinica contra hiperhidroza",
+      body: "Odata cu venirea sezonului cald transpiratia poate deveni deranjanta. \
+      Desi tratamentul cu toxina botulinica se efectueaza in principal pacientilor cu transpiratie excesiva (#hiperhidroza ),\
+      oricine doreste sa transpire mai putin pe zone localizate poate opta pentru aceasta procedura.\
+      Pentru detalii sau programare va stam la dispozitie la +40748015255. Va asteptam cu drag! Echipa #DermatIQ",
+      details:
+        "Odata cu venirea sezonului cald transpiratia poate deveni deranjanta. \
+      Desi tratamentul cu toxina botulinica se efectueaza in principal pacientilor cu transpiratie excesiva (#hiperhidroza ),\
+      oricine doreste sa transpire mai putin pe zone localizate poate opta pentru aceasta procedura.\
+      Pentru detalii sau programare va stam la dispozitie la +40748015255. Va asteptam cu drag! Echipa #DermatIQ",
+      img: "/procedures/toxina-botulinica.jpeg"
+    },
+    {
+      title: "PRP (Platelet rich plasma)",
+      body: "Va prezentam procedura PRP (Platelet rich plasma) - Injectarea de plasmă proprie, \
+      bogată în trombocite, produce în țesutul cutanat stimularea regenerarii elasticității și fermității. \
+      De asemenea, redă un aspect mai sănătos al pielii, iar cand este injectată în scalp, are eficiență împotriva căderii părului. \
+      Pentru mai multe detalii sau programare ne puteti contacta telefonic!",
+      details:
+        "Va prezentam procedura PRP (Platelet rich plasma) - Injectarea de plasmă proprie,\
+       bogată în trombocite, produce în țesutul cutanat stimularea regenerarii elasticității și fermității. \
+       De asemenea, redă un aspect mai sănătos al pielii, iar cand este injectată în scalp, are eficiență împotriva căderii părului. \
+       Pentru mai multe detalii sau programare ne puteti contacta telefonic!",
+      img: "/procedures/PRP.jpeg",
+    },
+    {
+      title: "Crioterapia",
+      body: "Crioterapia este procedura prin care temperaturi extrem de joase sunt utilizate \
+      pentru a trata un spectru larg de patologii cutanate, de la cele benigne \
+      (infecții virale: veruci, papiloame; cheratoze seboreice - exemplificat în video; \
+        cicatrici cheloide sau hipertrofice; lentigo solar; hiperplazii sebacee; dermatofibroame) \
+        până la cele precanceroase (cheratoze actinice; corn cutanat) sau chiar cancere cutanate \
+        (unele carcinoame bazocelulare).\
+      Procedura nu este dureroasă și nici nu necesită anestezie în prealabil. \
+      De asemenea, este rapidă în comparație cu alte tratamente ale patologiilor menționate, \
+      putând fi efectuată în cadrul Clinicii Dermatiq și prin decontare din partea CAS.",
+      details:
+        "Crioterapia este procedura prin care temperaturi extrem de joase sunt utilizate \
+      pentru a trata un spectru larg de patologii cutanate, de la cele benigne \
+      (infecții virale: veruci, papiloame; cheratoze seboreice - exemplificat în video; \
+        cicatrici cheloide sau hipertrofice; lentigo solar; hiperplazii sebacee; dermatofibroame) \
+        până la cele precanceroase (cheratoze actinice; corn cutanat) sau chiar cancere cutanate \
+        (unele carcinoame bazocelulare).\
+      Procedura nu este dureroasă și nici nu necesită anestezie în prealabil. \
+      De asemenea, este rapidă în comparație cu alte tratamente ale patologiilor menționate, \
+      putând fi efectuată în cadrul Clinicii Dermatiq și prin decontare din partea CAS.",
+      img: "/procedures/Crioterapia.jpeg",
+    },
+    {
       title: "Dermatoscopie",
       body: "Dermatoscopia este o metoda moderna, rapida si neinvaziva de examinare e pielii, \
         folosita pentru diagnosticarea in vivo al leziunilor pigmentare ale pielii \

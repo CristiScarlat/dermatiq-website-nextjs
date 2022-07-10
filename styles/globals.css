@@ -1,11 +1,15 @@
-@import url("https://use.typekit.net/atw7jti.css");
+/* @import url("https://use.typekit.net/atw7jti.css"); */
+
+@font-face {
+  font-family: 'VogueAvantGarde';
+  src: url('/font/VogueAvantGarde-Medium.woff2') format('woff');
+}
 
 :root {
   --main-header-background-color: #4956a0;
   --main-background-color: #e5e5e6;
   --home-main-image-background-color: #8b8ec2;
   --home-main-image-text-color: #4956a0;
-  /* --cards-controls-color: #f78b8c; */
   --big-circle-icons-color: #4956a0;
   --box-shadow-color: #00000069;
   --text-color-main: #616061;
@@ -17,7 +21,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: adobe-garamond-pro, serif!important;
+  /* font-family: adobe-garamond-pro, serif!important; */
+  font-family: VogueAvantGarde, helvetica, sans-serif!important;
   font-style: normal;
   background-color: var(--main-background-color)!important;
   /* background: linear-gradient(0deg, rgba(4,252,226,1) 0%, rgba(73,70,250,1) 100%); */
@@ -96,10 +101,13 @@ a:hover {
 }
 
 .custom-nav-link.active {
-  color: var(--home-main-image-text-color);
+  color: var(--main-background-color)!important;
+  text-shadow: 0px 0px 5px black;
 }
 .custom-nav-link:hover {
-  color: var(--home-main-image-text-color) !important;
+  color: var(--main-background-color)!important;
+  text-shadow: 0px 0px 5px black;
+  cursor: pointer;
 }
 
 .gdpr-container {
