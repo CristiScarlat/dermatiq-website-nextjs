@@ -91,7 +91,7 @@ const Home = () => {
               className={`m-3 ${styles["home-custom-card"]}`}
               buttonLable={lang === "ro" ? "Afla mai multe" : "Read more"}
             >
-              <p className="card-text">{service.body}</p>
+              <div className={styles["home-results-container"]} dangerouslySetInnerHTML={{__html: service.body}}/>
             </CustomCard>
           ))}
         </SlickSlider>

@@ -23,3 +23,9 @@
     font-family: 'Libre Baskerville', serif;
     /* max-width: 60rem; */
 }
+
+.about-page-link {
+    background-color: var(--big-circle-icons-color);
+    padding: 0.2rem;
+    border-radius: 5px;
+}

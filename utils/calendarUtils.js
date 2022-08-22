@@ -48,7 +48,10 @@ export const filterEventsByDate = (events, filterDate) => {
 export const filterEventsByDr = (events, selectedDr) => {
   return events.filter(event => {
     const drName = event.summary.split("/")[3] ? event.summary.split("/")[3] : event.summary.split("/")[1];
-    console.log(event, drName, selectedDr, selectedDr.includes(drName) || selectedDr === drName)
+    if(drName){
+      drName = drName.replaceAll('.', '');
+      drName = drName.replaceAll('dr', '');
+    }
     return selectedDr.toLowerCase().includes(drName?.toLowerCase());
   })
 }

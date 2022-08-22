@@ -62,16 +62,19 @@ const NavHead = () => {
                             <Link href="/"><a className={`custom-nav-link text-uppercase ${router.pathname === '/' ? 'active' : ''}`} aria-current="page">{headerLables[lang][0]}</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
-                            <Link href="/about"><a className={`custom-nav-link text-uppercase ${router.pathname === '/about' ? 'active' : ''}`}>{headerLables[lang][1]}</a></Link>
+                            <Link href="/booking"><a className={`custom-nav-link text-uppercase ${router.pathname === '/booking' ? 'active' : ''}`} aria-current="page">{headerLables[lang][1]}</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
-                            <Link href="/services"><a className={`custom-nav-link text-uppercase ${router.pathname === '/services' ? 'active' : ''}`}>{headerLables[lang][2]}</a></Link>
+                            <Link href="/about"><a className={`custom-nav-link text-uppercase ${router.pathname === '/about' ? 'active' : ''}`}>{headerLables[lang][2]}</a></Link>
+                        </li>
+                        <li className="nav-item me-4 li-link">
+                            <Link href="/services"><a className={`custom-nav-link text-uppercase ${router.pathname === '/services' ? 'active' : ''}`}>{headerLables[lang][3]}</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
                             <Link href="/prices"><a className={`custom-nav-link text-uppercase ${router.pathname === '/prices' ? 'active' : ''}`}>{headerLables[lang][4]}</a></Link>
                         </li>
                         <li className="nav-item me-4 li-link">
-                            <Link href="/gdpr"><a className={`custom-nav-link text-uppercase ${router.pathname === '/gdpr' ? 'active' : ''}`}>{headerLables[lang][3]}</a></Link>
+                            <Link href="/gdpr"><a className={`custom-nav-link text-uppercase ${router.pathname === '/gdpr' ? 'active' : ''}`}>{headerLables[lang][5]}</a></Link>
                         </li>
                     </ul>
                 </div>

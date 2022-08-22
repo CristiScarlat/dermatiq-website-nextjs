@@ -44,6 +44,8 @@ const Booking = () => {
 
   const { state, dispatch } = useContext(Ctx);
 
+  const lang = state.lang
+
   const timeInterval = 20;
 
   useEffect(() => {
@@ -51,7 +53,7 @@ const Booking = () => {
       setLoading(true);
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
-        console.log(eventsBySelectedDr)
+        console.log({ eventsBySelectedDr })
         const { bookedHoursPerDay, freeDays } = processEvents(eventsBySelectedDr);
         setEvents(bookedHoursPerDay);
         setFreeDaysPerDr(freeDays);
@@ -86,6 +88,7 @@ const Booking = () => {
   ) => {
     const dt = new Date(1970, 0, 1);
     const rc = [];
+    console.log({step, minHour, minMinutes, maxHour, maxMinutes});
     while (dt.getDate() === 1) {
       if (
         dt.getHours() >= minHour &&
@@ -104,19 +107,20 @@ const Booking = () => {
     return rc;
   };
 
-  // const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
-  //   const busyTimes = [];
-
-  //   if (disabledTimes.length === 0) {
-  //     busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
-  //   }
-  //   else {
-  //     const afterBusyHour = disabledTimes[0].split(":")[0];
-  //     const afterBusyMin = disabledTimes[0].split(":")[1];
-  //     busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), parseInt(afterBusyMin) + step, maxHour, maxMinutes, 3);
-  //   }
-  //   return busyTimes;
-  // }
+  const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
+    const busyTimes = [];
+    console.log("1.generateTimeBtns=>", disabledTimes, events)
+    if (disabledTimes.length === 0) {
+      busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
+    }
+    else {
+      const afterBusyHour = disabledTimes[0].split(":")[0];
+      const afterBusyMin = disabledTimes[0].split(":")[1];
+      busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), 0, maxHour, parseInt(afterBusyMin), 3);
+      console.log("2.generateTimeBtns=>", afterBusyHour, afterBusyMin, busyTimes)
+    }
+    return busyTimes;
+  }
 
   const getDisabledTimes = (arrEvents) => {
     setDisabledTimes([]);
@@ -128,7 +132,6 @@ const Booking = () => {
     if (!dayWasSelected.current) dayWasSelected.current = true;
     setSelectedDay(date);
     if (selectedDate.getMonth() !== date.getMonth()) {
-      console.log("different month");
       setSelectedDate(date);
     }
     const arr = filterEventsByDate(events, date);
@@ -196,7 +199,7 @@ const Booking = () => {
         "/" +
         e.target[4].value +
         "/" +
-        selectedDrSurname +
+        "dr " + selectedDrSurname +
         "/online";
       addEventData.current.colorId = selectedDr?.colorId;
       setShowModal({
@@ -268,7 +271,8 @@ const Booking = () => {
   };
 
   const getAvailableHours = () => {
-    const arr = generateTimeButtons(timeInterval, selectedDr.workingHourStart, 0, selectedDr.workingHourEnd, 20);
+    const arr = generateTimeButtonByBusyTime(timeInterval, selectedDr.workingHourStart, 0, selectedDr.workingHourEnd, 20);
+    console.log({ arr })
     //filter out buzy hours
     const foundFreeHour = false;
     const filtered = [];
@@ -304,11 +308,10 @@ const Booking = () => {
             Go back
           </Button>
           <div>
-            {`${selectedDr?.title ? selectedDr.title : ""} > ${
-              dayWasSelected.current && selectedDay
+            {`${selectedDr?.title ? selectedDr.title : ""} > ${dayWasSelected.current && selectedDay
                 ? selectedDay.toISOString().split("T")[0]
                 : ""
-            } > ${selectedTime ? selectedTime : ""}`}
+              } > ${selectedTime ? selectedTime : ""}`}
           </div>
         </div>
       )}
@@ -321,7 +324,7 @@ const Booking = () => {
                   key={teamMember.img + "-" + index}
                   cardTitle={teamMember.title}
                   imgSrc={teamMember.img}
-                  buttonLable="Fa-ti o programare"
+                  buttonLable={lang === 'ro' ? "Fă-ți o programare" : "Make an appointment"}
                   cardButtonOnCLick={() =>
                     handleCustomCardButtonOnClick(teamMember)
                   }
@@ -372,18 +375,17 @@ const Booking = () => {
                       key={t}
                       type="button"
                       disabled={disabledTimes.includes(t)}
-                      className={`btn btn-circle ${
-                        !disabledTimes.includes(t) ? "custom-button" : ""
-                      } m-2`}
+                      className={`btn btn-circle ${!disabledTimes.includes(t) ? "custom-button" : ""
+                        } m-2`}
                       onClick={() => handleTimeButtonClick(t)}
                       style={
                         selectedTime === t
                           ? {
-                              backgroundColor: "green",
-                              border: "none",
-                              color: "black",
-                              fontSize: "18px",
-                            }
+                            backgroundColor: "green",
+                            border: "none",
+                            color: "black",
+                            fontSize: "18px",
+                          }
                           : {}
                       }
                     >
