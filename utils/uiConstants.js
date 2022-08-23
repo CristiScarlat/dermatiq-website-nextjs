@@ -353,6 +353,9 @@ export const teamCards = {
       title: "Dr. Mircea Berceanu",
       body: "Medic specialist chirugie plastica si microchirugie reconstructiva",
       img: "/team/Dr._Mircea_Berceanu.webp",
+      workDays: [1],
+      workingHourStart: 16,
+      workingHourEnd: 17,
       colorId: 4,
     },
     {

@@ -8,7 +8,6 @@ const ModalComponent = ({ title, body, showConfirmationButton = true, showCancel
     const [disabledConfirm, setDisabledConfirm] = useState(true);
 
     useEffect(() => {
-        console.log(rest.show);
         if(!rest.show)setDisabledConfirm(true);
     }, [rest.show])
 

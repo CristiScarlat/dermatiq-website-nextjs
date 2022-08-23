@@ -49,8 +49,7 @@ export const filterEventsByDr = (events, selectedDr) => {
   return events.filter(event => {
     const drName = event.summary.split("/")[3] ? event.summary.split("/")[3] : event.summary.split("/")[1];
     if(drName){
-      drName = drName.replaceAll('.', '');
-      drName = drName.replaceAll('dr', '');
+      drName = drName.toLowerCase().replaceAll('.', '').replaceAll('dr', '');
     }
     return selectedDr.toLowerCase().includes(drName?.toLowerCase());
   })

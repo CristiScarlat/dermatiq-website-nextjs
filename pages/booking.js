@@ -53,7 +53,6 @@ const Booking = () => {
       setLoading(true);
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
-        console.log({ eventsBySelectedDr })
         const { bookedHoursPerDay, freeDays } = processEvents(eventsBySelectedDr);
         setEvents(bookedHoursPerDay);
         setFreeDaysPerDr(freeDays);
@@ -88,12 +87,11 @@ const Booking = () => {
   ) => {
     const dt = new Date(1970, 0, 1);
     const rc = [];
-    console.log({step, minHour, minMinutes, maxHour, maxMinutes});
     while (dt.getDate() === 1) {
       if (
         dt.getHours() >= minHour &&
         dt.getMinutes() >= minMinutes &&
-        dt.getHours() <= maxHour
+        dt.getHours() < maxHour
       ) {
         const hh =
           dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
@@ -109,7 +107,6 @@ const Booking = () => {
 
   const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
     const busyTimes = [];
-    console.log("1.generateTimeBtns=>", disabledTimes, events)
     if (disabledTimes.length === 0) {
       busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
     }
@@ -117,7 +114,6 @@ const Booking = () => {
       const afterBusyHour = disabledTimes[0].split(":")[0];
       const afterBusyMin = disabledTimes[0].split(":")[1];
       busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), 0, maxHour, parseInt(afterBusyMin), 3);
-      console.log("2.generateTimeBtns=>", afterBusyHour, afterBusyMin, busyTimes)
     }
     return busyTimes;
   }
@@ -272,7 +268,6 @@ const Booking = () => {
 
   const getAvailableHours = () => {
     const arr = generateTimeButtonByBusyTime(timeInterval, selectedDr.workingHourStart, 0, selectedDr.workingHourEnd, 20);
-    console.log({ arr })
     //filter out buzy hours
     const foundFreeHour = false;
     const filtered = [];
@@ -284,8 +279,6 @@ const Booking = () => {
     });
     return filtered;
   };
-
-  //console.log({freeDaysPerDr, daysToFilter: Array.from(daysToFilter)})
 
   /*
   calendar-event-title: nume-pacient/tel-pacient/serviciu/nume-familie-dr/online --> calendar color

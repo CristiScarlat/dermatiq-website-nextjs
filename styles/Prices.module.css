@@ -9,4 +9,5 @@
 .price-color-font {
   font-weight: 700;
   color: var(--big-circle-icons-color);
+  white-space: nowrap;
 }
