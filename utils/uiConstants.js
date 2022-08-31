@@ -105,7 +105,7 @@ export const serviceCards = {
       Acest tratament implica formarea de colagen pe traiectul firelor care are rolul de a tonifia si intinde pielea. \
       Efectul de lifting este subtil si preferat de catre pacientii care nu doresc operatie, \
       sau sunt tineri si nu necesita aceasta operatie. Daca esti interesat programeza-te la un consult!",
-      img: "/procedures/lifting-fire-pdo.jpg",
+      img: "/procedures/lifting-fire-pdo-black-eyes.jpeg",
     },
     {
       title: "Mezoterapie",
@@ -254,35 +254,28 @@ export const serviceCards = {
 export const treatmentCards = {
   ro: [
     {
-      title: "Corectia cearcanelor cu acid hialuronic",
-      body: "😷<span>Tratament:</span> Corectia cearcanelor cu acid hialuronic<br/>\
-       💉<span>Metoda folosita:</span> Injectare cu acid hialuronic<br/>\
-      ⏰<span>Durata procedurii:</span> 30- 40min<br/>\
-      💫<span>Anestezie:</span> locala - crema anestezica<br/>\
-      🎉<span>Rezultate:</span>  apar imediat<br/>\
-      💣<span>Atentie:</span> pot aparea hematoame, dispar in 5-7 zile<br/>\
-      👍🏼<span>Durata efectului:</span> 6-12 luni<br/> 📄Este necesar consult prealabil",
-      img: "/treatments/corectia-cearcanelor-cu-acid-hialuronic.jpg",
+      title: "Acnee in tratament",
+      img: "/treatments/acneea-in-tratament-black-eyes.jpeg",
     },
     {
-      title: "Chestie de piele fata",
-      body: "Eiusmod cillum esse veniam eiusmod laboris est ex enim ex \
-        tempor et. Labore dolore ad duis ullamco eu. Officia eiusmod et anim \
-        dolor mollit officia ut officia. Sit id eu voluptate sunt. \
-        Aliqua mollit laboris ea incididunt do aliquip aliquip occaecat mollit. \
-        Excepteur esse ad qui enim ea amet.\
-        Amet duis excepteur ea occaecat amet labore velit veniam aute.",
-      img: "/homeCarousel/home-carousel-2.jpg",
+      title: "Corectie (augmentare) buze",
+      img: "/treatments/corectie-augmentare-buze-black-eyes.jpeg",
     },
     {
-      title: "Alta chestie tratata",
-      body: "Eiusmod cillum esse veniam eiusmod laboris est ex enim ex \
-        tempor et. Labore dolore ad duis ullamco eu. Officia eiusmod et anim \
-        dolor mollit officia ut officia. Sit id eu voluptate sunt. \
-        Aliqua mollit laboris ea incididunt do aliquip aliquip occaecat mollit. \
-        Excepteur esse ad qui enim ea amet.\
-        Amet duis excepteur ea occaecat amet labore velit veniam aute.",
-      img: "/homeCarousel/home-carousel-3.jpg",
+      title: "Corectie cearcane",
+      img: "/treatments/corectie-cearcane-black-eyes.jpeg",
+    },
+    {
+      title: "Echilibrare faciala nechirurgicala",
+      img: "/treatments/echilibrare-faciala-nechirurgicala-black-eyes.jpeg",
+    },
+    {
+      title: "Rejuvenare faciala",
+      img: "/treatments/rejuvenare-faciala-black-eyes.jpeg",
+    },
+    {
+      title: "Rinoplastie nechirurgicala (Corectia nasului)",
+      img: "/treatments/rinoplastie-nechirurgicala-black-eyes.jpeg",
     },
   ],
   en: [

@@ -88,8 +88,9 @@ const Home = () => {
               key={service.img + "-" + index}
               cardTitle={service.title}
               imgSrc={service.img}
-              className={`m-3 ${styles["home-custom-card"]}`}
-              buttonLable={lang === "ro" ? "Afla mai multe" : "Read more"}
+              className={`m-3 p-2 ${styles["home-custom-card"]}`}
+              showButton={false}
+              contentHeight={true}
             >
               <div className={styles["home-results-container"]} dangerouslySetInnerHTML={{__html: service.body}}/>
             </CustomCard>
