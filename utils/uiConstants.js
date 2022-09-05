@@ -60,7 +60,7 @@ export const serviceCards = {
       (carcinom bazo- si spino-celular, melanom sau altor leziuni \
       precanceroase – nevii nevo-celulari si keratozele actinice), \
       si in diagnosticul altor afectiuni dermatologice.",
-      img: "/procedures/dermatoscopie-crop.jpg",
+      img: "/procedures/dermatoscopie-crop.webp",
     },
     {
       title: "Excizie leziuni",
@@ -71,7 +71,7 @@ export const serviceCards = {
         "In cazul formatiunilor cutanate benigne sau cu probleme, \
         acestea se inlatura chirurgical sub anestezie locala, urmand ca plaga rezultata sa fie inchisa cu un fir de sutura, \
         care se va inlatura dupa o anumita perioada de timp, in functie de recomandarea medicului.",
-      img: "/procedures/excizie-leziuni.webp",
+      img: "/procedures/excizie-leziuni-crop.jpeg",
     },
     {
       title: "Consult cu lampă wood",
