@@ -318,7 +318,7 @@ export const teamCards = {
     {
       title: "Sef de lucrari Dr. Andrada Iftode",
       body: "Medic specialist dermatovenerologie, medicina regenerativa, estetica si anti-aging",
-      img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.webp",
+      img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.jpeg",
       workDays: [2, 4],
       workingHourStart: 15,
       workingHourEnd: 19,
@@ -354,7 +354,7 @@ export const teamCards = {
     {
       title: "Andreea Amarinei",
       body: "Asistent medical",
-      img: "/team/Andreea_Amarinei.webp",
+      img: "/team/Andreea_Amarinei.jpeg",
     },
     {
       title: "Valentina Pavlenco",

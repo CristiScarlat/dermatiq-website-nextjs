@@ -4,7 +4,7 @@
 
 .home-main {
   /* min-height: 100vh; */
-  padding: 2rem 0;
+  padding: 0 0 2rem 0;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -163,6 +163,7 @@
 
 .home-custom-card img{
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .home-main-image-big-text {

@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import CustomCard from "../components/CustomCard";
 import {
   serviceCards,
@@ -11,6 +11,8 @@ import { MdLocationOn, MdOutlineMail, MdPhone } from "react-icons/md";
 import { useRouter } from "next/router";
 import { Ctx } from "../context/context";
 import styles from "../styles/Home.module.css";
+import CustomCarousel from "../components/Carousel";
+import { isMobile } from "../utils/utils";
 
 //vogue
 //preturi
@@ -19,12 +21,30 @@ const Home = () => {
   const router = useRouter();
   const ctx = useContext(Ctx);
 
+  const videoRef = useRef();
   const lang = ctx.state.lang;
+
+  useEffect(() => {
+    console.log(videoRef.current.offsetTop);
+    if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 150);
+  }, [])
+
+  const handleScroll = () => {
+    if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 800);
+  }
 
   return (
     <div className={styles.container}>
       <main className={styles["home-main"]}>
-        <div
+        <>
+          {/* <CustomCarousel showThumbs={false}/> */}
+          <video autoPlay muted width="100%" ref={videoRef} onEnded={handleScroll}>
+            <source src="/homeCarousel/ClinicaDermatIQ-intro-HD.mp4" type="video/mp4" />
+            <source src="movie.ogg" type="video/ogg" />
+            Your browser does not support the video tag.
+          </video>
+        </>
+        {/* <div
           className={`${styles["head-contact-phone"]}`}
           style={{
             background: `url(/home-image-v2.jpg)`,
@@ -51,32 +71,32 @@ const Home = () => {
               <CustomLinkBtn/>
             </div>
           </div>
-        </div>
+        </div> */}
 
-        <hr className="sections-separator" />
-          <div className="section-title">
-            {lang === "ro" && "Proceduri"}
-            {lang === "en" && "Procedures"}
-          </div>
-          <SlickSlider width="65%">
-            {serviceCards[lang].map((service, index) => (
-              <CustomCard
-                key={service.img + "-" + index}
-                cardTitle={service.title}
-                imgSrc={service.img}
-                className={`m-3 ${styles["home-custom-card"]}`}
-                buttonLable={lang === "ro" ? "Afla mai multe" : "Read more"}
-                cardButtonOnCLick={() =>
-                  router.push({
-                    pathname: "/services",
-                    query: { name: service.title },
-                  })
-                }
-              >
-                <p className="card-text">{service.body}</p>
-              </CustomCard>
-            ))}
-          </SlickSlider>
+        {/* <hr className="sections-separator" /> */}
+        <div className="section-title">
+          {lang === "ro" && "Proceduri"}
+          {lang === "en" && "Procedures"}
+        </div>
+        <SlickSlider width="65%">
+          {serviceCards[lang].map((service, index) => (
+            <CustomCard
+              key={service.img + "-" + index}
+              cardTitle={service.title}
+              imgSrc={service.img}
+              className={`m-3 ${styles["home-custom-card"]}`}
+              buttonLable={lang === "ro" ? "Afla mai multe" : "Read more"}
+              cardButtonOnCLick={() =>
+                router.push({
+                  pathname: "/services",
+                  query: { name: service.title },
+                })
+              }
+            >
+              <p className="card-text">{service.body}</p>
+            </CustomCard>
+          ))}
+        </SlickSlider>
         <hr className="sections-separator" />
         <div className="section-title">
           {lang === "ro" && "Rezultate"}
@@ -92,7 +112,7 @@ const Home = () => {
               showButton={false}
               contentHeight={true}
             >
-              <div className={styles["home-results-container"]} dangerouslySetInnerHTML={{__html: service.body}}/>
+              <div className={styles["home-results-container"]} dangerouslySetInnerHTML={{ __html: service.body }} />
             </CustomCard>
           ))}
         </SlickSlider>
