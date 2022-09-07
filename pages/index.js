@@ -25,8 +25,9 @@ const Home = () => {
   const lang = ctx.state.lang;
 
   useEffect(() => {
-    console.log(videoRef.current.offsetTop);
-    if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 150);
+    // console.log(videoRef.current.offsetTop);
+    // if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 150);
+    videoRef.current.scrollIntoView();
   }, [])
 
   const handleScroll = () => {
@@ -40,7 +41,7 @@ const Home = () => {
           {/* <CustomCarousel showThumbs={false}/> */}
           <video autoPlay muted width="100%" ref={videoRef} onEnded={handleScroll}>
             <source src="/homeCarousel/ClinicaDermatIQ-intro-HD.mp4" type="video/mp4" />
-            <source src="movie.ogg" type="video/ogg" />
+            <source src="/homeCarousel/ClinicaDermatIQ-intro.ogg" type="video/ogg" />
             Your browser does not support the video tag.
           </video>
         </>
@@ -74,6 +75,7 @@ const Home = () => {
         </div> */}
 
         {/* <hr className="sections-separator" /> */}
+        <div className="mt-4"/>
         <div className="section-title">
           {lang === "ro" && "Proceduri"}
           {lang === "en" && "Procedures"}

@@ -40,7 +40,7 @@ const About = () => {
                     showButton={false}
                     className={`m-3 ${homeStyles["home-custom-card"]}`}
                     maxWidth="15rem"
-                    minHeight="25rem"
+                    contentHeight
                   >
                     <p className="card-text">
                       {service.body}
@@ -61,7 +61,7 @@ const About = () => {
                     showButton={false}
                     className={`m-3 ${homeStyles["home-custom-card"]}`}
                     maxWidth="15rem"
-                    minHeight="25rem"
+                    contentHeight
                   >
                     <p className="card-text">
                       {service.body}
@@ -72,7 +72,7 @@ const About = () => {
             })}
           </div>
         </div>
-        <div className={styles['about-contact-schedule-container']}>
+        <div className={styles['about-contact-schedule-container']} style={{marginTop: '2rem'}}>
           <CustomLinkBtn />
           <div className="w-100">
             <div>

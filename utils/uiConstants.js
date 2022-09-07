@@ -327,7 +327,7 @@ export const teamCards = {
     {
       title: "Dr. Alina Stasak",
       body: "Medic specialist dermatovenerologie, dermatopediatrie, dermatocosmetologie",
-      img: "/team/Dr._Alina_Stasak.webp",
+      img: "/team/Dr._Alina_Stasak.jpeg",
       workDays: [3, 5],
       workingHourStart: 15,
       workingHourEnd: 19,
@@ -336,7 +336,7 @@ export const teamCards = {
     {
       title: "Dr. Anca Țurcan",
       body: "Medic specialist dermatovenerologie, dermatochirugie, dermatolocosmetologie",
-      img: "/team/Dr._Anca_Țurcan.webp",
+      img: "/team/Dr._Anca_Țurcan.jpeg",
       workDays: [1],
       workingHourStart: 16,
       workingHourEnd: 18,
@@ -359,7 +359,7 @@ export const teamCards = {
     {
       title: "Valentina Pavlenco",
       body: "Asistent medical",
-      img: "/team/Valentina_Pavlenco.webp",
+      img: "/team/Valentina_Pavlenco.jpeg",
     },
   ],
   en: [
@@ -492,3 +492,5 @@ export const prices = {
     "Lifting cu fire PDO": "400 euro",
   },
 };
+
+export const galery = []
