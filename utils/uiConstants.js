@@ -410,8 +410,22 @@ export const teamCards = {
 };
 
 export const headerLables = {
-  ro: ["Acasa", "Programare", "Despre Noi", "Proceduri", "Lista Preturi", "GDPR"],
-  en: ["Home", "Appointment", "About us", "Procedures", "Prices", "GDPR"],
+  ro: [
+    {link: "/", name: "Acasa"}, 
+    {link: "/booking", name: "Programare"}, 
+    {link: "/services", name: "Proceduri"}, 
+    {link: "/about", name: "Despre Noi"}, 
+    {link: "/galery", name: "Galerie"}, 
+    {link: "/prices", name: "Lista Preturi"}, 
+    {link:"/gdpr", name: "GDPR"}],
+  en: [
+    {link: "/", name: "Home"}, 
+    {link: "/booking", name: "Appointment"}, 
+    {link: "/services", name: "Procedures"}, 
+    {link: "/about", name: "About us"}, 
+    {link: "/galery", name: "Galery"},
+    {link: "/prices", name: "Prices"}, 
+    {link:"/gdpr", name: "GDPR"}]
 };
 
 export const aboutTeamDescription = {
@@ -493,4 +507,4 @@ export const prices = {
   },
 };
 
-export const galery = [","]
+export const galery = {baseFotoName: "dermatiq-galery-", qty: 73}

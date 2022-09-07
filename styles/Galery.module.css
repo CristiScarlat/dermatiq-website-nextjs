@@ -1,0 +1,14 @@
+.galery-wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-gap: 1rem;
+  justify-content: center;
+  margin: 1rem;
+}
+
+.galery-wrapper img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 5px;
+}
