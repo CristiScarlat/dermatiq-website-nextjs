@@ -493,4 +493,4 @@ export const prices = {
   },
 };
 
-export const galery = []
+export const galery = [","]
