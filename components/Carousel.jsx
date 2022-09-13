@@ -48,7 +48,7 @@ const CarouselLegendContent = ({index, lang}) => {
         <h1>Suntem aici pentru tine</h1>
         <hr/>
         <h3>
-          {mainImageBigText[lang].map(text => <p>{text}</p>)}
+          {mainImageBigText[lang].map(text => <p key={text}>{text}</p>)}
         </h3>
         <hr/>
         <div className="d-flex align-items-center gap-2">
