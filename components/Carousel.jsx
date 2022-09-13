@@ -76,7 +76,7 @@ const CarouselLegendContent = ({index, lang}) => {
         {index === 2 && <>
         <h1>Avem grija de cei mici</h1>
         <p>
-        Echipa Olidental are specialisti in Pedodonție (tratamente la copii)
+        
         </p>
         <p style={{ margin: "1.5rem 0" }}>
           <a
