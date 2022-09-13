@@ -24,26 +24,26 @@ const Home = () => {
   const videoRef = useRef();
   const lang = ctx.state.lang;
 
-  useEffect(() => {
-    // console.log(videoRef.current.offsetTop);
-    // if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 150);
-    videoRef.current.scrollIntoView();
-  }, [])
+  // useEffect(() => {
+  //   // console.log(videoRef.current.offsetTop);
+  //   // if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 150);
+  //   videoRef.current.scrollIntoView();
+  // }, [])
 
-  const handleScroll = () => {
-    if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 800);
-  }
+  // const handleScroll = () => {
+  //   if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 800);
+  // }
 
   return (
     <div className={styles.container}>
       <main className={styles["home-main"]}>
         <>
-          {/* <CustomCarousel showThumbs={false}/> */}
-          <video autoPlay muted width="100%" ref={videoRef} onEnded={handleScroll}>
+          <CustomCarousel showThumbs={false} className={styles["home-carousel"]} lang={lang}/>
+          {/* <video autoPlay muted width="100%" ref={videoRef} onEnded={handleScroll}>
             <source src="/homeCarousel/ClinicaDermatIQ-intro-HD.mp4" type="video/mp4" />
             <source src="/homeCarousel/ClinicaDermatIQ-intro.ogg" type="video/ogg" />
             Your browser does not support the video tag.
-          </video>
+          </video> */}
         </>
         {/* <div
           className={`${styles["head-contact-phone"]}`}
@@ -74,7 +74,7 @@ const Home = () => {
           </div>
         </div> */}
 
-        {/* <hr className="sections-separator" /> */}
+        <hr className="sections-separator only-desktop" />
         <div className="mt-4"/>
         <div className="section-title">
           {lang === "ro" && "Proceduri"}

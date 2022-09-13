@@ -8,8 +8,8 @@ const Galery = () => {
     const photoArray = new Array(galery.qty).fill(galery.baseFotoName).map((elem, index) => elem + index);
 
     return (
-        <div style={{textAlign: 'center'}}>
-            <video autoPlay loop controls width="80%">
+        <div className="text-center pt-4">
+            <video autoPlay loop controls width="80%" muted>
                 <source src="https://firebasestorage.googleapis.com/v0/b/cris-web-apps.appspot.com/o/dermatiq%2FDermatIQ.mp4?alt=media&token=8939a276-f9d7-4984-89e3-df76842dd10a" type="video/mp4" />
                 Your browser does not support the video tag.
             </video>

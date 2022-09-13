@@ -311,7 +311,7 @@ const Booking = () => {
       {step === 0 && (
         <div className="booking-team-cards-container">
           {teamCards[state.lang].map((teamMember, index) => {
-            if (index < 4) {
+            if (teamMember.workDays) {
               return (
                 <CustomCard
                   key={teamMember.img + "-" + index}

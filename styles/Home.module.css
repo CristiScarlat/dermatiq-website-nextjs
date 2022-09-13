@@ -1,3 +1,4 @@
+
 .container {
   margin: 0;
 }
@@ -209,6 +210,12 @@
   font-weight: 600;
 }
 
+.home-carousel {
+  max-width: 70rem;
+  margin: 1rem;
+  width: 90%;
+}
+
 
 @media only screen and (max-width: 600px) {
   .home-main-image-big-text {
@@ -256,5 +263,10 @@
 
   .custom-icon-contact svg {
     fill: gray;
+  }
+
+  .home-carousel {
+    margin: 0;
+    width: 100%!important;
   }
 }

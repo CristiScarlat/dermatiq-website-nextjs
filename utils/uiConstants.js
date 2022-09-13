@@ -317,7 +317,7 @@ export const teamCards = {
   ro: [
     {
       title: "Sef de lucrari Dr. Andrada Iftode",
-      body: "Medic specialist dermatovenerologie, medicina regenerativa, estetica si anti-aging",
+      body: "Medic primar dermatovenerologie, medicina regenerativa, estetica si anti-aging",
       img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.jpeg",
       workDays: [2, 4],
       workingHourStart: 15,
@@ -345,11 +345,21 @@ export const teamCards = {
     {
       title: "Dr. Mircea Berceanu",
       body: "Medic specialist chirugie plastica si microchirugie reconstructiva",
-      img: "/team/Dr._Mircea_Berceanu.webp",
-      workDays: [1],
-      workingHourStart: 16,
-      workingHourEnd: 17,
-      colorId: 4,
+      img: "/icons/doctor-icon-man.jpg",
+      // workDays: [1],
+      // workingHourStart: 16,
+      // workingHourEnd: 17,
+      // colorId: 4,
+    },
+    {
+      title: "Dr. Florina Claudia Cojocaru",
+      body: "Medic specialist Pediatrie",
+      img: "/icons/doctor-icon-woman.png",
+    },
+    {
+      title: "Conf. univ. dr. Daniela Iacob",
+      body: "Medic primar Pediatrie",
+      img: "/icons/doctor-icon-woman.png",
     },
     {
       title: "Andreea Amarinei",
@@ -366,7 +376,7 @@ export const teamCards = {
     {
       title: "Sef de lucrari Dr. Andrada Iftode",
       body: "Md Specialist in dermatovenerology, regenerative medicine, aesthetics and anti-aging",
-      img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.webp",
+      img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.jpeg",
       workDays: [2, 4],
       workingHourStart: 15,
       workingHourEnd: 19,
@@ -375,7 +385,7 @@ export const teamCards = {
     {
       title: "Dr. Alina Stasak",
       body: "Md Specialist in dermatovenerology, dermatopediatrics, dermatocosmetology",
-      img: "/team/Dr._Alina_Stasak.webp",
+      img: "/team/Dr._Alina_Stasak.jpeg",
       workDays: [3, 5],
       workingHourStart: 15,
       workingHourEnd: 19,
@@ -384,7 +394,7 @@ export const teamCards = {
     {
       title: "Dr. Anca Țurcan",
       body: "Md Specialist in dermatovenerology, dermatosurgery, dermatolocosmetology",
-      img: "/team/Dr._Anca_Țurcan.webp",
+      img: "/team/Dr._Anca_Țurcan.jpeg",
       workDays: [1],
       workingHourStart: 16,
       workingHourEnd: 18,
@@ -393,18 +403,28 @@ export const teamCards = {
     {
       title: "Dr. Mircea Berceanu",
       body: "Md Specialist in plastic surgery and reconstructive microsurgery",
-      img: "/team/Dr._Mircea_Berceanu.webp",
+      img: "/icons/doctor-icon-man.jpg",
       colorId: 4,
+    },
+    {
+      title: "Dr. Florina Claudia Cojocaru",
+      body: "Medic specialist Pediatrie",
+      img: "/icons/doctor-icon-woman.png",
+    },
+    {
+      title: "Conf. univ. dr. Daniela Iacob",
+      body: "Medic primar Pediatrie",
+      img: "/icons/doctor-icon-woman.png",
     },
     {
       title: "Andreea Amarinei",
       body: "Nurse",
-      img: "/team/Andreea_Amarinei.webp",
+      img: "/team/Andreea_Amarinei.jpeg",
     },
     {
       title: "Valentina Pavlenco",
       body: "Nurse",
-      img: "/team/Valentina_Pavlenco.webp",
+      img: "/team/Valentina_Pavlenco.jpeg",
     },
   ],
 };
@@ -439,8 +459,8 @@ export const aboutPageTitle = {
 };
 
 export const mainImageBigText = {
-  ro: ["Dermatologie", "Venerologie", "Chirurgie", "DermatoEstetica"],
-  en: ["Dermatology", "Venereology", "Surgery", "DermatoEsthetics"],
+  ro: ["Dermatologie", "Venerologie", "Chirurgie", "DermatoEstetica", "Pediatrie"],
+  en: ["Dermatology", "Venereology", "Surgery", "DermatoEsthetics", "Pediatrics"],
 };
 
 export const priceTable = {

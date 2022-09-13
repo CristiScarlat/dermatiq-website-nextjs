@@ -1,91 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
 .slick-slide-main > button {
-    background-color: var(--big-circle-icons-color);
-    height: 3rem;
-    width: 2rem;
-    border-radius: 5px;
+  background-color: var(--big-circle-icons-color);
+  height: 3rem;
+  width: 2rem;
+  border-radius: 5px;
 }
 
 .slick-slide-main > button:hover {
-    background-color: var(--big-circle-icons-color);
+  background-color: var(--big-circle-icons-color);
 }
 
 .slick-slide-main > button:focus {
-    background-color: var(--big-circle-icons-color);
+  background-color: var(--big-circle-icons-color);
 }
 
 .slick-slide-container {
-    width: 65%;
+  width: 65%;
 }
 
 .booking-button {
-    padding: 1rem;
-    border: 1px solid var(--big-circle-icons-color);
-    border-radius: 5px;
-    background-color: var(--big-circle-icons-color);
-    color: white;
-    display: flex;
-    align-items: center;
-    line-height: 0;
-    font-size: 16px;
-    text-shadow: none;
-    text-shadow: initial;
-    transition: background-color 0.5s linear, color 0.5s linear;
+  padding: 1rem;
+  border: 1px solid var(--big-circle-icons-color);
+  border-radius: 5px;
+  background-color: var(--big-circle-icons-color);
+  color: white;
+  display: flex;
+  align-items: center;
+  line-height: 0;
+  font-size: 16px;
+  text-shadow: none;
+  text-shadow: initial;
+  transition: background-color 0.5s linear, color 0.5s linear;
 }
 
 .booking-button:hover {
-    background-color: var(--main-background-color);
-    color: var(--big-circle-icons-color)!important;
+  background-color: var(--main-background-color);
+  color: var(--big-circle-icons-color) !important;
 }
 
 .spinner-container {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background-color: #000000a3;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: #000000a3;
+  z-index: 9999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .custom-card-button {
-    position: absolute; 
-    bottom: 0;
-    width: 100%;
-    border-color: var(--big-circle-icons-color); 
-    background-color: var(--big-circle-icons-color);
-    color: white!important;
-    font-weight: 600;
-    letter-spacing: 1px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  border-color: var(--big-circle-icons-color);
+  background-color: var(--big-circle-icons-color);
+  color: white !important;
+  font-weight: 600;
+  letter-spacing: 1px;
 }
 
 .text-uppercase {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
-.mobile-nav-container{
-    height: 0;
-    overflow: hidden;
-    transition: height 0.5s ease-out;
+.mobile-nav-container {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.5s ease-out;
 }
 
 .show {
-    height: 100vh;
+  height: 100vh;
 }
 
 .mobile-nav-container ul {
-    flex-direction: column;
-    line-height: 2rem;
+  flex-direction: column;
+  line-height: 2rem;
 }
 
-@media only screen and (max-width: 600px) {
-    .slick-slide-main > button {
-        display: none!important;
-    }
+.carousel-legend {
+    font-family: 'Oswald', sans-serif;
+    letter-spacing: 1.5px;
+}
 
-    .slick-slide-container {
-        width: 80%
-    }
+.carousel-content-item {
+  display: flex;
+}
+
+.carousel-content-item>img {
+  width: 60%!important;
+}
+
+
+@media only screen and (max-width: 600px) {
+  .slick-slide-main > button {
+    display: none !important;
+  }
+
+  .slick-slide-container {
+    width: 80%;
+  }
+
+  .carousel-content-item {
+    flex-direction: column;
+  }
+  
+  .carousel-content-item>img {
+    width: 100%!important;
+  }
 }

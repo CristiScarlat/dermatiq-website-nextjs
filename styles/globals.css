@@ -134,3 +134,9 @@ a:hover {
 table {
   background-color: transparent!important;
 }
+
+@media only screen and (max-width: 600px) {
+  .only-desktop{
+    display: none;
+  }
+}

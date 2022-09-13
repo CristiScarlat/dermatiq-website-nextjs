@@ -31,7 +31,7 @@ const About = () => {
         <div>
           <div className="booking-team-cards-container">
             {teamCards[lang].map((service, index) => {
-              if (index < 4) {
+              if (index < 6) {
                 return (
                   <CustomCard
                     key={service.img + '-' + index}
@@ -52,7 +52,7 @@ const About = () => {
           </div>
           <div className="booking-team-cards-container">
             {teamCards[lang].map((service, index) => {
-              if (index > 3) {
+              if (index > 5) {
                 return (
                   <CustomCard
                     key={service.img + '-' + index}
