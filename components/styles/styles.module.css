@@ -89,6 +89,7 @@
 
 .carousel-content-item {
   display: flex;
+  justify-content: center;
 }
 
 .carousel-content-item>img {

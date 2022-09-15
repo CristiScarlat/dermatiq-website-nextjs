@@ -354,12 +354,12 @@ export const teamCards = {
     {
       title: "Dr. Florina Claudia Cojocaru",
       body: "Medic specialist Pediatrie",
-      img: "/icons/doctor-icon-woman.png",
+      img: "/team/Dr.Florina-Claudia-Cojocaru-crop.jpeg",
     },
     {
       title: "Conf. univ. dr. Daniela Iacob",
       body: "Medic primar Pediatrie",
-      img: "/icons/doctor-icon-woman.png",
+      img: "/team/Dr-Iacob-Daniela-crop.jpg",
     },
     {
       title: "Andreea Amarinei",
@@ -459,8 +459,8 @@ export const aboutPageTitle = {
 };
 
 export const mainImageBigText = {
-  ro: ["Dermatologie", "Venerologie", "Chirurgie", "DermatoEstetica", "Pediatrie"],
-  en: ["Dermatology", "Venereology", "Surgery", "DermatoEsthetics", "Pediatrics"],
+  ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato Estetica", "Pediatrie"],
+  en: ["Dermatology", "Venereology", "Surgery", "Dermato Esthetics", "Pediatrics"],
 };
 
 export const priceTable = {

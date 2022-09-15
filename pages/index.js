@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import CustomCard from "../components/CustomCard";
 import {
   serviceCards,
@@ -12,38 +12,76 @@ import { useRouter } from "next/router";
 import { Ctx } from "../context/context";
 import styles from "../styles/Home.module.css";
 import CustomCarousel from "../components/Carousel";
+import { Carousel } from "react-responsive-carousel";
 import { isMobile } from "../utils/utils";
 
 //vogue
 //preturi
 
 const Home = () => {
+  const [anim, setAnim] = useState(0);
   const router = useRouter();
   const ctx = useContext(Ctx);
 
   const videoRef = useRef();
+
   const lang = ctx.state.lang;
 
-  // useEffect(() => {
-  //   // console.log(videoRef.current.offsetTop);
-  //   // if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 150);
-  //   videoRef.current.scrollIntoView();
-  // }, [])
+  useEffect(() => {
+    // console.log(videoRef.current.offsetTop);
+    // if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 150);
+    //videoRef.current.scrollIntoView();
+    setAnim(1)
+  }, [])
 
-  // const handleScroll = () => {
-  //   if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 800);
-  // }
+  const handleOnEnd = () => {
+    // if (!isMobile.any()) window.scrollTo(0, videoRef.current.offsetTop + 800);
+
+  }
 
   return (
     <div className={styles.container}>
       <main className={styles["home-main"]}>
         <>
-          <CustomCarousel showThumbs={false} className={styles["home-carousel"]} lang={lang}/>
-          {/* <video autoPlay muted width="100%" ref={videoRef} onEnded={handleScroll}>
-            <source src="/homeCarousel/ClinicaDermatIQ-intro-HD.mp4" type="video/mp4" />
-            <source src="/homeCarousel/ClinicaDermatIQ-intro.ogg" type="video/ogg" />
-            Your browser does not support the video tag.
-          </video> */}
+          {/* <CustomCarousel showThumbs={false} className={styles["home-carousel"]} lang={lang}/> */}
+          <div>
+            <video autoPlay muted width="100%" ref={videoRef} onEnded={handleOnEnd}>
+              <source src="/homeIntroMedia/dermatiq-intro-crop.mp4" type="video/mp4" />
+              <source src="/homeIntroMedia/ClinicaDermatIQ-intro.ogg" type="video/ogg" />
+              Your browser does not support the video tag.
+            </video>
+            <div className="d-flex justify-content-around flex-wrap">
+              {mainImageBigText[lang].map(speciality => (
+                <div className={`${styles["home-main-image-info"]} mt-3 `} style={{opacity: anim}}>
+                  {speciality}
+                </div>
+              ))}
+            </div>
+          </div>
+          {/* <Carousel 
+          className="w-100"
+          showArrows={false}
+          showIndicators={false}
+          showThumbs={false}
+          showStatus={false}
+          autoPlay={true}
+          infiniteLoop>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][0]}
+            </div>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][1]}
+            </div>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][2]}
+            </div>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][3]}
+            </div>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][4]}
+            </div>
+          </Carousel> */}
         </>
         {/* <div
           className={`${styles["head-contact-phone"]}`}
@@ -75,7 +113,7 @@ const Home = () => {
         </div> */}
 
         <hr className="sections-separator only-desktop" />
-        <div className="mt-4"/>
+        <div className="mt-4" />
         <div className="section-title">
           {lang === "ro" && "Proceduri"}
           {lang === "en" && "Procedures"}

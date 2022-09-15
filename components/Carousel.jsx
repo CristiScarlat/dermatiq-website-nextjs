@@ -113,6 +113,7 @@ const CustomCarousel = ({ showThumbs = true, className, lang }) => {
     <Carousel
       showThumbs={showThumbs}
       dynamicHeight={false}
+      showArrows={false}
       infiniteLoop
       autoPlay={true}
       showStatus={false}

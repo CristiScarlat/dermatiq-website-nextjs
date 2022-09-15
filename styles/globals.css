@@ -7,7 +7,7 @@
 
 :root {
   --main-header-background-color: #4956a0;
-  --main-background-color: #e5e5e6;
+  --main-background-color: #e0e0ec;
   --home-main-image-background-color: #8b8ec2;
   --home-main-image-text-color: #4956a0;
   --big-circle-icons-color: #4956a0;
@@ -133,6 +133,10 @@ a:hover {
 
 table {
   background-color: transparent!important;
+}
+
+.transition {
+  transition: linear 5s all;
 }
 
 @media only screen and (max-width: 600px) {
