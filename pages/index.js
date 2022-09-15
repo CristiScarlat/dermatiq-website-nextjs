@@ -52,7 +52,7 @@ const Home = () => {
             </video>
             <div className="d-flex justify-content-around flex-wrap">
               {mainImageBigText[lang].map(speciality => (
-                <div className={`${styles["home-main-image-info"]} mt-3 `} style={{opacity: anim}}>
+                <div key={speciality} className={`${styles["home-main-image-info"]} mt-3 `} style={{opacity: anim}}>
                   {speciality}
                 </div>
               ))}
