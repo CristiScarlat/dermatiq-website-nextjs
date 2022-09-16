@@ -50,7 +50,7 @@ const Home = () => {
               <source src="/homeIntroMedia/ClinicaDermatIQ-intro.ogg" type="video/ogg" />
               Your browser does not support the video tag.
             </video>
-            <div className="d-flex justify-content-around flex-wrap">
+            <div className="d-flex justify-content-around flex-wrap gap-2">
               {mainImageBigText[lang].map(speciality => (
                 <div key={speciality} className={`${styles["home-main-image-info"]} mt-3 `} style={{opacity: anim}}>
                   {speciality}
