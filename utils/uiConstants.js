@@ -527,4 +527,4 @@ export const prices = {
   },
 };
 
-export const galery = {baseFotoName: "dermatiq-galery-", qty: 73}
+export const galery = {baseFotoName: "dermatiq-galery-", qty: 32}
