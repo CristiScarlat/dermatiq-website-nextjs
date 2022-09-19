@@ -459,8 +459,8 @@ export const aboutPageTitle = {
 };
 
 export const mainImageBigText = {
-  ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato Estetica", "Pediatrie"],
-  en: ["Dermatology", "Venereology", "Surgery", "Dermato Esthetics", "Pediatrics"],
+  ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato Estetica", "Pediatrie", "Medicina de familie"],
+  en: ["Dermatology", "Venereology", "Surgery", "Dermato Esthetics", "Pediatrics", "Family doctor"],
 };
 
 export const priceTable = {
