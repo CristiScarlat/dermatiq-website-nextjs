@@ -45,7 +45,7 @@ const Home = () => {
         <>
           {/* <CustomCarousel showThumbs={false} className={styles["home-carousel"]} lang={lang}/> */}
           <div>
-            <video autoPlay muted width="100%" ref={videoRef} onEnded={handleOnEnd} controls>
+            <video autoPlay muted width="100%" ref={videoRef} onEnded={handleOnEnd}>
               <source src="/homeIntroMedia/dermatiq-intro-crop.mp4" type="video/mp4" />
               <source src="/homeIntroMedia/ClinicaDermatIQ-intro.ogg" type="video/ogg" />
               Your browser does not support the video tag.
