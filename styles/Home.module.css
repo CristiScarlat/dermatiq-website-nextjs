@@ -172,8 +172,8 @@
   /* background: linear-gradient(90deg, #599735 0%, #c8cdee 50%, #599735 100%); */
   /* background: linear-gradient(0deg, rgba(73,86,160,0.5746673669467788) 0%, rgba(73,86,160,1) 100%); */
   padding: 1rem;
-  border-radius: 5px;
-  box-shadow: 1px 2px 20px 0px #5460a6cc;
+  border-radius: 50%;
+  box-shadow: 1px 2px 20px 0px #5460a69c;
 }
 
 .custom-icon-contact {
