@@ -139,6 +139,10 @@ table {
   transition: linear 5s all;
 }
 
+.custom-button-close {
+  color: white;
+}
+
 @media only screen and (max-width: 600px) {
   .only-desktop{
     display: none;

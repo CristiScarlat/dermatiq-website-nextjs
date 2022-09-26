@@ -12,3 +12,57 @@
   object-fit: cover;
   border-radius: 5px;
 }
+
+.galery-img-zoom-container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000000d6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.galery-img-zoom-content img {
+  margin: auto;
+  display: block;
+  width: 100%;
+  max-height: 90vh;
+  position: relative;
+  left: 0;
+  transition: left 0.5s;
+}
+
+.galery-img-zoom-nav-prev {
+  position: absolute;
+  left: 10px;
+  font-size: 45px;
+  border: none;
+  background-color: #000000b0;
+  border-radius: 10px;
+  color: #fffbfb;
+  outline: transparent;
+  z-index: 9999;
+  transform: rotateY(180deg);
+}
+
+.galery-img-zoom-nav-next {
+  position: absolute;
+  right: 10px;
+  font-size: 45px;
+  border: none;
+  background-color: #000000b0;
+  border-radius: 10px;
+  color: #fffbfb;
+  outline: transparent;
+  z-index: 9999;
+}
+
+@media only screen and (max-width: 600px) {
+  .galery-img-zoom-nav-next,
+  .galery-img-zoom-nav-prev {
+    display: none;
+  }
+}
