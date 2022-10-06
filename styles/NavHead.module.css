@@ -21,6 +21,7 @@
       display: flex;
       justify-content: flex-end;
       align-items: center;
+      background: linear-gradient(90deg, #8c8ba9 0%, #d7d6e5 50%, #8c8ba9 100%);
   }
 
   .navbar-mini-main button {

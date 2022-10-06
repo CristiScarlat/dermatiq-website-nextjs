@@ -73,66 +73,18 @@ const NavHead = () => {
             className="d-flex justify-content-end navbar-nav g-3 me-auto mb-2 mb-lg-0 w-100 fw-bold"
             style={{ gap: "1rem" }}
           >
-            <Link href="/" className="nav-item me-4 li-link">
+            {headerLables[lang].map(hl => <Link key={hl.link} href={hl.link} className="nav-item me-4 li-link">
               <a
                 className={`custom-nav-link text-uppercase ${
-                  router.pathname === "/" ? "active" : ""
+                  router.pathname === hl.link  ? "active" : ""
                 }`}
                 aria-current="page"
               >
-                {headerLables[lang][0]}
+                {hl.name}
               </a>
-            </Link>
+            </Link>)}
 
-            <Link href="/booking" className="nav-item me-4 li-link">
-              <a
-                className={`custom-nav-link text-uppercase ${
-                  router.pathname === "/booking" ? "active" : ""
-                }`}
-              >
-                {headerLables[lang][1]}
-              </a>
-            </Link>
-
-            <Link href="/about" className="nav-item me-4 li-link">
-              <a
-                className={`custom-nav-link text-uppercase ${
-                  router.pathname === "/about" ? "active" : ""
-                }`}
-              >
-                {headerLables[lang][2]}
-              </a>
-            </Link>
-
-            <Link href="/services" className="nav-item me-4 li-link">
-              <a
-                className={`custom-nav-link text-uppercase ${
-                  router.pathname === "/services" ? "active" : ""
-                }`}
-              >
-                {headerLables[lang][3]}
-              </a>
-            </Link>
-
-            <Link href="/prices" className="nav-item me-4 li-link">
-              <a
-                className={`custom-nav-link text-uppercase ${
-                  router.pathname === "/prices" ? "active" : ""
-                }`}
-              >
-                {headerLables[lang][4]}
-              </a>
-            </Link>
-
-            <Link href="/gdpr" className="nav-item me-4 li-link">
-              <a
-                className={`custom-nav-link text-uppercase ${
-                  router.pathname === "/gdpr" ? "active" : ""
-                }`}
-              >
-                {headerLables[lang][5]}
-              </a>
-            </Link>
+           
           </Nav>
         </Navbar.Collapse>
       </Container>

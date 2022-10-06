@@ -1,9 +1,10 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import CustomCard from "../components/CustomCard";
 import {
   serviceCards,
   treatmentCards,
   mainImageBigText,
+  otherServices
 } from "../utils/uiConstants";
 import SlickSlider from "../components/SlickSlider";
 import CustomLinkBtn from "../components/customLinkBtn";
@@ -11,20 +12,103 @@ import { MdLocationOn, MdOutlineMail, MdPhone } from "react-icons/md";
 import { useRouter } from "next/router";
 import { Ctx } from "../context/context";
 import styles from "../styles/Home.module.css";
+import CustomCarousel from "../components/Carousel";
+import { Carousel } from "react-responsive-carousel";
+import { isMobile } from "../utils/utils";
 
 //vogue
 //preturi
 
 const Home = () => {
+  const [anim, setAnim] = useState(0);
   const router = useRouter();
   const ctx = useContext(Ctx);
 
+  const videoRef = useRef();
+
   const lang = ctx.state.lang;
 
+  useEffect(() => {
+    // console.log(videoRef.current.offsetTop);
+    // if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 150);
+    //videoRef.current.scrollIntoView();
+    setAnim(1)
+  }, [])
+
+  const handleOnEnd = () => {
+    // if (!isMobile.any()) window.scrollTo(0, videoRef.current.offsetTop + 800);
+
+  }
+
   return (
-    <div className={styles.container}>
       <main className={styles["home-main"]}>
-        <div
+        <>
+          {/* <CustomCarousel showThumbs={false} className={styles["home-carousel"]} lang={lang}/> */}
+          <div>
+            <video autoPlay muted width="100%" ref={videoRef} onEnded={handleOnEnd}>
+              <source src="/homeIntroMedia/dermatiq-intro-crop.mp4" type="video/mp4" />
+              <source src="/homeIntroMedia/ClinicaDermatIQ-intro.ogg" type="video/ogg" />
+              Your browser does not support the video tag.
+            </video>
+            {/* <div className="d-flex justify-content-center flex-wrap gap-4">
+              {mainImageBigText[lang].map(speciality => (
+                <div key={speciality} className={`${styles["home-main-image-info"]} mt-3 `} style={{opacity: anim}}>
+                  {speciality}
+                </div>
+              ))}
+            </div> */}
+            <div className={`${styles["head-contact-phone"]}`}>
+              <div>
+                {mainImageBigText[lang][0]}
+              </div>
+              <div>
+                {mainImageBigText[lang][1]}
+              </div>
+              <div>
+                {mainImageBigText[lang][2]}
+              </div>
+              <div>
+                {mainImageBigText[lang][3]}
+              </div>
+            </div>
+            {/* <hr className="sections-separator mt-1 mb-1" /> */}
+            <p className="text-center mt-4" style={{opacity: 0.6}}>{otherServices[lang]}</p>
+            <div className={`${styles["head-contact-phone"]} justify-content-center gap-4`} style={{opacity: 0.6}}>
+              <div>
+                {mainImageBigText[lang][4]}
+              </div>
+              <div>
+                {mainImageBigText[lang][5]}
+              </div>
+            </div>
+          </div>
+          {/* <hr className="sections-separator" /> */}
+          {/* <Carousel 
+          className="w-100"
+          showArrows={false}
+          showIndicators={false}
+          showThumbs={false}
+          showStatus={false}
+          autoPlay={true}
+          infiniteLoop>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][0]}
+            </div>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][1]}
+            </div>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][2]}
+            </div>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][3]}
+            </div>
+            <div className={styles["home-main-image-info"]}>
+              {mainImageBigText[lang][4]}
+            </div>
+          </Carousel> */}
+        </>
+        {/* <div
           className={`${styles["head-contact-phone"]}`}
           style={{
             background: `url(/home-image-v2.jpg)`,
@@ -51,32 +135,33 @@ const Home = () => {
               <CustomLinkBtn/>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <hr className="sections-separator" />
-          <div className="section-title">
-            {lang === "ro" && "Proceduri"}
-            {lang === "en" && "Procedures"}
-          </div>
-          <SlickSlider width="65%">
-            {serviceCards[lang].map((service, index) => (
-              <CustomCard
-                key={service.img + "-" + index}
-                cardTitle={service.title}
-                imgSrc={service.img}
-                className={`m-3 ${styles["home-custom-card"]}`}
-                buttonLable={lang === "ro" ? "Afla mai multe" : "Read more"}
-                cardButtonOnCLick={() =>
-                  router.push({
-                    pathname: "/services",
-                    query: { name: service.title },
-                  })
-                }
-              >
-                <p className="card-text">{service.body}</p>
-              </CustomCard>
-            ))}
-          </SlickSlider>
+        <div className="mt-4" />
+        <div className="section-title">
+          {lang === "ro" && "Proceduri"}
+          {lang === "en" && "Procedures"}
+        </div>
+        <SlickSlider width="65%">
+          {serviceCards[lang].map((service, index) => (
+            <CustomCard
+              key={service.img + "-" + index}
+              cardTitle={service.title}
+              imgSrc={service.img}
+              className={`m-3 ${styles["home-custom-card"]}`}
+              buttonLable={lang === "ro" ? "Afla mai multe" : "Read more"}
+              cardButtonOnCLick={() =>
+                router.push({
+                  pathname: "/services",
+                  query: { name: service.title },
+                })
+              }
+            >
+              <p className="card-text">{service.body}</p>
+            </CustomCard>
+          ))}
+        </SlickSlider>
         <hr className="sections-separator" />
         <div className="section-title">
           {lang === "ro" && "Rezultate"}
@@ -92,7 +177,7 @@ const Home = () => {
               showButton={false}
               contentHeight={true}
             >
-              <div className={styles["home-results-container"]} dangerouslySetInnerHTML={{__html: service.body}}/>
+              <div className={styles["home-results-container"]} dangerouslySetInnerHTML={{ __html: service.body }} />
             </CustomCard>
           ))}
         </SlickSlider>
@@ -145,7 +230,6 @@ const Home = () => {
           </div>
         </div>
       </main>
-    </div>
   );
 };
 

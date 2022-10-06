@@ -1,4 +1,5 @@
 /* @import url("https://use.typekit.net/atw7jti.css"); */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Playfair+Display+SC&display=swap');
 
 @font-face {
   font-family: 'VogueAvantGarde';
@@ -7,7 +8,7 @@
 
 :root {
   --main-header-background-color: #4956a0;
-  --main-background-color: #e5e5e6;
+  --main-background-color: #e0e0ec;
   --home-main-image-background-color: #8b8ec2;
   --home-main-image-text-color: #4956a0;
   --big-circle-icons-color: #4956a0;
@@ -23,9 +24,12 @@ body {
   margin: 0;
   /* font-family: adobe-garamond-pro, serif!important; */
   font-family: VogueAvantGarde, helvetica, sans-serif!important;
+  /* font-family: 'Oswald', sans-serif!important; */
+  
   font-style: normal;
-  background-color: var(--main-background-color)!important;
-  /* background: linear-gradient(0deg, rgba(4,252,226,1) 0%, rgba(73,70,250,1) 100%); */
+  /*background-color: var(--main-background-color)!important;*/
+
+  background: #e0e0ec!important;
   /* background: linear-gradient(0deg, rgba(73,70,250,1) 0%, #04fce2 200%); */
 }
 
@@ -132,4 +136,18 @@ a:hover {
 
 table {
   background-color: transparent!important;
+}
+
+.transition {
+  transition: linear 5s all;
+}
+
+.custom-button-close {
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .only-desktop{
+    display: none;
+  }
 }

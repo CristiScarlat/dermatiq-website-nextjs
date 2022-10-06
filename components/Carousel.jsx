@@ -1,75 +1,139 @@
-import { Carousel } from "react-bootstrap";
-import Image from 'next/image';
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+import { MdPhone } from "react-icons/md";
+import { mainImageBigText } from "../utils/uiConstants";
+import styles from "./styles/styles.module.css";
 
-const CustomCarousel = () => {
-    return (
-        <Carousel>
-            <Carousel.Item>
-                <Image
-                    //width={460}
-                    //className="d-block w-100"
-                    src="homeCarousel/home-carousel-1.jpg"
-                    alt="First slide"
-                />
-                {/* <Carousel.Caption>
-                    <h3>First slide label</h3>
-                    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                </Carousel.Caption> */}
-            </Carousel.Item>
-            <Carousel.Item>
-                <Image
-                    //width={460}
-                    //className="d-block w-100"
-                    src="homeCarousel/home-carousel-2.jpg"
-                    alt="Second slide"
-                />
+const CarouselLegendContent = ({index, lang}) => {
 
-                {/* <Carousel.Caption>
-                    <h3>Second slide label</h3>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </Carousel.Caption> */}
-            </Carousel.Item>
-            <Carousel.Item>
-                <Image
-                    //width={460}
-                    //className="d-block w-100"
-                    src="homeCarousel/home-carousel-3.jpg"
-                    alt="Third slide"
-                />
+  const carouselLegendStyle = [
+    {
+      // position: 'absolute',
+      // bottom: 0,
+      // left: 0,
+      // right: 0,
+      background: 'linear-gradient(0deg, rgba(73,86,160,0.5746673669467788) 0%, rgba(73,86,160,1) 100%)',
+      color: 'white',
+      fontWeight: 800,
+      padding: '1rem',
+      textAlign: 'start'
+    },
+    {
+      // position: 'absolute',
+      // bottom: 0,
+      // left: 0,
+      // right: 0,
+      background: 'linear-gradient(0deg, rgba(73,86,160,0.5746673669467788) 0%, rgba(73,86,160,1) 100%)',
+      color: 'white',
+      fontWeight: 800,
+      padding: '1rem',
+      textAlign: 'start'
+    },
+    {
+      // position: 'absolute',
+      // bottom: 0,
+      // left: 0,
+      // right: 0,
+      background: 'linear-gradient(0deg, rgba(73,86,160,0.5746673669467788) 0%, rgba(73,86,160,1) 100%)',
+      color: 'white',
+      fontWeight: 800,
+      padding: '1rem',
+      textAlign: 'start'
+    }
+  ]
 
-                {/* <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-                </Carousel.Caption> */}
-            </Carousel.Item>
-        </Carousel>
+  return (
+    <div  style={carouselLegendStyle[index]} className={styles["carousel-legend"]}>
+        {index === 0 && <>
+        <h1>Suntem aici pentru tine</h1>
+        <hr/>
+        <h3>
+          {mainImageBigText[lang].map(text => <p key={text}>{text}</p>)}
+        </h3>
+        <hr/>
+        <div className="d-flex align-items-center gap-2">
+              <MdPhone/>
+              <span>
+                +40 748 015 255
+              </span>
+            </div>
+        </>}
+        {index === 1 && <>
+        <h1>Oferim servicii complete in clinica noastra</h1>
+        <p>
+        
+         
+        </p>
+        <p style={{ margin: "1.5rem 0" }}>
+          <a
+            href="https://olidental.ro/#contact"
+            className="custom-button-link mt-2 mb-2"
+          >
+            Vezi serviciile noastre
+          </a>
+        </p>
+        </>}
+        {index === 2 && <>
+        <h1>Avem grija de cei mici</h1>
+        <p>
+        
+        </p>
+        <p style={{ margin: "1.5rem 0" }}>
+          <a
+            href="https://olidental.ro/#contact"
+            className="custom-button-link mt-2 mb-2"
+          >
+            Vezi serviciile noastre
+          </a>
+        </p>
+        </>}
+      {/* <div id="media_image-2" className="widget_media_image">
+        <picture loading="lazy">
+          <source
+            type="image/webp"
+            srcSet="images/TBI-Pay_RO_Medical-industy_Banner_1200x300.png.webp"
+          />
+          <img
+            loading="lazy"
+            src="images/TBI-Pay_RO_Medical-industy_Banner_1200x300.png"
+            alt="Dental-Ro"
+            // width="1200"
+            // height="300"
+          />
+        </picture>
+      </div> */}
+    </div>
+  );
+};
 
-    )
-}
+//
+
+const CustomCarousel = ({ showThumbs = true, className, lang }) => {
+  return (
+    <Carousel
+      showThumbs={showThumbs}
+      dynamicHeight={false}
+      showArrows={false}
+      infiniteLoop
+      autoPlay={true}
+      showStatus={false}
+      interval={5000}
+      className={className}
+    >
+      <div className={styles["carousel-content-item"]}>
+        <img src="/galery/dermatiq-galery-8.jpeg" alt="..."/>
+        <CarouselLegendContent index={0} lang={lang}/>
+      </div>
+      <div className={styles["carousel-content-item"]}>
+        <img src="/galery/dermatiq-galery-20.jpeg" alt="..."/>
+        <CarouselLegendContent index={1} lang={lang}/>
+      </div>
+      <div className={styles["carousel-content-item"]}>
+        <img src="/galery/dermatiq-galery-33.jpeg" alt="..."/>
+        <CarouselLegendContent index={2} lang={lang}/>
+      </div>
+    </Carousel>
+  );
+};
 
 export default CustomCarousel;
-
-/*
-        ////////////////////////////////////////////////////////////
-        <div id={carouselId} className="carousel slide" data-ride="carousel">
-            <div className="carousel-inner">
-                <div className="carousel-item active">
-                    <img className="d-block w-100" src="homeCarousel/home-carousel-1.jpg" alt="First slide" />
-                </div>
-                <div className="carousel-item">
-                    <img className="d-block w-100" src="homeCarousel/home-carousel-2.jpg" alt="Second slide" />
-                </div>
-                <div className="carousel-item">
-                    <img className="d-block w-100" src="homeCarousel/home-carousel-3.jpg" alt="Third slide" />
-                </div>
-            </div>
-            <a className="carousel-control-prev" href={`#${carouselId}`} role="button" data-slide="prev">
-                <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span className="sr-only">Previous</span>
-            </a>
-            <a className="carousel-control-next" href={`#${carouselId}`} role="button" data-slide="next">
-                <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                <span className="sr-only">Next</span>
-            </a>
-        </div>
-        */
