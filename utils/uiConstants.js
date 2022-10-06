@@ -185,7 +185,7 @@ export const serviceCards = {
       (basal and squamous cell carcinoma, melanoma or other lesions\
       precancerous - cellular nevi and actinic keratoses), \
       and in the diagnosis of other dermatological diseases.",
-      img: "/procedures/dermatoscopie-crop.jpg",
+      img: "/procedures/dermatoscopie-crop.webp",
     },
     {
       title: "Excision of lesions",
@@ -196,7 +196,7 @@ export const serviceCards = {
       "In the case of benign or problematic skin formations,\
       they are surgically removed under local anesthesia, following which the resulting wound is closed with a suture, \
       which will be removed after a certain period of time, depending on the doctor's recommendation.",
-      img: "/procedures/excizie-leziuni.webp",
+      img: "/procedures/excizie-leziuni-crop.jpeg",
     },
     {
       title: "Consult with wood lamp",
@@ -230,7 +230,7 @@ export const serviceCards = {
       This treatment involves the formation of collagen along the thread path, which has the role of toning and stretching the skin. \
       The lifting effect is subtle and preferred by patients who do not want surgery, \
       or they are young and do not require this operation. If you are interested, schedule a consultation!",
-      img: "/procedures/lifting-fire-pdo.jpg",
+      img: "/procedures/lifting-fire-pdo-black-eyes.jpeg",
     },
     {
       title: "Mesotherapy",
@@ -280,35 +280,28 @@ export const treatmentCards = {
   ],
   en: [
     {
-      title: "Corectia cearcanelor cu acid hialuronic",
-      body: "😷<span>Tratament:</span> Corectia cearcanelor cu acid hialuronic<br/>\
-       💉<span>Metoda folosita:</span> Injectare cu acid hialuronic<br/>\
-      ⏰<span>Durata procedurii:</span> 30- 40min<br/>\
-      💫<span>Anestezie:</span> locala - crema anestezica<br/>\
-      🎉<span>Rezultate:</span>  apar imediat<br/>\
-      💣<span>Atentie:</span> pot aparea hematoame, dispar in 5-7 zile<br/>\
-      👍🏼<span>Durata efectului:</span> 6-12 luni<br/> 📄Este necesar consult prealabil",
-      img: "/treatments/corectia-cearcanelor-cu-acid-hialuronic.jpg",
+      title: "Acne in treatment",
+      img: "/treatments/acneea-in-tratament-black-eyes.jpeg",
     },
     {
-      title: "Chestie de piele fata",
-      body: "Eiusmod cillum esse veniam eiusmod laboris est ex enim ex \
-        tempor et. Labore dolore ad duis ullamco eu. Officia eiusmod et anim \
-        dolor mollit officia ut officia. Sit id eu voluptate sunt. \
-        Aliqua mollit laboris ea incididunt do aliquip aliquip occaecat mollit. \
-        Excepteur esse ad qui enim ea amet.\
-        Amet duis excepteur ea occaecat amet labore velit veniam aute.",
-      img: "/homeCarousel/home-carousel-2.jpg",
+      title: "Lip correction (augmentation)",
+      img: "/treatments/corectie-augmentare-buze-black-eyes.jpeg",
     },
     {
-      title: "Alta chestie tratata",
-      body: "Eiusmod cillum esse veniam eiusmod laboris est ex enim ex \
-        tempor et. Labore dolore ad duis ullamco eu. Officia eiusmod et anim \
-        dolor mollit officia ut officia. Sit id eu voluptate sunt. \
-        Aliqua mollit laboris ea incididunt do aliquip aliquip occaecat mollit. \
-        Excepteur esse ad qui enim ea amet.\
-        Amet duis excepteur ea occaecat amet labore velit veniam aute.",
-      img: "/homeCarousel/home-carousel-3.jpg",
+      title: "Dark circle correction",
+      img: "/treatments/corectie-cearcane-black-eyes.jpeg",
+    },
+    {
+      title: "Non-surgical facial balancing",
+      img: "/treatments/echilibrare-faciala-nechirurgicala-black-eyes.jpeg",
+    },
+    {
+      title: "Facial rejuvenation",
+      img: "/treatments/rejuvenare-faciala-black-eyes.jpeg",
+    },
+    {
+      title: "Non-surgical rhinoplasty (nose correction)",
+      img: "/treatments/rinoplastie-nechirurgicala-black-eyes.jpeg",
     },
   ],
 };
@@ -348,7 +341,7 @@ export const teamCards = {
     {
       title: "Dr. Mircea Berceanu",
       body: "Medic specialist chirugie plastica si microchirugie reconstructiva",
-      img: "/icons/doctor-icon-man.jpg",
+      img: "/team/Dr._Mircea_Berceanu.webp",
       // workDays: [1],
       // workingHourStart: 16,
       // workingHourEnd: 17,
@@ -414,20 +407,20 @@ export const teamCards = {
     {
       title: "Dr. Mircea Berceanu",
       body: "Md Specialist in plastic surgery and reconstructive microsurgery",
-      img: "/icons/doctor-icon-man.jpg",
+      img: "/team/Dr._Mircea_Berceanu.webp",
       colorId: 4,
       type: 'medic'
     },
     {
       title: "Dr. Florina Claudia Cojocaru",
       body: "Medic specialist Pediatrie",
-      img: "/icons/doctor-icon-woman.png",
+      img: "/team/Dr.Florina-Claudia-Cojocaru-crop.jpeg",
       type: 'medic'
     },
     {
       title: "Conf. univ. Dr. Daniela Iacob",
       body: "Medic primar Pediatrie",
-      img: "/icons/doctor-icon-woman.png",
+      img: "/team/Dr-Iacob-Daniela-crop.jpg",
       type: 'medic'
     },
     {
@@ -478,6 +471,11 @@ export const mainImageBigText = {
   ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato Estetica", "Pediatrie", "Medicina de familie"],
   en: ["Dermatology", "Venereology", "Surgery", "Dermato Esthetics", "Pediatrics", "Family doctor"],
 };
+
+export const otherServices = {
+  ro: "Servicii adiacente",
+  en: "Other services"
+}
 
 export const priceTable = {
   ro: {

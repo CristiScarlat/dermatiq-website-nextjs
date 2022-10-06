@@ -35,45 +35,41 @@ const About = () => {
         <div>
           <div>
             <div className="booking-team-cards-container">
-              {teamCards[lang].map((service, index) => {
-                if (index < 6) {
-                  return (
-                    <CustomCard
-                      key={service.img + '-' + index}
-                      cardTitle={service.title}
-                      imgSrc={service.img}
-                      showButton={false}
-                      className={`m-3 ${homeStyles["home-custom-card"]}`}
-                      maxWidth="15rem"
-                      contentHeight
-                    >
-                      <p className="card-text">
-                        {service.body}
-                      </p>
-                    </CustomCard >
-                  )
-                }
+              {teamCards[lang].filter(teamMember => teamMember.type === 'medic').map((service, index) => {
+                return (
+                  <CustomCard
+                    key={service.img + '-' + index}
+                    cardTitle={service.title}
+                    imgSrc={service.img}
+                    showButton={false}
+                    className={`m-3 ${homeStyles["home-custom-card"]}`}
+                    maxWidth="15rem"
+                    contentHeight
+                  >
+                    <p className="card-text">
+                      {service.body}
+                    </p>
+                  </CustomCard >
+                )
               })}
             </div>
             <div className="booking-team-cards-container">
-              {teamCards[lang].map((service, index) => {
-                if (index > 5) {
-                  return (
-                    <CustomCard
-                      key={service.img + '-' + index}
-                      cardTitle={service.title}
-                      imgSrc={service.img}
-                      showButton={false}
-                      className={`m-3 ${homeStyles["home-custom-card"]}`}
-                      maxWidth="15rem"
-                      contentHeight
-                    >
-                      <p className="card-text">
-                        {service.body}
-                      </p>
-                    </CustomCard >
-                  )
-                }
+              {teamCards[lang].filter(teamMember => teamMember.type === 'nurse').map((service, index) => {
+                return (
+                  <CustomCard
+                    key={service.img + '-' + index}
+                    cardTitle={service.title}
+                    imgSrc={service.img}
+                    showButton={false}
+                    className={`m-3 ${homeStyles["home-custom-card"]}`}
+                    maxWidth="15rem"
+                    contentHeight
+                  >
+                    <p className="card-text">
+                      {service.body}
+                    </p>
+                  </CustomCard >
+                )
               })}
             </div>
           </div>

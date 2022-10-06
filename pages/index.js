@@ -4,6 +4,7 @@ import {
   serviceCards,
   treatmentCards,
   mainImageBigText,
+  otherServices
 } from "../utils/uiConstants";
 import SlickSlider from "../components/SlickSlider";
 import CustomLinkBtn from "../components/customLinkBtn";
@@ -71,7 +72,7 @@ const Home = () => {
               </div>
             </div>
             {/* <hr className="sections-separator mt-1 mb-1" /> */}
-            <p className="text-center mt-4" style={{opacity: 0.6}}>Servicii adiacente</p>
+            <p className="text-center mt-4" style={{opacity: 0.6}}>{otherServices[lang]}</p>
             <div className={`${styles["head-contact-phone"]} justify-content-center gap-4`} style={{opacity: 0.6}}>
               <div>
                 {mainImageBigText[lang][4]}

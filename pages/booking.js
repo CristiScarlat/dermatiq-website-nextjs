@@ -15,6 +15,7 @@ import {
   isPastTime,
 } from "../utils/calendarUtils";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { MdPhoneInTalk } from "react-icons/md";
 import { Button } from "react-bootstrap";
 
 import { Ctx } from '../context/context';
@@ -289,6 +290,7 @@ const Booking = () => {
     <main className="p-5">
       <div className="d-flex flex-column align-items-center">
         <div className="section-title">Programare</div>
+        <p className="section-title m-0"><MdPhoneInTalk className="me-1" /> +40 748 015 255</p>
         <hr className="sections-separator" />
       </div>
       {step > 0 && (
@@ -309,7 +311,7 @@ const Booking = () => {
         </div>
       )}
       {step === 0 && (
-        <div className="booking-team-cards-container">
+        <div className="booking-team-cards-container" style={{ maxWidth: '60rem', margin: 'auto' }}>
           {teamCards[state.lang].filter(teamMember => teamMember.type === 'medic').map((teamMember, index) => {
               return (
                 <CustomCard
