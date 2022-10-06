@@ -40,7 +40,6 @@ const Home = () => {
   }
 
   return (
-    <div className={styles.container}>
       <main className={styles["home-main"]}>
         <>
           {/* <CustomCarousel showThumbs={false} className={styles["home-carousel"]} lang={lang}/> */}
@@ -50,14 +49,39 @@ const Home = () => {
               <source src="/homeIntroMedia/ClinicaDermatIQ-intro.ogg" type="video/ogg" />
               Your browser does not support the video tag.
             </video>
-            <div className="d-flex justify-content-center flex-wrap gap-4">
+            {/* <div className="d-flex justify-content-center flex-wrap gap-4">
               {mainImageBigText[lang].map(speciality => (
                 <div key={speciality} className={`${styles["home-main-image-info"]} mt-3 `} style={{opacity: anim}}>
                   {speciality}
                 </div>
               ))}
+            </div> */}
+            <div className={`${styles["head-contact-phone"]}`}>
+              <div>
+                {mainImageBigText[lang][0]}
+              </div>
+              <div>
+                {mainImageBigText[lang][1]}
+              </div>
+              <div>
+                {mainImageBigText[lang][2]}
+              </div>
+              <div>
+                {mainImageBigText[lang][3]}
+              </div>
+            </div>
+            {/* <hr className="sections-separator mt-1 mb-1" /> */}
+            <p className="text-center mt-4" style={{opacity: 0.6}}>Servicii adiacente</p>
+            <div className={`${styles["head-contact-phone"]} justify-content-center gap-4`} style={{opacity: 0.6}}>
+              <div>
+                {mainImageBigText[lang][4]}
+              </div>
+              <div>
+                {mainImageBigText[lang][5]}
+              </div>
             </div>
           </div>
+          {/* <hr className="sections-separator" /> */}
           {/* <Carousel 
           className="w-100"
           showArrows={false}
@@ -112,7 +136,7 @@ const Home = () => {
           </div>
         </div> */}
 
-        <hr className="sections-separator only-desktop" />
+        <hr className="sections-separator" />
         <div className="mt-4" />
         <div className="section-title">
           {lang === "ro" && "Proceduri"}
@@ -205,7 +229,6 @@ const Home = () => {
           </div>
         </div>
       </main>
-    </div>
   );
 };
 

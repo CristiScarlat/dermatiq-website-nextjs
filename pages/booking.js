@@ -310,13 +310,13 @@ const Booking = () => {
       )}
       {step === 0 && (
         <div className="booking-team-cards-container">
-          {teamCards[state.lang].map((teamMember, index) => {
-            if (teamMember.workDays) {
+          {teamCards[state.lang].filter(teamMember => teamMember.type === 'medic').map((teamMember, index) => {
               return (
                 <CustomCard
                   key={teamMember.img + "-" + index}
                   cardTitle={teamMember.title}
                   imgSrc={teamMember.img}
+                  showButton={teamMember?.workDays ? true : false}
                   buttonLable={lang === 'ro' ? "Fă-ți o programare" : "Make an appointment"}
                   cardButtonOnCLick={() =>
                     handleCustomCardButtonOnClick(teamMember)
@@ -328,7 +328,6 @@ const Booking = () => {
                   <p className="card-text">{teamMember.body}</p>
                 </CustomCard>
               );
-            }
           })}
         </div>
       )}

@@ -323,6 +323,7 @@ export const teamCards = {
       workingHourStart: 15,
       workingHourEnd: 19,
       colorId: 1,
+      type: 'medic'
     },
     {
       title: "Dr. Alina Stasak",
@@ -332,6 +333,7 @@ export const teamCards = {
       workingHourStart: 15,
       workingHourEnd: 19,
       colorId: 2,
+      type: 'medic'
     },
     {
       title: "Dr. Anca Țurcan",
@@ -341,6 +343,7 @@ export const teamCards = {
       workingHourStart: 16,
       workingHourEnd: 18,
       colorId: 3,
+      type: 'medic'
     },
     {
       title: "Dr. Mircea Berceanu",
@@ -350,26 +353,31 @@ export const teamCards = {
       // workingHourStart: 16,
       // workingHourEnd: 17,
       // colorId: 4,
+      type: 'medic'
     },
     {
       title: "Dr. Florina Claudia Cojocaru",
       body: "Medic specialist Pediatrie",
       img: "/team/Dr.Florina-Claudia-Cojocaru-crop.jpeg",
+      type: 'medic'
     },
     {
-      title: "Conf. univ. dr. Daniela Iacob",
+      title: "Conf. univ. Dr. Daniela Iacob",
       body: "Medic primar Pediatrie",
       img: "/team/Dr-Iacob-Daniela-crop.jpg",
+      type: 'medic'
     },
     {
       title: "Andreea Amarinei",
       body: "Asistent medical",
       img: "/team/Andreea_Amarinei.jpeg",
+      type: 'nurse'
     },
     {
       title: "Valentina Pavlenco",
       body: "Asistent medical",
       img: "/team/Valentina_Pavlenco.jpeg",
+      type: 'nurse'
     },
   ],
   en: [
@@ -381,6 +389,7 @@ export const teamCards = {
       workingHourStart: 15,
       workingHourEnd: 19,
       colorId: 1,
+      type: 'medic'
     },
     {
       title: "Dr. Alina Stasak",
@@ -390,6 +399,7 @@ export const teamCards = {
       workingHourStart: 15,
       workingHourEnd: 19,
       colorId: 2,
+      type: 'medic'
     },
     {
       title: "Dr. Anca Țurcan",
@@ -399,32 +409,38 @@ export const teamCards = {
       workingHourStart: 16,
       workingHourEnd: 18,
       colorId: 3,
+      type: 'medic'
     },
     {
       title: "Dr. Mircea Berceanu",
       body: "Md Specialist in plastic surgery and reconstructive microsurgery",
       img: "/icons/doctor-icon-man.jpg",
       colorId: 4,
+      type: 'medic'
     },
     {
       title: "Dr. Florina Claudia Cojocaru",
       body: "Medic specialist Pediatrie",
       img: "/icons/doctor-icon-woman.png",
+      type: 'medic'
     },
     {
-      title: "Conf. univ. dr. Daniela Iacob",
+      title: "Conf. univ. Dr. Daniela Iacob",
       body: "Medic primar Pediatrie",
       img: "/icons/doctor-icon-woman.png",
+      type: 'medic'
     },
     {
       title: "Andreea Amarinei",
       body: "Nurse",
       img: "/team/Andreea_Amarinei.jpeg",
+      type: 'nurse'
     },
     {
       title: "Valentina Pavlenco",
       body: "Nurse",
       img: "/team/Valentina_Pavlenco.jpeg",
+      type: 'nurse'
     },
   ],
 };
@@ -435,7 +451,7 @@ export const headerLables = {
     {link: "/booking", name: "Programare"}, 
     {link: "/services", name: "Proceduri"}, 
     {link: "/about", name: "Despre Noi"}, 
-    {link: "/galery", name: "Galerie"}, 
+    {link: "/gallery", name: "Galerie"}, 
     {link: "/prices", name: "Lista Preturi"}, 
     {link:"/gdpr", name: "GDPR"}],
   en: [
@@ -443,7 +459,7 @@ export const headerLables = {
     {link: "/booking", name: "Appointment"}, 
     {link: "/services", name: "Procedures"}, 
     {link: "/about", name: "About us"}, 
-    {link: "/galery", name: "Galery"},
+    {link: "/gallery", name: "Gallery"},
     {link: "/prices", name: "Prices"}, 
     {link:"/gdpr", name: "GDPR"}]
 };
@@ -527,4 +543,4 @@ export const prices = {
   },
 };
 
-export const galery = {baseFotoName: "dermatiq-galery-", qty: 32}
+export const gallery = {baseFotoName: "dermatiq-gallery-", qty: 25}

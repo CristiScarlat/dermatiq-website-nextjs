@@ -101,21 +101,19 @@
 
 .head-contact-phone {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   border-radius: 5px;
-  /* border: 1px solid #e2ecf4; */
-  color: #f8f9fa;
+  color: #444343;
+  letter-spacing: 2px;
   font-weight: bold;
-  width: 90%;
-  max-width: 75rem;
   text-align: end;
-  box-shadow: 4px 1px 16px 3px var(--box-shadow-color);
+  font-family: 'Playfair Display SC', serif!important;
 }
 
 .head-contact-phone > div {
-  font-size: 50px;
-  /* text-shadow: 3px 3px 6px #2c400085; */
-  width: 100%;
+  font-size: 18px;
+  
 }
 
 .home-programari-rapide {
@@ -240,8 +238,8 @@
     color: white;
   } */
 
-  .head-contact-phone > div {
-    font-size: 30px;
+  .head-contact-phone {
+    flex-direction: column;
   }
 
   .grid {

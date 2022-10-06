@@ -1,4 +1,5 @@
 /* @import url("https://use.typekit.net/atw7jti.css"); */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Playfair+Display+SC&display=swap');
 
 @font-face {
   font-family: 'VogueAvantGarde';
@@ -23,6 +24,8 @@ body {
   margin: 0;
   /* font-family: adobe-garamond-pro, serif!important; */
   font-family: VogueAvantGarde, helvetica, sans-serif!important;
+  /* font-family: 'Oswald', sans-serif!important; */
+  
   font-style: normal;
   /*background-color: var(--main-background-color)!important;*/
 

@@ -25,6 +25,12 @@
   align-items: center;
 }
 
+.galery-img-zoom-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .galery-img-zoom-content img {
   margin: auto;
   display: block;
@@ -58,6 +64,12 @@
   color: #fffbfb;
   outline: transparent;
   z-index: 9999;
+}
+
+.loading{
+  color: white;
+  position: absolute;
+  top: 50%;
 }
 
 @media only screen and (max-width: 600px) {

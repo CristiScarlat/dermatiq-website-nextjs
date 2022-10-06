@@ -1,20 +1,26 @@
-import React, { useState, useRef } from 'react';
-import { galery } from '../utils/uiConstants'
+import React, { useState, useRef, useEffect } from 'react';
+import { gallery } from '../utils/uiConstants'
 import styles from '../styles/Galery.module.css'
 import Image from 'next/image';
+import { Spinner } from 'react-bootstrap';
 
 const Galery = () => {
 
     const [selectedImg, setSelectedImg] = useState();
     const [animMoveImg, setAnimMoveImg] = useState(0);
     const [animHideImg, setAnimHideImg] = useState(1);
+    const [loadingImage, setLoadingImage] = useState(false);
 
     const bigImageRef = useRef();
 
-    const photoArray = new Array(galery.qty).fill(galery.baseFotoName).map((elem, index) => elem + index);
+    const photoArray = new Array(gallery.qty).fill(gallery.baseFotoName).map((elem, index) => elem + index);
 
     let toushStart = false;
     let touchMoves = [];
+
+    useEffect(() => {
+        setLoadingImage(true)
+    }, [selectedImg])
 
     const handleOnTouchStart = () => {
         toushStart = true;
@@ -77,7 +83,7 @@ const Galery = () => {
                     {photoArray.map((photo, index) => (
                         <Image
                             key={photo}
-                            src={`/galery/${photo}.jpeg`}
+                            src={`/gallery/${photo}.jpeg`}
                             alt="galery item"
                             width={320}
                             height={320}
@@ -95,14 +101,18 @@ const Galery = () => {
                 <button onClick={decrementWithAnimation} className={styles["galery-img-zoom-nav-prev"]}>&#x27A4;</button>
                 <div className={styles["galery-img-zoom-content"]}>
                     <img
-                        src={`/galery/${photoArray[selectedImg]}.jpeg`}
+                        onLoad={() => setLoadingImage(false)}
+                        src={`/gallery/${photoArray[selectedImg]}.jpeg`}
                         alt="galery item"
-                        style={{ left: animMoveImg, opacity: animHideImg }}
+                        style={{ left: animMoveImg, opacity: animHideImg, visibility: loadingImage ? 'hidden' : 'visible' }}
                         ref={bigImageRef}
                         onTouchStart={handleOnTouchStart}
                         onTouchMove={handleOnTouchMove}
                         onTouchEnd={handleOnTouchEnd}
                     />
+                    {loadingImage && <Spinner animation="border" role="status" variant="light" style={{position: 'absolute'}}>
+                        <span className="visually-hidden">Loading...</span>
+                    </Spinner>}
                 </div>
                 <button onClick={incrementWithAnimation} className={styles["galery-img-zoom-nav-next"]}>&#x27A4;</button>
             </div>}
