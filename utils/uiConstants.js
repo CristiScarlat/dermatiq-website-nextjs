@@ -356,7 +356,7 @@ export const teamCards = {
     },
     {
       title: "Conf. univ. Dr. Daniela Iacob",
-      body: "Medic primar Pediatrie",
+      body: "Medic primar Pediatrie si Neonatologie",
       img: "/team/Dr-Iacob-Daniela-crop.jpg",
       type: 'medic'
     },
@@ -419,7 +419,7 @@ export const teamCards = {
     },
     {
       title: "Conf. univ. Dr. Daniela Iacob",
-      body: "Medic primar Pediatrie",
+      body: "Medic primar Pediatrie si Neonatologie",
       img: "/team/Dr-Iacob-Daniela-crop.jpg",
       type: 'medic'
     },
