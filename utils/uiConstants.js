@@ -330,12 +330,18 @@ export const teamCards = {
     },
     {
       title: "Dr. Anca Țurcan",
-      body: "Medic specialist dermatovenerologie, dermatochirugie, dermatolocosmetologie",
+      body: "Medic specialist dermatovenerologie, dermatochirugie, dermatocosmetologie",
       img: "/team/Dr._Anca_Țurcan.jpeg",
       workDays: [1],
       workingHourStart: 16,
       workingHourEnd: 18,
       colorId: 3,
+      type: 'medic'
+    },
+    {
+      title: "Dr. Claudia Iftode",
+      body: "Medic primar Medicina Familiei/ Medicina Generala",
+      img: "/team/Dr._Claudia_Iftode.jpeg",
       type: 'medic'
     },
     {
@@ -396,12 +402,18 @@ export const teamCards = {
     },
     {
       title: "Dr. Anca Țurcan",
-      body: "Md Specialist in dermatovenerology, dermatosurgery, dermatolocosmetology",
+      body: "Md Specialist in dermatovenerology, dermatosurgery, dermatocosmetology",
       img: "/team/Dr._Anca_Țurcan.jpeg",
       workDays: [1],
       workingHourStart: 16,
       workingHourEnd: 18,
       colorId: 3,
+      type: 'medic'
+    },
+    {
+      title: "Dr. Claudia Iftode",
+      body: "Md Specialist in Family medicine/General medicine",
+      img: "/team/Dr._Claudia_Iftode.jpeg",
       type: 'medic'
     },
     {
@@ -413,13 +425,13 @@ export const teamCards = {
     },
     {
       title: "Dr. Florina Claudia Cojocaru",
-      body: "Medic specialist Pediatrie",
+      body: "Md Pediatrician",
       img: "/team/Dr.Florina-Claudia-Cojocaru-crop.jpeg",
       type: 'medic'
     },
     {
       title: "Conf. univ. Dr. Daniela Iacob",
-      body: "Medic primar Pediatrie si Neonatologie",
+      body: "Medic specialist in Pediatrics and Neonatology",
       img: "/team/Dr-Iacob-Daniela-crop.jpg",
       type: 'medic'
     },
