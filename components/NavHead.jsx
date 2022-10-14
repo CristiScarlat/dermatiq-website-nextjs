@@ -41,12 +41,12 @@ const NavHead = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a className="custom-nav-link disabled">
+            <a className="custom-nav-link disabled" href="https://www.facebook.com/clinicadermatiq/" target="_black">
               <BsFacebook />
             </a>
           </li>
           <li className="nav-item">
-            <a className="custom-nav-link disabled">
+            <a className="custom-nav-link disabled" href="https://www.instagram.com/clinica_dermatiq/?hl=en" target="_black">
               <BsInstagram />
             </a>
           </li>

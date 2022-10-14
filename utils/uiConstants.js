@@ -313,7 +313,7 @@ export const teamCards = {
       body: "Medic primar dermatovenerologie, medicina regenerativa, estetica si anti-aging",
       img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.jpeg",
       workDays: [2, 4],
-      workingHourStart: 15,
+      workingHourStart: 16,
       workingHourEnd: 19,
       colorId: 1,
       type: 'medic'
@@ -324,7 +324,7 @@ export const teamCards = {
       img: "/team/Dr._Alina_Stasak.jpeg",
       workDays: [3, 5],
       workingHourStart: 15,
-      workingHourEnd: 19,
+      workingHourEnd: 20,
       colorId: 2,
       type: 'medic'
     },
@@ -385,7 +385,7 @@ export const teamCards = {
       body: "Md Specialist in dermatovenerology, regenerative medicine, aesthetics and anti-aging",
       img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.jpeg",
       workDays: [2, 4],
-      workingHourStart: 15,
+      workingHourStart: 16,
       workingHourEnd: 19,
       colorId: 1,
       type: 'medic'
@@ -396,7 +396,7 @@ export const teamCards = {
       img: "/team/Dr._Alina_Stasak.jpeg",
       workDays: [3, 5],
       workingHourStart: 15,
-      workingHourEnd: 19,
+      workingHourEnd: 20,
       colorId: 2,
       type: 'medic'
     },
@@ -480,8 +480,8 @@ export const aboutPageTitle = {
 };
 
 export const mainImageBigText = {
-  ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato Estetica", "Pediatrie", "Medicina de familie"],
-  en: ["Dermatology", "Venereology", "Surgery", "Dermato Esthetics", "Pediatrics", "Family doctor"],
+  ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato-estetica", "Medicina corectiva", "Pediatrie", "Medicina de familie"],
+  en: ["Dermatology", "Venereology", "Surgery", "Dermato-esthetics", "Corectiv Medicine", "Pediatrics", "Family doctor"],
 };
 
 export const otherServices = {

@@ -50,13 +50,7 @@ const Home = () => {
               <source src="/homeIntroMedia/ClinicaDermatIQ-intro.ogg" type="video/ogg" />
               Your browser does not support the video tag.
             </video>
-            {/* <div className="d-flex justify-content-center flex-wrap gap-4">
-              {mainImageBigText[lang].map(speciality => (
-                <div key={speciality} className={`${styles["home-main-image-info"]} mt-3 `} style={{opacity: anim}}>
-                  {speciality}
-                </div>
-              ))}
-            </div> */}
+            
             <div className={`${styles["head-contact-phone"]}`}>
               <div>
                 {mainImageBigText[lang][0]}
@@ -70,73 +64,22 @@ const Home = () => {
               <div>
                 {mainImageBigText[lang][3]}
               </div>
-            </div>
-            {/* <hr className="sections-separator mt-1 mb-1" /> */}
-            <p className="text-center mt-4" style={{opacity: 0.6}}>{otherServices[lang]}</p>
-            <div className={`${styles["head-contact-phone"]} justify-content-center gap-4`} style={{opacity: 0.6}}>
               <div>
                 {mainImageBigText[lang][4]}
               </div>
+            </div>
+            
+            <p className="text-center mt-4" style={{opacity: 0.6}}>{otherServices[lang]}</p>
+            <div className={`${styles["head-contact-phone"]} justify-content-center gap-4`} style={{opacity: 0.6}}>
               <div>
                 {mainImageBigText[lang][5]}
               </div>
+              <div>
+                {mainImageBigText[lang][6]}
+              </div>
             </div>
           </div>
-          {/* <hr className="sections-separator" /> */}
-          {/* <Carousel 
-          className="w-100"
-          showArrows={false}
-          showIndicators={false}
-          showThumbs={false}
-          showStatus={false}
-          autoPlay={true}
-          infiniteLoop>
-            <div className={styles["home-main-image-info"]}>
-              {mainImageBigText[lang][0]}
-            </div>
-            <div className={styles["home-main-image-info"]}>
-              {mainImageBigText[lang][1]}
-            </div>
-            <div className={styles["home-main-image-info"]}>
-              {mainImageBigText[lang][2]}
-            </div>
-            <div className={styles["home-main-image-info"]}>
-              {mainImageBigText[lang][3]}
-            </div>
-            <div className={styles["home-main-image-info"]}>
-              {mainImageBigText[lang][4]}
-            </div>
-          </Carousel> */}
         </>
-        {/* <div
-          className={`${styles["head-contact-phone"]}`}
-          style={{
-            background: `url(/home-image-v2.jpg)`,
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "cover",
-            backgroundColor: "#f4f7f7",
-          }}
-        >
-          <div>
-            <div className={`${styles["home-main-image-big-text"]} mt-3`}>
-              {mainImageBigText[lang][0]}
-            </div>
-            <div className={styles["home-main-image-big-text"]}>
-              {mainImageBigText[lang][1]}
-            </div>
-            <div className={styles["home-main-image-big-text"]}>
-              {mainImageBigText[lang][2]}
-            </div>
-            <div className={`${styles["home-main-image-big-text"]} mb-5`}>
-              {mainImageBigText[lang][3]}
-            </div>
-
-            <div className={`mt-3 mb-3 ms-5 ${styles["home-programari-rapide"]}`}>
-              <CustomLinkBtn/>
-            </div>
-          </div>
-        </div> */}
-
         <hr className="sections-separator" />
         <div className="mt-4" />
         <div className="section-title">
