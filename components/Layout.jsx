@@ -81,6 +81,7 @@ export default function Layout({ children }) {
           content="Clinica Dermatiq a apărut din dorința de a fi mai aproape de pacienții noștri, precum și de a oferi vizitatorilor mai multe informații despre îngrijirea pielii."
         />
         <meta name="twitter:image" content="/logo-final-DERMATIQ-text-white.png" />
+        <meta name="google-site-verification" content="EODJlfgOwTLoKHZY01TW31jLhhvT5GpyRVDvEb1Y5OQ" />
       </Head>
       <NavHead />
       <>{children}</>
