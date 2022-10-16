@@ -52,7 +52,7 @@ export default function Layout({ children }) {
         <title>DermatIQ</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta charSet="utf-8" />
-        <link rel="canonical" href="https://www.clinica-dermatiq.ro" />
+        <link rel="canonical" href="https://clinica-dermatiq.ro/" />
 
         {/*HTML Meta Tags*/}
         <meta
@@ -60,7 +60,7 @@ export default function Layout({ children }) {
           content="Clinica Dermatiq a apărut din dorința de a fi mai aproape de pacienții noștri, precum și de a oferi vizitatorilor mai multe informații despre îngrijirea pielii."
         />
         {/*Facebook Meta Tags*/}
-        <meta property="og:url" content="https://www.clinica-dermatiq.ro" />
+        <meta property="og:url" content="https://clinica-dermatiq.ro/" />
         <meta property="og:type" content="website" />
         <meta property="og:title" content="Dermatological Clinic Dermatiq" />
         <meta
@@ -73,7 +73,7 @@ export default function Layout({ children }) {
         <meta property="twitter:domain" content="clinica-dermatiq.ro" />
         <meta
           property="twitter:url"
-          content="https://www.clinica-dermatiq.ro"
+          content="https://clinica-dermatiq.ro/"
         />
         <meta name="twitter:title" content="Clinica Dermatiq" />
         <meta
