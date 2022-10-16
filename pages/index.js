@@ -140,20 +140,20 @@ const Home = () => {
                 Timisoara, 300361
               </div>
             </div>
-            <div className={styles["custom-icon-contact"]}>
+            {/* <div className={styles["custom-icon-contact"]}>
               <div style={{ width: "100px" }}>
                 <MdOutlineMail />
               </div>
               <div style={{ color: "#807f89" }}>
                 office@clinica-dermatiq.com
               </div>
-            </div>
+            </div> */}
             <div className={styles["custom-icon-contact"]}>
               <div style={{ width: "100px" }}>
                 <MdPhone />
               </div>
               <div style={{ color: "#807f89" }}>
-                +40 256 443-084
+                +40 256 443 084
                 <br />
                 +40 748 015 255
               </div>

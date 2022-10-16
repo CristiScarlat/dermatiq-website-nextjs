@@ -83,8 +83,8 @@ const About = () => {
                       <br />
                       Timisoara, 300361</span>
                   </big><br />
-                  <big><a className={styles["about-page-link"]} href="mailto:office@clinica-dermatiq.com">office@clinica-dermatiq.com</a></big><br />
-                  <big><a className={styles["about-page-link"]} href="tel:0040256443084">+40 256 443-084</a></big>
+                  <big><a className={styles["about-page-link"]} href="tel:0040748015255">+40 748 015 255</a></big><br />
+                  <big><a className={styles["about-page-link"]} href="tel:0040256443084">+40 256 443 084</a></big>
                 </p>
               </div>
               <div className='ps-5 pe-5 w-100'>
