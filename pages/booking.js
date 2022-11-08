@@ -86,6 +86,7 @@ const Booking = () => {
     maxMinutes,
     qty
   ) => {
+    const now = new Date();
     const dt = new Date(1970, 0, 1);
     const rc = [];
     while (dt.getDate() === 1) {
@@ -98,7 +99,12 @@ const Booking = () => {
           dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
         const mm =
           dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
-        rc.push(hh + ":" + mm);
+          if(selectedDay.getDate() === now.getDate()){
+            if(dt.getHours() >= now.getHours() && dt.getMinutes() > now.getMinutes()){
+              rc.push(hh + ":" + mm);
+            }
+          }
+          else rc.push(hh + ":" + mm);
       }
       dt.setMinutes(dt.getMinutes() + step);
       //if(rc.length === qty) break;
@@ -268,6 +274,7 @@ const Booking = () => {
 
   const getAvailableHours = () => {
     const arr = generateTimeButtonByBusyTime(timeInterval, selectedDr.workingHourStart, 0, selectedDr.workingHourEnd, 20);
+    console.log(arr)
     //filter out buzy hours
     const foundFreeHour = false;
     const filtered = [];
