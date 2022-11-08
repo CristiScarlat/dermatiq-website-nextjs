@@ -36,7 +36,7 @@ const NavHead = () => {
         </button>
         <ul className={styles["social-phone"]}>
           <li className="nav-item">
-            <a className="custom-nav-link disabled">
+            <a className="custom-nav-link disabled" href="tel:+40 748 015 255">
               <MdPhoneInTalk className="me-1" /> +40 748 015 255
             </a>
           </li>

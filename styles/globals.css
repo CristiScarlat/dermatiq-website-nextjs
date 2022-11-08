@@ -1,10 +1,10 @@
 /* @import url("https://use.typekit.net/atw7jti.css"); */
-@import url('https://fonts.googleapis.com/css2?family=Oswald&family=Playfair+Display+SC&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Oswald&family=Playfair+Display+SC&display=swap");
 
-@font-face {
+/* @font-face {
   font-family: 'VogueAvantGarde';
-  src: url('/font/VogueAvantGarde-Medium.woff2') format('woff');
-}
+  src: url('/font/VogueAvantGarde-Medium.woff') format('woff');
+} */
 
 :root {
   --main-header-background-color: #4956a0;
@@ -23,13 +23,13 @@ body {
   padding: 0;
   margin: 0;
   /* font-family: adobe-garamond-pro, serif!important; */
-  font-family: VogueAvantGarde, helvetica, sans-serif!important;
+  font-family: VogueAvantGarde, helvetica, sans-serif !important;
   /* font-family: 'Oswald', sans-serif!important; */
-  
+
   font-style: normal;
   /*background-color: var(--main-background-color)!important;*/
 
-  background: #e0e0ec!important;
+  background: #e0e0ec !important;
   /* background: linear-gradient(0deg, rgba(73,70,250,1) 0%, #04fce2 200%); */
 }
 
@@ -38,7 +38,7 @@ body {
 }
 
 a {
-  color: var(--link-text-color-main)!important;
+  color: var(--link-text-color-main) !important;
   text-decoration: none !important;
 }
 
@@ -105,11 +105,11 @@ a:hover {
 }
 
 .custom-nav-link.active {
-  color: var(--main-background-color)!important;
+  color: var(--main-background-color) !important;
   text-shadow: 0px 0px 5px black;
 }
 .custom-nav-link:hover {
-  color: var(--main-background-color)!important;
+  color: var(--main-background-color) !important;
   text-shadow: 0px 0px 5px black;
   cursor: pointer;
 }
@@ -135,7 +135,7 @@ a:hover {
 }
 
 table {
-  background-color: transparent!important;
+  background-color: transparent !important;
 }
 
 .transition {
@@ -146,8 +146,18 @@ table {
   color: white;
 }
 
+.card-body-paragraph {
+  height: 10.5rem;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  display: -webkit-box !important;
+  -webkit-line-clamp: 7;
+  -webkit-box-orient: vertical;
+  white-space: normal;
+}
+
 @media only screen and (max-width: 600px) {
-  .only-desktop{
+  .only-desktop {
     display: none;
   }
 }

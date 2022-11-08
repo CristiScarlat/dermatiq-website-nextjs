@@ -29,7 +29,6 @@ const Home = () => {
   const lang = ctx.state.lang;
 
   useEffect(() => {
-    // console.log(videoRef.current.offsetTop);
     // if(!isMobile.any())window.scrollTo(0, videoRef.current.offsetTop + 150);
     //videoRef.current.scrollIntoView();
     setAnim(1)
@@ -101,7 +100,7 @@ const Home = () => {
                 })
               }
             >
-              <p className="card-text">{service.body}</p>
+              <p className="card-text card-body-paragraph">{service.body}</p>
             </CustomCard>
           ))}
         </SlickSlider>

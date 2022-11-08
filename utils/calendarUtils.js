@@ -46,25 +46,37 @@ export const filterEventsByDate = (events, filterDate) => {
 }
 
 export const filterEventsByDr = (events, selectedDr) => {
-  return events.filter(event => {
+  const filteredEvents = events.filter((event, index) => {
     const drName = event.summary.split("/")[3] ? event.summary.split("/")[3] : event.summary.split("/")[1];
-    if(drName){
-      drName = drName.toLowerCase().replaceAll('.', '').replaceAll('dr', '');
+    if (drName) {
+      drName = drName.toLowerCase().replaceAll('.', '').replaceAll('dr', '').trim();
     }
     return selectedDr.toLowerCase().includes(drName?.toLowerCase());
   })
+  return filteredEvents;
 }
 
 export const getEventsBusyTimes = (events, timeInterval) => {
   const timesArr = [];
-  events.forEach(e => {
-    let final = null;
+  events.forEach((e) => {
+    let formatedTime = null;
     const dt = new Date(e.start);
     do {
       const hh = dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
-      const mm = dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
-      final = hh + ":" + mm;
-      timesArr.push(final);
+      let mm = dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
+      if (dt.getMinutes() % 20) {
+        if (dt.getMinutes() < timeInterval) {
+          mm = '00';
+        }
+        else if (dt.getMinutes() > timeInterval && dt.getMinutes() < timeInterval * 2) {
+          mm = '20';
+        }
+        else if (dt.getMinutes() > timeInterval * 2) {
+          mm = '40';
+        }
+      }
+      formatedTime = hh + ":" + mm;
+      timesArr.push(formatedTime);
       dt.setMinutes(dt.getMinutes() + timeInterval);
     } while (dt.getHours() !== new Date(e.end).getHours());
   })
