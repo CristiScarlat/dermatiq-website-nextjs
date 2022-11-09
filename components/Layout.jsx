@@ -59,6 +59,7 @@ export default function Layout({ children }) {
           name="description"
           content="Clinica Dermatiq a apărut din dorința de a fi mai aproape de pacienții noștri, precum și de a oferi vizitatorilor mai multe informații despre îngrijirea pielii."
         />
+        <meta name="keywords" content="clinica, clinic, dermatologie, dermatology, medical, skin, beauty"></meta>
         {/*Facebook Meta Tags*/}
         <meta property="og:url" content="https://clinica-dermatiq.ro/" />
         <meta property="og:type" content="website" />
