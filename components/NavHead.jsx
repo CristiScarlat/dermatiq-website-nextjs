@@ -2,7 +2,6 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { MdPhoneInTalk } from "react-icons/md";
 import { BsInstagram, BsFacebook } from "react-icons/bs";
-import Image from "next/image";
 import { headerLables } from "../utils/uiConstants";
 import { Ctx } from "../context/context";
 import styles from "../styles/NavHead.module.css";
@@ -56,7 +55,7 @@ const NavHead = () => {
         <Navbar.Brand>
           <Link href="/">
             <a className="navbar-brand">
-              <Image
+              <img
                 className="logo_image"
                 src="/logo-final-DERMATIQ-text-white.png"
                 alt=""
