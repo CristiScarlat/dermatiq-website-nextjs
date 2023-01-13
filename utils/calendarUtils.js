@@ -20,7 +20,7 @@ export const processEvents = (events) => {
     if (e.start && e.end) {
       const startDate = new Date(e.start).getDate();
       const endDate = new Date(e.end).getDate();
-      return e.summary.split("/")[0] === 'indisponibil' && startDate !== endDate;
+      return e.summary.split("/")[0].toLowerCase() === 'indisponibil' && startDate !== endDate;
     }
   });
 

@@ -7,7 +7,7 @@
     "build": "next build",
     "postbuild": "next-sitemap",
     "start": "next start -H 0.0.0.0 -p ${PORT:-8080}",
-    "export": "npm run build && next export -o _static",
+    "export": "npm run build && next export",
     "lint": "next lint"
   },
   "dependencies": {

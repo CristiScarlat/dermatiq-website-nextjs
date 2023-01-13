@@ -274,7 +274,6 @@ const Booking = () => {
 
   const getAvailableHours = () => {
     const arr = generateTimeButtonByBusyTime(timeInterval, selectedDr.workingHourStart, 0, selectedDr.workingHourEnd, 20);
-    console.log(arr)
     //filter out buzy hours
     const foundFreeHour = false;
     const filtered = [];
@@ -369,7 +368,7 @@ const Booking = () => {
             >
               <label>Select time:</label>
               <div>
-                {getAvailableHours().map((t) => {
+                {getAvailableHours().length > 0 ? getAvailableHours().map((t) => {
                   return (
                     <button
                       key={t}
@@ -392,7 +391,7 @@ const Booking = () => {
                       {t}
                     </button>
                   );
-                })}
+                }) : <p style={{color: '#f55f', fontWeight: 'bold'}}>{`Medicul nu este disponibil, va rugam alegeti o alta zi.`}</p>}
               </div>
             </div>
           </div>
