@@ -82,11 +82,12 @@ const Galery = () => {
                     {photoArray.map((photo, index) => (
                         <img
                             key={photo}
-                            src={`/gallery/${photo}.jpeg`}
+                            src={`/gallery/thumbnail_${photo}.jpeg`}
                             alt="galery item"
                             width={320}
                             height={320}
                             onClick={() => setSelectedImg(index)}
+                            loading="lazy"
                         />
                     ))}
                 </div>
