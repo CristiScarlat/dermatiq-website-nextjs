@@ -83,7 +83,7 @@ const Galery = () => {
                     {photoArray.map((photo, index) => (
                         <Image
                             key={photo}
-                            src={`/gallery/${photo}.jpeg`}
+                            src={`/gallery/thumbnail_${photo}.jpeg`}
                             alt="galery item"
                             width={320}
                             height={320}
