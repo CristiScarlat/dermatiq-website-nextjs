@@ -524,7 +524,9 @@ export const prices = {
     "PRP 2 fiole": "700 RON",
     "Sedinta PB Serum": "350 EURO",
     "Lifting cu fire PDO": "500 EURO",
-    "Dermapen 4/sedinta": "700RON"
+    "Dermapen 4/sedinta": "700RON",
+    "Consult la domiciliu": "300RON",
+    "Control la domiciliu": "250RON"
   },
   en: {
     "Consult dermatologie": "200 RON",
@@ -551,7 +553,9 @@ export const prices = {
     "PRP 2 fiole": "700 RON",
     "Sedinta PB Serum": "350 EURO",
     "Lifting cu fire PDO": "500 EURO",
-    "Dermapen 4/sedinta": "700RON"
+    "Dermapen 4/sedinta": "700RON",
+    "Consult la domiciliu": "300RON",
+    "Control la domiciliu": "250RON"
   },
 };
 
