@@ -316,17 +316,19 @@ export const teamCards = {
       workingHourStart: 16,
       workingHourEnd: 19,
       colorId: 1,
-      type: 'medic'
+      type: 'medic',
+      timeInterval: 20
     },
     {
       title: "Dr. Alina Stasak",
       body: "Medic specialist dermatovenerologie, dermatopediatrie, dermatocosmetologie",
       img: "/team/Dr._Alina_Stasak.jpeg",
-      workDays: [3, 5],
-      workingHourStart: 15,
-      workingHourEnd: 20,
+      workDays: [3],
+      workingHourStart: 16,
+      workingHourEnd: 19,
       colorId: 2,
-      type: 'medic'
+      type: 'medic',
+      timeInterval: 30
     },
     {
       title: "Dr. Anca Țurcan",
@@ -336,7 +338,8 @@ export const teamCards = {
       workingHourStart: 16,
       workingHourEnd: 18,
       colorId: 3,
-      type: 'medic'
+      type: 'medic',
+      timeInterval: 20
     },
     {
       title: "Dr. Claudia Iftode",
@@ -388,7 +391,8 @@ export const teamCards = {
       workingHourStart: 16,
       workingHourEnd: 19,
       colorId: 1,
-      type: 'medic'
+      type: 'medic',
+      timeInterval: 20
     },
     {
       title: "Dr. Alina Stasak",
@@ -398,7 +402,8 @@ export const teamCards = {
       workingHourStart: 15,
       workingHourEnd: 20,
       colorId: 2,
-      type: 'medic'
+      type: 'medic',
+      timeInterval: 30
     },
     {
       title: "Dr. Anca Țurcan",
@@ -408,7 +413,8 @@ export const teamCards = {
       workingHourStart: 16,
       workingHourEnd: 18,
       colorId: 3,
-      type: 'medic'
+      type: 'medic',
+      timeInterval: 20
     },
     {
       title: "Dr. Claudia Iftode",

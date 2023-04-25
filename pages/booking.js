@@ -47,7 +47,7 @@ const Booking = () => {
 
   const lang = state.lang
 
-  const timeInterval = 20;
+  //const timeInterval = 20;
 
   useEffect(() => {
     if (step === 1) {
@@ -113,7 +113,7 @@ const Booking = () => {
   };
 
   const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
-    const busyTimes = [];
+    let busyTimes = [];
     if (disabledTimes.length === 0) {
       busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
     }
@@ -127,7 +127,7 @@ const Booking = () => {
 
   const getDisabledTimes = (arrEvents) => {
     setDisabledTimes([]);
-    const busyTimesArr = getEventsBusyTimes(arrEvents, timeInterval);
+    const busyTimesArr = getEventsBusyTimes(arrEvents, selectedDr.timeInterval);
     setDisabledTimes(busyTimesArr);
   };
 
@@ -160,7 +160,7 @@ const Booking = () => {
     const date = selectedDay.toISOString("ro-RO", { timeZone: "UTC" });
     const minDate = date.split("T")[0] + "T" + time + ":00";
     const maxDate = new Date(minDate.split("T")[0] + "T" + time + ":00Z");
-    maxDate.setMinutes(maxDate.getMinutes() + timeInterval);
+    maxDate.setMinutes(maxDate.getMinutes() + selectedDr.timeInterval);
 
     addEventData.current = {
       end: {
@@ -265,7 +265,7 @@ const Booking = () => {
   const isFiltered = (date) => {
     const d = new Date(date);
     const day = d.getDay();
-    const booleanToReturn = false
+    let booleanToReturn = false
     selectedDr.workDays.forEach(wh => {
       booleanToReturn |= (day === wh)
     })
@@ -273,9 +273,9 @@ const Booking = () => {
   };
 
   const getAvailableHours = () => {
-    const arr = generateTimeButtonByBusyTime(timeInterval, selectedDr.workingHourStart, 0, selectedDr.workingHourEnd, 20);
+    const arr = generateTimeButtonByBusyTime(selectedDr.timeInterval, selectedDr.workingHourStart, 0, selectedDr.workingHourEnd, 20);
     //filter out buzy hours
-    const foundFreeHour = false;
+    let foundFreeHour = false;
     const filtered = [];
     arr.forEach((t) => {
       if (!disabledTimes.includes(t) && !foundFreeHour) foundFreeHour = true;
