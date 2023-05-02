@@ -37,7 +37,6 @@ export const processEvents = (events) => {
       freeDays.push(startDate);
     } while (tempStart.toISOString().split("T")[0] !== endDate);
   });
-
   return { bookedHoursPerDay, freeDays }
 }
 
@@ -47,7 +46,7 @@ export const filterEventsByDate = (events, filterDate) => {
 
 export const filterEventsByDr = (events, selectedDr) => {
   const filteredEvents = events.filter((event, index) => {
-    const drName = event.summary.split("/")[3] ? event.summary.split("/")[3] : event.summary.split("/")[1];
+    let drName = event.summary.split("/")[3] ? event.summary.split("/")[3] : event.summary.split("/")[1];
     if (drName) {
       drName = drName.toLowerCase().replaceAll('.', '').replaceAll('dr', '').trim();
     }

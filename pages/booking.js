@@ -50,7 +50,7 @@ const Booking = () => {
   //const timeInterval = 20;
 
   useEffect(() => {
-    if (step === 1) {
+    if (step === 1 && !dayWasSelected.current) {
       setLoading(true);
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
@@ -65,7 +65,6 @@ const Booking = () => {
         getDisabledTimes(arr);
         setLoading(false);
       });
-      //setSelectedDay(currentInitDate);
     }
   }, [selectedDate, step]);
 
@@ -114,13 +113,18 @@ const Booking = () => {
 
   const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
     let busyTimes = [];
+
     if (disabledTimes.length === 0) {
       busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
     }
     else {
       const afterBusyHour = disabledTimes[0].split(":")[0];
       const afterBusyMin = disabledTimes[0].split(":")[1];
-      busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), 0, maxHour, parseInt(afterBusyMin), 3);
+      if(parseInt(afterBusyHour) > selectedDr.workingHourStart && parseInt(afterBusyHour) < selectedDr.workingHourEnd){
+        busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), 0, maxHour, parseInt(afterBusyMin), 3);
+      } else {
+        busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
+      }
     }
     return busyTimes;
   }
@@ -391,7 +395,7 @@ const Booking = () => {
                       {t}
                     </button>
                   );
-                }) : <p style={{color: '#f55f', fontWeight: 'bold'}}>{`Medicul nu este disponibil, va rugam alegeti o alta zi.`}</p>}
+                }) : <p style={{color: '#f55f', fontWeight: 'bold'}}>{`Medicul nu este disponibil, va rugăm alegeți o altă zi.`}</p>}
               </div>
             </div>
           </div>
