@@ -113,19 +113,7 @@ const Booking = () => {
 
   const generateTimeButtonByBusyTime = (step, minHour, minMinutes, maxHour, maxMinutes) => {
     let busyTimes = [];
-
-    if (disabledTimes.length === 0) {
-      busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
-    }
-    else {
-      const afterBusyHour = disabledTimes[0].split(":")[0];
-      const afterBusyMin = disabledTimes[0].split(":")[1];
-      if(parseInt(afterBusyHour) > selectedDr.workingHourStart && parseInt(afterBusyHour) < selectedDr.workingHourEnd){
-        busyTimes = generateTimeButtons(step, parseInt(afterBusyHour), 0, maxHour, parseInt(afterBusyMin), 3);
-      } else {
-        busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
-      }
-    }
+    busyTimes = generateTimeButtons(step, minHour, minMinutes, maxHour, maxMinutes, 3);
     return busyTimes;
   }
 

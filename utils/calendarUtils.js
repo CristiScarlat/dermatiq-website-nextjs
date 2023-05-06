@@ -1,3 +1,5 @@
+import {includesWord, removeDuplicates} from "./utils";
+
 export const processEvents = (events) => {
   const freeDays = []
   events.forEach(e => {
@@ -8,7 +10,6 @@ export const processEvents = (events) => {
       if (formatedStartDate.getDate() === formatedEndDate.getDate()) freeDays.push(e.startDate);
     }
   });
-
   //busyEvents are days when dr is working and has appointments 
   const bookedHoursPerDay = events.filter(e => {
     const startDate = new Date(e.start).getDate();
@@ -48,9 +49,9 @@ export const filterEventsByDr = (events, selectedDr) => {
   const filteredEvents = events.filter((event, index) => {
     let drName = event.summary.split("/")[3] ? event.summary.split("/")[3] : event.summary.split("/")[1];
     if (drName) {
-      drName = drName.toLowerCase().replaceAll('.', '').replaceAll('dr', '').trim();
+      return includesWord(selectedDr, drName);
     }
-    return selectedDr.toLowerCase().includes(drName?.toLowerCase());
+    return false
   })
   return filteredEvents;
 }
@@ -60,18 +61,41 @@ export const getEventsBusyTimes = (events, timeInterval) => {
   events.forEach((e) => {
     let formatedTime = null;
     const dt = new Date(e.start);
+    const dtEnd = new Date(e.end);
     do {
-      const hh = dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
+      let hh = dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
       let mm = dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
-      if (dt.getMinutes() % 20) {
+
+      const hhEnd = dtEnd.getHours() < 10 ? `0${dtEnd.getHours()}` : `${dtEnd.getHours()}`;
+      let mmEnd = dtEnd.getMinutes() < 10 ? `0${dtEnd.getMinutes()}` : `${dtEnd.getMinutes()}`;
+      if (dt.getMinutes() % timeInterval) {
         if (dt.getMinutes() < timeInterval) {
           mm = '00';
         }
         else if (dt.getMinutes() > timeInterval && dt.getMinutes() < timeInterval * 2) {
-          mm = '20';
+          mm = timeInterval;
         }
-        else if (dt.getMinutes() > timeInterval * 2) {
-          mm = '40';
+        else if ((dt.getMinutes() > timeInterval * 2) && (timeInterval * 2 < 60)) {
+          mm = timeInterval * 2;
+        }
+        else if ((dt.getMinutes() > timeInterval * 2) && (timeInterval * 2 > 60)) {
+          hh = dt.getHours() < 10 ? `0${dt.getHours() + 1}` : `${dt.getHours() + 1}`;
+          mm = "00";
+        }
+      }
+      if (dtEnd.getMinutes() % timeInterval) {
+        if (dtEnd.getMinutes() < timeInterval) {
+          timesArr.push(hhEnd+ ":" + "00")
+        }
+        else if (dtEnd.getMinutes() > timeInterval && dtEnd.getMinutes() < timeInterval * 2) {
+          timesArr.push(hhEnd + ":" + timeInterval);
+        }
+        else if ((dtEnd.getMinutes() > timeInterval * 2) && (timeInterval * 2 < 60)) {
+          timesArr.push(hhEnd + ":" + timeInterval*2);
+        }
+        else if ((dtEnd.getMinutes() > timeInterval * 2) && (timeInterval * 2 > 60)) {
+          const nextHH = dt.getHours() < 10 ? `0${dt.getHours() + 1}` : `${dt.getHours() + 1}`
+          timesArr.push(nextHH + ":" + "00");
         }
       }
       formatedTime = hh + ":" + mm;
@@ -79,7 +103,7 @@ export const getEventsBusyTimes = (events, timeInterval) => {
       dt.setMinutes(dt.getMinutes() + timeInterval);
     } while (dt.getHours() !== new Date(e.end).getHours());
   })
-  return timesArr;
+  return removeDuplicates(timesArr);
 }
 
 export const isPastTime = (t, selectedDay) => {
