@@ -1,4 +1,4 @@
-import {includesWord, removeDuplicates} from "./utils";
+import {generateTimeIntervals, includesWord, removeDuplicates} from "./utils";
 
 export const processEvents = (events) => {
   const freeDays = []
@@ -97,6 +97,10 @@ export const getEventsBusyTimes = (events, timeInterval) => {
           const nextHH = dt.getHours() < 10 ? `0${dt.getHours() + 1}` : `${dt.getHours() + 1}`
           timesArr.push(nextHH + ":" + "00");
         }
+      }
+      if(dt.getHours() !== dtEnd.getHours()){
+        const s = generateTimeIntervals(timeInterval, `${dt.getHours()}:${dt.getMinutes()}`, `${dtEnd.getHours()}:${dtEnd.getMinutes()}`);
+        timesArr.push(...s);
       }
       formatedTime = hh + ":" + mm;
       timesArr.push(formatedTime);

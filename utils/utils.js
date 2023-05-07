@@ -50,3 +50,21 @@ export const removeDuplicates = (arr) => {
   arr.forEach(item => obj[item] = null)
   return Object.keys(obj);
 }
+
+export const generateTimeIntervals = (
+    step,
+    minTime,
+    maxTime
+) => {
+    const dt = new Date(1970, 0, 1);
+    const rc = [];
+    while (dt.getDate() === 1) {
+        const hh =
+            dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
+        const mm =
+            dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
+        rc.push(hh + ":" + mm);
+        dt.setMinutes(dt.getMinutes() + step);
+    }
+    return rc.slice(rc.indexOf(minTime), rc.indexOf(maxTime)+1);
+};
