@@ -1,4 +1,4 @@
-import {includesWord, removeDuplicates} from "./utils";
+import {generateTimeIntervals, includesWord, removeDuplicates} from "./utils";
 
 export const processEvents = (events) => {
   const freeDays = []
@@ -56,7 +56,7 @@ export const filterEventsByDr = (events, selectedDr) => {
   return filteredEvents;
 }
 
-export const getEventsBusyTimes = (events, timeInterval) => {
+export const getEventsBusyTimes = (events, timeInterval, selectedDay) => {
   const timesArr = [];
   events.forEach((e) => {
     let formatedTime = null;
@@ -98,12 +98,16 @@ export const getEventsBusyTimes = (events, timeInterval) => {
           timesArr.push(nextHH + ":" + "00");
         }
       }
+      if((dtEnd.getHours() !== dt.getHours()) || (dtEnd.getMinutes() > dt.getMinutes() * 2)){
+        timesArr.push(...generateTimeIntervals(timeInterval, dt.getHours(), dt.getMinutes(), dtEnd.getHours(), dtEnd.getMinutes(), 3, selectedDay));
+      }
       formatedTime = hh + ":" + mm;
       timesArr.push(formatedTime);
       dt.setMinutes(dt.getMinutes() + timeInterval);
     } while (dt.getHours() !== new Date(e.end).getHours());
   })
-  return removeDuplicates(timesArr);
+  const res = removeDuplicates(timesArr);
+  return res;
 }
 
 export const isPastTime = (t, selectedDay) => {
