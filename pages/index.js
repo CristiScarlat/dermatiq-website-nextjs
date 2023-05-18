@@ -50,6 +50,15 @@ const Home = () => {
                     <div className={styles["home-popup-content"]}>
                         <button className="btn-close" onClick={handlePopup}/>
                         <img src="/events/ne_marim_echipa.jpg" alt="..."/>
+                        <div className="m-2">
+                            <p>Dacă ești asistentă de profil generalist, îți place să lucrezi înconjurată de oameni și te pasionează tot ceea ce cuprinde dermatologia, te așteptăm în echipa noastră.
+                            Experiența este un atu, spiritul de echipă îl apreciem, iar seriozitatea și implicarea ta vor conta mereu.
+                            Vei avea sprijin spre învățare din partea noastră.</p>
+                            <p>Trimite-ți CV-ul pe adresa de mail: ladermatique@gmail.com</p>
+                            <p>sau</p>
+                            <p>sună-ne la nr. de telefon 0748015255.</p>
+                            <p>Abia așteptăm să te cunoaștem!</p>
+                        </div>
                     </div>
                 </div>
             )}
