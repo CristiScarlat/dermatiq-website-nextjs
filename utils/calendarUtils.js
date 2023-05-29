@@ -38,6 +38,7 @@ export const processEvents = (events) => {
       freeDays.push(startDate);
     } while (tempStart.toISOString().split("T")[0] !== endDate);
   });
+  console.log({ bookedHoursPerDay, freeDays, events })
   return { bookedHoursPerDay, freeDays }
 }
 
@@ -53,6 +54,7 @@ export const filterEventsByDr = (events, selectedDr) => {
     }
     return false
   })
+  console.log({events, filteredEvents})
   return filteredEvents;
 }
 
@@ -125,7 +127,7 @@ export const getEvents = async (selectedDate) => {
   const lastDayOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0).getDate();
   const currentMonth = selectedDate.getMonth();
   const formatedCurrentMonth = currentMonth + 1 > 9 ? currentMonth + 1 : `0${currentMonth + 1}`;
-  const maxDate = new Date(`${selectedDate.getFullYear()}-${formatedCurrentMonth}-${lastDayOfMonth}T00:00:00Z`);
+  const maxDate = new Date(`${selectedDate.getFullYear()}-${formatedCurrentMonth}-${lastDayOfMonth}T23:00:00Z`);
   const minDate = new Date(selectedDate);
   if (minDate.getMonth() !== new Date().getMonth()) {
     minDate.setDate(1);
