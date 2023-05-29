@@ -50,7 +50,7 @@ const Booking = () => {
   //const timeInterval = 20;
 
   useEffect(() => {
-    if (step === 1 && !dayWasSelected.current) {
+    if (step === 1) {
       setLoading(true);
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);

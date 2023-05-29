@@ -38,7 +38,6 @@ export const processEvents = (events) => {
       freeDays.push(startDate);
     } while (tempStart.toISOString().split("T")[0] !== endDate);
   });
-  console.log({ bookedHoursPerDay, freeDays, events })
   return { bookedHoursPerDay, freeDays }
 }
 
@@ -54,7 +53,6 @@ export const filterEventsByDr = (events, selectedDr) => {
     }
     return false
   })
-  console.log({events, filteredEvents})
   return filteredEvents;
 }
 
@@ -101,7 +99,8 @@ export const getEventsBusyTimes = (events, timeInterval, selectedDay) => {
         }
       }
       if((dtEnd.getHours() !== dt.getHours()) || (dtEnd.getMinutes() > dt.getMinutes() * 2)){
-        timesArr.push(...generateTimeIntervals(timeInterval, dt.getHours(), dt.getMinutes(), dtEnd.getHours(), dtEnd.getMinutes(), 3, selectedDay));
+        const arr = generateTimeIntervals(timeInterval, dt.getHours(), dt.getMinutes(), dtEnd.getHours(), dtEnd.getMinutes(), 3, selectedDay)
+        timesArr.push(...arr);
       }
       formatedTime = hh + ":" + mm;
       timesArr.push(formatedTime);
