@@ -47,8 +47,6 @@ const Booking = () => {
 
   const lang = state.lang
 
-  //const timeInterval = 20;
-
   useEffect(() => {
     if (step === 1) {
       setLoading(true);
@@ -340,7 +338,10 @@ const Booking = () => {
                 selected={selectedDay}
                 filterDate={isFiltered}
                 onChange={handleSelectedDay}
-                onMonthChange={(m) => setSelectedDate(m)}
+                onMonthChange={(m) => {
+                  dayWasSelected.current = false;
+                  setSelectedDate(m);
+                }}
                 inline
                 minDate={new Date()}
                 excludeDates={freeDaysPerDr.map((fd) => new Date(fd))}
