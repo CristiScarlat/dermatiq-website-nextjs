@@ -58,27 +58,20 @@ export const removeDuplicates = (arr) => {
 }
 
 export const generateTimeIntervals = (
-  step,
-  minHour,
-  minMinutes,
-  maxHour,
-  maxMinutes,
+    step,
+    start,
+    end
 ) => {
-  const now = new Date();
-  const dt = new Date(1970, 0, 1, minHour, minMinutes, 0);
-  const rc = [];
-  while (dt.getDate() === 1) {
-    if (
-      dt.getHours() >= minHour &&
-      dt.getHours() <= maxHour
-    ) {
-      const hh =
-        dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
-      const mm =
-        dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
-      rc.push(hh + ":" + mm);
+    const dtStart = new Date(start);
+    const dtEnd = new Date(end);
+    const rc = [];
+    while (dtStart.getTime() < dtEnd.getTime()) {
+        const hh =
+            dtStart.getHours() < 10 ? `0${dtStart.getHours()}` : `${dtStart.getHours()}`;
+        const mm =
+            dtStart.getMinutes() < 10 ? `0${dtStart.getMinutes()}` : `${dtStart.getMinutes()}`;
+        rc.push(hh + ":" + mm);
+        dtStart.setMinutes(dtStart.getMinutes() + step);
     }
-    dt.setMinutes(dt.getMinutes() + step);
-  }
-  return rc;
+    return rc;
 };

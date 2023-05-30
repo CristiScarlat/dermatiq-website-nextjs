@@ -46,22 +46,16 @@ export const filterEventsByDate = (events, filterDate) => {
 }
 
 export const filterEventsByDr = (events, selectedDr) => {
-  const filteredEvents = events.filter((event, index) => {
+  return events.filter((event) => {
     let drName = event.summary.split("/")[3] ? event.summary.split("/")[3] : event.summary.split("/")[1];
     if (drName) {
       return includesWord(selectedDr, drName);
     }
     return false
   })
-  return filteredEvents;
 }
 
-export const getEventsBusyTimes = (events, timeInterval, selectedDay) => {
-  const timesArr = [];
-  events.forEach((e) => {
-    let formatedTime = null;
-    const dt = new Date(e.start);
-    const dtEnd = new Date(e.end);
+/*
     do {
       let hh = dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
       let mm = dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
@@ -106,7 +100,15 @@ export const getEventsBusyTimes = (events, timeInterval, selectedDay) => {
       timesArr.push(formatedTime);
       dt.setMinutes(dt.getMinutes() + timeInterval);
     } while (dt.getHours() !== new Date(e.end).getHours());
+ */
+export const getEventsBusyTimes = (events, timeInterval) => {
+  const timesArr = [];
+  events.forEach((e) => {
+    const dt = new Date(e.start);
+    const dtEnd = new Date(e.end);
+    timesArr.push(...generateTimeIntervals(timeInterval, dt, dtEnd))
   })
+  console.log(timesArr)
   const res = removeDuplicates(timesArr);
   return res;
 }
@@ -166,8 +168,7 @@ export const addEvent = async (eventData) => {
   };
   try {
     const res = await fetch(`${process.env.NEXT_PUBLIC_CALENDAR_EVENTS_URL}&q=addEvent`, requestOptions)
-    const data = await res.json()
-    return data;
+    return await res.json()
   }
   catch (error) {
     console.log(error)
