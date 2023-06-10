@@ -1,9 +1,10 @@
 import {generateTimeIntervals, includesWord, removeDuplicates} from "./utils";
+import { teamCards } from "./uiConstants";
 
 export const processEvents = (events) => {
   const freeDays = []
   events.forEach(e => {
-    if (e.summary.split("/")[0] === 'indisponibil' && e.startDate && e.endDate) {
+    if (e.summary.split("/")[0].toLowerCase() === 'indisponibil' && e.startDate && e.endDate) {
       const formatedStartDate = new Date(e.startDate);
       const formatedEndDate = new Date(e.endDate);
       formatedStartDate.setDate(formatedStartDate.getDate() + 1);
@@ -56,19 +57,8 @@ export const filterEventsByDr = (events, selectedDr) => {
   return filteredEvents;
 }
 
-export const getEventsBusyTimes = (events, timeInterval, selectedDay) => {
-  const timesArr = [];
-  events.forEach((e) => {
-    let formatedTime = null;
-    const dt = new Date(e.start);
-    const dtEnd = new Date(e.end);
-    do {
-      let hh = dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
-      let mm = dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
-
-      const hhEnd = dtEnd.getHours() < 10 ? `0${dtEnd.getHours()}` : `${dtEnd.getHours()}`;
-      let mmEnd = dtEnd.getMinutes() < 10 ? `0${dtEnd.getMinutes()}` : `${dtEnd.getMinutes()}`;
-      if (dt.getMinutes() % timeInterval) {
+/*
+if (dt.getMinutes() % timeInterval) {
         if (dt.getMinutes() < timeInterval) {
           mm = '00';
         }
@@ -99,13 +89,17 @@ export const getEventsBusyTimes = (events, timeInterval, selectedDay) => {
         }
       }
       if((dtEnd.getHours() !== dt.getHours()) || (dtEnd.getMinutes() > dt.getMinutes() * 2)){
-        const arr = generateTimeIntervals(timeInterval, dt.getHours(), dt.getMinutes(), dtEnd.getHours(), dtEnd.getMinutes(), 3, selectedDay)
+        const arr = generateTimeIntervals(timeInterval, dt.getHours(), dt.getMinutes(), dtEnd.getHours())
         timesArr.push(...arr);
       }
-      formatedTime = hh + ":" + mm;
-      timesArr.push(formatedTime);
-      dt.setMinutes(dt.getMinutes() + timeInterval);
-    } while (dt.getHours() !== new Date(e.end).getHours());
+ */
+export const getEventsBusyTimes = (events, timeInterval, drWorkingHourStart, drWorkingHourEnd) => {
+  const timesArr = [];
+  events.forEach((e) => {
+    const dt = new Date(e.start);
+    const dtEnd = new Date(e.end);
+    const eventIntervals = generateTimeIntervals(timeInterval, dt.getHours(), dt.getMinutes(), dtEnd.getHours(), dtEnd.getMinutes());
+    timesArr.push(...eventIntervals);
   })
   const res = removeDuplicates(timesArr);
   return res;

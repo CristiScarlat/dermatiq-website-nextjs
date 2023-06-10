@@ -117,7 +117,7 @@ const Booking = () => {
 
   const getDisabledTimes = (arrEvents) => {
     setDisabledTimes([]);
-    const busyTimesArr = getEventsBusyTimes(arrEvents, selectedDr.timeInterval);
+    const busyTimesArr = getEventsBusyTimes(arrEvents, selectedDr.timeInterval, selectedDr.workingHourStart, selectedDr.workingHourEnd);
     setDisabledTimes(busyTimesArr);
   };
 

@@ -57,28 +57,74 @@ export const removeDuplicates = (arr) => {
   return Object.keys(obj);
 }
 
+// export const generateTimeIntervals = (
+//   step,
+//   startHour,
+//   startMin,
+//   endHour,
+//   endMin
+// ) => {
+//   const strEndHour =
+//     endHour < 10 ? `0${endHour}` : endHour;
+//   const strEndMin =
+//     endMin < 10 ? `0${endMin}` : endMin;
+//   const dt = new Date(1970, 0, 1, startHour, startMin, 0);
+//   const rc = [];
+//   while (dt.getDate() === 1) {
+//     const hh =
+//       dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
+//     const mm =
+//       dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
+//     rc.push(hh + ":" + mm);
+//     dt.setMinutes(dt.getMinutes() + step);
+//   }
+//   console.log({rc})
+//  return rc.filter((t, index, arr) => index < arr.indexOf(strEndHour + ":" + strEndMin))
+// };
+
 export const generateTimeIntervals = (
   step,
-  minHour,
-  minMinutes,
-  maxHour,
-  maxMinutes,
+  startHour,
+  startMin,
+  endHour,
+  endMin
 ) => {
-  const now = new Date();
-  const dt = new Date(1970, 0, 1, minHour, minMinutes, 0);
+  const dt = new Date(1970, 0, 1, startHour, 0, 0);
   const rc = [];
   while (dt.getDate() === 1) {
-    if (
-      dt.getHours() >= minHour &&
-      dt.getHours() <= maxHour
-    ) {
-      const hh =
-        dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
-      const mm =
-        dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
-      rc.push(hh + ":" + mm);
-    }
+    if(dt.getHours() <= endHour)rc.push([dt.getHours(), dt.getMinutes()]);
     dt.setMinutes(dt.getMinutes() + step);
   }
-  return rc;
+  let startRcIndex = null;
+  let endRcIndex = null;
+  rc.filter((t, i) => startHour === t[0])
+    .forEach((t, i, arr) => {
+      if(startMin === arr[0]){
+        startRcIndex = rc.indexOf(arr[i])
+      }
+      else if(startMin <= arr[arr.length-1][1] && arr[i+1] && startMin >= arr[i][1] && startMin <= arr[i+1][1]){
+        startRcIndex = rc.indexOf(arr[i]);
+      }
+      else if(startMin >= arr[arr.length-1][1] && startMin >= arr[i][1]){
+        startRcIndex = rc.indexOf(arr[i])
+      }
+    })
+  endRcIndex = startRcIndex
+  rc.filter((t, i) => endHour === t[0])
+    .forEach((t, i, arr) => {
+      if(endMin !== 0 && endMin > t[1]){
+        endRcIndex = rc.indexOf(arr[i])
+      }
+      else if(endMin === 0){
+        endRcIndex = rc.indexOf(arr[0])-1
+      }
+    })
+  return rc.filter((t, index) => index >= startRcIndex && index <= endRcIndex)
+    .map(t =>{
+      const hh =
+        t[0] < 10 ? `0${t[0]}` : `${t[0]}`;
+      const mm =
+        t[1] < 10 ? `0${t[1]}` : `${t[1]}`;
+      return hh + ":" + mm;
+    });
 };
