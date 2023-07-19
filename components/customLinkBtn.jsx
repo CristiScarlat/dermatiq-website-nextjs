@@ -12,7 +12,7 @@ const CustomLinkBtn = () => {
     return (
         <div className={styles['booking-button']}>
             <ImCalendar className="me-2" />
-            <Link href="/booking" passHref><span style={{cursor: 'pointer', fontSize: 18}}>
+            <Link legacyBehavior href="/booking" passHref><span style={{cursor: 'pointer', fontSize: 18}}>
                 {lang === 'ro' && "Fă-ți o programare"}
                 {lang === 'en' && "Make an appointment"}
                 </span></Link>

@@ -54,7 +54,7 @@ const NavHead = () => {
       </div>
       <Container fluid>
         <Navbar.Brand>
-          <Link href="/">
+          <Link legacyBehavior href="/">
             <a className="navbar-brand">
               <Image
                 className="logo_image"
@@ -73,7 +73,7 @@ const NavHead = () => {
             className="d-flex justify-content-end navbar-nav g-3 me-auto mb-2 mb-lg-0 w-100 fw-bold"
             style={{ gap: "1rem" }}
           >
-            {headerLables[lang].map(hl => <Link key={hl.link} href={hl.link} className="nav-item me-4 li-link">
+            {headerLables[lang].map(hl => <Link legacyBehavior key={hl.link} href={hl.link} className="nav-item me-4 li-link">
               <a
                 className={`custom-nav-link text-uppercase ${
                   router.pathname === hl.link  ? "active" : ""
