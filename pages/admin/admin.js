@@ -1,16 +1,16 @@
-import { getSession, signOut, useSession } from 'next-auth/react';
-import { Button } from "react-bootstrap";
+import {getSession, signOut, useSession} from 'next-auth/react';
+import {Button} from "react-bootstrap";
 
 const Admin = () => {
-  return(
+  return (
     <div>
-    <Button onClick={() => signOut()}>Sign out</Button>
-  </div>
+      <Button onClick={() => signOut()}>Sign out</Button>
+    </div>
   )
 }
 
 export const getServerSideProps = async (context) => {
-  const session = await getSession({ req: context.req });
+  const session = await getSession({req: context.req});
 
   if (!session) {
     return {
@@ -22,7 +22,7 @@ export const getServerSideProps = async (context) => {
   }
 
   return {
-    props: { session },
+    props: {session},
   };
 };
 

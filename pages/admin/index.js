@@ -1,4 +1,4 @@
-import { useSession, signIn, signOut } from 'next-auth/react';
+import {useSession, signIn, signOut, getSession} from 'next-auth/react';
 import { useRouter } from 'next/router';
 import { Form, Button } from "react-bootstrap";
 import styles from "../../styles/Admin.module.css";
@@ -7,7 +7,6 @@ export default function Index() {
   const router = useRouter();
   const handleSignIn = async (e) => {
     e.preventDefault();
-
     await signIn('credentials', {
       redirect: false,
       username: e.target[0].value,
@@ -41,3 +40,20 @@ export default function Index() {
     </div>
   )
 }
+
+export const getServerSideProps = async (context) => {
+  const session = await getSession({req: context.req});
+
+  if (session) {
+    return {
+      redirect: {
+        destination: '/admin/admin',
+        permanent: false,
+      },
+    };
+  }
+
+  return {
+    props: {session},
+  };
+};
