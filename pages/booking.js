@@ -258,9 +258,9 @@ const Booking = () => {
   const handleConfirmation = async () => {
     setShowModal({open: false});
     setLoading(true);
-    try{
+    try {
       const data = await addEvent(addEventData.current);
-      if(data.created)await sendEmail();
+      if (data.created) await sendEmail();
       else throw new Error("appointment not created")
       setSelectedTime(undefined);
       setStep(0);
@@ -270,22 +270,21 @@ const Booking = () => {
         setDisabledTimes(temp);
         setLoading(false);
       }, 1000);
-    }
-    catch(error){
+    } catch (error) {
       setLoading(false);
       console.log(error);
     }
-        // dispatch({
-        //   type: "SET_TOAST",
-        //   toast: {
-        //     showToast: true,
-        //     type: "success",
-        //     headerText: "Saved.",
-        //     bodyText: `Your appointment in ${new Date(
-        //       addEventData.current.start.dateTime
-        //     ).toLocaleString()} is successfully saved.`,
-        //   },
-        // });
+    // dispatch({
+    //   type: "SET_TOAST",
+    //   toast: {
+    //     showToast: true,
+    //     type: "success",
+    //     headerText: "Saved.",
+    //     bodyText: `Your appointment in ${new Date(
+    //       addEventData.current.start.dateTime
+    //     ).toLocaleString()} is successfully saved.`,
+    //   },
+    // });
 
   };
 
@@ -413,7 +412,7 @@ const Booking = () => {
                       key={t}
                       type="button"
                       disabled={disabledTimes.includes(t)}
-                      className={`btn btn-circle ${!disabledTimes.includes(t) ? "custom-button" : ""
+                      className={`btn btn-circle ${!disabledTimes.includes(t) ? "custom-button" : "busy"
                       } m-2`}
                       onClick={() => handleTimeButtonClick(t)}
                       style={
@@ -427,37 +426,50 @@ const Booking = () => {
                           : {}
                       }
                     >
-                      {t}
+                      <p className="m-0">{t}</p>
+                      <p style={{
+                        fontSize: "14px",
+                        color: disabledTimes.includes(t) ? "#8b0101" : "#00bd00",
+                        fontWeight: 800,
+                        margin: 0
+                      }}>
+                        {disabledTimes.includes(t) ? "OCUPAT" : "LIBER"}</p>
                     </button>
                   );
                 }) : <p style={{
-                  color: '#f55f',
-                  fontWeight: 'bold'
-                }}>{`Medicul nu este disponibil, va rugăm alegeți o altă zi.`}</p>}
-              </div>
-            </div>
-          </div>
-        )}
-        {step === 2 && (
-          <div
-            className="col-md mt-5"
-            style={{opacity: selectedTime ? 1 : 0.4}}
-          >
-            <Form handleSubmit={handleFormSubmit} formRef={formRef}/>
-          </div>
-        )}
+                color: '#f55f',
+                fontWeight: 'bold'
+              }}>{`Medicul nu este disponibil, va rugăm alegeți o altă zi.`}</p>}
       </div>
-      {loading && <Spinner/>}
+    </div>
+</div>
+)
+}
+  {
+    step === 2 && (
+      <div
+        className="col-md mt-5"
+        style={{opacity: selectedTime ? 1 : 0.4}}
+      >
+        <Form handleSubmit={handleFormSubmit} formRef={formRef}/>
+      </div>
+    )
+  }
+</div>
+  {
+    loading && <Spinner/>
+  }
 
-      <ModalComponent
-        show={showModal?.open}
-        title={showModal?.title}
-        body={showModal?.body}
-        onCancel={() => setShowModal({open: false})}
-        onConfirm={handleConfirmation}
-      />
-    </main>
-  );
+  <ModalComponent
+    show={showModal?.open}
+    title={showModal?.title}
+    body={showModal?.body}
+    onCancel={() => setShowModal({open: false})}
+    onConfirm={handleConfirmation}
+  />
+</main>
+)
+  ;
 };
 
 export default Booking;
