@@ -113,11 +113,12 @@ const Home = () => {
                         key={service.img + "-" + index}
                         cardTitle={service.title}
                         imgSrc={service.img}
-                        className={`m-3 ${styles["home-custom-card"]}`}
+                        className={`m-3 ${styles["home-custom-card"]} ${service?.new ? styles.new : ""}`}
+                        cardBodyClassName="d-flex flex-column justify-content-evenly"
                         buttonLable={lang === "ro" ? "Afla mai multe" : "Read more"}
                         cardButtonOnCLick={() =>
                             router.push({
-                                pathname: "/services",
+                                pathname: service?.redirectLink || "/services",
                                 query: {name: service.title},
                             })
                         }

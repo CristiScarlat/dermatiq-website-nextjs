@@ -1,6 +1,24 @@
 export const serviceCards = {
   ro: [
     {
+      title: "Sylfirm X",
+      body: "Acest dispozitiv inovator utilizează tehnologia avansată de undă duală \
+        (undă continuă și undă pulsată) pentru tratamente eficiente ce vizează întinerirea pielii, \
+        minimizarea cicatricilor, precum și a leziunilor pigmentare și vasculare, cum ar fi melasma, \
+        roșeața difuză și rozaceea, care erau dificil de tratat cu sistemele RF convenționale.",
+      details: "SYLFIRM X este un sistem de radiofrecvență fracționată de ultimă generație cu aprobare FDA. \
+         Acest dispozitiv inovator utilizează tehnologia avansată de undă duală (undă continuă și undă pulsată) \
+         pentru tratamente eficiente ce vizează întinerirea pielii, minimizarea cicatricilor, \
+         precum și a leziunilor pigmentare și vasculare, cum ar fi melasma, roșeața difuză și rozaceea, \
+         care erau dificil de tratat cu sistemele RF convenționale. \
+         De asemenea, unda duală este împărțită în 8 moduri diferite. \
+         Prin urmare, este posibil un tratament personalizat și delicat, având în vedere necesitățile pacientului, \
+         țintind individual zona de tratament, in funcție de nevoile pielii.",
+      img: "/procedures/sylfirm.jpg",
+      new: true,
+      redirectLink: "/sylfirmx"
+    },
+    {
       title: "Tratament cu toxina botulinica contra hiperhidroza",
       body: "Odata cu venirea sezonului cald transpiratia poate deveni deranjanta. \
       Desi tratamentul cu toxina botulinica se efectueaza in principal pacientilor cu transpiratie excesiva (#hiperhidroza ),\
@@ -125,6 +143,23 @@ export const serviceCards = {
     },
   ],
   en: [
+    {
+      title: "Sylfirm X",
+      body: "Acest dispozitiv inovator utilizează tehnologia avansată de undă duală \
+        (undă continuă și undă pulsată) pentru tratamente eficiente ce vizează întinerirea pielii, \
+        minimizarea cicatricilor, precum și a leziunilor pigmentare și vasculare, cum ar fi melasma, \
+        roșeața difuză și rozaceea, care erau dificil de tratat cu sistemele RF convenționale.",
+      details: "SYLFIRM X este un sistem de radiofrecvență fracționată de ultimă generație cu aprobare FDA. \
+         Acest dispozitiv inovator utilizează tehnologia avansată de undă duală (undă continuă și undă pulsată) \
+         pentru tratamente eficiente ce vizează întinerirea pielii, minimizarea cicatricilor, \
+         precum și a leziunilor pigmentare și vasculare, cum ar fi melasma, roșeața difuză și rozaceea, \
+         care erau dificil de tratat cu sistemele RF convenționale. \
+         De asemenea, unda duală este împărțită în 8 moduri diferite. \
+         Prin urmare, este posibil un tratament personalizat și delicat, având în vedere necesitățile pacientului, \
+         țintind individual zona de tratament, in funcție de nevoile pielii.",
+      img: "/procedures/sylfirm.jpg",
+      new: true
+    },
     {
       title: "Treatment with botulinum toxin against hyperhidrosis",
       body: "With the arrival of the warm season, sweating can become unpleasant. \
