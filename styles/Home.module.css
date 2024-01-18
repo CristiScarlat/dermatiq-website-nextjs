@@ -150,6 +150,19 @@
 .home-custom-card img {
   border-radius: 50%;
   object-fit: cover;
+  position: relative;
+}
+
+.home-custom-card.new:before {
+  content: "New";
+  background-color: red;
+  color: white;
+  font-weight: 800;
+  padding: 0.2rem;
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  z-index: 9999!important;
 }
 
 .home-main-image-info {

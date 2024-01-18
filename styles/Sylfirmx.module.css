@@ -1,0 +1,41 @@
+
+.title {
+    font-weight: 800;
+    color: #4956a0;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 1rem;
+}
+
+.section {
+    max-width: 60rem;
+    margin: auto;
+}
+.section > article {
+    margin: 2rem 0;
+}
+
+.section > article > ul {
+    padding: 0;
+    list-style: none;
+}
+
+.floatImage {
+    margin-right: 2rem;
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 100%;
+}
+
+.section h4 {
+    color: #4956a0;
+}
+
+.section p {
+    line-height: 1.8;
+}
+
+.section > article > p > span {
+    color: #4956a0;
+}
