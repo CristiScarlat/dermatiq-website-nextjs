@@ -370,11 +370,11 @@ export const teamCards = {
       body: "Medic specialist dermatovenerologie, dermatochirugie, dermatocosmetologie",
       img: "/team/Dr._Anca_Țurcan.jpeg",
       workDays: [5],
-      workingHourStart: 13,
-      workingHourEnd: 16,
+      workingHourStart: 14,
+      workingHourEnd: 15,
       colorId: 3,
       type: 'medic',
-      timeInterval: 30
+      timeInterval: 20
     },
     {
       title: "Dr. Claudia Iftode",
@@ -445,8 +445,8 @@ export const teamCards = {
       body: "Md Specialist in dermatovenerology, dermatosurgery, dermatocosmetology",
       img: "/team/Dr._Anca_Țurcan.jpeg",
       workDays: [1],
-      workingHourStart: 16,
-      workingHourEnd: 18,
+      workingHourStart: 14,
+      workingHourEnd: 15,
       colorId: 3,
       type: 'medic',
       timeInterval: 20
