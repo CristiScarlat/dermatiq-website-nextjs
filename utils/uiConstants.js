@@ -358,7 +358,7 @@ export const teamCards = {
       title: "Dr. Alina Stasak",
       body: "Medic specialist dermatovenerologie, dermatopediatrie, dermatocosmetologie",
       img: "/team/Dr._Alina_Stasak.jpeg",
-      workDays: [3],
+      //workDays: [3],
       workingHourStart: 17,
       workingHourEnd: 18,
       colorId: 2,
