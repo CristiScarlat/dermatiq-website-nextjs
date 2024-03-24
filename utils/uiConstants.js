@@ -1,6 +1,20 @@
 export const serviceCards = {
   ro: [
     {
+      title: "Dermalinfusion",
+      body: "Dermalinfusion® este un tratament dermatologic patentat, non-invaziv si cu o actiune simultana de exfoliere,\
+            extractie si de infuzare profunda a solutiilor specifice afectiunilor vizate. Este singurul tratament de specialitate, cu\
+            o dozare optima a serului pentru rezultate imediate si de lunga durata.\
+            Tratamentul este ideal pentru toate tipurile de piele si nu necesita timp de recuperare pentru pacient.",
+      details: "Dermalinfusion® este un tratament dermatologic patentat, non-invaziv si cu o actiune simultana de exfoliere,\
+            extractie si de infuzare profunda a solutiilor specifice afectiunilor vizate. Este singurul tratament de specialitate, cu\
+            o dozare optima a serului pentru rezultate imediate si de lunga durata.\
+            Tratamentul este ideal pentru toate tipurile de piele si nu necesita timp de recuperare pentru pacient.",
+      img: "/dermalinfusion/dermal_1080.jpg",
+      new: true,
+      redirectLink: "/dermalinfusion"
+    },
+    {
       title: "Sylfirm X",
       body: "Acest dispozitiv inovator utilizează tehnologia avansată de undă duală \
         (undă continuă și undă pulsată) pentru tratamente eficiente ce vizează întinerirea pielii, \
