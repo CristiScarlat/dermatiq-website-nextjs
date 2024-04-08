@@ -40,6 +40,7 @@ const Booking = () => {
   const [step, setStep] = useState(0);
   const [selectedDr, setSelectedDr] = useState();
   const [freeDaysPerDr, setFreeDaysPerDr] = useState([]);
+  const [selectedDayIsOutsideDrWorkDays, setSelectedDayIsOutsideDrWorkDays] = useState(false);
 
   const addEventData = useRef({});
   const dayWasSelected = useRef(false);
@@ -124,6 +125,12 @@ const Booking = () => {
   };
 
   const handleSelectedDay = (date) => {
+    if(selectedDr?.workDays?.includes(date.getDay())){
+      setSelectedDayIsOutsideDrWorkDays(false);
+    }
+    else {
+      setSelectedDayIsOutsideDrWorkDays(true);
+    }
     if (!dayWasSelected.current) dayWasSelected.current = true;
     setSelectedDay(date);
     if (selectedDate.getMonth() !== date.getMonth()) {
@@ -406,7 +413,7 @@ const Booking = () => {
             >
               <label>Select time:</label>
               <div>
-                {getAvailableHours().length > 0 ? getAvailableHours().map((t) => {
+                {(getAvailableHours().length > 0 && !selectedDayIsOutsideDrWorkDays) ? getAvailableHours().map((t) => {
                   return (
                     <button
                       key={t}
