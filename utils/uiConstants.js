@@ -583,7 +583,7 @@ export const prices = {
     "Excizie leziune (fara examen histopatologic)": "500 LEI",
     "Extractie chist milium": "100 LEI",
     "Incizie, evacuare, debridare, drenaj": "300 LEI",
-    "Prelevare biopsie": "200 LEI",
+    "Prelevare biopsie": "300 LEI",
     "Tratament unghie incarnata unilateral": "300 LEI",
     Pansament: "50 LEI",
     "Injectare acid hialuronic/fiola":
@@ -594,8 +594,7 @@ export const prices = {
     "PRP 2 fiole": "700 LEI",
     "Sedinta PB Serum": "350 EURO",
     "Lifting cu fire PDO": "500 EURO",
-    "Dermapen 4/sedinta": "700 LEI",
-    "Prelevare biopsie ": "300 LEI"
+    "Dermapen 4/sedinta": "700 LEI"
   },
   en: {
     "Consult dermatologie": "200 LEI",
@@ -611,7 +610,7 @@ export const prices = {
     "Excizie leziune (fara examen histopatologic)": "500 LEI",
     "Extractie chist milium": "100 LEI",
     "Incizie, evacuare, debridare, drenaj": "300 LEI",
-    "Prelevare biopsie": "200 LEI",
+    "Prelevare biopsie": "300 LEI",
     "Tratament unghie incarnata unilateral": "300 LEI",
     Pansament: "50 LEI",
     "Injectare acid hialuronic/fiola":
@@ -622,8 +621,7 @@ export const prices = {
     "PRP 2 fiole": "700 LEI",
     "Sedinta PB Serum": "350 EURO",
     "Lifting cu fire PDO": "500 EURO",
-    "Dermapen 4/sedinta": "700 LEI",
-    "Prelevare biopsie ": "300 LEI"
+    "Dermapen 4/sedinta": "700 LEI"
   },
 };
 
