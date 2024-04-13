@@ -1,14 +1,16 @@
+import {generateTimeIntervals, includesWord, removeDuplicates} from "./utils";
+import { teamCards } from "./uiConstants";
+
 export const processEvents = (events) => {
   const freeDays = []
   events.forEach(e => {
-    if (e.summary.split("/")[0] === 'indisponibil' && e.startDate && e.endDate) {
+    if (e.summary.split("/")[0].toLowerCase() === 'indisponibil' && e.startDate && e.endDate) {
       const formatedStartDate = new Date(e.startDate);
       const formatedEndDate = new Date(e.endDate);
       formatedStartDate.setDate(formatedStartDate.getDate() + 1);
       if (formatedStartDate.getDate() === formatedEndDate.getDate()) freeDays.push(e.startDate);
     }
   });
-
   //busyEvents are days when dr is working and has appointments 
   const bookedHoursPerDay = events.filter(e => {
     const startDate = new Date(e.start).getDate();
@@ -37,7 +39,6 @@ export const processEvents = (events) => {
       freeDays.push(startDate);
     } while (tempStart.toISOString().split("T")[0] !== endDate);
   });
-
   return { bookedHoursPerDay, freeDays }
 }
 
@@ -47,40 +48,61 @@ export const filterEventsByDate = (events, filterDate) => {
 
 export const filterEventsByDr = (events, selectedDr) => {
   const filteredEvents = events.filter((event, index) => {
-    const drName = event.summary.split("/")[3] ? event.summary.split("/")[3] : event.summary.split("/")[1];
+    let drName = event.summary.split("/")[3] ? event.summary.split("/")[3] : event.summary.split("/")[1];
     if (drName) {
-      drName = drName.toLowerCase().replaceAll('.', '').replaceAll('dr', '').trim();
+      return includesWord(selectedDr, drName);
     }
-    return selectedDr.toLowerCase().includes(drName?.toLowerCase());
+    return false
   })
   return filteredEvents;
 }
 
-export const getEventsBusyTimes = (events, timeInterval) => {
-  const timesArr = [];
-  events.forEach((e) => {
-    let formatedTime = null;
-    const dt = new Date(e.start);
-    do {
-      const hh = dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
-      let mm = dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
-      if (dt.getMinutes() % 20) {
+/*
+if (dt.getMinutes() % timeInterval) {
         if (dt.getMinutes() < timeInterval) {
           mm = '00';
         }
         else if (dt.getMinutes() > timeInterval && dt.getMinutes() < timeInterval * 2) {
-          mm = '20';
+          mm = timeInterval;
         }
-        else if (dt.getMinutes() > timeInterval * 2) {
-          mm = '40';
+        else if ((dt.getMinutes() > timeInterval * 2) && (timeInterval * 2 < 60)) {
+          mm = timeInterval * 2;
+        }
+        else if ((dt.getMinutes() > timeInterval * 2) && (timeInterval * 2 > 60)) {
+          hh = dt.getHours() < 10 ? `0${dt.getHours() + 1}` : `${dt.getHours() + 1}`;
+          mm = "00";
         }
       }
-      formatedTime = hh + ":" + mm;
-      timesArr.push(formatedTime);
-      dt.setMinutes(dt.getMinutes() + timeInterval);
-    } while (dt.getHours() !== new Date(e.end).getHours());
+      if (dtEnd.getMinutes() % timeInterval) {
+        if (dtEnd.getMinutes() < timeInterval) {
+          timesArr.push(hhEnd+ ":" + "00")
+        }
+        else if (dtEnd.getMinutes() > timeInterval && dtEnd.getMinutes() < timeInterval * 2) {
+          timesArr.push(hhEnd + ":" + timeInterval);
+        }
+        else if ((dtEnd.getMinutes() > timeInterval * 2) && (timeInterval * 2 < 60)) {
+          timesArr.push(hhEnd + ":" + timeInterval*2);
+        }
+        else if ((dtEnd.getMinutes() > timeInterval * 2) && (timeInterval * 2 > 60)) {
+          const nextHH = dt.getHours() < 10 ? `0${dt.getHours() + 1}` : `${dt.getHours() + 1}`
+          timesArr.push(nextHH + ":" + "00");
+        }
+      }
+      if((dtEnd.getHours() !== dt.getHours()) || (dtEnd.getMinutes() > dt.getMinutes() * 2)){
+        const arr = generateTimeIntervals(timeInterval, dt.getHours(), dt.getMinutes(), dtEnd.getHours())
+        timesArr.push(...arr);
+      }
+ */
+export const getEventsBusyTimes = (events, timeInterval, drWorkingHourStart, drWorkingHourEnd) => {
+  const timesArr = [];
+  events.forEach((e) => {
+    const dt = new Date(e.start);
+    const dtEnd = new Date(e.end);
+    const eventIntervals = generateTimeIntervals(timeInterval, dt.getHours(), dt.getMinutes(), dtEnd.getHours(), dtEnd.getMinutes());
+    timesArr.push(...eventIntervals);
   })
-  return timesArr;
+  const res = removeDuplicates(timesArr);
+  return res;
 }
 
 export const isPastTime = (t, selectedDay) => {
@@ -98,7 +120,7 @@ export const getEvents = async (selectedDate) => {
   const lastDayOfMonth = new Date(selectedDate.getFullYear(), selectedDate.getMonth() + 1, 0).getDate();
   const currentMonth = selectedDate.getMonth();
   const formatedCurrentMonth = currentMonth + 1 > 9 ? currentMonth + 1 : `0${currentMonth + 1}`;
-  const maxDate = new Date(`${selectedDate.getFullYear()}-${formatedCurrentMonth}-${lastDayOfMonth}T00:00:00Z`);
+  const maxDate = new Date(`${selectedDate.getFullYear()}-${formatedCurrentMonth}-${lastDayOfMonth}T23:00:00Z`);
   const minDate = new Date(selectedDate);
   if (minDate.getMonth() !== new Date().getMonth()) {
     minDate.setDate(1);

@@ -99,7 +99,7 @@ const GDPR = () => {
                 <p><strong>Autoritatea Națională de Supraveghere a Prelucrării Datelor cu Caracter Personal</strong></p>
                 <ul>
                     <li><strong>B-dul G-ral. Gheorghe Magheru 28-30, Sector 1, cod poștal 010336, București, România</strong></li>
-                    <li><a href="http://www.dataprotection.ro/" target="_blank" rel="noreferrer">www.dataprotection.ro</a>&nbsp;</li>
+                    <li><strong><a href="http://www.dataprotection.ro/" target="_blank" rel="noreferrer">www.dataprotection.ro</a>&nbsp;</strong></li>
                 </ul>
                 <ol start="7">
                     <li><strong> Cum ne puteți contacta</strong></li>
@@ -109,11 +109,10 @@ const GDPR = () => {
                 <ul>
                     <li>Adresa: Str. Ioan Plavosin, nr. 31,Timisoara, Timis 300361</li>
                     <li>Telefon: 0040 (0)742 426 421</li>
-                    <li>E-mail:&nbsp;<a href="mailto:office@clinica-dermatiq.com">office@clinica-dermatiq.com</a></li>
                     <li>Data Protection Officer (DPO):&nbsp;</li>
                 </ul>
                 <p>Alexandra Zimbrea</p>
-                <p><a href="mailto:alexandra-zimbrea@clinica-dermatiq.com">alexandra-zimbrea@clinica-dermatiq.com</a></p>
+                <p><strong><a href="mailto:alexandra-zimbrea@clinica-dermatiq.com">alexandra-zimbrea@clinica-dermatiq.com</a></strong></p>
                 <p>0040 (0)754 462 822</p>
             </div>
         </>
