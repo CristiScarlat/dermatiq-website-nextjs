@@ -46,6 +46,15 @@ export default function Layout({ children }) {
     padding: "5px 10px",
   };
 
+  const footerStyle = {
+    minHeight: '2rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'linear-gradient(90deg, #8c8ba9 0%, #d7d6e5 50%, #8c8ba9 100%)',
+    color: '#4e4e4e'
+  }
+
   return (
     <>
       <Head>
@@ -86,6 +95,7 @@ export default function Layout({ children }) {
       </Head>
       <NavHead />
       <>{children}</>
+      <footer style={footerStyle}>Copyright 2022 © Clinica Dermatiq. Toate drepturile rezervate.</footer>
       <ToastContainer
         position={"bottom-end"}
         style={{ zIndex: "99999", margin: "1rem", color: "white" }}
@@ -105,11 +115,13 @@ export default function Layout({ children }) {
       <CookieConsent
         location=""
         buttonText="Accept"
+        enableDeclineButton
         declineButtonText="Decline"
-        cookieName="gdpr-google-analytics"
+        cookieName="cookies-consent"
         disableStyles={false}
         style={cookieConstentStyle}
         buttonStyle={cookieConstentButtonStyle}
+        expires={150}
       >
         This website uses cookies to enhance the user experience.{" "}
       </CookieConsent>
