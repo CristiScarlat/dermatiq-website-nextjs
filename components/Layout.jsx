@@ -52,7 +52,9 @@ export default function Layout({ children }) {
     justifyContent: 'center',
     alignItems: 'center',
     background: 'linear-gradient(90deg, #8c8ba9 0%, #d7d6e5 50%, #8c8ba9 100%)',
-    color: '#4e4e4e'
+    color: '#4e4e4e',
+    textAlign: 'center',
+    flexWrap: 'wrap'
   }
 
   return (
@@ -95,7 +97,10 @@ export default function Layout({ children }) {
       </Head>
       <NavHead />
       <>{children}</>
-      <footer style={footerStyle}>Copyright 2022 © Clinica Dermatiq. Toate drepturile rezervate.</footer>
+      <footer style={footerStyle}>
+        <p className="m-0">Copyright 2022 © Clinica Dermatiq.</p>
+        <p className="m-0">Toate drepturile rezervate.</p>
+      </footer>
       <ToastContainer
         position={"bottom-end"}
         style={{ zIndex: "99999", margin: "1rem", color: "white" }}
