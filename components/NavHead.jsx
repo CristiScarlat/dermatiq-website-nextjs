@@ -53,7 +53,7 @@ const NavHead = () => {
           </li>
           <li className="nav-item">
             <a className="custom-nav-link disabled" href="https://www.tiktok.com/@clinicadermatiq?_t=8ns9utSVwaO&_r=1" target="_black">
-              <AiFillTikTok size="1.8rem"/>
+              <AiFillTikTok size="1.5rem"/>
             </a>
           </li>
         </ul>
