@@ -31,6 +31,12 @@ const NavHead = () => {
       onToggle={() => setExpanded(true)}
     >
       <div className={styles["navbar-mini-main"]}>
+        <span style={{
+          paddingLeft: "1rem",
+          flex: 1,
+          fontWeight: 600,
+          color: "white"
+        }}>DB_VERSION</span>
         <button onClick={handleChangeLanguage}>
           {lang === "ro" && <Flags.GB title="GB" style={{ width: "2rem" }} />}
           {lang === "en" && <Flags.RO title="RO" style={{ width: "2rem" }} />}
