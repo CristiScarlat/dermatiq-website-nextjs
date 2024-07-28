@@ -3,6 +3,7 @@ import { teamCards } from "./uiConstants";
 
 export const processEvents = (events) => {
   const freeDays = []
+
   events.forEach(e => {
     if (e.summary.split("/")[0].toLowerCase() === 'indisponibil' && e.startDate && e.endDate) {
       const formatedStartDate = new Date(e.startDate);
@@ -17,6 +18,7 @@ export const processEvents = (events) => {
     const endDate = new Date(e.end).getDate();
     return startDate === endDate;
   });
+  console.log({events, bookedHoursPerDay})
   //disabledEvents are days when dr is not working - not available
   const freeDaysIntervals = events.filter(e => {
     if (e.start && e.end) {
@@ -54,6 +56,7 @@ export const filterEventsByDr = (events, selectedDr) => {
     }
     return false
   })
+  console.log({filteredEvents})
   return filteredEvents;
 }
 
@@ -102,6 +105,7 @@ export const getEventsBusyTimes = (events, timeInterval, drWorkingHourStart, drW
     timesArr.push(...eventIntervals);
   })
   const res = removeDuplicates(timesArr);
+  console.log({res})
   return res;
 }
 
