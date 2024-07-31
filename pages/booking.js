@@ -385,7 +385,7 @@ const Booking = () => {
         {step === 1 && (
           <div className="d-flex justify-content-center align-items-start flex-wrap gap-2 col-md">
             <div className="d-flex flex-column flex-wrap justify-content-center m-5">
-              <label>Select date:</label>
+              <label>Selectează data:</label>
               <DatePicker
                 selected={selectedDay}
                 filterDate={isFiltered}
@@ -411,11 +411,24 @@ const Booking = () => {
               className="d-flex flex-column flex-wrap justify-content-center align-items-start m-5"
               style={{minWidth: "20rem"}}
             >
-              <label>Select time:</label>
+              <label>Selectează intervalul orar:</label>
               <div>
                 {(getAvailableHours().length > 0 && !selectedDayIsOutsideDrWorkDays) ? getAvailableHours().map((t) => {
                   return (
-                    <button
+                    disabledTimes.includes(t) ?
+                      <div className="btn btn-circle busy" style={{border: "1px solid gray"}}>
+                        <p className="m-0">{t}</p>
+                        <p style={{
+                          fontSize: "14px",
+                          color: disabledTimes.includes(t) ? "#8b0101" : "#00bd00",
+                          fontWeight: 800,
+                          margin: 0
+                        }}>
+                          OCUPAT
+                        </p>
+                      </div>
+                      :
+                      <button
                       key={t}
                       type="button"
                       disabled={disabledTimes.includes(t)}
