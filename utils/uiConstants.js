@@ -373,7 +373,7 @@ export const treatmentCards = {
 export const teamCards = {
   ro: [
     {
-      title: "Sef de lucrari Dr. Andrada Iftode",
+      title: "Conf. univ. Dr. Andrada Iftode",
       body: "Medic primar dermatovenerologie, medicina regenerativa, estetica si anti-aging",
       img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.jpeg",
       workDays: [2, 4],
@@ -434,9 +434,9 @@ export const teamCards = {
       type: 'medic'
     },
     {
-      title: "Andreea Amarinei",
+      title: "Ana Rus",
       body: "Asistent medical",
-      img: "/team/Andreea_Amarinei.jpeg",
+      img: "/user_missing.png",
       type: 'nurse'
     },
     {
@@ -448,7 +448,7 @@ export const teamCards = {
   ],
   en: [
     {
-      title: "Sef de lucrari Dr. Andrada Iftode",
+      title: "Conf. univ. Dr. Andrada Iftode",
       body: "Md Specialist in dermatovenerology, regenerative medicine, aesthetics and anti-aging",
       img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.jpeg",
       workDays: [2, 4],
@@ -506,9 +506,9 @@ export const teamCards = {
       type: 'medic'
     },
     {
-      title: "Andreea Amarinei",
+      title: "Ana Rus",
       body: "Nurse",
-      img: "/team/Andreea_Amarinei.jpeg",
+      img: "/user_missing.png",
       type: 'nurse'
     },
     {
