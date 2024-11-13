@@ -411,16 +411,16 @@ export const teamCards = {
       img: "/team/Dr._Claudia_Iftode.jpeg",
       type: 'medic'
     },
-    {
-      title: "Dr. Mircea Berceanu",
-      body: "Medic specialist chirugie plastica si microchirugie reconstructiva",
-      img: "/team/Dr._Mircea_Berceanu.webp",
-      // workDays: [1],
-      // workingHourStart: 16,
-      // workingHourEnd: 17,
-      // colorId: 4,
-      type: 'medic'
-    },
+    // {
+    //   title: "Dr. Mircea Berceanu",
+    //   body: "Medic specialist chirugie plastica si microchirugie reconstructiva",
+    //   img: "/team/Dr._Mircea_Berceanu.webp",
+    //   // workDays: [1],
+    //   // workingHourStart: 16,
+    //   // workingHourEnd: 17,
+    //   // colorId: 4,
+    //   type: 'medic'
+    // },
     {
       title: "Dr. Florina Claudia Cojocaru",
       body: "Medic specialist Pediatrie",
@@ -486,13 +486,13 @@ export const teamCards = {
       img: "/team/Dr._Claudia_Iftode.jpeg",
       type: 'medic'
     },
-    {
-      title: "Dr. Mircea Berceanu",
-      body: "Md Specialist in plastic surgery and reconstructive microsurgery",
-      img: "/team/Dr._Mircea_Berceanu.webp",
-      colorId: 4,
-      type: 'medic'
-    },
+    // {
+    //   title: "Dr. Mircea Berceanu",
+    //   body: "Md Specialist in plastic surgery and reconstructive microsurgery",
+    //   img: "/team/Dr._Mircea_Berceanu.webp",
+    //   colorId: 4,
+    //   type: 'medic'
+    // },
     {
       title: "Dr. Florina Claudia Cojocaru",
       body: "Md Pediatrician",
