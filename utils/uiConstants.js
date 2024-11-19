@@ -423,12 +423,12 @@ export const teamCards = {
     // },
     {
       title: "Dr. Florina Claudia Cojocaru",
-      body: "Medic specialist Pediatrie",
+      body: "Medic primar neonatologie și Medic specialist Pediatrie",
       img: "/team/Dr.Florina-Claudia-Cojocaru-crop.jpeg",
       type: 'medic'
     },
     {
-      title: "Conf. univ. Dr. Daniela Iacob",
+      title: "Prof. univ. Dr. Daniela Iacob",
       body: "Medic primar Pediatrie si Neonatologie",
       img: "/team/Dr-Iacob-Daniela-crop.jpg",
       type: 'medic'
@@ -495,12 +495,12 @@ export const teamCards = {
     // },
     {
       title: "Dr. Florina Claudia Cojocaru",
-      body: "Md Pediatrician",
+      body: "Medic primar neonatologie și Medic specialist Pediatrie",
       img: "/team/Dr.Florina-Claudia-Cojocaru-crop.jpeg",
       type: 'medic'
     },
     {
-      title: "Conf. univ. Dr. Daniela Iacob",
+      title: "Prof. univ. Dr. Daniela Iacob",
       body: "Medic specialist in Pediatrics and Neonatology",
       img: "/team/Dr-Iacob-Daniela-crop.jpg",
       type: 'medic'
@@ -550,8 +550,8 @@ export const aboutPageTitle = {
 };
 
 export const mainImageBigText = {
-  ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato-estetica", "Medicina corectiva", "Pediatrie", "Medicina de familie"],
-  en: ["Dermatology", "Venereology", "Surgery", "Dermato-esthetics", "Corectiv Medicine", "Pediatrics", "Family doctor"],
+  ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato-estetica", "Medicina corectiva", "Pediatrie", "Medicina de familie", "Neonatologie"],
+  en: ["Dermatology", "Venereology", "Surgery", "Dermato-esthetics", "Corectiv Medicine", "Pediatrics", "Family doctor", "Neonatology"],
 };
 
 export const otherServices = {
@@ -590,7 +590,7 @@ export const prices = {
     "Injectare toxină botulinică": "350 EURO",
     "Mezoterapie (in functie de produs si doza)": "200-350 EURO",
     "Peeling": "300 LEI",
-    "PRP 2 fiole": "700 LEI",
+    "PRP 2 fiole": "800 LEI",
     "Sedinta PB Serum": "350 EURO",
     "Lifting cu fire PDO": "600 EURO",
     "Dermapen 4/sedinta": "800 LEI",
@@ -618,7 +618,7 @@ export const prices = {
     "Injectare toxină botulinică": "350 EURO",
     "Mezoterapie (in functie de produs si doza)": "200-350 EURO",
     "Peeling": "300 LEI",
-    "PRP 2 fiole": "700 LEI",
+    "PRP 2 fiole": "800 LEI",
     "Sedinta PB Serum": "350 EURO",
     "Lifting cu fire PDO": "600 EURO",
     "Dermapen 4/sedinta": "800 LEI",

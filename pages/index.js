@@ -98,6 +98,9 @@ const Home = () => {
                         <div>
                             {mainImageBigText[lang][6]}
                         </div>
+                        <div>
+                            {mainImageBigText[lang][7]}
+                        </div>
                     </div>
                 </div>
             </>
