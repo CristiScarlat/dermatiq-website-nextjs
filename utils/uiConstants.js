@@ -436,7 +436,7 @@ export const teamCards = {
     {
       title: "Ana Rus",
       body: "Asistent medical",
-      img: "/user_missing.png",
+      img: "/team/Ana_Rus.jpeg",
       type: 'nurse'
     },
     {
@@ -508,7 +508,7 @@ export const teamCards = {
     {
       title: "Ana Rus",
       body: "Nurse",
-      img: "/user_missing.png",
+      img: "/team/Ana_Rus.jpeg",
       type: 'nurse'
     },
     {
