@@ -1,10 +1,11 @@
-import { useState, useEffect, useRef, useContext } from "react";
+import {useState, useEffect, useRef, useContext} from "react";
+import emailjs from '@emailjs/browser';
 import DatePicker from "react-datepicker";
 import Form from "../components/Form";
 import Spinner from "../components/Spinner";
 import ModalComponent from "../components/Modal";
 import CustomCard from "../components/CustomCard";
-import { teamCards } from "../utils/uiConstants";
+import {teamCards} from "../utils/uiConstants";
 import {
   getEvents,
   addEvent,
@@ -14,11 +15,11 @@ import {
   processEvents,
   isPastTime,
 } from "../utils/calendarUtils";
-import { IoMdArrowRoundBack } from "react-icons/io";
-import { MdPhoneInTalk } from "react-icons/md";
-import { Button } from "react-bootstrap";
+import {IoMdArrowRoundBack} from "react-icons/io";
+import {MdPhoneInTalk} from "react-icons/md";
+import {Button} from "react-bootstrap";
 
-import { Ctx } from '../context/context';
+import {Ctx} from '../context/context';
 
 import styles from "../styles/Booking.module.css";
 import homeStyles from "../styles/Home.module.css";
@@ -39,11 +40,14 @@ const Booking = () => {
   const [step, setStep] = useState(0);
   const [selectedDr, setSelectedDr] = useState();
   const [freeDaysPerDr, setFreeDaysPerDr] = useState([]);
+  const [selectedDayIsOutsideDrWorkDays, setSelectedDayIsOutsideDrWorkDays] = useState(false);
 
   const addEventData = useRef({});
   const dayWasSelected = useRef(false);
+  const formData = useRef({});
+  const formRef = useRef();
 
-  const { state, dispatch } = useContext(Ctx);
+  const {state, dispatch} = useContext(Ctx);
 
   const lang = state.lang
 
@@ -52,7 +56,7 @@ const Booking = () => {
       setLoading(true);
       getEvents(selectedDate).then((res) => {
         const eventsBySelectedDr = filterEventsByDr(res, selectedDr.title);
-        const { bookedHoursPerDay, freeDays } = processEvents(eventsBySelectedDr);
+        const {bookedHoursPerDay, freeDays} = processEvents(eventsBySelectedDr);
         setEvents(bookedHoursPerDay);
         setFreeDaysPerDr(freeDays);
         const arr = bookedHoursPerDay?.filter(
@@ -96,12 +100,11 @@ const Booking = () => {
           dt.getHours() < 10 ? `0${dt.getHours()}` : `${dt.getHours()}`;
         const mm =
           dt.getMinutes() < 10 ? `0${dt.getMinutes()}` : `${dt.getMinutes()}`;
-          if(selectedDay.getDate() === now.getDate()){
-            if(dt.getHours() >= now.getHours() && dt.getMinutes() > now.getMinutes()){
-              rc.push(hh + ":" + mm);
-            }
+        if (selectedDay.getDate() === now.getDate()) {
+          if (dt.getHours() >= now.getHours() && dt.getMinutes() > now.getMinutes()) {
+            rc.push(hh + ":" + mm);
           }
-          else rc.push(hh + ":" + mm);
+        } else rc.push(hh + ":" + mm);
       }
       dt.setMinutes(dt.getMinutes() + step);
       //if(rc.length === qty) break;
@@ -122,6 +125,12 @@ const Booking = () => {
   };
 
   const handleSelectedDay = (date) => {
+    if(selectedDr?.workDays?.includes(date.getDay())){
+      setSelectedDayIsOutsideDrWorkDays(false);
+    }
+    else {
+      setSelectedDayIsOutsideDrWorkDays(true);
+    }
     if (!dayWasSelected.current) dayWasSelected.current = true;
     setSelectedDay(date);
     if (selectedDate.getMonth() !== date.getMonth()) {
@@ -147,7 +156,7 @@ const Booking = () => {
       return;
     }
     setSelectedTime(time);
-    const date = selectedDay.toISOString("ro-RO", { timeZone: "UTC" });
+    const date = selectedDay.toISOString("ro-RO", {timeZone: "UTC"});
     const minDate = date.split("T")[0] + "T" + time + ":00";
     const maxDate = new Date(minDate.split("T")[0] + "T" + time + ":00Z");
     maxDate.setMinutes(maxDate.getMinutes() + selectedDr.timeInterval);
@@ -155,7 +164,7 @@ const Booking = () => {
     addEventData.current = {
       end: {
         dateTime: maxDate
-          .toISOString("ro-RO", { timeZone: "UTC" })
+          .toISOString("ro-RO", {timeZone: "UTC"})
           .split(".")[0],
         timeZone: "Europe/Bucharest",
       },
@@ -180,6 +189,10 @@ const Booking = () => {
     e.preventDefault();
 
     if (formValidation(e.target)) {
+      formData.current.fullName = e.target[0].value + " " + e.target[1].value;
+      formData.current.email = e.target[2].value;
+      formData.current.phone = e.target[3].value;
+      formData.current.service = e.target[4].value;
       //calendar-event-title: nume-pacient/tel-pacient/serviciu/nume-familie-dr/online
       const selectedDrSurname = selectedDr?.title?.split(" ").pop();
       addEventData.current.description = e.target[2].value;
@@ -213,34 +226,73 @@ const Booking = () => {
     } else alert("Please fill all the fields.");
   };
 
-  const handleConfirmation = () => {
-    setShowModal({ open: false });
-    setLoading(true);
-    addEvent(addEventData.current)
-      .then((data) => {
-        dispatch({
-          type: "SET_TOAST",
-          toast: {
-            showToast: true,
-            type: "success",
-            headerText: "Saved.",
-            bodyText: `Your appointment in ${new Date(
-              addEventData.current.start.dateTime
-            ).toLocaleString()} is successfully saved.`,
-          },
-        });
-        setSelectedTime(undefined);
-        setStep(0);
-        setTimeout(() => {
-          const temp = [...disabledTimes];
-          temp.push(selectedTime);
-          setDisabledTimes(temp);
-          setLoading(false);
-        }, 1000);
-      })
-      .catch((error) => {
-        setLoading(false);
+  const sendEmail = async () => {
+    try {
+      const sendEmailResult = await emailjs.send(process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        {
+          fullName: formData.current.fullName,
+          email: formData.current.email,
+          message: `Programarea în data ${new Date(addEventData.current.start.dateTime).toLocaleString()} a fost înregistartă cu succes.
+        Pentru anulare vă rugăm sunați la numărul de telefon  +40 748 015 255 sau 0256443084.
+        Vă așteptăm cu drag!`
+        },
+        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY);
+
+      dispatch({
+        type: "SET_TOAST",
+        toast: {
+          showToast: true,
+          type: "success",
+          headerText: "Saved.",
+          bodyText: `A fost trimis un email de confirmare la adresa ${formData.current.email}.`,
+        },
       });
+    } catch (error) {
+      console.log(error)
+      dispatch({
+        type: "SET_TOAST",
+        toast: {
+          showToast: true,
+          type: "danger",
+          headerText: "Error send mail",
+          bodyText: `Cannot send email to ${formData.current.email}.`,
+        },
+      });
+    }
+  }
+
+  const handleConfirmation = async () => {
+    setShowModal({open: false});
+    setLoading(true);
+    try {
+      const data = await addEvent(addEventData.current);
+      if (data.created) await sendEmail();
+      else throw new Error("appointment not created")
+      setSelectedTime(undefined);
+      setStep(0);
+      setTimeout(() => {
+        const temp = [...disabledTimes];
+        temp.push(selectedTime);
+        setDisabledTimes(temp);
+        setLoading(false);
+      }, 1000);
+    } catch (error) {
+      setLoading(false);
+      console.log(error);
+    }
+    // dispatch({
+    //   type: "SET_TOAST",
+    //   toast: {
+    //     showToast: true,
+    //     type: "success",
+    //     headerText: "Saved.",
+    //     bodyText: `Your appointment in ${new Date(
+    //       addEventData.current.start.dateTime
+    //     ).toLocaleString()} is successfully saved.`,
+    //   },
+    // });
+
   };
 
   const handleCustomCardButtonOnClick = (selectedCard) => {
@@ -285,8 +337,8 @@ const Booking = () => {
     <main className="p-5">
       <div className="d-flex flex-column align-items-center">
         <div className="section-title">Programare</div>
-        <p className="section-title m-0"><MdPhoneInTalk className="me-1" /> +40 748 015 255</p>
-        <hr className="sections-separator" />
+        <p className="section-title m-0"><MdPhoneInTalk className="me-1"/> +40 748 015 255</p>
+        <hr className="sections-separator"/>
       </div>
       {step > 0 && (
         <div className={styles["booking-breadcrumps"]}>
@@ -294,37 +346,37 @@ const Booking = () => {
             className="d-flex align-items-center custom-button"
             onClick={handleStepBack}
           >
-            <IoMdArrowRoundBack className="me-1" />
+            <IoMdArrowRoundBack className="me-1"/>
             Go back
           </Button>
           <div>
             {`${selectedDr?.title ? selectedDr.title : ""} > ${dayWasSelected.current && selectedDay
-                ? selectedDay.toISOString().split("T")[0]
-                : ""
-              } > ${selectedTime ? selectedTime : ""}`}
+              ? selectedDay.toISOString().split("T")[0]
+              : ""
+            } > ${selectedTime ? selectedTime : ""}`}
           </div>
         </div>
       )}
       {step === 0 && (
-        <div className="booking-team-cards-container" style={{ maxWidth: '60rem', margin: 'auto' }}>
+        <div className="booking-team-cards-container" style={{maxWidth: '60rem', margin: 'auto'}}>
           {teamCards[state.lang].filter(teamMember => teamMember.type === 'medic').map((teamMember, index) => {
-              return (
-                <CustomCard
-                  key={teamMember.img + "-" + index}
-                  cardTitle={teamMember.title}
-                  imgSrc={teamMember.img}
-                  showButton={teamMember?.workDays ? true : false}
-                  buttonLable={lang === 'ro' ? "Fă-ți o programare" : "Make an appointment"}
-                  cardButtonOnCLick={() =>
-                    handleCustomCardButtonOnClick(teamMember)
-                  }
-                  className={`m-3 ${homeStyles["home-custom-card"]}`}
-                  maxWidth="15rem"
-                  minHeight="20rem"
-                >
-                  <p className="card-text">{teamMember.body}</p>
-                </CustomCard>
-              );
+            return (
+              <CustomCard
+                key={teamMember.img + "-" + index}
+                cardTitle={teamMember.title}
+                imgSrc={teamMember.img}
+                showButton={teamMember?.workDays ? true : false}
+                buttonLable={lang === 'ro' ? "Fă-ți o programare" : "Make an appointment"}
+                cardButtonOnCLick={() =>
+                  handleCustomCardButtonOnClick(teamMember)
+                }
+                className={`m-3 ${homeStyles["home-custom-card"]}`}
+                maxWidth="15rem"
+                minHeight="20rem"
+              >
+                <p className="card-text">{teamMember.body}</p>
+              </CustomCard>
+            );
           })}
         </div>
       )}
@@ -333,7 +385,7 @@ const Booking = () => {
         {step === 1 && (
           <div className="d-flex justify-content-center align-items-start flex-wrap gap-2 col-md">
             <div className="d-flex flex-column flex-wrap justify-content-center m-5">
-              <label>Select date:</label>
+              <label>Selectează data:</label>
               <DatePicker
                 selected={selectedDay}
                 filterDate={isFiltered}
@@ -357,18 +409,31 @@ const Booking = () => {
 
             <div
               className="d-flex flex-column flex-wrap justify-content-center align-items-start m-5"
-              style={{ minWidth: "20rem" }}
+              style={{minWidth: "20rem"}}
             >
-              <label>Select time:</label>
+              <label>Selectează intervalul orar:</label>
               <div>
-                {getAvailableHours().length > 0 ? getAvailableHours().map((t) => {
+                {(getAvailableHours().length > 0 && !selectedDayIsOutsideDrWorkDays) ? getAvailableHours().map((t) => {
                   return (
-                    <button
+                    disabledTimes.includes(t) ?
+                      <div className="btn btn-circle busy" style={{border: "1px solid gray"}}>
+                        <p className="m-0">{t}</p>
+                        <p style={{
+                          fontSize: "14px",
+                          color: disabledTimes.includes(t) ? "#8b0101" : "#00bd00",
+                          fontWeight: 800,
+                          margin: 0
+                        }}>
+                          OCUPAT
+                        </p>
+                      </div>
+                      :
+                      <button
                       key={t}
                       type="button"
                       disabled={disabledTimes.includes(t)}
-                      className={`btn btn-circle ${!disabledTimes.includes(t) ? "custom-button" : ""
-                        } m-2`}
+                      className={`btn btn-circle ${!disabledTimes.includes(t) ? "custom-button" : "busy"
+                      } m-2`}
                       onClick={() => handleTimeButtonClick(t)}
                       style={
                         selectedTime === t
@@ -381,34 +446,50 @@ const Booking = () => {
                           : {}
                       }
                     >
-                      {t}
+                      <p className="m-0">{t}</p>
+                      <p style={{
+                        fontSize: "14px",
+                        color: disabledTimes.includes(t) ? "#8b0101" : "#00bd00",
+                        fontWeight: 800,
+                        margin: 0
+                      }}>
+                        {disabledTimes.includes(t) ? "OCUPAT" : "LIBER"}</p>
                     </button>
                   );
-                }) : <p style={{color: '#f55f', fontWeight: 'bold'}}>{`Medicul nu este disponibil, va rugăm alegeți o altă zi.`}</p>}
-              </div>
-            </div>
-          </div>
-        )}
-        {step === 2 && (
-          <div
-            className="col-md mt-5"
-            style={{ opacity: selectedTime ? 1 : 0.4 }}
-          >
-            <Form handleSubmit={handleFormSubmit} />
-          </div>
-        )}
+                }) : <p style={{
+                color: '#f55f',
+                fontWeight: 'bold'
+              }}>{`Medicul nu este disponibil, va rugăm alegeți o altă zi.`}</p>}
       </div>
-      {loading && <Spinner />}
+    </div>
+</div>
+)
+}
+  {
+    step === 2 && (
+      <div
+        className="col-md mt-5"
+        style={{opacity: selectedTime ? 1 : 0.4}}
+      >
+        <Form handleSubmit={handleFormSubmit} formRef={formRef}/>
+      </div>
+    )
+  }
+</div>
+  {
+    loading && <Spinner/>
+  }
 
-      <ModalComponent
-        show={showModal?.open}
-        title={showModal?.title}
-        body={showModal?.body}
-        onCancel={() => setShowModal({ open: false })}
-        onConfirm={handleConfirmation}
-      />
-    </main>
-  );
+  <ModalComponent
+    show={showModal?.open}
+    title={showModal?.title}
+    body={showModal?.body}
+    onCancel={() => setShowModal({open: false})}
+    onConfirm={handleConfirmation}
+  />
+</main>
+)
+  ;
 };
 
 export default Booking;

@@ -15,7 +15,7 @@ const About = () => {
   return (
     <main className="d-flex flex-column">
       <video className="m-auto mt-3" autoPlay loop controls width="90%" muted style={{ maxWidth: '80rem' }}>
-        <source src="https://firebasestorage.googleapis.com/v0/b/cris-web-apps.appspot.com/o/dermatiq%2FDermatIQ.mp4?alt=media&token=8939a276-f9d7-4984-89e3-df76842dd10a" type="video/mp4" />
+        <source src="about.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>
       <div className={styles['about-main']}>

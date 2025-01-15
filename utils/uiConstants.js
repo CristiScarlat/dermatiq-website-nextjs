@@ -1,6 +1,38 @@
 export const serviceCards = {
   ro: [
     {
+      title: "Dermalinfusion",
+      body: "Dermalinfusion® este un tratament dermatologic patentat, non-invaziv si cu o actiune simultana de exfoliere,\
+            extractie si de infuzare profunda a solutiilor specifice afectiunilor vizate. Este singurul tratament de specialitate, cu\
+            o dozare optima a serului pentru rezultate imediate si de lunga durata.\
+            Tratamentul este ideal pentru toate tipurile de piele si nu necesita timp de recuperare pentru pacient.",
+      details: "Dermalinfusion® este un tratament dermatologic patentat, non-invaziv si cu o actiune simultana de exfoliere,\
+            extractie si de infuzare profunda a solutiilor specifice afectiunilor vizate. Este singurul tratament de specialitate, cu\
+            o dozare optima a serului pentru rezultate imediate si de lunga durata.\
+            Tratamentul este ideal pentru toate tipurile de piele si nu necesita timp de recuperare pentru pacient.",
+      img: "/dermalinfusion/dermal_1080.jpg",
+      new: true,
+      redirectLink: "/dermalinfusion"
+    },
+    {
+      title: "Sylfirm X",
+      body: "Acest dispozitiv inovator utilizează tehnologia avansată de undă duală \
+        (undă continuă și undă pulsată) pentru tratamente eficiente ce vizează întinerirea pielii, \
+        minimizarea cicatricilor, precum și a leziunilor pigmentare și vasculare, cum ar fi melasma, \
+        roșeața difuză și rozaceea, care erau dificil de tratat cu sistemele RF convenționale.",
+      details: "SYLFIRM X este un sistem de radiofrecvență fracționată de ultimă generație cu aprobare FDA. \
+         Acest dispozitiv inovator utilizează tehnologia avansată de undă duală (undă continuă și undă pulsată) \
+         pentru tratamente eficiente ce vizează întinerirea pielii, minimizarea cicatricilor, \
+         precum și a leziunilor pigmentare și vasculare, cum ar fi melasma, roșeața difuză și rozaceea, \
+         care erau dificil de tratat cu sistemele RF convenționale. \
+         De asemenea, unda duală este împărțită în 8 moduri diferite. \
+         Prin urmare, este posibil un tratament personalizat și delicat, având în vedere necesitățile pacientului, \
+         țintind individual zona de tratament, in funcție de nevoile pielii.",
+      img: "/procedures/sylfirm.jpg",
+      new: true,
+      redirectLink: "/sylfirmx"
+    },
+    {
       title: "Tratament cu toxina botulinica contra hiperhidroza",
       body: "Odata cu venirea sezonului cald transpiratia poate deveni deranjanta. \
       Desi tratamentul cu toxina botulinica se efectueaza in principal pacientilor cu transpiratie excesiva (#hiperhidroza ),\
@@ -125,6 +157,38 @@ export const serviceCards = {
     },
   ],
   en: [
+    {
+      title: "Dermalinfusion",
+      body: "Dermalinfusion® este un tratament dermatologic patentat, non-invaziv si cu o actiune simultana de exfoliere,\
+            extractie si de infuzare profunda a solutiilor specifice afectiunilor vizate. Este singurul tratament de specialitate, cu\
+            o dozare optima a serului pentru rezultate imediate si de lunga durata.\
+            Tratamentul este ideal pentru toate tipurile de piele si nu necesita timp de recuperare pentru pacient.",
+      details: "Dermalinfusion® este un tratament dermatologic patentat, non-invaziv si cu o actiune simultana de exfoliere,\
+            extractie si de infuzare profunda a solutiilor specifice afectiunilor vizate. Este singurul tratament de specialitate, cu\
+            o dozare optima a serului pentru rezultate imediate si de lunga durata.\
+            Tratamentul este ideal pentru toate tipurile de piele si nu necesita timp de recuperare pentru pacient.",
+      img: "/dermalinfusion/dermal_1080.jpg",
+      new: true,
+      redirectLink: "/dermalinfusion"
+    },
+    {
+      title: "Sylfirm X",
+      body: "Acest dispozitiv inovator utilizează tehnologia avansată de undă duală \
+        (undă continuă și undă pulsată) pentru tratamente eficiente ce vizează întinerirea pielii, \
+        minimizarea cicatricilor, precum și a leziunilor pigmentare și vasculare, cum ar fi melasma, \
+        roșeața difuză și rozaceea, care erau dificil de tratat cu sistemele RF convenționale.",
+      details: "SYLFIRM X este un sistem de radiofrecvență fracționată de ultimă generație cu aprobare FDA. \
+         Acest dispozitiv inovator utilizează tehnologia avansată de undă duală (undă continuă și undă pulsată) \
+         pentru tratamente eficiente ce vizează întinerirea pielii, minimizarea cicatricilor, \
+         precum și a leziunilor pigmentare și vasculare, cum ar fi melasma, roșeața difuză și rozaceea, \
+         care erau dificil de tratat cu sistemele RF convenționale. \
+         De asemenea, unda duală este împărțită în 8 moduri diferite. \
+         Prin urmare, este posibil un tratament personalizat și delicat, având în vedere necesitățile pacientului, \
+         țintind individual zona de tratament, in funcție de nevoile pielii.",
+      img: "/procedures/sylfirm.jpg",
+      new: true,
+      redirectLink: "/sylfirmx"
+    },
     {
       title: "Treatment with botulinum toxin against hyperhidrosis",
       body: "With the arrival of the warm season, sweating can become unpleasant. \
@@ -309,10 +373,10 @@ export const treatmentCards = {
 export const teamCards = {
   ro: [
     {
-      title: "Sef de lucrari Dr. Andrada Iftode",
+      title: "Conf. univ. Dr. Andrada Iftode",
       body: "Medic primar dermatovenerologie, medicina regenerativa, estetica si anti-aging",
       img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.jpeg",
-      workDays: [2, 4],
+      //workDays: [2, 4],
       workingHourStart: 16,
       workingHourEnd: 19,
       colorId: 1,
@@ -323,9 +387,9 @@ export const teamCards = {
       title: "Dr. Alina Stasak",
       body: "Medic specialist dermatovenerologie, dermatopediatrie, dermatocosmetologie",
       img: "/team/Dr._Alina_Stasak.jpeg",
-      workDays: [3],
-      workingHourStart: 16,
-      workingHourEnd: 19,
+      //workDays: [3],
+      workingHourStart: 17,
+      workingHourEnd: 18,
       colorId: 2,
       type: 'medic',
       timeInterval: 30
@@ -334,9 +398,9 @@ export const teamCards = {
       title: "Dr. Anca Țurcan",
       body: "Medic specialist dermatovenerologie, dermatochirugie, dermatocosmetologie",
       img: "/team/Dr._Anca_Țurcan.jpeg",
-      workDays: [1],
-      workingHourStart: 16,
-      workingHourEnd: 18,
+      //workDays: [5],
+      workingHourStart: 14,
+      workingHourEnd: 15,
       colorId: 3,
       type: 'medic',
       timeInterval: 20
@@ -347,32 +411,32 @@ export const teamCards = {
       img: "/team/Dr._Claudia_Iftode.jpeg",
       type: 'medic'
     },
-    {
-      title: "Dr. Mircea Berceanu",
-      body: "Medic specialist chirugie plastica si microchirugie reconstructiva",
-      img: "/team/Dr._Mircea_Berceanu.webp",
-      // workDays: [1],
-      // workingHourStart: 16,
-      // workingHourEnd: 17,
-      // colorId: 4,
-      type: 'medic'
-    },
+    // {
+    //   title: "Dr. Mircea Berceanu",
+    //   body: "Medic specialist chirugie plastica si microchirugie reconstructiva",
+    //   img: "/team/Dr._Mircea_Berceanu.webp",
+    //   // workDays: [1],
+    //   // workingHourStart: 16,
+    //   // workingHourEnd: 17,
+    //   // colorId: 4,
+    //   type: 'medic'
+    // },
     {
       title: "Dr. Florina Claudia Cojocaru",
-      body: "Medic specialist Pediatrie",
+      body: "Medic primar neonatologie și Medic specialist Pediatrie",
       img: "/team/Dr.Florina-Claudia-Cojocaru-crop.jpeg",
       type: 'medic'
     },
     {
-      title: "Conf. univ. Dr. Daniela Iacob",
+      title: "Prof. univ. Dr. Daniela Iacob",
       body: "Medic primar Pediatrie si Neonatologie",
       img: "/team/Dr-Iacob-Daniela-crop.jpg",
       type: 'medic'
     },
     {
-      title: "Andreea Amarinei",
+      title: "Ana Rus",
       body: "Asistent medical",
-      img: "/team/Andreea_Amarinei.jpeg",
+      img: "/team/Ana_Rus.jpeg",
       type: 'nurse'
     },
     {
@@ -384,10 +448,10 @@ export const teamCards = {
   ],
   en: [
     {
-      title: "Sef de lucrari Dr. Andrada Iftode",
+      title: "Conf. univ. Dr. Andrada Iftode",
       body: "Md Specialist in dermatovenerology, regenerative medicine, aesthetics and anti-aging",
       img: "/team/Sef_de_lucrari_Dr._Andrada_Iftode.jpeg",
-      workDays: [2, 4],
+      //workDays: [2, 4],
       workingHourStart: 16,
       workingHourEnd: 19,
       colorId: 1,
@@ -398,7 +462,7 @@ export const teamCards = {
       title: "Dr. Alina Stasak",
       body: "Md Specialist in dermatovenerology, dermatopediatrics, dermatocosmetology",
       img: "/team/Dr._Alina_Stasak.jpeg",
-      workDays: [3, 5],
+      //workDays: [3, 5],
       workingHourStart: 15,
       workingHourEnd: 20,
       colorId: 2,
@@ -409,9 +473,9 @@ export const teamCards = {
       title: "Dr. Anca Țurcan",
       body: "Md Specialist in dermatovenerology, dermatosurgery, dermatocosmetology",
       img: "/team/Dr._Anca_Țurcan.jpeg",
-      workDays: [1],
-      workingHourStart: 16,
-      workingHourEnd: 18,
+      //workDays: [1],
+      workingHourStart: 14,
+      workingHourEnd: 15,
       colorId: 3,
       type: 'medic',
       timeInterval: 20
@@ -422,29 +486,29 @@ export const teamCards = {
       img: "/team/Dr._Claudia_Iftode.jpeg",
       type: 'medic'
     },
-    {
-      title: "Dr. Mircea Berceanu",
-      body: "Md Specialist in plastic surgery and reconstructive microsurgery",
-      img: "/team/Dr._Mircea_Berceanu.webp",
-      colorId: 4,
-      type: 'medic'
-    },
+    // {
+    //   title: "Dr. Mircea Berceanu",
+    //   body: "Md Specialist in plastic surgery and reconstructive microsurgery",
+    //   img: "/team/Dr._Mircea_Berceanu.webp",
+    //   colorId: 4,
+    //   type: 'medic'
+    // },
     {
       title: "Dr. Florina Claudia Cojocaru",
-      body: "Md Pediatrician",
+      body: "Medic primar neonatologie și Medic specialist Pediatrie",
       img: "/team/Dr.Florina-Claudia-Cojocaru-crop.jpeg",
       type: 'medic'
     },
     {
-      title: "Conf. univ. Dr. Daniela Iacob",
+      title: "Prof. univ. Dr. Daniela Iacob",
       body: "Medic specialist in Pediatrics and Neonatology",
       img: "/team/Dr-Iacob-Daniela-crop.jpg",
       type: 'medic'
     },
     {
-      title: "Andreea Amarinei",
+      title: "Ana Rus",
       body: "Nurse",
-      img: "/team/Andreea_Amarinei.jpeg",
+      img: "/team/Ana_Rus.jpeg",
       type: 'nurse'
     },
     {
@@ -486,8 +550,8 @@ export const aboutPageTitle = {
 };
 
 export const mainImageBigText = {
-  ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato-estetica", "Medicina corectiva", "Pediatrie", "Medicina de familie"],
-  en: ["Dermatology", "Venereology", "Surgery", "Dermato-esthetics", "Corectiv Medicine", "Pediatrics", "Family doctor"],
+  ro: ["Dermatologie", "Venerologie", "Chirurgie", "Dermato-estetica", "Medicina corectiva", "Pediatrie", "Medicina de familie", "Neonatologie"],
+  en: ["Dermatology", "Venereology", "Surgery", "Dermato-esthetics", "Corectiv Medicine", "Pediatrics", "Family doctor", "Neonatology"],
 };
 
 export const otherServices = {
@@ -506,58 +570,60 @@ export const priceTable = {
 
 export const prices = {
   ro: {
-    "Consult dermatologie": "200 RON",
-    "Control dermatologie": "100 RON",
-    Dermatoscopie: "100 RON",
-    "Analiza lampa wood": "50 RON",
-    "Adeverinta medicala": "50 RON",
-    "Chiuretare/leziune": "100 RON",
-    "Electrocauterizare papiloame, 1-3 leziuni": "200 RON",
-    "Electrocauterizare condiloame acuminate, 1-3 leziuni": "300 RON",
-    "Electrocauterizare veruca/leziune": "200 RON",
-    "Excizie chist/leziune": "600 RON",
-    "Excizie leziune (fara examen histopatologic)": "500 RON",
-    "Extractie chist milium": "100 RON",
-    "Incizie, evacuare, debridare, drenaj": "300 RON",
-    "Prelevare biopsie": "200 RON",
-    "Tratament unghie incarnata unilateral": "300 RON",
-    Pansament: "50 RON",
-    "Injectare acid hialuronic/fiola":
-      "300 EURO",
-    "Injectare toxină botulinică": "300 EURO",
-    "Mezoterapie (in functie de produs si doza)": "150-300 EURO",
-    Peeling: "300 RON",
-    "PRP 2 fiole": "700 RON",
+    "Consult dermatologie": "300 LEI",
+    "Control dermatologie": "150 LEI",
+    "Dermatoscopie": "100 LEI",
+    "Analiza lampa wood": "100 LEI",
+    "Adeverinta medicala": "100 LEI",
+    "Chiuretare/leziune": "100 LEI",
+    "Electrocauterizare papiloame, 1-3 leziuni": "200 LEI",
+    "Electrocauterizare condiloame acuminate, 1-3 leziuni": "300 LEI",
+    "Electrocauterizare veruca/leziune": "200 LEI",
+    "Excizie chist/leziune": "700 LEI",
+    "Excizie leziune (fara examen histopatologic)": "700 LEI",
+    "Extractie chist milium": "100 LEI",
+    "Incizie, evacuare, debridare, drenaj": "300 LEI",
+    "Prelevare biopsie": "300 LEI",
+    "Tratament unghie incarnata unilateral": "300 LEI",
+    "Pansament": "100 LEI",
+    "Injectare acid hialuronic/fiola": "350 EURO",
+    "Injectare toxină botulinică": "350 EURO",
+    "Mezoterapie (in functie de produs si doza)": "200-350 EURO",
+    "Peeling": "300 LEI",
+    "PRP 2 fiole": "800 LEI",
     "Sedinta PB Serum": "350 EURO",
-    "Lifting cu fire PDO": "500 EURO",
-    "Dermapen 4/sedinta": "700RON",
+    "Lifting cu fire PDO": "600 EURO",
+    "Dermapen 4/sedinta": "800 LEI",
+    "Tratament Sylfirm X/zona": "400 EURO",
+    "Tratament Dermalinfusion/zona ": "500 LEI"
   },
   en: {
-    "Consult dermatologie": "200 RON",
-    "Control dermatologie": "100 RON",
-    Dermatoscopie: "100 RON",
-    "Analiza lampa wood": "50 RON",
-    "Adeverinta medicala": "50 RON",
-    "Chiuretare/leziune": "100 RON",
-    "Electrocauterizare papiloame, 1-3 leziuni": "200 RON",
-    "Electrocauterizare condiloame acuminate, 1-3 leziuni": "300 RON",
-    "Electrocauterizare veruca/leziune": "200 RON",
-    "Excizie chist/leziune": "600 RON",
-    "Excizie leziune (fara examen histopatologic)": "500 RON",
-    "Extractie chist milium": "100 RON",
-    "Incizie, evacuare, debridare, drenaj": "300 RON",
-    "Prelevare biopsie": "200 RON",
-    "Tratament unghie incarnata unilateral": "300 RON",
-    Pansament: "50 RON",
-    "Injectare acid hialuronic/fiola":
-      "300 EURO",
-    "Injectare toxină botulinică": "300 EURO",
-    "Mezoterapie (in functie de produs si doza)": "150-300 EURO",
-    Peeling: "300 RON",
-    "PRP 2 fiole": "700 RON",
+    "Consult dermatologie": "300 LEI",
+    "Control dermatologie": "150 LEI",
+    "Dermatoscopie": "100 LEI",
+    "Analiza lampa wood": "100 LEI",
+    "Adeverinta medicala": "100 LEI",
+    "Chiuretare/leziune": "100 LEI",
+    "Electrocauterizare papiloame, 1-3 leziuni": "200 LEI",
+    "Electrocauterizare condiloame acuminate, 1-3 leziuni": "300 LEI",
+    "Electrocauterizare veruca/leziune": "200 LEI",
+    "Excizie chist/leziune": "700 LEI",
+    "Excizie leziune (fara examen histopatologic)": "700 LEI",
+    "Extractie chist milium": "100 LEI",
+    "Incizie, evacuare, debridare, drenaj": "300 LEI",
+    "Prelevare biopsie": "300 LEI",
+    "Tratament unghie incarnata unilateral": "300 LEI",
+    "Pansament": "100 LEI",
+    "Injectare acid hialuronic/fiola": "350 EURO",
+    "Injectare toxină botulinică": "350 EURO",
+    "Mezoterapie (in functie de produs si doza)": "200-350 EURO",
+    "Peeling": "300 LEI",
+    "PRP 2 fiole": "800 LEI",
     "Sedinta PB Serum": "350 EURO",
-    "Lifting cu fire PDO": "500 EURO",
-    "Dermapen 4/sedinta": "700RON",
+    "Lifting cu fire PDO": "600 EURO",
+    "Dermapen 4/sedinta": "800 LEI",
+    "Tratament Sylfirm X/zona": "400 EURO",
+    "Tratament Dermalinfusion/zona ": "500 LEI"
   },
 };
 

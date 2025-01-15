@@ -46,6 +46,17 @@ export default function Layout({ children }) {
     padding: "5px 10px",
   };
 
+  const footerStyle = {
+    minHeight: '2rem',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    background: 'linear-gradient(90deg, #8c8ba9 0%, #d7d6e5 50%, #8c8ba9 100%)',
+    color: '#4e4e4e',
+    textAlign: 'center',
+    flexWrap: 'wrap'
+  }
+
   return (
     <>
       <Head>
@@ -59,7 +70,7 @@ export default function Layout({ children }) {
           name="description"
           content="Clinica Dermatiq a apărut din dorința de a fi mai aproape de pacienții noștri, precum și de a oferi vizitatorilor mai multe informații despre îngrijirea pielii."
         />
-        <meta name="keywords" content="clinica, clinic, dermatologie, dermatology, medical, skin, beauty"></meta>
+        <meta name="keywords" content="clinica, clinic, dermatologie, dermatology, medical, skin, beauty, înfrumusețare, venerologie, chirurgie, dermalinfusion, sylfirm, crioterapia, dermatoscopie"></meta>
         {/*Facebook Meta Tags*/}
         <meta property="og:url" content="https://clinica-dermatiq.ro/" />
         <meta property="og:type" content="website" />
@@ -86,6 +97,10 @@ export default function Layout({ children }) {
       </Head>
       <NavHead />
       <>{children}</>
+      <footer style={footerStyle}>
+        <p className="m-0">Copyright 2022 © Clinica Dermatiq.</p>
+        <p className="m-0">Toate drepturile rezervate.</p>
+      </footer>
       <ToastContainer
         position={"bottom-end"}
         style={{ zIndex: "99999", margin: "1rem", color: "white" }}
@@ -105,11 +120,13 @@ export default function Layout({ children }) {
       <CookieConsent
         location=""
         buttonText="Accept"
+        enableDeclineButton
         declineButtonText="Decline"
-        cookieName="gdpr-google-analytics"
+        cookieName="cookies-consent"
         disableStyles={false}
         style={cookieConstentStyle}
         buttonStyle={cookieConstentButtonStyle}
+        expires={150}
       >
         This website uses cookies to enhance the user experience.{" "}
       </CookieConsent>

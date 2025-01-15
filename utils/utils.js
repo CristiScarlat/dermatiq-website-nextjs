@@ -46,7 +46,14 @@ export const includesWord = (text, word) => {
       const rgx = new RegExp(` ${w}`, 'gm');
       foundAll = foundAll && (lowerCaseText.search(rgx) >= 0)
     }
-    else foundAll = foundAll && (lowerCaseText.search(w) >= 0)
+    else {
+      try{
+        foundAll = foundAll && (lowerCaseText?.search(w) >= 0)
+      }
+      catch (e){
+        console.log(e)
+      }
+    }
   })
   return foundAll
 }

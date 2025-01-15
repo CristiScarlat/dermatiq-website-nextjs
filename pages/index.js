@@ -21,47 +21,47 @@ import {isMobile} from "../utils/utils";
 
 const Home = () => {
 
-    const [popup, setPopup] = useState();
+    // const [popup, setPopup] = useState();
     const router = useRouter();
     const ctx = useContext(Ctx);
 
     const lang = ctx.state.lang;
 
-    useEffect(() => {
-        const storedData = sessionStorage.getItem('popup');
-        if(storedData === null){
-            sessionStorage.setItem('popup', 'true');
-            setPopup(true);
-        }
-        else {
-            setPopup(JSON.parse(storedData))
-        }
-    }, [])
+    // useEffect(() => {
+    //     const storedData = sessionStorage.getItem('popup');
+    //     if(storedData === null){
+    //         sessionStorage.setItem('popup', 'true');
+    //         setPopup(true);
+    //     }
+    //     else {
+    //         setPopup(JSON.parse(storedData))
+    //     }
+    // }, [])
 
-    const handlePopup = () => {
-        sessionStorage.setItem('popup', 'false')
-        setPopup(false);
-    }
+    // const handlePopup = () => {
+    //     sessionStorage.setItem('popup', 'false')
+    //     setPopup(false);
+    // }
 
     return (
         <main className={styles["home-main"]}>
-            {popup && (
-                <div className={styles["home-popup-wrapper"]}>
-                    <div className={styles["home-popup-content"]}>
-                        <button className="btn-close" onClick={handlePopup}/>
-                        <img src="/events/ne_marim_echipa.jpg" alt="..."/>
-                        <div className="m-2">
-                            <p>Dacă ești asistentă de profil generalist, îți place să lucrezi înconjurată de oameni și te pasionează tot ceea ce cuprinde dermatologia, te așteptăm în echipa noastră.
-                            Experiența este un atu, spiritul de echipă îl apreciem, iar seriozitatea și implicarea ta vor conta mereu.
-                            Vei avea sprijin spre învățare din partea noastră.</p>
-                            <p>Trimite-ți CV-ul pe adresa de mail: ladermatique@gmail.com</p>
-                            <p>sau</p>
-                            <p>sună-ne la nr. de telefon 0748015255.</p>
-                            <p>Abia așteptăm să te cunoaștem!</p>
-                        </div>
-                    </div>
-                </div>
-            )}
+            {/*{popup && (*/}
+            {/*    <div className={styles["home-popup-wrapper"]}>*/}
+            {/*        <div className={styles["home-popup-content"]}>*/}
+            {/*            <button className="btn-close" onClick={handlePopup}/>*/}
+            {/*            <img src="/events/ne_marim_echipa.jpg" alt="..."/>*/}
+            {/*            <div className="m-2">*/}
+            {/*                <p>Dacă ești asistentă de profil generalist, îți place să lucrezi înconjurată de oameni și te pasionează tot ceea ce cuprinde dermatologia, te așteptăm în echipa noastră.*/}
+            {/*                Experiența este un atu, spiritul de echipă îl apreciem, iar seriozitatea și implicarea ta vor conta mereu.*/}
+            {/*                Vei avea sprijin spre învățare din partea noastră.</p>*/}
+            {/*                <p>Trimite-ți CV-ul pe adresa de mail: ladermatique@gmail.com</p>*/}
+            {/*                <p>sau</p>*/}
+            {/*                <p>sună-ne la nr. de telefon 0748015255.</p>*/}
+            {/*                <p>Abia așteptăm să te cunoaștem!</p>*/}
+            {/*            </div>*/}
+            {/*        </div>*/}
+            {/*    </div>*/}
+            {/*)}*/}
             <>
                 {/* <CustomCarousel showThumbs={false} className={styles["home-carousel"]} lang={lang}/> */}
                 <div>
@@ -98,6 +98,9 @@ const Home = () => {
                         <div>
                             {mainImageBigText[lang][6]}
                         </div>
+                        <div>
+                            {mainImageBigText[lang][7]}
+                        </div>
                     </div>
                 </div>
             </>
@@ -113,11 +116,12 @@ const Home = () => {
                         key={service.img + "-" + index}
                         cardTitle={service.title}
                         imgSrc={service.img}
-                        className={`m-3 ${styles["home-custom-card"]}`}
+                        className={`m-3 ${styles["home-custom-card"]} ${service?.new ? styles.new : ""}`}
+                        cardBodyClassName="d-flex flex-column justify-content-evenly"
                         buttonLable={lang === "ro" ? "Afla mai multe" : "Read more"}
                         cardButtonOnCLick={() =>
                             router.push({
-                                pathname: "/services",
+                                pathname: service?.redirectLink || "/services",
                                 query: {name: service.title},
                             })
                         }

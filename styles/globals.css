@@ -94,7 +94,21 @@ a:hover {
 }
 
 .custom-button:hover {
-  background-color: var(--cards-controls-color) !important;
+  background-color: #2e3775 !important;
+}
+
+.btn-circle {
+  position: relative;
+}
+
+.btn-circle.busy:after {
+  content: "";
+  position: absolute;
+  border: 1px solid #ff0a0a;
+  top: 50%;
+  left: 0;
+  right: 0;
+  transform: rotate(152deg);
 }
 
 .custom-button.btn-circle {
@@ -139,7 +153,7 @@ table {
 }
 
 .transition {
-  transition: linear 5s all;
+  transition: linear 5s ease-in-out;
 }
 
 .custom-button-close {

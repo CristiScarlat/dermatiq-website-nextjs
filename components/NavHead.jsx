@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import { MdPhoneInTalk } from "react-icons/md";
 import { BsInstagram, BsFacebook } from "react-icons/bs";
+import { AiFillTikTok } from "react-icons/ai";
 import Image from "next/image";
 import { headerLables } from "../utils/uiConstants";
 import { Ctx } from "../context/context";
@@ -42,12 +43,17 @@ const NavHead = () => {
           </li>
           <li className="nav-item">
             <a className="custom-nav-link disabled" href="https://www.facebook.com/clinicadermatiq/" target="_black">
-              <BsFacebook />
+              <BsFacebook size="1.2rem"/>
             </a>
           </li>
           <li className="nav-item">
             <a className="custom-nav-link disabled" href="https://www.instagram.com/clinica_dermatiq/?hl=en" target="_black">
-              <BsInstagram />
+              <BsInstagram size="1.2rem"/>
+            </a>
+          </li>
+          <li className="nav-item">
+            <a className="custom-nav-link disabled" href="https://www.tiktok.com/@clinicadermatiq?_t=8ns9utSVwaO&_r=1" target="_black">
+              <AiFillTikTok size="1.5rem"/>
             </a>
           </li>
         </ul>
