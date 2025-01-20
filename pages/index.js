@@ -1,4 +1,4 @@
-import {useContext, useEffect, useRef, useState} from "react";
+import {useContext} from "react";
 import CustomCard from "../components/CustomCard";
 import {
     serviceCards,
@@ -7,63 +7,21 @@ import {
     otherServices
 } from "../utils/uiConstants";
 import SlickSlider from "../components/SlickSlider";
-import CustomLinkBtn from "../components/customLinkBtn";
-import {MdLocationOn, MdOutlineMail, MdPhone} from "react-icons/md";
+import {MdLocationOn, MdPhone} from "react-icons/md";
 import {useRouter} from "next/router";
 import {Ctx} from "../context/context";
 import styles from "../styles/Home.module.css";
-import CustomCarousel from "../components/Carousel";
-import {Carousel} from "react-responsive-carousel";
-import {isMobile} from "../utils/utils";
-
-//vogue
-//preturi
 
 const Home = () => {
 
-    // const [popup, setPopup] = useState();
     const router = useRouter();
     const ctx = useContext(Ctx);
 
     const lang = ctx.state.lang;
 
-    // useEffect(() => {
-    //     const storedData = sessionStorage.getItem('popup');
-    //     if(storedData === null){
-    //         sessionStorage.setItem('popup', 'true');
-    //         setPopup(true);
-    //     }
-    //     else {
-    //         setPopup(JSON.parse(storedData))
-    //     }
-    // }, [])
-
-    // const handlePopup = () => {
-    //     sessionStorage.setItem('popup', 'false')
-    //     setPopup(false);
-    // }
-
     return (
         <main className={styles["home-main"]}>
-            {/*{popup && (*/}
-            {/*    <div className={styles["home-popup-wrapper"]}>*/}
-            {/*        <div className={styles["home-popup-content"]}>*/}
-            {/*            <button className="btn-close" onClick={handlePopup}/>*/}
-            {/*            <img src="/events/ne_marim_echipa.jpg" alt="..."/>*/}
-            {/*            <div className="m-2">*/}
-            {/*                <p>Dacă ești asistentă de profil generalist, îți place să lucrezi înconjurată de oameni și te pasionează tot ceea ce cuprinde dermatologia, te așteptăm în echipa noastră.*/}
-            {/*                Experiența este un atu, spiritul de echipă îl apreciem, iar seriozitatea și implicarea ta vor conta mereu.*/}
-            {/*                Vei avea sprijin spre învățare din partea noastră.</p>*/}
-            {/*                <p>Trimite-ți CV-ul pe adresa de mail: ladermatique@gmail.com</p>*/}
-            {/*                <p>sau</p>*/}
-            {/*                <p>sună-ne la nr. de telefon 0748015255.</p>*/}
-            {/*                <p>Abia așteptăm să te cunoaștem!</p>*/}
-            {/*            </div>*/}
-            {/*        </div>*/}
-            {/*    </div>*/}
-            {/*)}*/}
             <>
-                {/* <CustomCarousel showThumbs={false} className={styles["home-carousel"]} lang={lang}/> */}
                 <div>
                     <video autoPlay muted width="100%">
                         <source src="/homeIntroMedia/dermatiq-intro-crop.mp4" type="video/mp4"/>
@@ -166,14 +124,6 @@ const Home = () => {
                             Timisoara, 300361
                         </div>
                     </div>
-                    {/* <div className={styles["custom-icon-contact"]}>
-              <div style={{ width: "100px" }}>
-                <MdOutlineMail />
-              </div>
-              <div style={{ color: "#807f89" }}>
-                office@clinica-dermatiq.com
-              </div>
-            </div> */}
                     <div className={styles["custom-icon-contact"]}>
                         <div style={{width: "100px"}}>
                             <MdPhone/>

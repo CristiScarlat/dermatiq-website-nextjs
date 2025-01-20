@@ -3,7 +3,6 @@ import Layout from '../components/Layout';
 import Provider from "../context/context";
 import '../styles/globals.css'
 import 'bootstrap/dist/css/bootstrap.css';
-import {SessionProvider} from "next-auth/react";
 
 export const getServerSideProps = async ({
                                              res,
@@ -27,13 +26,11 @@ function MyApp({Component, pageProps}) {
     }, []);
 
     return (
-      <SessionProvider session={pageProps.session}>
         <Provider>
             <Layout>
                 <Component {...pageProps} />
             </Layout>
         </Provider>
-      </SessionProvider>
     )
 }
 
