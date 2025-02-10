@@ -1,12 +1,12 @@
 import {NextResponse} from 'next/server';
 import {jwtVerify} from 'jose';
 
+
 export async function middleware(request) {
-    const reqHeaders = new Headers(request.headers);
-    const authHeader = reqHeaders.get('Authorization');
-    if (authHeader) {
+    const token = request.cookies.get("token")?.value;
+    if (token) {
         try {
-            const {payload} = await jwtVerify(authHeader.split(" ")[1], new TextEncoder().encode(process.env.API_SECRET_KEY))
+            const {payload} = await jwtVerify(token, new TextEncoder().encode(process.env.API_SECRET_KEY))
             const modifiedReq = NextResponse.next();
             modifiedReq.headers.set('x-user-name', payload.username);
             return modifiedReq;
@@ -22,5 +22,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-    matcher: ['/api/hello', '/api/users']
+    matcher: ['/api/hello', '/api/users/:path*', '/admin/dashboard']
 }

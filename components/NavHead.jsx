@@ -28,7 +28,7 @@ const NavHead = () => {
       collapseOnSelect
       className={`d-block pt-0 ${styles["navbar-main"]}`}
       expanded={expanded}
-      onToggle={() => setExpanded(true)}
+      onToggle={() => setExpanded(!expanded)}
     >
       <div className={styles["navbar-mini-main"]}>
         <button onClick={handleChangeLanguage}>

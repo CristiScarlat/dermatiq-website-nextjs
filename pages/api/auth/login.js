@@ -1,6 +1,7 @@
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { findUser } from "../../../dbServices/users";
+import { serialize } from 'cookie';
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -8,10 +9,10 @@ export default async function handler(req, res) {
     }
 
     const { username, password } = JSON.parse(req.body);
-    console.log("body", req.body)
+
     // Find user
     const user = await findUser(username);
-    console.log("user", user)
+
     if (!user) {
         return res.status(401).json({ message: 'Invalid credentials' });
     }
@@ -23,7 +24,14 @@ export default async function handler(req, res) {
     }
 
     // Generate JWT token
-    const token = jwt.sign({ username }, process.env.API_SECRET_KEY, { expiresIn: '1h' });
+    const token = jwt.sign({ username, role: user.role, id: user.id }, process.env.API_SECRET_KEY, { expiresIn: '1h' });
+    res.setHeader('Set-Cookie', serialize('token', token, {
+        httpOnly: true,
+        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+        sameSite: 'Strict', // Prevent CSRF
+        maxAge: 3600, // 1 hour
+        path: '/', // Make cookie accessible for all routes
+    }));
 
-    return res.status(200).json({ token });
+    return res.status(200).json({message:"Successfully logged in", token});
 }
