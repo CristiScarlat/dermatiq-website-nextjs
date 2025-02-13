@@ -14,13 +14,13 @@ export default async function handler(req, res) {
     const user = await findUser(username);
 
     if (!user) {
-        return res.status(401).json({ message: 'Invalid credentials' });
+        return res.status(401).json({ message: 'User not found' });
     }
 
     // Compare passwords
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
-        return res.status(401).json({ message: 'Invalid credentials' });
+        return res.status(401).json({ message: 'Invalid credentials, wrong password' });
     }
 
     // Generate JWT token
