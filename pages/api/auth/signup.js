@@ -8,6 +8,8 @@ export default async function signup(req, res) {
 
     const { password, username, role, email, fullname, phone } = req.body;
 
+    console.log(password, username, role, email, fullname, phone)
+
     // Basic validation
     if (!username || !password) {
         return res.status(400).json({ message: 'Username and password are required' });
