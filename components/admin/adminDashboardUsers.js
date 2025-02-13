@@ -80,7 +80,7 @@ const AdminDashboardUsers = ({onEditUserClick, className}) => {
     }
 
     const handleSaveUser = () => {
-        const formData = new FormData(modalFormRef.current);
+        const formData = new FormData(modalAddUserFormRef.current);
         const userData = {};
         let invalid = false;
         for (const pair of formData.entries()) {
