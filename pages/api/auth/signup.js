@@ -15,7 +15,7 @@ export default async function signup(req, res) {
 
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-
+    console.log(password, hashedPassword);
     // Save user (you should use a database in production)
     await addUser(username, hashedPassword);
 
