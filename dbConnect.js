@@ -31,15 +31,5 @@ db.serialize(() => {
         }
         console.log("Table created successfully.");
     });
-
-    db.exec(`INSERT INTO users (username, password, role, email, fullname, phone)
-             VALUES ("admin", "admin1234", "admin", "-", "-", "-")`, (err, row) => {
-        if (err) {
-            console.log(err)
-        }
-        console.log("User admin created successfully.");
-    })
-
-
 });
 db.close();
