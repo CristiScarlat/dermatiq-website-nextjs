@@ -6,7 +6,7 @@ export default async function signup(req, res) {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
-    const { username, password } = req.body;
+    const { password, username, role, email, fullname, phone } = req.body;
 
     // Basic validation
     if (!username || !password) {
@@ -17,7 +17,7 @@ export default async function signup(req, res) {
     const hashedPassword = await bcrypt.hash(password, 10);
     console.log(password, hashedPassword);
     // Save user (you should use a database in production)
-    await addUser(username, hashedPassword);
+    await addUser({password, username, role, email, fullname, phone});
 
     return res.status(201).json({ message: 'User registered successfully' });
 }
