@@ -17,9 +17,19 @@ const db = new sqlite3.Database(
 db.serialize(() => {
     db.run(`CREATE TABLE IF NOT EXISTS users
             (
-                id INTEGER PRIMARY KEY AUTOINCREMENT,
-                username TEXT NOT NULL,
-                password TEXT NOT NULL
+                id
+                INTEGER
+                PRIMARY
+                KEY
+                AUTOINCREMENT,
+                username
+                TEXT
+                NOT
+                NULL,
+                password
+                TEXT
+                NOT
+                NULL
             )`, (err) => {
         if (err) {
             console.log(err)
@@ -27,6 +37,15 @@ db.serialize(() => {
         }
         console.log("Table created successfully.");
     });
+
+    db.exec(`INSERT INTO users (username, password, role, email, fullname, phone)
+             VALUES ("admin", "admin1234", "admin", "-", "-", "-")`, (err, row) => {
+        if (err) {
+            console.log(err)
+        }
+        console.log("User admin created successfully.");
+    })
+
 
 });
 db.close();
