@@ -8,7 +8,7 @@ export default async function handler(req, res) {
         return res.status(405).json({ message: 'Method not allowed' });
     }
 
-    const { username, password } = JSON.parse(req.body);
+    const { username, password } = req.body;
 
     // Find user
     const user = await findUser(username);
