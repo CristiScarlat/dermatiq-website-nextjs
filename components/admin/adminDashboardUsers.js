@@ -2,10 +2,10 @@ import {useEffect, useState, useRef, useContext} from "react";
 import Table from 'react-bootstrap/Table';
 import { FaTrashAlt } from "react-icons/fa";
 import { MdOutlineLockReset } from "react-icons/md";
-import Spinner from "../Spinner";
-import SimpleModal from "../SimpleModal";
+import Spinner from "../../components/Spinner.jsx";
+import SimpleModal from "../../components/SimpleModal.jsx";
 import { Form } from "react-bootstrap";
-import {Ctx} from "../../context/context";
+import {Ctx} from "../../context/context.js";
 import {useRouter} from "next/navigation";
 
 

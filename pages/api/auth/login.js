@@ -2,6 +2,7 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { findUser } from "../../../dbServices/users";
 import { serialize } from 'cookie';
+import {NextResponse} from "next/server";
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -29,10 +30,10 @@ export default async function handler(req, res) {
     res.setHeader('Set-Cookie', serialize('token', token, {
         httpOnly: true,
         secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
-        sameSite: 'Strict', // Prevent CSRF
+        sameSite: "None",
         maxAge: 3600, // 1 hour
         path: '/', // Make cookie accessible for all routes
     }));
 
-    return res.status(200).json({message:"Successfully logged in", token});
+    return res.status(200).json({message:"Successfully logged in", isAuthenticated: isMatch, role: user.role, username: user.username});
 }
