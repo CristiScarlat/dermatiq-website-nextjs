@@ -39,6 +39,10 @@ async function PATCH (req, res) {
 
 
 export default async function handler(req, res) {
+    if (req.method === "OPTIONS") {
+        res.status(200).end(); // Respond with 200 to OPTIONS requests
+        return;
+    }
     switch (req.method) {
         case 'GET':
             return GET(req, res);
