@@ -2,7 +2,6 @@ import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { findUser } from "../../../dbServices/users";
 import { serialize } from 'cookie';
-import {NextResponse} from "next/server";
 
 export default async function handler(req, res) {
     if (req.method !== 'POST') {
@@ -29,7 +28,7 @@ export default async function handler(req, res) {
     const token = jwt.sign({ username, role: user.role, id: user.id }, process.env.API_SECRET_KEY, { expiresIn: '1h' });
     res.setHeader('Set-Cookie', serialize('token', token, {
         httpOnly: true,
-        secure: process.env.NODE_ENV === 'production', // Use secure cookies in production
+        secure: true, // Use secure cookies in production
         sameSite: "None",
         maxAge: 3600, // 1 hour
         path: '/', // Make cookie accessible for all routes

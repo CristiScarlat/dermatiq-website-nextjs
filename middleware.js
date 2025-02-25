@@ -3,6 +3,10 @@ import {jwtVerify} from 'jose';
 
 
 export async function middleware(request) {
+    if (request.method === "OPTIONS") {
+        NextResponse.json({status: 200}); // Respond with 200 to OPTIONS requests
+        return;
+    }
     const token = request.cookies.get("token")?.value;
     if (token) {
         try {
