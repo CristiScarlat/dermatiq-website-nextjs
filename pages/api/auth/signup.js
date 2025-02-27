@@ -8,8 +8,6 @@ export default async function signup(req, res) {
 
     const { password, username, role, email, fullname, phone } = req.body;
 
-    console.log(password, username, role, email, fullname, phone)
-
     // Basic validation
     if (!username || !password) {
         return res.status(400).json({ message: 'Username and password are required' });
@@ -17,7 +15,7 @@ export default async function signup(req, res) {
 
     // Hash password
     const hashedPassword = await bcrypt.hash(password, 10);
-    console.log(password, hashedPassword);
+
     // Save user (you should use a database in production)
     await addUser({password: hashedPassword, username, role, email, fullname, phone});
 

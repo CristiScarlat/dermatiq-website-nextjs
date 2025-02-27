@@ -12,7 +12,7 @@ export default async function handler(req, res) {
 
     // Find user
     const user = await findUser(username);
-    console.log(username, password )
+
     if (!user) {
         return res.status(401).json({ message: 'User not found' });
     }
@@ -34,5 +34,5 @@ export default async function handler(req, res) {
         path: '/', // Make cookie accessible for all routes
     }));
 
-    return res.status(200).json({message:"Successfully logged in", isAuthenticated: isMatch, role: user.role, username: user.username});
+    return res.status(200).json({message:"Successfully logged in", isAuthenticated: isMatch, role: user.role, username: user.username, uid: user.id});
 }

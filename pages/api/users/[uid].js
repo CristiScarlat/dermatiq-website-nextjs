@@ -5,13 +5,14 @@ async function GET (req, res) {
     try {
         const loggedUser = req.headers['x-user-name'];
         const foundUser = await findUser(loggedUser);
-        console.log(foundUser, req.query)
         if(foundUser && foundUser.id === Number(req.query.uid)) {
             return res.status(200).json({
                 email: foundUser.email,
                 username: foundUser.username,
                 fullname: foundUser.fullname,
                 phone: foundUser.phone,
+                role: foundUser.role,
+                id: foundUser.id
             });
         }
         return res.status(401).json({ message: 'Unauthorized, wrong username' });
@@ -26,8 +27,7 @@ async function PATCH (req, res) {
         const foundUser = await findUser(loggedUser);
         const userData = JSON.parse(req.body);
         if(userData.password)userData.password = await bcrypt.hash(userData.password, 10);
-        console.log(userData, req.query, JSON.parse(req.body), foundUser)
-        if((foundUser && foundUser.id === Number(req.query.uid)) || (userData.password && foundUser.role === 'admin')) {
+        if((foundUser && foundUser.id === Number(req.query.uid)) || (userData.password && foundUser?.role === 'admin')) {
             await patchUser({...userData, id: req.query.uid})
             return res.status(201).json(userData);
         }
