@@ -25,5 +25,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-    matcher: ['/api/hello', '/api/users/:path*', '/admin/dashboard']
+    matcher: ['/api/users/:path*', '/admin/dashboard']
 }

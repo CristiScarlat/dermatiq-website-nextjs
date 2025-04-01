@@ -5,6 +5,9 @@ const nextConfig = {
     locales: ['ro'],
     defaultLocale: 'ro',
   },
+  api: {
+    bodyParser: false,
+  },
   async headers() {
     return [
       {
