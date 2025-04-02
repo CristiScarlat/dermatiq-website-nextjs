@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Define the API endpoint and file path
-const API_URL = 'http://localhost:3000/api/bkup'; // Replace with your actual API endpoint
+const API_URL = 'https://urchin-app-2j4nq.ondigitalocean.app/api/bkup'; // Replace with your actual API endpoint
 const FILE_PATH = path.join(__dirname, '../dermatiqDB.db'); // Replace with your actual file path
 
 // Function to upload the file

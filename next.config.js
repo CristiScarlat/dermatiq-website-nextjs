@@ -19,8 +19,8 @@ const nextConfig = {
           // Allow for specific domains to have access or * for all
           {
             key: "Access-Control-Allow-Origin",
-            //value: "http://localhost:5173",
-            value: "https://hammerhead-app-dk32l.ondigitalocean.app"
+            value: "http://localhost:5173",
+            //value: "https://hammerhead-app-dk32l.ondigitalocean.app"
             // DOES NOT WORK
             // value: process.env.ALLOWED_ORIGIN,
           },

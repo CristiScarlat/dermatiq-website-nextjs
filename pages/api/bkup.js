@@ -1,6 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import {IncomingForm} from "formidable";
+import admin from 'firebase-admin';
 
 export const config = {
     api: {
@@ -9,8 +10,7 @@ export const config = {
 };
 
 export default async function handler(req, res) {
-    console.log(req.method);
-    if(req.method === 'POST') {
+    if (req.method === 'POST') {
         try {
             console.log("post-bkup");
             const form = new IncomingForm();
@@ -20,14 +20,14 @@ export default async function handler(req, res) {
             form.parse(req, async (err, fields, files) => {
                 if (err) {
                     console.error('❌ File upload error:', err);
-                    return res.status(500).json({ error: 'File upload failed' });
+                    return res.status(500).json({error: 'File upload failed'});
                 }
 
                 // Get the uploaded file path
                 const uploadedFile = files.db[0]; // Ensure this matches the field name in FormData ('db')
 
                 if (!uploadedFile) {
-                    return res.status(400).json({ error: 'No file received' });
+                    return res.status(400).json({error: 'No file received'});
                 }
 
                 // Define the destination path
@@ -37,11 +37,11 @@ export default async function handler(req, res) {
                 fs.rename(uploadedFile.filepath, destPath, (err) => {
                     if (err) {
                         console.error('❌ Error moving file:', err);
-                        return res.status(500).json({ error: 'Error saving file' });
+                        return res.status(500).json({error: 'Error saving file'});
                     }
 
                     console.log('✅ File uploaded and saved:', destPath);
-                    return res.status(200).json({ message: 'Backup uploaded successfully!' });
+                    return res.status(200).json({message: 'Backup uploaded successfully!'});
                 });
             });
         } catch (error) {
@@ -49,17 +49,46 @@ export default async function handler(req, res) {
         }
     }
     else if (req.method === 'GET') {
-        // Serve the SQLite file back as a response after deploy
-        const filePath = path.join(process.cwd(), 'dermatiqDB.db');
-        console.log(filePath);
-        if (fs.existsSync(filePath)) {
-            res.setHeader('Content-Type', 'application/octet-stream');
-            res.setHeader('Content-Disposition', `attachment; filename=dermatiqDB.db`);
-            fs.createReadStream(filePath).pipe(res);
-        } else {
-            return res.status(404).json({ error: 'SQLite file not found' });
+
+// Initialize Firebase Admin SDK
+        const serviceAccount = JSON.parse(
+            process.env.FIREBASE_SERVICE_ACCOUNT || '{}'
+        );
+
+        if (!admin.apps.length) {
+            admin.initializeApp({
+                credential: admin.credential.cert(serviceAccount),
+                storageBucket: process.env.FIREBASE_STORAGE_BUCKET, // Set this in your environment variables
+            });
         }
-    } else {
-        res.status(405).json({ error: 'Method Not Allowed' });
+
+        const bucket = admin.storage().bucket();
+
+        try {
+            const filePath = path.join(process.cwd(), 'dermatiqDB.db'); // SQLite file location
+
+            // Check if the SQLite file exists
+            if (!fs.existsSync(filePath)) {
+                return res.status(404).json({error: 'SQLite file not found'});
+            }
+
+            const fileName = `dermatiq-bkup/sqlite-backup.db`; // Unique filename
+            const fileUpload = bucket.file(fileName);
+
+            // Upload file to Firebase Storage
+            await fileUpload.save(fs.readFileSync(filePath), {
+                metadata: {contentType: 'application/octet-stream'},
+            });
+
+            console.log(`✅ SQLite backup uploaded: ${fileName}`);
+
+            res.status(200).json({
+                message: 'Backup uploaded successfully!',
+                fileUrl: `https://storage.googleapis.com/${process.env.FIREBASE_STORAGE_BUCKET}/${fileName}`,
+            });
+        } catch (error) {
+            console.error('❌ Backup failed:', error);
+            res.status(500).json({error: 'Backup failed'});
+        }
     }
 }
