@@ -72,7 +72,7 @@ export default async function handler(req, res) {
                 return res.status(404).json({error: 'SQLite file not found'});
             }
 
-            const fileName = `dermatiq-bkup/sqlite-backup.db`; // Unique filename
+            const fileName = `dermatiq-bkup/dermatiqDB.db`; // Unique filename
             const fileUpload = bucket.file(fileName);
 
             // Upload file to Firebase Storage
