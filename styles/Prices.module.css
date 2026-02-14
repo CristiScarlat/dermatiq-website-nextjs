@@ -1,9 +1,19 @@
 .wrapper {
   /* background-color: rgb(245 247 247); */
-  margin: 1rem 2rem;
+  margin: 1rem auto;
   /* box-shadow: 3px 4px 15px 3px #c6c1c1; */
-  border-radius: 4px;
+  border-radius: 10px;
   font-size: 18px;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.3);
+  max-width: 40rem;
+}
+.wrapper table{
+  text-align: right;
+
+}
+
+.wrapper table thead tr {
+  background: linear-gradient(90deg, #8c8ba9 0%, #d7d6e5 50%, #8c8ba9 100%);
 }
 
 .price-color-font {

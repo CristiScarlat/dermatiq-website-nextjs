@@ -19,18 +19,6 @@ const About = () => {
         Your browser does not support the video tag.
       </video>
       <div className={styles['about-main']}>
-        {/* <div className="d-flex flex-column align-items-center">
-          <div className='section-title'>{aboutPageTitle[lang]}</div>
-          <hr className='sections-separator' />
-        </div>
-
-        <div className="d-flex flex-column align-items-center">
-          <div className={styles['about-team-description']}>
-            {aboutTeamDescription[lang]}
-          </div>
-          <hr className='sections-separator' />
-        </div> */}
-
         <hr className='sections-separator' />
         <div>
           <div>
@@ -74,7 +62,7 @@ const About = () => {
             </div>
           </div>
           <div className={styles['about-contact-schedule-container']} style={{ marginTop: '2rem' }}>
-            <CustomLinkBtn />
+            {/*<CustomLinkBtn />*/}
             <div className="w-100">
               <div>
                 <p style={{ textAlign: "center" }}>
